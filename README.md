@@ -4,7 +4,7 @@ This module builds upon the topic of client-side testing by extending it into th
 
 ## Project Description
 
-The objectives of this module are quite simple: 
+The objectives of this module are the following: 
 - To get you guys writing tests for a React application using Jest and Enzyme, two libraries which are commonly used in production for testing React components and applications. 
 - To give you guys some practice reading over and understanding code that you didn't write but that you need to test.
 
