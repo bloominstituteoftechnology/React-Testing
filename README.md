@@ -1,6 +1,6 @@
 # React Testing
 
-This module builds extends the topic of client-side testing into the realm of React. 
+This module builds upon the topic of client-side testing by extending it into the realm of React. 
 
 ## Project Description
 
