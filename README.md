@@ -14,9 +14,9 @@ You'll be using [Jest](https://facebook.github.io/jest/docs/en/expect.html) and 
 
 ## Initialization and Setup
 
-You can run the complete application by `npm install`ing and then running `npm start`. 
+You can run the complete application by `yarn install`ing and then running `yarn start`. 
 
-Run `npm test` in order to run the test suite. Of course, this isn't going to actually test anything yet, since you haven't written the tests!
+Run `yarn test` in order to run the test suite. Of course, this isn't going to actually test anything yet, since you haven't written the tests!
 
 ## Stretch Goals
 
