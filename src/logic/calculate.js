@@ -25,44 +25,78 @@ function calculate(obj, buttonName) {
 
     if (isNumber(buttonName)) {
         if (buttonName === '0' && obj.next === '0') {
-            return {};
+            return {
+                total: null,
+                next: null,
+                operation: null,
+            };
         }
 
         if (obj.operation) {
             if (obj.next) {
                 return { next: obj.next + buttonName };
             }
-            return { next: buttonName };
+            return {
+                total: null, 
+                next: buttonName,
+                operation: null,
+            };
         }
         if (obj.next) {
             return {
-                next: obj.next + buttonName,
                 total: null,
+                next: obj.next + buttonName,
+                operation: null,
             };
         }
         return {
-            next: buttonName,
             total: null,
+            next: buttonName,
+            operation: null,
         };
     }
 
     if (buttonName === '.') {
         if (obj.next) {
             if (obj.next.includes('.')) {
-                return {};
+                return {
+                    total: null,
+                    next: null,
+                    operation: null,
+                };
             }
-            return { next: obj.next + '.' };
+            return {
+                total: null,
+                next: obj.next + '.',
+                operation: null,
+            };
         }
         if (obj.operation) {
-            return { next: '0.' };
+            return { 
+                total: null,
+                next: '0.',
+                operation: null,
+            };
         }
         if (obj.total) {
             if (obj.total.includes('.')) {
-                return {};
+                return {
+                    total: null,
+                    next: null,
+                    operation: null,
+                };
             }
-            return { total: obj.total + '.' };
+            return { 
+                total: obj.total + '.',
+                next: null,
+                operation: null,
+            };
         }
-        return { total: '0.' };
+        return { 
+            total: '0.',
+            next: null,
+            operation: null,
+        };
     }
 
     if (buttonName === '=') {
@@ -73,18 +107,34 @@ function calculate(obj, buttonName) {
                 operation: null,
             };
         } else {
-            return {};
+            return {
+                total: null,
+                next: null,
+                operation: null,
+            };
         }
     }
 
     if (buttonName === '+/-') {
         if (obj.next) {
-            return { next: (-1 * parseFloat(obj.next)).toString() };
+            return { 
+                total: null,
+                next: (-1 * parseFloat(obj.next)).toString(),
+                operation: null,
+            };
         }
         if (obj.total) {
-            return { total: (-1 * parseFloat(obj.next)).toString() };
+            return { 
+                total: (-1 * parseFloat(obj.next)).toString(),
+                next: null,
+                operation: null,
+            };
         }
-        return {};
+        return {
+            total: null,
+            next: null,
+            operation: null,
+        };
     }
 
     if (obj.operation) {
@@ -96,7 +146,11 @@ function calculate(obj, buttonName) {
     }
 
     if (!obj.next) {
-        return { operation: buttonName };
+        return {
+            total: null,
+            next: null,
+            operation: buttonName,
+        };
     }
 
     return {
