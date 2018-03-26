@@ -7,7 +7,9 @@ import Panel from '../components/Panel/Panel';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Panel />, div);
+describe('<Panel />', () => {
+  it('renders without crashing', () => {
+    const div = document.createElement('div');
+    ReactDOM.render(<Panel />, div);
+  });
 });

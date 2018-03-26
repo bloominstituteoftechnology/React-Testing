@@ -7,7 +7,9 @@ import Display from '../components/Display/Display';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Display />, div);
+describe('<Display />', () => {
+  it('renders without crashing', () => {
+    const div = document.createElement('div');
+    ReactDOM.render(<Display />, div);
+  });
 });

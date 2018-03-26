@@ -7,14 +7,9 @@ import App from '../App';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-});
-
-it('should have the properties `total`, `next`, and `operation` in state', () => {
-  const component = shallow(<App />);
-  expect(component.state('total')).toBeDefined();
-  expect(component.state('next')).toBeDefined();
-  expect(component.state('operation')).toBeDefined(); 
+describe('<App />', () => {
+  it('renders without crashing', () => {
+    const div = document.createElement('div');
+    ReactDOM.render(<App />, div);
+  });
 });
