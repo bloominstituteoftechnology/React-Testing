@@ -15,7 +15,7 @@ describe('<App />', () => {
 
   it('should have the properties `total`, `next`, and `operation` in state', () => {
     const component = shallow(<App />);
-    expect(component.state('total')).toBeDefined();
+    expect(component.state('total')).toEqual("0");
     expect(component.state('next')).toBeDefined();
     expect(component.state('operation')).toBeDefined(); 
   });
@@ -27,9 +27,9 @@ describe('<App />', () => {
 
   it('should have a `handleClick` method that updates state', () => {
     const component = shallow(<App />);
-    component.instance().handleClick("9");
+    component.instance().handleClick("9")
     expect(component.state('next')).toEqual("9");
-    expect(component.state('total')).toBeNull();
+    expect(component.state('total')).toEqual("0");
     expect(component.state('operation')).toBeNull();
   });
 });

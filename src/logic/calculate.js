@@ -17,7 +17,7 @@ function isNumber(x) {
 function calculate(obj, buttonName) {
     if (buttonName === 'AC') {
         return {
-            total: null,
+            total: '0',
             next: null,
             operation: null,
         };
@@ -26,7 +26,7 @@ function calculate(obj, buttonName) {
     if (isNumber(buttonName)) {
         if (buttonName === '0' && obj.next === '0') {
             return {
-                total: null,
+                total: '0',
                 next: null,
                 operation: null,
             };
@@ -37,20 +37,20 @@ function calculate(obj, buttonName) {
                 return { next: obj.next + buttonName };
             }
             return {
-                total: null, 
+                total: '0', 
                 next: buttonName,
                 operation: null,
             };
         }
         if (obj.next) {
             return {
-                total: null,
+                total: '0',
                 next: obj.next + buttonName,
                 operation: null,
             };
         }
         return {
-            total: null,
+            total: '0',
             next: buttonName,
             operation: null,
         };
@@ -60,20 +60,20 @@ function calculate(obj, buttonName) {
         if (obj.next) {
             if (obj.next.includes('.')) {
                 return {
-                    total: null,
+                    total: '0',
                     next: null,
                     operation: null,
                 };
             }
             return {
-                total: null,
+                total: '0',
                 next: obj.next + '.',
                 operation: null,
             };
         }
         if (obj.operation) {
             return { 
-                total: null,
+                total: '0',
                 next: '0.',
                 operation: null,
             };
@@ -81,7 +81,7 @@ function calculate(obj, buttonName) {
         if (obj.total) {
             if (obj.total.includes('.')) {
                 return {
-                    total: null,
+                    total: '0',
                     next: null,
                     operation: null,
                 };
@@ -108,7 +108,7 @@ function calculate(obj, buttonName) {
             };
         } else {
             return {
-                total: null,
+                total: '0',
                 next: null,
                 operation: null,
             };
@@ -118,7 +118,7 @@ function calculate(obj, buttonName) {
     if (buttonName === '+/-') {
         if (obj.next) {
             return { 
-                total: null,
+                total: '0',
                 next: (-1 * parseFloat(obj.next)).toString(),
                 operation: null,
             };
@@ -131,7 +131,7 @@ function calculate(obj, buttonName) {
             };
         }
         return {
-            total: null,
+            total: '0',
             next: null,
             operation: null,
         };
@@ -147,7 +147,7 @@ function calculate(obj, buttonName) {
 
     if (!obj.next) {
         return {
-            total: null,
+            total: '0',
             next: null,
             operation: buttonName,
         };
