@@ -17,4 +17,8 @@ describe('<Panel />', () => {
     const wrapper = shallow(<Panel />);
     expect(wrapper.find(Button)).toHaveLength(19);
   });
+  it('has a function called handleClick', () => {
+    const wrapper = shallow(<Panel />);
+    expect(typeof(wrapper.instance().handleClick)).toBe('function');
+  });
 });
