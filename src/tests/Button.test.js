@@ -12,4 +12,25 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
+
+  it('should render a button tag', () => {
+    const component = shallow(<Button />);
+    expect(component.find('button').length).toBe(1);
+  });
+
+  it('should render props that it receives', () => {
+    const component = shallow(<Button name='AC' />);
+    expect(component.props().name).toEqual('AC');
+  });
+  
+  // it('calls componentDidMount', () => {
+  //   sinon.spy(Button.prototype, 'componentDidMount');
+  //   const component = mount(<Button name={'AC'} />);
+  //   expect(Button.prototype.componentDidMount.calledOnce).toEqual(true);
+  // });
+
+  // it('should store comments in state', () => {
+  //   const component = shallow(<Button name={name='AC'} />);
+  //   expect(component.state('name')).toBeDefined();
+  // });
 });
