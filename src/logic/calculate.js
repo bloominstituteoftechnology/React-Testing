@@ -10,26 +10,24 @@ import operate from './operate';
  *   operation:String  +, -, etc.
  */
 
+const nullState = {
+    total: '0',
+    next: null,
+    operation: null,
+};
+
 function isNumber(x) {
     return !!x.match(/[0-9]+/);
 }
 
 function calculate(obj, buttonName) {
     if (buttonName === 'AC') {
-        return {
-            total: '0',
-            next: null,
-            operation: null,
-        };
+        return nullState;
     }
 
     if (isNumber(buttonName)) {
         if (buttonName === '0' && obj.next === '0') {
-            return {
-                total: '0',
-                next: null,
-                operation: null,
-            };
+            return nullState;
         }
 
         if (obj.operation) {
@@ -59,11 +57,7 @@ function calculate(obj, buttonName) {
     if (buttonName === '.') {
         if (obj.next) {
             if (obj.next.includes('.')) {
-                return {
-                    total: '0',
-                    next: null,
-                    operation: null,
-                };
+                return nullState;
             }
             return {
                 total: '0',
@@ -80,11 +74,7 @@ function calculate(obj, buttonName) {
         }
         if (obj.total) {
             if (obj.total.includes('.')) {
-                return {
-                    total: '0',
-                    next: null,
-                    operation: null,
-                };
+                return nullState;
             }
             return { 
                 total: obj.total + '.',
@@ -92,11 +82,7 @@ function calculate(obj, buttonName) {
                 operation: null,
             };
         }
-        return { 
-            total: '0.',
-            next: null,
-            operation: null,
-        };
+        return nullState;
     }
 
     if (buttonName === '=') {
@@ -107,11 +93,7 @@ function calculate(obj, buttonName) {
                 operation: null,
             };
         } else {
-            return {
-                total: '0',
-                next: null,
-                operation: null,
-            };
+            return nullState;
         }
     }
 
@@ -130,11 +112,7 @@ function calculate(obj, buttonName) {
                 operation: null,
             };
         }
-        return {
-            total: '0',
-            next: null,
-            operation: null,
-        };
+        return nullState;
     }
 
     if (obj.operation) {
