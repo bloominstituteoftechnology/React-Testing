@@ -16,4 +16,7 @@ describe('<Display />', () => {
   	const wrapper = shallow(<Display/>);
   	expect(wrapper.find('.component-display')).toHaveLength(1);
   });
+  it('contains Value prop.', () => {
+  	expect(shallow(<Display />).instance.props).toBe(undefined);
+  });
 })
