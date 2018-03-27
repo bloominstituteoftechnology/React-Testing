@@ -24,4 +24,7 @@ describe('<App />', () => {
     expect(component.state('total')).toBeNull();
     expect(component.state('operation')).toBeNull();
   });
+  it('should render a div with class "component-app"', () => {
+    expect(component.find('.component-app')).toHaveLength(1);
+  });
 });
