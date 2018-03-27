@@ -15,7 +15,9 @@ describe('<Button />', () => {
   it('calls handleClick', () => {
     const onClick = sinon.spy();
     const wrapper = shallow(<Button onClick={this.handleClick} />);
+    const wrapper = shallow(<Button name='1' clickHandler={onClick} />);
     wrapper.find('button').simulate('click');
     expect(handleClick.calledOnce).toEqual(true);
+    expect(onClick.calledOnce).toEqual(true);
   })
 });
