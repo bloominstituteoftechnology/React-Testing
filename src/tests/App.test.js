@@ -22,4 +22,8 @@ describe('<App />', () => {
     };
     const component = shallow(< Foo/>);
   });
+  it('has state', () => {
+    const component = shallow(< App/>);
+    expect(component.state().total).toEqual(null);
+  });
 });
