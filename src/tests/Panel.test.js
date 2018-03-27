@@ -18,15 +18,3 @@ describe('<Panel />', () => {
     expect(wrapper.find(Button )).toHaveLength(19);
   });
 });
-
-
-
-
-it('should render children when passed in', () => {
-  const wrapper = shallow((
-    <MyComponent>
-      <div className="unique" />
-    </MyComponent>
-  ));
-  expect(wrapper.contains(<div className="unique" />)).to.equal(true);
-});

@@ -17,5 +17,5 @@ describe('<Button />', () => {
     const wrapper = shallow(<Button name='1' clickHandler={onClick} />);
     wrapper.find('button').simulate('click');
     expect(onClick.calledOnce).toEqual(true);
-  })
+  });
 });
