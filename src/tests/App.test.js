@@ -27,4 +27,7 @@ describe('<App />', () => {
   it('should render a div with class "component-app"', () => {
     expect(component.find('.component-app')).toHaveLength(1);
   });
+  it('should contain Display and Panel components', () => {
+    expect(component.find('Display', 'Panel').exists()).toBe(true);
+  });
 });
