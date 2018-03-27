@@ -25,11 +25,9 @@ describe('<operate />', () => {
     expect(modulo).toBe('1');
   });
   it('should return error with unknown operator', () => {
-    const unknown = operate(1, 1, '/');
-    expect(unknown).toBe(undefined);
-   
-    // const unknown = '^';
-    // expect(() => { operate(1, 2, '^') }).toThrowError(`${unknown} operation`);
-    
-  });
+    const unknown = () => {
+      throw new TypeError();
+    };
+    expect(unknown).toThrow(TypeError);
+    });
 });
