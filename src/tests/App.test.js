@@ -13,13 +13,15 @@ describe('<App />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
-  it('should store total in state', () => {
+  it('should store total, next, and operation in state', () => {
     expect(component.state('total')).toBeDefined();
-  });
-  it('should store next in state', () => {
     expect(component.state('next')).toBeDefined();
+    expect(component.state('operation')).toBeDefined();
   });
-  it('should contain a handleClick function', () => {
-    expect(App.prototype).toInclude('handleClick');
+  it('should contain a handleClick function that updates state', () => {
+    component.instance().handleClick('5')
+    expect(component.state('next')).toEqual('5');
+    expect(component.state('total')).toBeNull();
+    expect(component.state('operation')).toBeNull();
   });
 });
