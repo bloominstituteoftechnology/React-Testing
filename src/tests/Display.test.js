@@ -14,4 +14,16 @@ describe('<Display />', () => {
   });
   // check if component renders div with class 'component-display'
   // check if component renders value passed in
+  it('should render a div with a `component-display` class', () => {
+    const component = shallow(<Display />);
+    expect(component.find('div.component-display')).toHaveLength(1);
+  });
+  it('should render a value passed into the component', () => {
+    const component = shallow(<Display value = {'8'} />);
+    expect(component.contains(
+      <div>
+        8
+        </div>
+    )).toEqual(true);
+  });
 });
