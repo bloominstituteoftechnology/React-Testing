@@ -12,4 +12,14 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+  it('should render something', () => {
+    const component = shallow(<Display /> );
+    expect(component.find('div').length).toBeGreaterThanOrEqual(1);
+  });
+  it('should display the correct value that is passed into the component', () => {
+    const component = shallow(<Display value={'252525'} />);
+    const result = <div>252525</div>;
+    expect (component.props('value').children).toEqual(result);
+  });
+  
 });
