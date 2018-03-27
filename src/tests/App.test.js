@@ -4,7 +4,6 @@ import sinon from 'sinon';
 import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import App from '../App';
-import Panel from '../components/Panel/Panel';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -27,18 +26,20 @@ describe('<App />', () => {
     expect(component.find('.component-app')).toHaveLength(1);
   });
 
+  it('should render class Display', () => {
+    const component = shallow(<App />);
+    expect(component.find('Display')).toHaveLength(1);
+  });
+
   it('should render class Panel', () => {
     const component = shallow(<App />);
     expect(component.find('Panel')).toHaveLength(1);
   });
-
-  it('calls the passed in prop function', () => {
+  it('should have a "handleClick" method that updates state', () => {
     const component = shallow(<App />);
-    const test = component.find('Panel');
-    console.log(test.Symbol(enzyme.__node__).props.children.props.x);
-    expect(test.Symbol(enzyme.__node__).props.children.props.x).toHaveProperty('x', 3);
+    component.instance().handleClick('9');
+    expect(component.state('next')).toEqual('9');
+    expect(component.state('total')).toBeNull();
+    expect(component.state('operation')).toBeNull();
   });
 });
-
-// expect(houseForSale).toHaveProperty('kitchen.area', 20);
-// test.Symbol(enzyme.__node__).props.children.props.x
