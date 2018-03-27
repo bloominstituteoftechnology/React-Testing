@@ -12,4 +12,13 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
+  it('should render a button tag', () => {
+    const component = shallow(<Button />);
+    expect(component.find('button').length).toBe(1);
+  });
+  it('should get a name prop', () => {
+    const component = shallow(<Button name="AC"/>);
+    console.log(component.props());
+    expect(component.props().children.props.children).toEqual('AC');
+  });
 });
