@@ -21,6 +21,7 @@ function isNumber(x) {
 }
 
 function calculate(obj, buttonName) {
+
     if (buttonName === 'AC') {
         return nullState;
     }
