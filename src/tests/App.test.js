@@ -19,4 +19,12 @@ describe('<App />', () => {
     expect(component.state('next')).toBeDefined();
     expect(component.state('operation')).toBeDefined();
   });
+
+  it('should have a `handleClick()` method which updates state', () => {
+    const component = shallow(<App />);
+    component.instance().handleClick("5");
+    expect(component.state('next')).toEqual("5");
+    expect(component.state('total')).toBeNull();
+    expect(component.state('operation')).toBeNull();
+  })
 });
