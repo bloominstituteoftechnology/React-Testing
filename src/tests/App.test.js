@@ -12,4 +12,20 @@ describe('<App />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
+  it('is it null', () => {
+    const wrapper = shallow(<App />)
+    const currState = wrapper.state().total
+    expect(currState).toEqual(null)
+  });
+  it('handleClick should be functioning', () => {
+    const wrapper = shallow(<App />);
+    wrapper.instance().handleClick('1');
+    expect(wrapper.state('next')).toEqual('1');
+  });
+  it('state is defined', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.state('total')).toBeDefined();
+    expect(wrapper.state('next')).toBeDefined();
+    expect(wrapper.state('operation')).toBeDefined();
+  })
 });

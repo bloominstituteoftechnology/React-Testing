@@ -12,5 +12,4 @@ describe('<Panel />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Panel />, div);
   });
-  it('Intial commit')
 });
