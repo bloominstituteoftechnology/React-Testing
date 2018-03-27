@@ -12,4 +12,19 @@ describe('<App />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
+  it('has all of the states', () => {
+    const stateOfApp = shallow(<App />);
+    expect(stateOfApp.state('total')).toBeDefined();
+    expect(stateOfApp.state('next')).toBeDefined();
+    expect(stateOfApp.state('operation')).toBeDefined();
+  })
+  it('component app should exist', () => {
+    const componentApp = shallow(<App />);
+    expect(componentApp.find('.component-app')).toHaveLength(1);
+  });
+  it('handleClick should be functioning', () => {
+    const clickFunction = shallow(<App />);
+    clickFunction.instance().handleClick('3');
+    expect(clickFunction.state('next')).toEqual('3');
+  });
 });

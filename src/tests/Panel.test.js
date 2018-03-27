@@ -12,4 +12,8 @@ describe('<Panel />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Panel />, div);
   });
+  it('should show all buttons', () => {
+    const componentPanel = shallow(<Panel/>);
+    expect(componentPanel.find('Button')).toHaveLength(19);
+  });
 });
