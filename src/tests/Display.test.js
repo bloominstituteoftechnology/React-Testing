@@ -12,4 +12,9 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+
+  it('should return component-display exits', () => {
+    const component = shallow(<Display component-display/>);
+    expect(component.find('.component-display')).toHaveLength(1);
+  });
 });
