@@ -20,4 +20,11 @@ describe('<Button />', () => {
     expect(buttonFunc.calledOnce).toBeTruthy();
     expect(buttonFunc.calledWith('testbutton')).toBeTruthy();
   });
+
+  it('renders the className `component-button` when not passed props', () => {
+    const component = shallow(<Button />);
+    expect(component.find('.component-button').exists()).toBeTruthy();
+    expect(component.find('.wide').exists()).toBeFalsy();
+    expect(component.find('.orange').exists()).toBeFalsy();
+  });
 });
