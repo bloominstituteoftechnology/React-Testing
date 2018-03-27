@@ -10,7 +10,7 @@ describe('operate', () => {
   it('throws an error for an unknown operation', () => {
     const operation = '*';
     expect(() => {
-      operate(4, 90, operation);
+      operate(1, 4, operation);
     }).toThrowError(`Unknown operation ${operation}`);
   });
 
