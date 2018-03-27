@@ -12,4 +12,16 @@ describe('<App />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
+
+  it('should have a properly formatted state for calculate() to work with', () => {
+    const shallowApp = shallow(<App />);
+    expect(shallowApp.state('total')).toBeDefined();
+    expect(shallowApp.state('next')).toBeDefined();
+    expect(shallowApp.state('operation')).toBeDefined();
+  });
+
+  it('should render a single div called \'component-app\'', () => {
+    const shallowApp = shallow(<App />);
+    expect(shallowApp.find('.component-app')).toHaveLength(1);
+  });
 });
