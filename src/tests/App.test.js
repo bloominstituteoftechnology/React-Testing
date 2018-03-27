@@ -4,8 +4,8 @@ import sinon from 'sinon';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import App from '../App';
-import Button from '../components/Button/Button';
 import Panel from '../components/Panel/Panel';
+import Display from '../components/Display/Display';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -14,9 +14,28 @@ describe('<App />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
-  it('renders 19 <Button /> components', () => {
-    const wrapper = shallow(<Panel />);
-    console.log(wrapper.find(Button));
-    expect(wrapper.find(Button)).toHaveLength(19);
+  it('renders the <Display /> component', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.find(Panel)).toHaveLength(1);
+  });
+  it('renders the <Display /> component', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.find(Display)).toHaveLength(1);
+  });
+  it('initial state for "total" should be null', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.state('total')).toBeNull();
+  });
+  it('initial state for "next" should be null', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.state('next')).toBeNull();
+  });
+  it('initial state for "operation" should null', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.state('operation')).toBeNull();
+  });
+  it('initial state for "operation" should null', () => {
+    const wrapper = shallow(<App />);
+    expect(typeof(wrapper.instance().handleClick)).toBe('function');
   });
 });
