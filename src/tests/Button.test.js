@@ -27,12 +27,8 @@ describe('<Button />', () => {
     expect(spy).toHaveBeenCalled();
   });
   it('should change classnames dynamically', () => {
-    const component = mount(<Button />);
-    expect(component.find('.component-button')).toHaveLength(2);
-    console.log(component.props())
-    
-
-    
-
+    const component = shallow(<Button orange/>);
+    expect(component.find("div.component-button")).toHaveLength(1);
+    expect(component.find("div.orange")).toHaveLength(1);
   });
 });
