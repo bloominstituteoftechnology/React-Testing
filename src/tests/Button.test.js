@@ -20,7 +20,7 @@ describe('<Button />', () => {
 
   it('should render props that it receives', () => {
     const component = shallow(<Button name='AC' />);
-    expect(component.props().name).toEqual('AC');
+    expect(component.text()).toEqual('AC');
   });
   
   // it('calls componentDidMount', () => {
