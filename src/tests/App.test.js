@@ -22,8 +22,9 @@ describe('<App />', () => {
     const componentApp = shallow(<App />);
     expect(componentApp.find('.component-app')).toHaveLength(1);
   });
-  // it('handleClick should be functioning', () => {
-  //   const clickFunction = shallow(<App />);
-  //   expect(clickFunction.)
-  // });
+  it('handleClick should be functioning', () => {
+    const clickFunction = shallow(<App />);
+    clickFunction.instance().handleClick('3');
+    expect(clickFunction.state('next')).toEqual('3');
+  });
 });
