@@ -9,6 +9,9 @@ describe('calculate', () => {
         next: null,
         operation: null
     }
+    it('should be a function', () => {
+        expect(typeof(calculate)).toBe('function');
+    }) 
     it('should correctly change state when calculating', () => {
         expect(calculate(obj, '0')).toEqual({"next": "0", "total": null})
     })

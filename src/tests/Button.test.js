@@ -23,6 +23,12 @@ describe('<Button />', () => {
     expect(component.text()).toEqual('AC');
   });
 
+  it('should have handleClick function', () => {
+    const component = shallow(<Button />)
+    expect(typeof(component.instance().handleClick)).toBe('function');
+
+  })
+
   // it('should process the click', () => {
   //   const component = shallow(<Button name='AC' />);
   //   expect(component.props().children.props.onClick().clicked).toBe(false);
