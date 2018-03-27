@@ -24,7 +24,7 @@ describe('<Display />', () => {
     expect('value' in component.props()).toEqual(false);
   });
   it('properly passes props', () => {
-    const wrap = shallow(<Display value='test'/>);
+    const wrap = mount(<Display value='test'/>);
     expect(wrap.text()).toEqual('test');
   });
   
