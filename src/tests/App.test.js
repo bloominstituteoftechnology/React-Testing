@@ -34,7 +34,7 @@ describe('<App />', () => {
     const wrapper = shallow(<App />);
     expect(wrapper.state('operation')).toBeNull();
   });
-  it('initial state for "operation" should null', () => {
+  it('has a function called handleClick', () => {
     const wrapper = shallow(<App />);
     expect(typeof(wrapper.instance().handleClick)).toBe('function');
   });
