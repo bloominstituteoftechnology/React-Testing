@@ -17,8 +17,15 @@ describe('<Panel />', () => {
     const component = shallow(<Panel />);
     expect(component.find('div').children().children().length).toEqual(19);
   });
-  it('', () => {
+  it('should return type Function', () => {
     const component = mount(<Panel clickHandler={()=>{}} />);
     expect(typeof(component.props().clickHandler)).toEqual('function');
   });
+  // it('should have ...', () => {
+  //   const component = shallow(<Panel />);
+  //   // console.log(component);
+  //   const button = component.find('Button');
+  //   console.log(button.props());
+  //   // expect(component.find(Foo).render().find('.in-foo')).to.have.length(1);
+  // });
 });
