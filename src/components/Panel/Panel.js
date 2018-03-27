@@ -11,31 +11,31 @@ class Panel extends Component {
     render() {
         return (
             <div className="component-panel">
-                <div>
+                <div className="(1)4buttonComponent">
                     <Button name="AC" clickHandler={this.handleClick} />
                     <Button name="+/-" clickHandler={this.handleClick} />
                     <Button name="%" clickHandler={this.handleClick} />
                     <Button name="÷" clickHandler={this.handleClick} orange />
                 </div>
-                <div>
+                <div className="(2)4buttonComponent">
                     <Button name="7" clickHandler={this.handleClick} />
                     <Button name="8" clickHandler={this.handleClick} />
                     <Button name="9" clickHandler={this.handleClick} />
                     <Button name="x" clickHandler={this.handleClick} orange />
                 </div>
-                <div>
+                <div className="(3)4buttonComponent">
                     <Button name="4" clickHandler={this.handleClick} />
                     <Button name="5" clickHandler={this.handleClick} />
                     <Button name="6" clickHandler={this.handleClick} />
                     <Button name="-" clickHandler={this.handleClick} orange />
                 </div>
-                <div>
+                <div className="(4)4buttonComponent">
                     <Button name="1" clickHandler={this.handleClick} />
                     <Button name="2" clickHandler={this.handleClick} />
                     <Button name="3" clickHandler={this.handleClick} />
                     <Button name="+" clickHandler={this.handleClick} orange />
                 </div>
-                <div>
+                <div className="(5)4buttonComponent">
                     <Button name="0" clickHandler={this.handleClick} wide />
                     <Button name="." clickHandler={this.handleClick} />
                     <Button name="=" clickHandler={this.handleClick} orange />
