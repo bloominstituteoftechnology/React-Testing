@@ -20,4 +20,10 @@ describe('<Button />', () => {
     const component = mount(<Button name="test" />);
     expect('name' in component.type('string'));
   });
+  it('should call onClick function', () => {
+    const spy = jest.fn();
+    const component = mount(<Button clickHandler={spy} />);
+    component.find('button').simulate('click');
+    expect(spy).toHaveBeenCalled();
+  });
 });
