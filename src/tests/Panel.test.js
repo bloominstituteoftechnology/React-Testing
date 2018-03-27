@@ -19,7 +19,7 @@ describe('<Panel />', () => {
   });
   it('has a function called handleClick', () => {
     const wrapper = shallow(<Panel />);
-    expect(typeof wrapper.instance().handleClick).toBe('function');
+    expect(typeof(wrapper.instance().handleClick)).toBe('function');
   });
   it('has a click event that propagates up from the child component',()=>{
     const handleClick = sinon.spy()
