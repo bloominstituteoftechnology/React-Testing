@@ -12,4 +12,12 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
+
+  it('calls the clickHandler() function in props, and passes the buttons name when clicked', () => {
+    const buttonFunc = sinon.spy();
+    const component = shallow(<Button name="testbutton" clickHandler={buttonFunc} />);
+    component.find('button').simulate('click');
+    expect(buttonFunc.calledOnce).toBeTruthy();
+    expect(buttonFunc.calledWith('testbutton')).toBeTruthy();
+  });
 });
