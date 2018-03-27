@@ -26,4 +26,8 @@ describe('<Button />', () => {
     component.find('button').simulate('click');
     expect(spy).toHaveBeenCalled();
   });
+  it('should change classnames dynamically', () => {
+    const component = mount(<Button />);
+    expect(component.hasClass('component-button'))
+  });
 });
