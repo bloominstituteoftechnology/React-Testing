@@ -4,6 +4,7 @@ import sinon from 'sinon';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import Display from '../components/Display/Display';
+import Button from '../components/Button/Button';
 
 Enzyme.configure({ adapter: new Adapter() });
 

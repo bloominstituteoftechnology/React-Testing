@@ -18,3 +18,7 @@ describe('<Panel />', () => {
     expect(wrapper.find(Button)).toHaveLength(19);
   });
 });
+
+
+
+
