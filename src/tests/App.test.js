@@ -29,6 +29,6 @@ describe('<App />', () => {
 
   it('should have the CSS className `component-app`', () => {
     const component = shallow(<App />);
-    expect(component.find('.component-app').exists()).toEqual(true);
+    expect(component.find('.component-app').exists()).toBeTruthy();
   });
 });
