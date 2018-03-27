@@ -12,4 +12,9 @@ describe('<Panel />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Panel />, div);
   });
+
+  it('should render 19 Button tags', () => {
+    const component = shallow(<Panel />);
+    expect(component.find('Button').length).toBe(19);
+  });
 });
