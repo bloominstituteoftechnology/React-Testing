@@ -18,9 +18,7 @@ describe('<Panel />', () => {
     expect(component.find('Button')).toHaveLength(19);
   });
   it('renders a button named "0", with property "wide"', () => {
-    const wrapper = mount(<Panel />);
-    // console.log(wrapper.find({ name: '0' })).toHaveLength(1);
-    const rendered = wrapper.find('Button');
-    expect(wrapper.find({ value: 'food' }).everyWhere(n => n.prop('name') === "0"));
+    const wrapper = shallow(<Panel />);
+    expect((wrapper.find('[wide]')).someWhere(n => n.prop('name') === "0")).toBe(true);
   });
 });
