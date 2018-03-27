@@ -12,4 +12,14 @@ describe('<Panel />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Panel />, div);
   });
+  it('renders 19 buttons', () => {
+    // const click = sinon.spy();
+    const wrapper = shallow(<Panel />);
+    expect(wrapper.find("Button")).toHaveLength(19);
+  });
+  // not working 
+  // it('hasClassName of "component-panel"', () => {
+  //   const wrapper = shallow(<Panel />);
+  //   expect(wrapper.find('div').hasClass('component-panel')).to.equal(true);
+  // });
 });
