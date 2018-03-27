@@ -12,4 +12,9 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
+
+  it('should display false', () => {
+    const component = shallow(<Button component-button/>);
+    expect(component.find('.component-button')).toHaveLength(1);
+  });
 });
