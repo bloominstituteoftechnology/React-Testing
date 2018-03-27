@@ -12,4 +12,9 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
+  it('should be selectable by class ".component-button"', () => {
+  	const wrapper = shallow(<Button />);
+    expect(wrapper.is('.component-button')).toBe(true);
+  });
+
 });
