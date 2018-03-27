@@ -27,4 +27,9 @@ describe('<App />', () => {
     expect(component.state('total')).toBeNull();
     expect(component.state('operation')).toBeNull();
   })
+
+  it('should have the CSS className `component-app`', () => {
+    const component = shallow(<App />);
+    expect(component.find('.component-app').exists()).toEqual(true);
+  });
 });
