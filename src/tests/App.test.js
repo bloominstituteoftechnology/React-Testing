@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import sinon from 'sinon';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import App from '../App';
@@ -26,7 +25,7 @@ describe('<App />', () => {
     expect(component.state('next')).toEqual("5");
     expect(component.state('total')).toBeNull();
     expect(component.state('operation')).toBeNull();
-  })
+  });
 
   it('should have the CSS className `component-app`', () => {
     const component = shallow(<App />);
