@@ -24,10 +24,9 @@ describe('<App />', () => {
     expect(component.state('next')).toBeNull();
     expect(component.state('operation')).toBeNull();
   });
+
   it(`has two elements in the '.component-app' div`, () => {
     const component = shallow(<App />);
         expect(component.find('.component-app').children()).toHaveLength(2);
-
   });
-
 });
