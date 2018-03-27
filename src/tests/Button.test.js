@@ -12,4 +12,24 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
+  it('defaults to component-button as className', () => {
+    const buttonComponent = shallow(<Button />);
+    expect(buttonComponent.find('.component-button')).toHaveLength(1);
+  });
+  it('has className of component-button orange', () => {
+    const buttonComponent = shallow(<Button orange/>);
+    expect(buttonComponent.find('.component-button')).toHaveLength(1);
+    expect(buttonComponent.find('.orange')).toHaveLength(1);
+  });
+  it('has className of component-button wide', () => {
+    const buttonComponent = shallow(<Button wide/>);
+    expect(buttonComponent.find('.component-button')).toHaveLength(1);
+    expect(buttonComponent.find('.wide')).toHaveLength(1);
+  });
+  it('invoked clickHandler upon click', () => {
+    const spy = sinon.spy();
+    const buttonComponent = shallow(<Button clickHandler={spy}/>);
+    buttonComponent.find('button').simulate('click');
+    expect(spy.calledOnce).toEqual(true);
+  });
 });
