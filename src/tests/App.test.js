@@ -12,4 +12,11 @@ describe('<App />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
+
+  it('should have a state with the properties `total`, `next`, and `operation`', () => {
+    const component = shallow(<App />);
+    expect(component.state('total')).toBeDefined();
+    expect(component.state('next')).toBeDefined();
+    expect(component.state('operation')).toBeDefined();
+  });
 });
