@@ -18,3 +18,11 @@ it(`renders a div with the className 'component-app'`, () => {
   const component = shallow(<App />);
   expect(component.find('.component-app')).toHaveLength(1);
 });
+
+
+it(`has a state with properties 'total', 'next', 'none' which values are all 'null'`, () => {
+  const component = shallow(<App />);
+  expect(component.state('total')).toBeNull();
+  expect(component.state('next')).toBeNull();
+  expect(component.state('operation')).toBeNull();
+});
