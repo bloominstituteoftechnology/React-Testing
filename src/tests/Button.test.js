@@ -28,6 +28,11 @@ describe('<Button />', () => {
   });
   it('should change classnames dynamically', () => {
     const component = mount(<Button />);
-    expect(component.hasClass('component-button'))
+    expect(component.find('.component-button')).toHaveLength(2);
+    console.log(component.props())
+    
+
+    
+
   });
 });
