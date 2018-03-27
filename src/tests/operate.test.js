@@ -26,4 +26,10 @@ describe('operate', () => {
         const resp = operate(5, 1, '+');
         expect(typeof resp).toEqual("string");
     });
+    it('should return error', () => {
+        expect(() => {
+            operate(5, 1, '=');
+        }).toThrowError();
+    });
+
 });
