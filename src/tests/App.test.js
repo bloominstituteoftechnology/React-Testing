@@ -8,20 +8,18 @@ import App from '../App';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('<App />', () => {
-    const component = shallow(<App />);
+  const component = shallow(<App />);
   it('renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
   it('renders a component-app div', () => {
-    // const component = shallow(<App />);
-    expect(component.find('div').length).toBe(1)
-  })
+    expect(component.find('div').length).toBe(1);
+  });
   it('renders a display tag', () => {
-    // const component = shallow(<App />);
-    expect(component.find('Display').length).toBe(1)
-  })
+    expect(component.find('Display').length).toBe(1);
+  });
   it('renders a panel tag', () => {
-    expect(component.find('Panel').length).toBe(1)
-  })
+    expect(component.find('Panel').length).toBe(1);
+  });
 });
