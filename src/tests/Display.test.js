@@ -19,7 +19,5 @@ describe('<Display />', () => {
   it('should display the correct value that is passed into the component', () => {
     const component = shallow(<Display value={'4'} />);
     expect(component.contains(<div>4</div>)).toEqual(true);
-    // expect(component.rendered.rendered).toEqual(result);
-    // expect(component.props('value')).toEqual(result);
   });
 });
