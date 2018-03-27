@@ -26,4 +26,8 @@ describe('<Display />', () => {
   it('should contain a div', () => {
     expect(component.contains(<div></div>)).toEqual(true);
   });
+
+  it('should return that it\'s children have a div', () => {
+    expect(component.children().contains(<div></div>)).toEqual(true);
+  });
 });
