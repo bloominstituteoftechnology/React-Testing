@@ -22,4 +22,8 @@ describe('operate', () => {
         const resp = operate(1, 2, '%');
         expect(resp).toEqual('1');
     });
+    it('should return string result', () => {
+        const resp = operate(5, 1, '+');
+        expect(typeof resp).toEqual("string");
+    });
 });
