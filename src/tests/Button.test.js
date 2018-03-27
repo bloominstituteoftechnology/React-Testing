@@ -22,6 +22,13 @@ describe('<Button />', () => {
     const component = shallow(<Button name='AC' />);
     expect(component.text()).toEqual('AC');
   });
+
+  // it('should process the click', () => {
+  //   const component = shallow(<Button name='AC' />);
+  //   expect(component.props().children.props.onClick().clicked).toBe(false);
+  //   component.find('button').simulate('click');
+  //   expect(component.state().clicked).toBe(true);
+  // })
   
   // it('calls componentDidMount', () => {
   //   sinon.spy(Button.prototype, 'componentDidMount');

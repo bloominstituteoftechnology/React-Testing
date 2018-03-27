@@ -12,4 +12,9 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+
+  it('should render props that it receives', () => {
+    const component = shallow(<Display value='0' />);
+    expect(component.text()).toEqual('0');
+  });
 });
