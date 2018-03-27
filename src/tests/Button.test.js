@@ -29,6 +29,6 @@ describe('<Button />', () => {
   });
   it('passes the name from props to inner html on the button', () => {
     const wrapper = shallow(<Button clickHandler={()=>{}} name='+' />);
-    expect(wrapper.text()).toEqual('+');
+    expect(wrapper.text()).toContain('+');
   });
 });
