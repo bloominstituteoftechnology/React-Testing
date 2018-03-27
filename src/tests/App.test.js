@@ -12,4 +12,8 @@ describe('<App />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
+  it('should contain state that will hold values', () => {
+    const component = shallow(<App />);
+    expect(component.state()).toBeDefined();
+  })
 });
