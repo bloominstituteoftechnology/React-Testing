@@ -12,4 +12,10 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
+  it('calls handleClick', () => {
+    const onClick = sinon.spy();
+    const wrapper = shallow(<Button onClick={this.handleClick} />);
+    wrapper.find('button').simulate('click');
+    expect(handleClick.calledOnce).toEqual(true);
+  })
 });

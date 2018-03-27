@@ -12,4 +12,8 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+  it('should render the value passed to the display component)', () => {
+    const component = shallow(<Display value={'2'} />);
+    expect(component.contains('2')).toEqual(true);
+  });
 });
