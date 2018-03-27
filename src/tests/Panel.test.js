@@ -13,8 +13,8 @@ describe('<Panel />', () => {
     ReactDOM.render(<Panel />, div);
   });
 
-  it('should handle click when clicked', () => {
-    const spy = sinon.spy(Panel.prototype, 'handleClick')
-    const wrapper = shallow(<Panel />); 
-  })
+  it('should render a button component', () => {
+    const component = shallow(<Panel />);
+    expect(component.find('Button').length).toBe(19);
+  });
 });
