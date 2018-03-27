@@ -12,4 +12,6 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+  // check if component renders div with class 'component-display'
+  // check if component renders value passed in
 });
