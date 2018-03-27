@@ -14,7 +14,7 @@ describe('operate', () => {
     }).toThrowError(`Unknown operation ${operation}`);
   });
 
-  it('shouldn\'t crash when multiple operators are clicked in succession', () => {
+  it('shouldn\'t crash when multiple operators are passed in succession', () => {
     const operation = operate(1, '+', '+');
     expect(typeof operation).not.toBe('undefined');
   });
