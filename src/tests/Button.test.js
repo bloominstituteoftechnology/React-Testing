@@ -27,4 +27,11 @@ describe('<Button />', () => {
     expect(component.find('.wide').exists()).toBeFalsy();
     expect(component.find('.orange').exists()).toBeFalsy();
   });
+
+  it('renders with className `component-button wide` when passed `wide` prop', () => {
+    const component = shallow(<Button wide/>);
+    expect(component.find('.component-button').exists()).toBeTruthy();
+    expect(component.find('.wide').exists()).toBeTruthy();
+    expect(component.find('.orange').exists()).toBeFalsy();
+  });
 });
