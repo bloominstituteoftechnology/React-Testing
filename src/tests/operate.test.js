@@ -7,8 +7,15 @@ describe('operate', () => {
     expect(typeof answer).toBe('string');
   });
 
+  it('throws an error for an unknown operation', () => {
+    const operation = '*';
+    expect(() => {
+      operate(4, 90, operation);
+    }).toThrowError(`Unknown operation ${operation}`);
+  });
+
   it('shouldn\'t crash when multiple operators are clicked in succession', () => {
-    const testCase = operate(1, '+', '+');
-    expect(typeof testCase).not.toBe('undefined');
+    const operation = operate(1, '+', '+');
+    expect(typeof operation).not.toBe('undefined');
   });
 });
