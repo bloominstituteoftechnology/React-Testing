@@ -14,7 +14,7 @@ describe('operate', () => {
     }).toThrowError(`Unknown operation ${operation}`);
   });
 
-  it('shouldn\'t crash when multiple operators are passed in succession', () => {
+  it('shouldn\'t crash when receiving an invalid number', () => {
     const operation = operate(1, '+', '+');
     expect(typeof operation).not.toBe('undefined');
   });
