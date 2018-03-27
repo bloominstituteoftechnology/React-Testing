@@ -7,10 +7,21 @@ import Button from '../components/Button/Button';
 
 Enzyme.configure({ adapter: new Adapter() });
 
+
 describe('<Button />', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
   
+  it('should render a button component', () => {
+    const component = shallow(<Button />);
+    expect(component.find('button').length).toBe(1);
+  });
+
+  it('should get a name prop', () => {
+    const component = shallow(<Button name = "7"/>);
+    expect(component.props().children.props.children).toEqual('7')
+  })
+
 });

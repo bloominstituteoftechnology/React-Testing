@@ -12,4 +12,9 @@ describe('<Panel />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Panel />, div);
   });
+
+  it('should handle click when clicked', () => {
+    const spy = sinon.spy(Panel.prototype, 'handleClick')
+    const wrapper = shallow(<Panel />); 
+  })
 });
