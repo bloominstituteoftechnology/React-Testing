@@ -13,3 +13,8 @@ describe('<App />', () => {
     ReactDOM.render(<App />, div);
   });
 });
+
+it(`renders a div with the className 'component-app'`, () => {
+  const component = shallow(<App />);
+  expect(component.find('.component-app')).toHaveLength(1);
+});
