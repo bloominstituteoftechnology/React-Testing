@@ -13,7 +13,7 @@ describe('<Panel />', () => {
     ReactDOM.render(<Panel />, div);
   });
 
-  it('should render a button component', () => {
+  it('should render a buttons in panel component', () => {
     const component = shallow(<Panel />);
     expect(component.find('Button').length).toBe(19);
   });
