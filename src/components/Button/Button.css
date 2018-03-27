@@ -1,11 +1,11 @@
 .component-button {
     display: inline-flex;
-    width: 25%;
+    width: 5%;
     flex: 1 0 auto;
 }
 
 .component-button.wide {
-    width: 50%;
+    width: 10%;
 }
 
 .component-button button {
