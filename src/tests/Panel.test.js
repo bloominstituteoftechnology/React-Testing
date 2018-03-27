@@ -23,9 +23,6 @@ describe('<Panel />', () => {
   });
 
   it('should return true for 19 buttons', () => {
-    let count = 0;
-    component.forEach(child, count += child.length );
-    console.log(count);
-    //expect(component.find('.component-panel')).toHaveLength(19);
+    expect(component.find('Button')).toHaveLength(19);
   });
 });
