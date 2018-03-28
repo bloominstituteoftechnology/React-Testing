@@ -13,6 +13,11 @@ describe('<Display />', () => {
     ReactDOM.render(<Display />, div);
   });
 
+  it('should render with classname `component-display`', () => {
+    const component = shallow(<Display />);
+    expect(component.find('.component-display')).toHaveLength(1);
+  })
+
   it('should render props that it receives', () => {
     const component = shallow(<Display value='0' />);
     expect(component.text()).toEqual('0');

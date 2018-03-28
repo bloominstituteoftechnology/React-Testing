@@ -18,6 +18,11 @@ describe('<Button />', () => {
     expect(component.find('button').length).toBe(1);
   });
 
+  it('should have className `component-button orange` when passed `orange` property', () => {
+    const component = shallow(<Button orange />);
+    expect(component.find('.orange')).toHaveLength(1);
+  })
+
   it('should render props that it receives', () => {
     const component = shallow(<Button name='AC' />);
     expect(component.text()).toEqual('AC');
@@ -26,7 +31,13 @@ describe('<Button />', () => {
   it('should have handleClick function', () => {
     const component = shallow(<Button />)
     expect(typeof(component.instance().handleClick)).toBe('function');
+  })
 
+  it('should be able to be clicked', () => {
+    const handler = sinon.spy();
+    const component = shallow(<Button name='test' clickHandler={handler} />);
+    component.find('button').simulate('click');
+    expect(handler.calledOnce).toEqual(true);
   })
 
   // it('should process the click', () => {
