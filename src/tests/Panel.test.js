@@ -16,4 +16,17 @@ describe('<Panel />', () => {
     const component = shallow(<Panel />);
     expect(component.find('Button')).toHaveLength(19);
   });
+  it('renders the right number of rows', () => {
+    const component = shallow(<Panel />);
+    expect(component.children().length).toEqual(5);
+  });
+  it('renders a wide 0 button in the bottom left row', () => {
+    const component = shallow(<Panel />);
+    expect(
+      component
+        .childAt(4)
+        .childAt(0)
+        .props().wide,
+    ).toEqual(true);
+  });
 });
