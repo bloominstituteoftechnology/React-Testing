@@ -21,6 +21,7 @@ describe('<Display />', () => {
   //   console.log(component.prop('value'))
   //   expect(component.prop('children')).toEqual((<div>test</div>));
   //   /**
+  //    * This test works, though we don't know why for sure
   //    * we console logged and found children on the component prop
   //    * object. It rendered inside a div tag for some reason.  So 
   //    * we found that this tests for the property on the key 'value'
