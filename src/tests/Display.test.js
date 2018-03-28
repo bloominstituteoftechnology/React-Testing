@@ -17,10 +17,7 @@ describe('<Display />', () => {
   });
   // Button six
   it('should display the number 8', () => {
-    const wrapper = mount(<App />)
-    wrapper.find(Button).at(5).simulate('click');
-    wrapper.update();
-    const display = wrapper.find(Display);
-    expect(display.props().value).toContain('8')
+    const wrapper = mount(<Display value='8' />)
+    expect(wrapper.props().value).toContain('8')
   })
 });
