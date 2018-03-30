@@ -22,3 +22,4 @@ describe('<App />', () => {
 // git test
 // another test
 // slkdjf
+// final git commit message test
