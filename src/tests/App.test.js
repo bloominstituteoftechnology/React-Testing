@@ -17,3 +17,5 @@ describe('<App />', () => {
   		expect(component.state('total', 'next', 'operation')).toBeDefined();
   });
 });
+
+//git TITLE AND BODY commit testing...
