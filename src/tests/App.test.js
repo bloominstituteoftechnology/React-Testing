@@ -12,4 +12,18 @@ describe('<App />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
+  it('mounts a component', () => {
+    function Foo() {
+      return (
+        <div>
+          <p>hello</p>
+        </div>
+      );
+    };
+    const component = shallow(< Foo/>);
+  });
+  it('has state', () => {
+    const component = shallow(< App/>);
+    expect(component.state().total).toEqual(null);
+  });
 });
