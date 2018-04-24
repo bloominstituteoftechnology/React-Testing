@@ -7,6 +7,7 @@ class Button extends Component {
         this.props.clickHandler(this.props.name);
     }
 
+
     render() {
         const classNames = [
             'component-button',
