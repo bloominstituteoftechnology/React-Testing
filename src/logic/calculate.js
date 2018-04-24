@@ -10,79 +10,59 @@ import operate from './operate';
  *   operation:String  +, -, etc.
  */
 
-const nullState = {
-    total: '0',
-    next: null,
-    operation: null,
-};
-
 function isNumber(x) {
     return !!x.match(/[0-9]+/);
 }
 
 function calculate(obj, buttonName) {
     if (buttonName === 'AC') {
-        return nullState;
+        return {
+            total: null,
+            next: null,
+            operation: null,
+        };
     }
 
     if (isNumber(buttonName)) {
         if (buttonName === '0' && obj.next === '0') {
-            return nullState;
+            return {};
         }
 
         if (obj.operation) {
             if (obj.next) {
                 return { next: obj.next + buttonName };
             }
-            return {
-                total: '0', 
-                next: buttonName,
-                operation: null,
-            };
+            return { next: buttonName };
         }
         if (obj.next) {
             return {
-                total: '0',
                 next: obj.next + buttonName,
-                operation: null,
+                total: null,
             };
         }
         return {
-            total: '0',
             next: buttonName,
-            operation: null,
+            total: null,
         };
     }
 
     if (buttonName === '.') {
         if (obj.next) {
             if (obj.next.includes('.')) {
-                return nullState;
+                return {};
             }
-            return {
-                total: '0',
-                next: obj.next + '.',
-                operation: null,
-            };
+            return { next: obj.next + '.' };
         }
         if (obj.operation) {
-            return { 
-                total: '0',
-                next: '0.',
-                operation: null,
-            };
+            return { next: '0.' };
         }
         if (obj.total) {
             if (obj.total.includes('.')) {
-                return nullState;
+                return {};
             }
-            return { 
-                total: obj.total + '.',
-                next: null,
-                operation: null,
-            };
+            return { total: obj.total + '.' };
         }
-        return nullState;
+        return { total: '0.' };
     }
 
     if (buttonName === '=') {
@@ -93,26 +73,18 @@ function calculate(obj, buttonName) {
                 operation: null,
             };
         } else {
-            return nullState;
+            return {};
         }
     }
 
     if (buttonName === '+/-') {
         if (obj.next) {
-            return { 
-                total: '0',
-                next: (-1 * parseFloat(obj.next)).toString(),
-                operation: null,
-            };
+            return { next: (-1 * parseFloat(obj.next)).toString() };
         }
         if (obj.total) {
-            return { 
-                total: (-1 * parseFloat(obj.next)).toString(),
-                next: null,
-                operation: null,
-            };
+            return { total: (-1 * parseFloat(obj.next)).toString() };
         }
-        return nullState;
+        return {};
     }
 
     if (obj.operation) {
@@ -124,11 +96,7 @@ function calculate(obj, buttonName) {
     }
 
     if (!obj.next) {
-        return {
-            total: '0',
-            next: null,
-            operation: buttonName,
-        };
+        return { operation: buttonName };
     }
 
     return {
