@@ -8,8 +8,11 @@ import App from '../App';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('<App />', () => {
+  const app = shallow(<App />);
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<App />, div);
+    expect(app).toHaveLength(1);
   });
+  it('have three child components', () => {
+    expect(app.find('div').children()).toHaveLength(2);
+  })
 });

@@ -8,8 +8,14 @@ import Panel from '../components/Panel/Panel';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Panel />', () => {
+  const panel = shallow(<Panel />);
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Panel />, div);
+    expect(panel).toHaveLength(1);
   });
+  it('have 5 child divs', () => {
+    expect(panel.find('div.component-panel').children()).toHaveLength(5);
+  })
+  it('have 19 button components', () => {
+    expect(panel.find('Button')).toHaveLength(19);
+  })
 });
