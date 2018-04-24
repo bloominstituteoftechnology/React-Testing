@@ -12,6 +12,15 @@ describe("<Panel />", () => {
     const div = document.createElement("div");
     ReactDOM.render(<Panel />, div);
   });
+  it("should contain a wrapping div with a classname component-display", () => {
+    const wrapper = shallow(<Panel />);
+    expect(
+      wrapper
+        .find("div")
+        .first()
+        .hasClass("component-panel")
+    ).toEqual(true);
+  });
   it("Should have 5 sibling children divs", () => {
     const wrapper = shallow(<Panel />);
     expect(wrapper.find("div").children("div")).toHaveLength(5);
