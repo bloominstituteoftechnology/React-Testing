@@ -12,6 +12,10 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
+  it('should have a class component-button', () => {
+    const wrapper = shallow(<Button />);
+    expect(wrapper.hasClass('component-button')).toEqual(true);
+  });
   it('should have a working button', () => {
     const onClick = sinon.spy();
     const wrapper = mount(<Button clickHandler={onClick}/>);
@@ -20,7 +24,6 @@ describe('<Button />', () => {
 
   });
   it('should render a button', () => {
-
     const button = shallow(<Button />);
     // expect(button.props().children.props).contains('onClick');
     expect(button.contains(

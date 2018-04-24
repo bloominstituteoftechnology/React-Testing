@@ -28,10 +28,15 @@ describe('<Display />', () => {
         </div>
     )).toEqual(true);
   })
-  // it('renders the value as a string', () => {
-  //   const disp = shallow(<Display value = {'5'} />);
-  //   expect(disp.props().children.props.children).toHaveProperty('', String;
-  // })
+  it("should render a value", () => {
+		const component = shallow(<Display />);
+		expect(component.find("value"));
+	});
+  it('renders the value as a string', () => {
+    const disp = shallow(<Display value = {`string`} />);
+    expect(disp.props().children.props.children).toBe(`string`);
+  });
+
 
   //TODO: Test if value is a string...
 
