@@ -11,5 +11,12 @@ describe('<App />', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
+    expect(wrapper).toHaveLength(1);
+      });
+    
+      it('should have two children siblings', () => {
+        expect(wrapper.find('div').children()).toHaveLength(1);
+        expect(wrapper.find('Display')).toHaveLength(1);
+        expect(wrapper.find('Panel')).toHaveLength(1);
   });
 });
