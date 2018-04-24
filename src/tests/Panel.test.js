@@ -12,4 +12,16 @@ describe('<Panel />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Panel />, div);
   });
+  it('renders 19 buttons', () => {
+    const wrapper = shallow(<Panel />);
+    expect(wrapper.find('Button')).toHaveLength(19);
+  });
+  it('every button calls click handler and passes its name as a prop', () => {
+    const wrapper = shallow(<Panel clickHandler={sinon.spy()}/>);
+    const buttons = wrapper.find('Button');
+    buttons.forEach(button => {
+      button.simulate('click');
+    });
+    expect(wrapper.props.clickHandler).toHaveBeenCalledTimes(20);
+  });
 });
