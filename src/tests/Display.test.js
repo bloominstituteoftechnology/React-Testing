@@ -16,4 +16,14 @@ describe('<Display />', () => {
     const wrapper = shallow(<Display />);
     expect(wrapper).toHaveLength(1);
   });
+  it('should have an initial value of zero', () => {
+    const wrapper = shallow(<Display value="0" />);
+    expect(wrapper.contains(<div>0</div>)).toEqual(true);
+    expect(wrapper.type()).toEqual('div');
+  });
+  it('should have a div of class component-display', () => {
+    const wrapper = shallow(<Display value="0" />);
+    expect(wrapper.type()).toEqual('div');
+    expect(wrapper.find('div.component-display')).toHaveLength(1);
+  });
 });
