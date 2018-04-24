@@ -32,3 +32,5 @@ describe('<App />', () => {
     expect(wrapper.state('operation')).toBeNull();
   });
 });
+
+
