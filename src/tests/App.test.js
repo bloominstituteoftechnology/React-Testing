@@ -12,4 +12,18 @@ describe('<App />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
+  it(`renders a div with the className 'component-app'`, () => {
+    const component = shallow(<App />);
+    expect(component.find('.component-app')).toHaveLength(1);
+  });
+  it(`has two elements in the '.component-app' div`, () => {
+    const component = shallow(<App />);
+        expect(component.find('.component-app').children()).toHaveLength(2);
+  });
+  it(`has a state with properties 'total', 'next', 'none' which values are all 'null'`, () => {
+    const component = shallow(<App />);
+    expect(component.state().total).toEqual("0");
+    expect(component.state().next).toEqual(null);
+    expect(component.state().operation).toEqual(null);
+  });
 });
