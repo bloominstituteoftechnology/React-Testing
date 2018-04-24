@@ -12,4 +12,8 @@ describe('<App />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
+  it('contains a component-app class', () =>{
+    const ap = shallow(<App />);
+    expect(ap.find('div.component-app')).toHaveLength(1);
+  })
 });

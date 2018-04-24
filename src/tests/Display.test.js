@@ -12,4 +12,27 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+  // it('displays the value as a string', () => {
+  //   const display = shallow(<Display />);
+  //   expect(display.find('div.value')).toHaveProperty
+  // });
+  it('contains a component-display class', () => {
+    const wrapper = shallow(<Display />)
+    expect(wrapper.find('div.component-display')).toHaveLength(1);
+  });
+  it('returns the value passed into the display', () => {
+    const disp = shallow(<Display value = {'1'}/>);
+    expect(disp.contains(
+      <div>
+        1
+        </div>
+    )).toEqual(true);
+  })
+  // it('renders the value as a string', () => {
+  //   const disp = shallow(<Display value = {'5'} />);
+  //   expect(disp.props().children.props.children).toHaveProperty('', String;
+  // })
+
+  //TODO: Test if value is a string...
+
 });

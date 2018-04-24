@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 import './Button.css';
 
 class Button extends Component {
+    state = {
+        count: 0
+    };
+    
     handleClick = () => {
+        this.setState({count: ++this.state.count});
         this.props.clickHandler(this.props.name);
     }
 

@@ -11,5 +11,10 @@ describe('<Panel />', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Panel />, div);
-  });
+  })
+  it('should have numbers for the panel', () => {
+    const pan = shallow(<Panel />)
+    expect(pan.find('Button')).toHaveLength(19);
+    console.log('length', (pan.find('Button').length));
+  })
 });
