@@ -12,4 +12,12 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+  it('should return an element', () => {
+    const wrapper = shallow(<Display />);
+    expect(wrapper.find('.component-display')).toHaveLength(1);
+  });
+  it('should return the value that is passed in', () => {
+    const wrapper = shallow(<Display value={'42'} />);
+    expect(wrapper.contains('42')).toEqual(true);
+  });
 });
