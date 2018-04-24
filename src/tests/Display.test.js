@@ -12,4 +12,8 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+  it('should return a value when it is passed in', () => {
+    const wrapper = shallow(<Display value={'2'} />);
+    expect(wrapper.contains(<div>2</div>)).toEqual(true);
+  });
 });

@@ -12,4 +12,14 @@ describe('<Panel />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Panel />, div);
   });
+  it('should return 19 buttons', () => {
+    const wrapper = shallow(<Panel />);
+    expect(wrapper.find('Button')).toHaveLength(19);
+  });
+  it('should have an event handler called handleClick', () => {
+    const handleClick = sinon.spy();
+    const wrapper = shallow(<Panel clickHandler={handleClick} />);
+    const inst = wrapper.instance();
+    expect(inst.handleClick).toBeDefined();
+  });
 });
