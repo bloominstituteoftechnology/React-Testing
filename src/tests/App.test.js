@@ -12,4 +12,18 @@ describe('<App />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
+  it('should have total, operation, and next on state', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.state('total')).toBeDefined();
+    expect(wrapper.state('next')).toBeDefined();
+    expect(wrapper.state('operation')).toBeDefined();
+  });
+  it('should contain a handleClick to update the state', () => {
+    const wrapper = shallow(<App />);
+    const inst = wrapper.instance();
+    inst.handleClick('1');
+    expect(wrapper.state('next')).toEqual('1');
+    expect(wrapper.state('total')).toEqual('0');
+    expect(wrapper.state('operation')).toBeNull();
+  });
 });
