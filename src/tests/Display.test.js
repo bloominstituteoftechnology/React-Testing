@@ -16,4 +16,6 @@ describe('<Display />', () => {
     const wrapper = shallow(<Display />);
     expect(wrapper.find('.component-display')).toHaveLength(1);
   });
+  const wrapper = shallow(<Display value={'42'} />);
+  expect(wrapper.contains('42')).toEqual(true);
 });

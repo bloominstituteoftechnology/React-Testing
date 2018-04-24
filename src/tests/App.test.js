@@ -30,8 +30,8 @@ describe('<App />', () => {
   });
   it('should have a "handleClick" method that updates state', () => {
     const wrapper = shallow(<App />);
-    wrapper.instance().handleClick('9');
-    expect(wrapper.state('next')).toEqual('9');
+    wrapper.instance().handleClick('0');
+    expect(wrapper.state('next')).toEqual('0');
     expect(wrapper.state('total')).toBeNull();
     expect(wrapper.state('operation')).toBeNull();
   });
