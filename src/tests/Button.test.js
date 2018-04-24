@@ -12,4 +12,8 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
+  it('should have a class component-button', () => {
+    const wrapper = shallow(<Button />);
+    expect(wrapper.hasClass('component-button')).toEqual(true);
+  });
 });
