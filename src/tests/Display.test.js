@@ -7,10 +7,23 @@ import Display from '../components/Display/Display';
 
 Enzyme.configure({ adapter: new Adapter() });
 
+// describe('<Display />', () => {
+//   it('renders without crashing', () => {
+//     const div = document.createElement('div');
+//     ReactDOM.render(<Display />, div);
+//   });
+//   it('should display a string', () => {
+//     const wrapper = shallow(<Display value="foo" />);
+//     expect(wrapper.props().value).toEqual('foo');
+//   });
+// });
+
 describe('<Display />', () => {
-  it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Display />, div);
+  it('should render properly', () => {
+    expect(shallow(<Display />)).toHaveLength(1);
   });
-  it('')
+
+  it('should be selectable by class component-display', () => {
+    expect(shallow(<Display />).find('.component-display').length).toBe(1);
+  });
 });

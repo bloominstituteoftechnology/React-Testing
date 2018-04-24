@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\Erik\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js
+  C:\Program Files\nodejs\node.exe C:\Users\Erik\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js test
 
 PATH: 
   C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\WIDCOMM\Bluetooth Software\;C:\Program Files\WIDCOMM\Bluetooth Software\syswow64;C:\Program Files (x86)\Common Files\HP\Digital Imaging\bin;C:\Program Files (x86)\HP\Digital Imaging\bin\;C:\Program Files (x86)\HP\Digital Imaging\bin\Qt\Qt 4.3.3;C:\Windows\system32\config\systemprofile\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files (x86)\Calibre2\;C:\Program Files\dotnet\;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;;C:\Program Files\Microsoft VS Code\bin;C:\Users\Erik\AppData\Roaming\npm;C:\MongoDB\bin;C:\Users\Erik\AppData\Local\hyper\app-2.0.0\resources\bin
@@ -38,9 +38,6 @@ npm manifest:
       "sinon": "^4.4.8"
     }
   }
-  
-  
-      // "test": "react-scripts test --env=jsdom",
 
 yarn manifest: 
   No manifest
@@ -7586,10 +7583,17 @@ Lockfile:
       window-size "0.1.0"
 
 Trace: 
-  SyntaxError: C:\Users\Erik\OneDrive\Lambda\TestingLab\React-Testing\package.json: Unexpected token / in JSON at position 547
-      at JSON.parse (<anonymous>)
-      at C:\Users\Erik\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:1036:59
-      at Generator.next (<anonymous>)
-      at step (C:\Users\Erik\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:98:30)
-      at C:\Users\Erik\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:109:13
-      at <anonymous>
+  Error: Command failed.
+  Exit code: 1
+  Command: C:\Windows\system32\cmd.exe
+  Arguments: /d /s /c jest
+  Directory: C:\Users\Erik\OneDrive\Lambda\TestingLab\React-Testing
+  Output:
+  
+      at ProcessTermError.MessageError (C:\Users\Erik\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:186:110)
+      at new ProcessTermError (C:\Users\Erik\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:226:113)
+      at ChildProcess.<anonymous> (C:\Users\Erik\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:30281:17)
+      at emitTwo (events.js:126:13)
+      at ChildProcess.emit (events.js:214:7)
+      at maybeClose (internal/child_process.js:925:16)
+      at Process.ChildProcess._handle.onexit (internal/child_process.js:209:5)
