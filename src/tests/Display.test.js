@@ -12,4 +12,8 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+  it('redners without crashing, using wrapper', () => {
+    const wrapper = shallow(<Display />);
+    expect(wrapper).toHaveLength(1);
+  });
 });

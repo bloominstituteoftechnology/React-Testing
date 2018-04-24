@@ -12,4 +12,8 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
+  it('renders without crashing, checking with wrapper', () => {
+    const wrapper = shallow(<Button />);
+    expect(wrapper).toHaveLength(1);
+  });
 });
