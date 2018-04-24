@@ -12,20 +12,20 @@ describe('<Button />', () => {
     const wrapper = shallow(<Button />);
     expect(wrapper.find('div').children).toHaveLength(1);
   });
-  // it('button clicks', () => {
-  //   const func = sinon.spy();
-  //   const wrapper = shallow(<Button name="kara" onClick={func} />);
-  //   wrapper.find('button').simulate('click');
-  //   // wrapper.find('button').prop('onClick');
-  //   // wrapper.find('button').prop('onClick');
-
-  //   console.log(wrapper.state());
-  //   expect(wrapper.state().count).toEqual(5);
-  // });
+  it('should render with class name "component-button wide" when passed wide', () => {
+    const wrapper = shallow(<Button wide />);
+    expect(wrapper.find('.component-button')).toHaveLength(1);
+    expect(wrapper.find('.wide')).toHaveLength(1);
+  });
+  it('should render with class name "component-button orange" when passed orange', () => {
+    const wrapper = shallow(<Button orange />);
+    expect(wrapper.find('.component-button')).toHaveLength(1);
+    expect(wrapper.find('.orange')).toHaveLength(1);
+  });
   it('should call click event', () => {
-    const func = sinon.spy();
-    const component = shallow(<Button clickHandler={func} />);
-    component.find('button').simulate('click');
-    expect(func.calledOnce).toEqual(true);
+    const spy = sinon.spy();
+    const wrapper = shallow(<Button clickHandler={spy} />);
+    wrapper.find('button').simulate('click');
+    expect(spy.calledOnce).toEqual(true);
   });
 });
