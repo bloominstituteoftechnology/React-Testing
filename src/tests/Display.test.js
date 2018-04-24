@@ -12,4 +12,14 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+  it("renders the value given", () => {
+    const component = shallow(<Display value={"Ronnie"} />);
+    expect(component.contains(
+      <div className="component-display">
+            <div>
+                Ronnie
+            </div>
+        </div>
+    ))
+  })
 });
