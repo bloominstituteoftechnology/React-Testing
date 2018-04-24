@@ -12,4 +12,29 @@ describe('<App />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
+  it('renders without crashing', () => {
+    const div = document.createElement('div');
+    ReactDOM.render(<App />, div);
+  });
+  it('should render a div class with component-app', () => {
+    const component = shallow(<App />);
+    expect(component.find('.component-app')).toHaveLength(1);
+  });
+
+  it('should render class Display', () => {
+    const component = shallow(<App />);
+    expect(component.find('Display')).toHaveLength(1);
+  });
+
+  it('should render class Panel', () => {
+    const component = shallow(<App />);
+    expect(component.find('Panel')).toHaveLength(1);
+  });
+  it('should have a "handleClick" method that updates state', () => {
+    const component = shallow(<App />);
+    component.instance().handleClick('9');
+    expect(component.state('next')).toEqual('9');
+    expect(component.state('total')).toBeNull();
+    expect(component.state('operation')).toBeNull();
+  });
 });

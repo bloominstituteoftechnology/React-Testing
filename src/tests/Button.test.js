@@ -12,4 +12,14 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
+  it('should render one element with a class of component-button', () => {
+    const component = shallow(<Button />);
+    expect(component.find('.component-button')).toHaveLength(1);
+  });
+  it('should call handleClick() when clicked', () => {
+    const spy = sinon.spy;
+    const wrapper = shallow(<Button />);
+    wrapper.find('button').simulate('onClick');
+    expect(spy.calledWith('onClick')).toEqual(false);
+  });
 });
