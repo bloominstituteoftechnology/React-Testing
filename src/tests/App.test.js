@@ -17,24 +17,22 @@ describe('<App />', () => {
     ReactDOM.render(<App />, div);
   });
   it('should render a div class with component-app', () => {
-    const component = shallow(<App />);
-    expect(component.find('.component-app')).toHaveLength(1);
+    const wrapper = shallow(<App />);
+    expect(wrapper.find('.component-app')).toHaveLength(1);
   });
-
   it('should render class Display', () => {
-    const component = shallow(<App />);
-    expect(component.find('Display')).toHaveLength(1);
+    const wrapper = shallow(<App />);
+    expect(wrapper.find('Display')).toHaveLength(1);
   });
-
   it('should render class Panel', () => {
-    const component = shallow(<App />);
-    expect(component.find('Panel')).toHaveLength(1);
+    const wrapper = shallow(<App />);
+    expect(wrapper.find('Panel')).toHaveLength(1);
   });
   it('should have a "handleClick" method that updates state', () => {
-    const component = shallow(<App />);
-    component.instance().handleClick('9');
-    expect(component.state('next')).toEqual('9');
-    expect(component.state('total')).toBeNull();
-    expect(component.state('operation')).toBeNull();
+    const wrapper = shallow(<App />);
+    wrapper.instance().handleClick('9');
+    expect(wrapper.state('next')).toEqual('9');
+    expect(wrapper.state('total')).toBeNull();
+    expect(wrapper.state('operation')).toBeNull();
   });
 });

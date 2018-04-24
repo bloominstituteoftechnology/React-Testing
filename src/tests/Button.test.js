@@ -13,8 +13,8 @@ describe('<Button />', () => {
     ReactDOM.render(<Button />, div);
   });
   it('should render one element with a class of component-button', () => {
-    const component = shallow(<Button />);
-    expect(component.find('.component-button')).toHaveLength(1);
+    const wrapper = shallow(<Button />);
+    expect(wrapper.find('.component-button')).toHaveLength(1);
   });
   it('should call handleClick() when clicked', () => {
     const spy = sinon.spy;
