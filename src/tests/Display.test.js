@@ -8,8 +8,11 @@ import Display from '../components/Display/Display';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Display />', () => {
+  const wrapper = shallow(<Display />);
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Display />, div);
+    expect(wrapper).toHaveLength(1);
+  });
+  it('should have a prop value', () => {
+    expect(wrapper.contains([])).toBeTruthy;
   });
 });
