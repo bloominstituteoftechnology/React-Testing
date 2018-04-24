@@ -16,4 +16,10 @@ describe("<App />", () => {
     const wrapper = shallow(<App />);
     expect(wrapper.find("div").children()).toHaveLength(2);
   });
+  it("should have a beginning state of total: 0, next: null, and operation: null", () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.state().total).toEqual("0");
+    expect(wrapper.state().next).toEqual(null);
+    expect(wrapper.state().operation).toEqual(null);
+  });
 });
