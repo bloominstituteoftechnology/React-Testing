@@ -12,4 +12,9 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
+
+  it('should have one child', () => {
+    const wrapper = shallow(<Button />);
+    expect(wrapper.find('div').children()).toHaveLength(1);
+  });
 });

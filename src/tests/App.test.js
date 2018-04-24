@@ -11,5 +11,11 @@ describe('<App />', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
+    const wrapper = shallow(<App />);
+    expect(wrapper).toHaveLength(1);
+  });
+  it('should have two children', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.find('div').children()).toHaveLength(2);
   });
 });
