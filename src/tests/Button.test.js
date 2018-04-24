@@ -16,10 +16,10 @@ describe('<Button />', () => {
     const wrapper = shallow(<Button />);
     expect(wrapper.find('.component-button')).toHaveLength(1);
   });
-  it('should call handleClick() when clicked', () => {
-    const spy = sinon.spy;
-    const wrapper = shallow(<Button />);
-    wrapper.find('button').simulate('onClick');
-    expect(spy.calledWith('onClick')).toEqual(false);
+  it('simulates click events', () => {
+    const onClick = sinon.spy();
+    const wrapper = shallow(<Button clickHandler={onClick} />);
+    wrapper.find('button').simulate('click');
+    expect(onClick.calledOnce).toEqual(true);
   });
 });
