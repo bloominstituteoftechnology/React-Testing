@@ -12,4 +12,9 @@ describe('<App />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
+
+  it('should have two children siblings', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.find('div').children()).toHaveLength(2);
+  });
 });
