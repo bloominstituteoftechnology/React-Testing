@@ -12,6 +12,11 @@ describe('`Calculate`', () => {
         expect(state.next).toBeDefined();
         expect(state.operation).toBeDefined();
     });
+    it("should reset the state when buttonName = AC", () => {
+        const obj = { total: "1", next: "2", operation: "+" };
+        const result = calculate(obj, "AC");
+        expect(result).toEqual({ total: "0", next: null, operation: null });
+    });
 })
 function isNumber(x) {
     return !!x.match(/[0-9]+/);
