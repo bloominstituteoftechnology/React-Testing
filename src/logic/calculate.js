@@ -138,7 +138,4 @@ function calculate(obj, buttonName) {
     };
 }
 
-module.exports = {
-    calculate,
-    isNumber
-  };
+export default calculate;
