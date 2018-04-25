@@ -1,6 +1,6 @@
 ## Questions for PM(s)
 
-* In test case below, what does it mean when App is equal to 1?
+* In test case below, what does it mean when App length is equal to 1?
 
 ```js
 it('renders without crashing', () => {
