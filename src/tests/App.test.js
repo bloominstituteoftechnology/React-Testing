@@ -9,7 +9,20 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('<App />', () => {
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<App />, div);
+    const wrapper = shallow(<App />);
+    expect(wrapper).toHaveLength(1);
+  });
+
+  // linked to first question in notes.md
+
+  // it('should have a div with two children', () => {
+  //   const wrapper = shallow(<App />);
+  //   expect(wrapper.children()).toHaveLength(2);
+  // });
+
+  // is this test case below reading the same data as the test case above?
+  it('should have a div with two children', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.find('div').children()).toHaveLength(2);
   });
 });

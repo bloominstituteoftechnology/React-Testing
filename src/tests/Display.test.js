@@ -9,7 +9,7 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Display />', () => {
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Display />, div);
+    const wrapper = shallow(<Display />);
+    expect(wrapper).toHaveLength(1);
   });
 });
