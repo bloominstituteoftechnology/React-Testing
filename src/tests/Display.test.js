@@ -12,4 +12,21 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+  it('has one child div', () => {
+    const wrapper = shallow(<Display />);
+    expect(wrapper.find('div').children('div')).toHaveLength(1);
+  });
+  it('should contain a wrapping div named component-display', () => {
+    const wrapper = shallow(<Display />);
+    expect(
+      wrapper
+        .find('div')
+        .first()
+        .hasClass('component-display')
+    ).toEqual(true);
+  });
+  it('should display the value fed to it', () => {
+    const wrapper = shallow(<Display value="25" />);
+    expect(wrapper.contains(<div>25</div>)).toEqual(true);
+  });
 });
