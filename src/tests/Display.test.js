@@ -12,4 +12,10 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+  it('should render one element with a class of component-display', () => {
+    const wrapper = shallow(<Display />);
+    expect(wrapper.find('.component-display')).toHaveLength(1);
+  });
+  const wrapper = shallow(<Display value={'42'} />);
+  expect(wrapper.contains('42')).toEqual(true);
 });

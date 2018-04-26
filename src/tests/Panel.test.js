@@ -12,4 +12,8 @@ describe('<Panel />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Panel />, div);
   });
+  it('should render all buttons of the component-panel', () => {
+    const wrapper = shallow(<Panel />);
+    expect(wrapper.find('Button')).toHaveLength(19);
+  });
 });
