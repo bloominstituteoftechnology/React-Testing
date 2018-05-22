@@ -12,21 +12,16 @@ describe("<Panel />", () => {
     const div = document.createElement("div");
     ReactDOM.render(<Panel />, div);
   });
-  it("should contain a wrapping div named component-panel", () => {
+  it("should have a div with class component-panel", () => {
     const wrapper = shallow(<Panel />);
-    expect(
-      wrapper
-        .find("div")
-        .first()
-        .hasClass("component-panel")
-    ).toEqual(true);
+    expect(wrapper.find(".component-panel")).toHaveLength(1);
   });
-  it("should have 5 sibling children divs", () => {
+  it("main div should have 5 children divs", () => {
     const wrapper = shallow(<Panel />);
-    expect(wrapper.find("div").children("div")).toHaveLength(5);
+    expect(wrapper.find(".component-panel").children("div")).toHaveLength(5);
   });
-  it("should have 19 Buttons", () => {
+  it("panel should display 19 buttons", () => {
     const wrapper = shallow(<Panel />);
-    expect(wrapper.find("div").children("Button")).toHaveLength(19);
+    expect(wrapper.find("Button")).toHaveLength(19);
   });
 });
