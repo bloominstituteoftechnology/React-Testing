@@ -12,4 +12,16 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
+
+  it('returns a div with one child', () => {
+    const wrapper = shallow(<Button />);
+    expect(wrapper.find('div').children()).toHaveLength(1);
+  });
+
+  it('calls click event once per click', () => {
+    const onClick = sinon.spy();
+    const wrapper = shallow(<Button clickHandler={onClick} />);
+    wrapper.find('button').simulate('click');
+    expect(onClick.calledOnce).toEqual(true);
+  });
 });

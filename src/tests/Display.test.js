@@ -12,4 +12,9 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+
+  it('should return a least and most of 1', () => {
+    const wrapper = shallow(<Display />);
+    expect(wrapper).toHaveLength(1);
+  });
 });
