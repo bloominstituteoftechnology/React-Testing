@@ -13,19 +13,11 @@ describe("<Display />", () => {
     ReactDOM.render(<Display />, div);
   });
   it("should display as a value in the div of whatever is passed to it in props ", () => {
-    const component = shallow(<Display value={"125.33"} />);
-    expect(component.contains(<div>125.33</div>)).toEqual(true);
+    const component = shallow(<Display value={"6"} />);
+    expect(component.find("value")).toBeTruthy();
   });
   it("should should contain two divs", () => {
     const component = shallow(<Display />);
     expect(component.find("div")).toHaveLength(2);
-  });
-  it("should contain a div with the className component", () => {
-    const component = shallow(<Display />);
-    expect(component.find("div.component-display")).toHaveLength(1);
-  });
-  it("should contain a div with the className component-inner-display", () => {
-    const component = shallow(<Display />);
-    expect(component.find("div").children()).toHaveLength(1);
   });
 });
