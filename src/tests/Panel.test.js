@@ -12,4 +12,13 @@ describe('<Panel />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Panel />, div);
   });
+
+  // can only use .simulate() once
+  it.skip('spies', () => {
+    const spy = sinon.spy();
+    const component = shallow(<Panel clickHandler={spy} />);
+    component.find('button').simulate('click');
+    expect(spy.calledOnce).toBeTruthy();
+  })
+
 });
