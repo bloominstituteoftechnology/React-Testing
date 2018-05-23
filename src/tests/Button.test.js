@@ -12,4 +12,24 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
+  
+  it('renders with className `component-button wide` when passed the `wide` prop', () => {
+    const component = shallow(<Button wide/>);
+    expect(component.find('.component-button')).toHaveLength(1);
+    expect(component.find('.wide')).toHaveLength(1);
+  });
+
+  it('renders with className `component-button orange` when passed the `orange` prop', () => {
+    const component = shallow(<Button orange/>);
+    expect(component.find('.component-button')).toHaveLength(1);
+    expect(component.find('.orange')).toHaveLength(1);
+  });
+
+  it("calls the passed-in prop function with the button's name when clicked", () => {
+    const func = sinon.spy();
+    const component = shallow(<Button name="boo" clickHandler={func} />);
+    component.find('button').simulate('click');
+    expect(func.calledOnce).toEqual(true);
+    expect(func.calledWith('boo')).toEqual(true);
+  });
 });
