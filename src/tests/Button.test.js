@@ -10,26 +10,13 @@ import Button from "../components/Button/Button";
 Enzyme.configure({ adapter: new Adapter() });
 
 describe("<Button />", () => {
-	// test if button renders without crashing
 	it("renders without crashing", () => {
 		const div = document.createElement("div");
 		ReactDOM.render(<Button />, div);
 	});
-	// test if button renders its name
-	// it("should have a string name", () => {
-	// 	const Btn = shallow(<Button />);
-	// 	const instance = Btn.instance();
-	// 	const button = Btn.find("button");
-
-	// 	let button.props.name = "7";
-
-	// 	expect(button.props.name).toBe("7");
-	// });
-	// test if button triggers this.props.handleClick
 	it("should trigger this.props.handleClick", () => {
 		const handleClick = jest.fn();
 		const Btn = shallow(<Button clickHandler={handleClick} />);
-		const instance = Btn.instance();
 		const button = Btn.find("button");
 
 		button.simulate("click");
