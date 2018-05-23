@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import sinon from 'sinon';
-import Enzyme, { shallow } from 'enzyme';
+import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import Display from '../components/Display/Display';
 
@@ -29,10 +29,7 @@ describe('<Display />', () => {
   })
 
   it('renders the value correctly', () => {
-    const component = shallow(<Display value='10' />);
-    expect(component
-        .find('.component-display')
-        .children('div')
-        .text()).toEqual('10');
+    const component = mount(<Display value='10' />);
+    expect(component.props().value).toEqual('10');
   })
 });
