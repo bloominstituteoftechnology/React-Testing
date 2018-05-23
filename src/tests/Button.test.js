@@ -12,4 +12,8 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
+  const wrapper = shallow(<Button orange/>)
+  it('Should find orange button', () => {
+  expect(wrapper.find('.orange').length).toBe(1)
+  })
 });
