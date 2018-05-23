@@ -24,7 +24,7 @@ describe("<Display />", () => {
     const component = shallow(<Display />);
     expect(component.find("div.component-display")).toHaveLength(1);
   });
-  it("should contain a div with the className component", () => {
+  it("should contain a div with the className component-inner-display", () => {
     const component = shallow(<Display />);
     expect(component.find("div").children()).toHaveLength(1);
   });
