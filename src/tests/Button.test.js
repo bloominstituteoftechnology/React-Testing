@@ -11,4 +11,11 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
+
+  it('calls the clickhandler when clicked', () => {
+    const handlerMock = jest.fn()
+    const wrapper = shallow(<Button clickHandler={handlerMock} />)
+    wrapper.find('button').simulate('click')
+    expect(handlerMock.mock.calls.length).toBe(1)
+  })
 });
