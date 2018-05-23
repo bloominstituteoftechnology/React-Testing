@@ -20,4 +20,8 @@ describe("<Display />", () => {
     const component = shallow(<Display />);
     expect(component.find("div")).toHaveLength(2);
   });
+  it("should contain a div with the className component", () => {
+    const component = shallow(<Display />);
+    expect(component.find("div.component-display")).toHaveLength(1);
+  });
 });
