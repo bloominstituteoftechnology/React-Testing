@@ -74,4 +74,9 @@ describe('calculate', () => {
     obj = { total: 1, next: 1, operation: '+' }
     expect(calculate(obj, 'AC')).toEqual({ total: null, next: null, operation: null })
   })
+
+  it('swaps out the current operation if either obj.total or obj.next are null', () => {
+    obj.operation = '+'
+    expect(calculate(obj, '-')).toEqual({ operation: '-' })
+  })
 })
