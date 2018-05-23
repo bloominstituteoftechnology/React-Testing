@@ -82,7 +82,7 @@ function calculate(obj, buttonName) {
             return { next: (-1 * parseFloat(obj.next)).toString() };
         }
         if (obj.total) {
-            return { total: (-1 * parseFloat(obj.next)).toString() };
+            return { total: (-1 * parseFloat(obj.total)).toString() };
         }
         return {};
     }
