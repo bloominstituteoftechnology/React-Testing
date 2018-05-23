@@ -12,4 +12,10 @@ describe('<App />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
+  it('Should render a display and find the panel of the display', () => {
+  const wrapper = shallow(<App />)
+    expect(wrapper.find('Display').length).toBe(1)
+    expect(wrapper.find('Panel').length).toBe(1)
+  })
 });
+
