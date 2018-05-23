@@ -18,4 +18,20 @@ describe('<Button />', () => {
     wrapper.find('button').simulate('click')
     expect(handlerMock.mock.calls.length).toBe(1)
   })
+
+  it('can be an orange button', () => {
+    const wrapper = shallow(<Button orange />)
+    expect(wrapper.hasClass('orange')).toBeTruthy()
+  })
+
+  it('can be a wide button', () => {
+    const wrapper = shallow(<Button wide />)
+    expect(wrapper.hasClass('wide')).toBeTruthy()
+  })
+
+  it('can be an orange AND wide button', () => {
+    const wrapper = shallow(<Button orange wide />)
+    expect(wrapper.hasClass('orange')).toBeTruthy()
+    expect(wrapper.hasClass('wide')).toBeTruthy()
+  })
 });
