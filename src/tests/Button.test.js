@@ -12,4 +12,14 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
+  it('renders without crashing, checking with wrapper', () => {
+    const wrapper = shallow(<Button />);
+    expect(wrapper).toHaveLength(1);
+  });
+  it('should call a click function once per click', () => {
+    const spy = sinon.spy();
+    const wrapper = shallow(<Button clickHandler={spy} />);
+    wrapper.find('button').simulate('click');
+    expect(spy.calledOnce).toEqual(true);
+  });
 });

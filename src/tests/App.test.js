@@ -12,4 +12,14 @@ describe('<App />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
+  it('renders without crashing, using wrapper', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper).toHaveLength(1);
+  });
+  it('should have an initial state where total: 0, next: null, operation: null', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.state().total).toEqual('0');
+    expect(wrapper.state().next).toEqual(null);
+    expect(wrapper.state().operation).toEqual(null);
+  });
 });

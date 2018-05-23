@@ -12,4 +12,16 @@ describe('<Panel />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Panel />, div);
   });
+  it('renders without crashing, using wrapper', () => {
+    const wrapper = shallow(<Panel />);
+    expect(wrapper).toHaveLength(1);
+  });
+  it('should have five children divs', () => {
+    const wrapper = shallow(<Panel />);
+    expect(wrapper.find('div.component-panel').children()).toHaveLength(5);
+  });
+  it('should have nineteen Buttons', () => {
+    const wrapper = shallow(<Panel />);
+    expect(wrapper.find('Button')).toHaveLength(19);
+  });
 });
