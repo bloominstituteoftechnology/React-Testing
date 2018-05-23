@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import sinon from "sinon";
-import Enzyme, { shallow } from "enzyme";
+import Enzyme, { shallow, mount } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import Panel from "../components/Panel/Panel";
 
@@ -18,5 +18,12 @@ describe("<Panel />", () => {
     const buttons = wrapper.find("Button");
 
     expect(buttons.length).toBe(19);
+  });
+
+  it('handleClick should be a function', () => {
+    const wrapper = mount(<Panel  />);
+    wrapper.handleClick = jest.fn();
+
+    expect(typeof wrapper.handleClick).toBe('function');
   });
 });
