@@ -8,8 +8,15 @@ import Button from '../components/Button/Button';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Button />', () => {
-  it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Button />, div);
+  const component = shallow(<Button />);
+  
+  it('should have two children siblings', () => {
+    expect(component.find('div').children()).toHaveLength(2);
+  });
+  
+  it('should have 3 properties in state', () => {
+    expect(component.state('total')).toEqual('0');
+    expect(component.state('next')).toEqual(null);
+    expect(component.state('operation')).toEqual(null);
   });
 });
