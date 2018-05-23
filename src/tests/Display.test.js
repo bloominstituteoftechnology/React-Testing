@@ -12,4 +12,12 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+  it('should return a value', () => {
+    const wrapper = shallow(<Display value={'10'} />);
+    expect(wrapper.contains('10')).toEqual(true);
+  });
+  it('should display div with class componentdisplay', () => {
+    const wrapper = shallow(<Display />);
+    expect(wrapper.find('.commanddisplay')).toHaveLength(1);
+  });
 });
