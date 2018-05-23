@@ -18,6 +18,10 @@ describe('<Button />', () => {
     expect(wrapper.find('.orange')).toBeLength(1);
   })
 
-  
+  it('.wide class when props.wide is true', () => {
+    const wrapper = shallow(<Button wide />)
+    expect(wrapper.find('.wide')).toBeLength(1);
+  })
 
+  
 });
