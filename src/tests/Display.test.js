@@ -13,3 +13,12 @@ describe('<Display />', () => {
     ReactDOM.render(<Display />, div);
   });
 });
+
+//My Test Code
+it('Return a "value" being passed', () => {
+  const component1 = shallow(<Display value={"9"} />);
+  const component2 = shallow(<Display value={"7"} />);
+
+  expect(component1.contains(<div>9</div>)).toEqual(true);
+  expect(component2.contains(<div>9</div>)).toEqual(false);
+});

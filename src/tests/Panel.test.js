@@ -12,4 +12,17 @@ describe('<Panel />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Panel />, div);
   });
+
+//My Test Code
+it('Passes a div class `component-panel`', () => {
+    const component = shallow(<Panel />);
+
+    expect(component.find('.component-panel')).toHaveLength(1);
+  });
+  
+  it('Should render all 19 buttons', () => {
+    const component = shallow(<Panel />);
+
+    expect(component.find('Button')).toHaveLength(19);
+  });
 });
