@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import sinon from "sinon";
-import Enzyme, { shallow } from "enzyme";
+import Enzyme, { shallow, mount } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import Panel from "../components/Panel/Panel";
 
@@ -23,5 +23,14 @@ describe("<Panel />", () => {
   it("panel should display 19 buttons", () => {
     const wrapper = shallow(<Panel />);
     expect(wrapper.find("Button")).toHaveLength(19);
+  });
+  it("should pass click handler and execute it", () => {
+    window.alert = jest.fn();
+
+    const wrapper = mount(<Panel clickHandler={window.alert} />);
+
+    wrapper.find(`[name="AC"] button`).simulate("click");
+
+    expect(window.alert.mock.calls.length).toBe(1);
   });
 });
