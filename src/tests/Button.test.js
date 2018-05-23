@@ -12,4 +12,10 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
+
+  it("should not differ from snapshot", () => {
+    let props = { total: "0", next: null, operation: null };
+    let element = shallow(<Button {...props} />);
+    expect(element).toMatchSnapshot();
+  });
 });
