@@ -12,4 +12,10 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+  it('should display value', () => {
+    const wrapper = shallow(<Display value={'5'} />);
+    const div = wrapper.find('div > div');
+
+    expect(div.props().children).toBe('5');
+  });
 });
