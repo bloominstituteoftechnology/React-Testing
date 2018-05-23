@@ -20,10 +20,6 @@ describe('<Display />', () => {
     const wrapDiv = shallow(<Display />);
     expect(wrapDiv.find('value')).toBeTruthy();
   });
-  test('value should be a number', () => {
-    const wrapDiv = shallow(<Display value = {`number`}/>);
-    expect(wrapDiv.props().children.props.children).toBe(`number`);
-  });
   test('value should display a value if given one', () => {
     const wrapDiv = shallow(<Display value = "53" />);
     expect(wrapDiv.contains(<div>53</div>)).toBeTruthy();
