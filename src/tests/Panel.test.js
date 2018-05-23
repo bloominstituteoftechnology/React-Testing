@@ -7,9 +7,21 @@ import Panel from '../components/Panel/Panel';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('<Panel />', () => {
-  it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Panel />, div);
+describe('Panel', () => {
+  
+  it('have 5 children divs', () => {
+    const component = shallow(<Panel />);
+    expect(component.find('div').children('div')).toHaveLength(5);
   });
+  
+  it('shoud have 19 buttons', () => {
+    const component = shallow(<Panel />);
+    expect(component.find('Button')).toHaveLength(19);
+  });
+  
+  it('buttons should handle name property passed to it', () => {
+    const component = shallow(<Panel />);
+    expect(component.find('Button')).hasButton('AC').toEqual(true);
+  });
+  
 });

@@ -7,9 +7,16 @@ import Display from '../components/Display/Display';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('<Display />', () => {
+describe('Display', () => {
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Display />, div);
+    const component = shallow(<Display />);
+    expect(component).toHaveLength(1);
   });
+  
+  it('displays the value from given parameter', () => {
+    const component = shallow(<Display value={'test-value'}/>);
+    expect(component.text()).toEqual('test-value');
+  });
+  
+  
 });
