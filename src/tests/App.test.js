@@ -13,3 +13,4 @@ describe('<App />', () => {
     ReactDOM.render(<App />, div);
   });
 });
+
