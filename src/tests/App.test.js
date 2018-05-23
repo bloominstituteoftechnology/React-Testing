@@ -12,4 +12,10 @@ describe('<App />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
+  // it('counter wrapper',()=>{
+  //   const wrapper =shallow(<App/>);
+  //   let counterWrapper = wrapper.find();
+
+  //   expect(counterWrapper.props().counter).toEqual(44)
+  // })
 });

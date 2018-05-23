@@ -12,4 +12,9 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
+  it('returns length of children',()=>{
+  const wrapper = shallow(<Button/>)
+  expect(wrapper).toHaveLength(1)
+
+  })
 });
