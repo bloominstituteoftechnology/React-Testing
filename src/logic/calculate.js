@@ -82,12 +82,15 @@ function calculate(obj, buttonName) {
             return { next: (-1 * parseFloat(obj.next)).toString() };
         }
         if (obj.total) {
-            return { total: (-1 * parseFloat(obj.next)).toString() };
+            return { total: (-1 * parseFloat(obj.total)).toString() };
         }
         return {};
     }
 
     if (obj.operation) {
+        if (obj.total == null || obj.next == null) {
+            return { operation: buttonName }
+        }
         return {
             total: operate(obj.total, obj.next, obj.operation),
             next: null,
