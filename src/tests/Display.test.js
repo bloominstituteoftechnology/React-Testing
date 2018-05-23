@@ -12,4 +12,16 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+  test('if display has the class name component-display', () => {
+    const wrapDiv = shallow(<Display />);
+    expect(wrapDiv.hasClass('component-display')).toBeTruthy();
+  });
+  test('value should render', () => {
+    const wrapDiv = shallow(<Display />);
+    expect(wrapDiv.find('value')).toBeTruthy();
+  });
+  test('value should display a value if given one', () => {
+    const wrapDiv = shallow(<Display value = "53" />);
+    expect(wrapDiv.contains(<div>53</div>)).toBeTruthy();
+  });
 });

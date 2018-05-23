@@ -12,4 +12,14 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
+  test("wrapping div should have classname component-button", () => {
+    const wrapDiv = shallow(<Button />);
+    expect(wrapDiv.hasClass('component-button')).toBeTruthy();
+  });
+  test('onclick funtion handleclick', () => {
+    const spy = sinon.spy();
+    const test = shallow(<Button clickHandler={spy}/>);
+    test.find('button').simulate('click');
+    expect(spy.calledOnce).toBeTruthy();
+  });
 });
