@@ -16,5 +16,9 @@ describe('<Panel />', () => {
     const wrapper = shallow(<Panel />);
     expect(wrapper.find('.componentpanel')).toHaveLength(1);
   });
+  it('main div should have 5 children divs', () => {
+    const wrapper = shallow(<Panel />);
+    expect(wrapper.find('.componentpanel').children('div')).toHaveLength(5);
+  });
   
 });
