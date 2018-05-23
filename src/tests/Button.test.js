@@ -32,6 +32,6 @@ describe('<Button />', () => {
     const fn = jest.fn()
     const wrapper = shallow(<Button clickHandler={fn} />)
     wrapper.find('button').simulate('click')
-    expect(fn.mock.calls.length).toBe(1)
+    expect(fn.mock.calls.length).toBe(1
   })
 });
