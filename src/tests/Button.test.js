@@ -16,7 +16,15 @@ describe("<Button />", () => {
 		ReactDOM.render(<Button />, div);
 	});
 	// test if button renders its name
-	// it("should have a button name");
+	// it("should have a string name", () => {
+	// 	const Btn = shallow(<Button />);
+	// 	const instance = Btn.instance();
+	// 	const button = Btn.find("button");
+
+	// 	let button.props.name = "7";
+
+	// 	expect(button.props.name).toBe("7");
+	// });
 	// test if button triggers this.props.handleClick
 	it("should trigger this.props.handleClick", () => {
 		const handleClick = jest.fn();
@@ -28,16 +36,4 @@ describe("<Button />", () => {
 
 		expect(handleClick).toHaveBeenCalledTimes(1);
 	});
-	// test if button changes this.props.name
-
-	// test if button changes Display props
-
-	// it("should change Display props", () => {
-	// 	// arrange
-
-	// 	// act
-	// 	button.simulate("click");
-	// 	// assert
-	// 	expect(instance.state).toEqual(prevState);
-	// });
 });
