@@ -12,14 +12,17 @@ describe('<Panel />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Panel />, div);
   });
-  it('should have a div with class componentpanel', () => {
+
+  it('should have a div with class component-panel', () => {
     const wrapper = shallow(<Panel />);
-    expect(wrapper.find('.componentpanel')).toHaveLength(1);
+    expect(wrapper.find('.component-panel')).toHaveLength(1);
   });
+
   it('main div should have 5 children divs', () => {
     const wrapper = shallow(<Panel />);
-    expect(wrapper.find('.componentpanel').children('div')).toHaveLength(5);
+    expect(wrapper.find('.component-panel').children('div')).toHaveLength(5);
   });
+  
   it('panel should display 19 buttons', () => {
     const wrapper = shallow (<Panel />);
     expect(wrapper.find('Button')).toHaveLength(19);
