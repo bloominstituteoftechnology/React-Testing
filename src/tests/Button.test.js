@@ -12,4 +12,12 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
+
+  it('.orange class when props.orange is true', () => {
+    const wrapper = shallow(<Button orange />)
+    expect(wrapper.find('.orange')).toBeLength(1);
+  })
+
+  
+
 });
