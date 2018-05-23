@@ -7,9 +7,17 @@ import App from '../App';
 
 Enzyme.configure({ adapter: new Adapter() });
 
+
 describe('<App />', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
-});
+
+  it('renders a result display and a panel of buttons', () => {
+     const button = shallow(<App />)
+     expect(button.find('Display').length).toBe(1)
+     expect(button.find('Panel').length).toBe(1)
+   })
+
+ });

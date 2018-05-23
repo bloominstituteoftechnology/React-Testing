@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import './Panel.css';
 
 class Panel extends Component {
+
     handleClick = (buttonName) => {
         this.props.clickHandler(buttonName);
     };
