@@ -88,6 +88,9 @@ function calculate(obj, buttonName) {
     }
 
     if (obj.operation) {
+        if (obj.total == null || obj.next == null) {
+            return { operation: buttonName }
+        }
         return {
             total: operate(obj.total, obj.next, obj.operation),
             next: null,
