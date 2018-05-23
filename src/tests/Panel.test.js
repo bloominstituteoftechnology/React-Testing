@@ -12,4 +12,9 @@ describe('<Panel />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Panel />, div);
   });
+
+  it('should have 5 children siblings', () => {
+    const wrapper = shallow(<Panel />);
+    expect(wrapper.find('.component-panel').children()).toHaveLength(5);
+  });
 });
