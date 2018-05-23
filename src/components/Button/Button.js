@@ -5,7 +5,7 @@ import './Button.css';
 class Button extends Component {
     handleClick = () => {
         this.props.clickHandler(this.props.name);
-    }
+    };
 
     render() {
         const classNames = [

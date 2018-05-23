@@ -9,11 +9,11 @@ class App extends Component {
         total: '0',
         next: null,
         operation: null
-    }
+    };
 
     handleClick = (buttonName) => {
         this.setState(calculate(this.state, buttonName));
-    }
+    };
 
     render() {
         return (
