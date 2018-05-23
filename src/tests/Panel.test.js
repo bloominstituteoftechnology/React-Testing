@@ -8,8 +8,29 @@ import Panel from '../components/Panel/Panel';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Panel />', () => {
+  const wrapper = shallow(<Panel />);
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Panel />, div);
+    expect(wrapper).toHaveLength(1);
+  });
+  it('should render 19 buttons', () => {
+    expect(wrapper.find('Button')).toHaveLength(19);
+  });
+
+  it('should have 5 child elements', () => {
+    expect(wrapper.find('div').children('div')).toHaveLength(5);
+  });
+
+  it('should call handleClick passed from props', () => {
+    const myFunction = jest.fn();
+    const wrapper = shallow(<Panel clickHandler={myFunction} />);
+    // wrapper.find('Button').simulate('click'); // same as above
+    //wrapper.find('.AC').prop('onClick')();
+    expect(wrapper.instance().handleClick).toBeDefined();
+    expect(myFunction).toHaveBeenCalledTimes(0);
+  });
+
+  it('should contain a component panel', () => {
+    // expect(wrapper.equals('component-panel')).toBeTruthy();
+    expect(wrapper.find("div").first().hasClass('component-panel')).toBeTruthy();
   });
 });
