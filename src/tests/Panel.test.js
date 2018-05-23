@@ -12,4 +12,12 @@ describe('<Panel />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Panel />, div);
   });
+  it('should show all 19 buttons', () => {
+    const wrapper = shallow(<Panel />);
+    expect(wrapper.find("div").children("Button")).toHaveLength(19);
+  });
+   it(`renders a div with the className 'component-panel'`, () => {
+    const component = shallow(<Panel />);
+    expect(component.find('.component-panel')).toHaveLength(1);
+  });
 });
