@@ -12,4 +12,10 @@ describe('<Panel />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Panel />, div);
   });
+  it('renders without crashing', () => {
+    const component = shallow(<Panel />);
+    expect(component.find('div').length).toBe(6)
+    // ReactDOM.render(<Panel />, div);
+  });
+
 });
