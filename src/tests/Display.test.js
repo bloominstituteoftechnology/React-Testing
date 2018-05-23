@@ -12,4 +12,11 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+
+  it("Should have value of 10", () => {
+    const wrapper = shallow(
+      <Display value={"10"}/>
+    );
+    expect(wrapper).toMatchSnapshot()
+  });
 });
