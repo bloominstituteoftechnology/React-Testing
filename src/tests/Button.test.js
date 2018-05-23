@@ -21,4 +21,9 @@ describe('<Button />', () => {
     );
     expect(wrapper).toMatchSnapshot()
   })
+
+  it("should contain a class of orange wide", () => {
+    const wrapper = shallow(<Button orange={true} />);
+    expect(wrapper.find("div").first().hasClass("orange")).toEqual(true);
+  });
 });
