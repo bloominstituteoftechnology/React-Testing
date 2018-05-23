@@ -16,4 +16,8 @@ describe('<Button />', () => {
   it('Should find orange button', () => {
   expect(wrapper.find('.orange').length).toBe(1)
   })
+  it('Grabs grabs name of button', () => {
+    const wrapper = shallow(<Button name='button' />)
+    expect(wrapper.find('button').text()).toEqual('button')
+  })
 });
