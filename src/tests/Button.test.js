@@ -15,13 +15,23 @@ describe('<Button />', () => {
 
   it('.orange class when props.orange is true', () => {
     const wrapper = shallow(<Button orange />)
-    expect(wrapper.find('.orange')).toBeLength(1);
+    expect(wrapper.find('.orange')).toHaveLength(1);
   })
 
   it('.wide class when props.wide is true', () => {
     const wrapper = shallow(<Button wide />)
-    expect(wrapper.find('.wide')).toBeLength(1);
+    expect(wrapper.find('.wide')).toHaveLength(1);
   })
 
-  
+  it('shows props.name on the button', () => {
+    const wrapper = shallow(<Button name='button' />)
+    expect(wrapper.text('button')).toEqual('button');
+  })
+
+  it('should call props.clickHandler when the button is clicked', () => {
+    const fn = jest.fn()
+    const wrapper = shallow(<Button clickHandler={fn} />)
+    wrapper.find('button').simulate('click')
+    expect(fn.mock.calls.length).toBe(1)
+  })
 });
