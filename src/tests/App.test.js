@@ -12,4 +12,13 @@ describe('<App />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
+it('should have two components', () => {
+  const wrapper = shallow(<App />);
+  expect(wrapper.find('div').children()).toHaveLength(2);
+});
+it('renders a result display and buttons', () => {
+  const wrapper = shallow(<App />)
+  expect(wrapper.find('Display').length).toBe(1)
+  expect(wrapper.find('Panel').length).toBe(1)
+})
 });
