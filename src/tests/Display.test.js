@@ -25,12 +25,6 @@ describe("<Display />", () => {
   it("should contain div with specific className", () => {
     const wrapper = mount(<Display />);
 
-    expect(
-      wrapper.contains(
-        <div className="component-display">
-          <div />
-        </div>
-      )
-    ).toEqual(true);
+    expect(wrapper.find(".component-display").exists()).toEqual(true);
   });
 });
