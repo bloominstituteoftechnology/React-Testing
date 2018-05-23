@@ -12,4 +12,14 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+
+  it('contains the class component-display', () => {
+    const component = shallow(<Display />);
+    expect(component.find('.component-display').length).toBe(1);
+  })
+
+  it('should accept and display some value', () => {
+    const component = shallow(<Display value='53' />);
+    expect(component.contains(<div>53</div>)).toBeTruthy();
+  })
 });
