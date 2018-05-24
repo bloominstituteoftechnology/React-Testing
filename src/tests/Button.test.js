@@ -12,4 +12,8 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
+  it('should be wide when props.wide is true', () => {
+    const wrapper = shallow(<Button wide />);
+    expect(wrapper.find('.wide').length).toEqual(1);
+  });
 });
