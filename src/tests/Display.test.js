@@ -12,4 +12,16 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+
+  it('should not differ from snapshot', () => {
+    const display = shallow(<Display />);
+
+    expect(display).toMatchSnapshot();
+  });
+
+  it('should display prop value', () => {
+    const display = shallow(<Display value="5" />);
+
+    expect(display.text()).toBe("5");
+  });
 });
