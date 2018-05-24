@@ -12,4 +12,18 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
+
+  it('should not differ from snapshot', () => {
+    let props = { name: 4, orange: false, wide: false };
+    let element = shallow(<Button />);
+    expect(element).toMatchSnapshot();
+  })
+
+  it('should call clickHandler function with specified button name', () => {
+    let props = { name: '4' };
+    const component = shallow(<Button />);
+    const instance = component.instance();
+    const button = component.find('.component-button');
+    // expect(button.props.name).toEqual(4);
+  })
 });

@@ -12,4 +12,10 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+
+  it('should not differ from snapshot', () => {
+    let props = { value: '1000' }; //random value to test
+    let element = shallow(<Display />);
+    expect(element).toMatchSnapshot();
+  })
 });

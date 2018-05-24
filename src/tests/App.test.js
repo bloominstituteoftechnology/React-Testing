@@ -12,4 +12,11 @@ describe('<App />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
+
+  //SNAPSHOT
+  
+  it('should not differ from snapshot', () => {
+    let element = shallow(<App />);
+    expect(element).toMatchSnapshot();
+  })
 });
