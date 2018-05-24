@@ -8,8 +8,16 @@ class App extends Component {
     state = {
         total: '0',
         next: null,
-        operation: null
+        operation: null, 
+        isLocked: false
+
     }
+
+    toggleLocked = () => {
+        this.setState(prevState => ({ isLocked: !prevState.isLocked }));
+    
+        alert('lock button clicked!');
+      };
 
     handleClick = (buttonName) => {
         this.setState(calculate(this.state, buttonName));
