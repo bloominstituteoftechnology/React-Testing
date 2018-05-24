@@ -9,6 +9,7 @@ class Panel extends Component {
     };
 
     render() {
+        // console.log('Fired the panel component')
         return (
             <div className="component-panel">
                 <div>

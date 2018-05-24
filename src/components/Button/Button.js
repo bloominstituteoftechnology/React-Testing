@@ -13,6 +13,7 @@ class Button extends Component {
             this.props.orange ? 'orange' : '',
             this.props.wide ? 'wide' : '',
         ];
+        // console.log('Fired the BUtton component')
         return (
             <div className={classNames.join(' ').trim()}>
                 <button onClick={this.handleClick}>

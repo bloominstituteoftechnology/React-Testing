@@ -16,6 +16,10 @@ class App extends Component {
     }
 
     render() {
+        // console.log('Fired the App component')
+        // console.log('Total typeof', typeof this.state.total)
+        // console.log('Next typeof', typeof this.state.next)
+        // console.log('Operation typeof', typeof this.state.operation)
         return (
             <div className='component-app'>
                 <Display value={this.state.next || this.state.total || '0'} />
