@@ -16,10 +16,10 @@ describe("<Button />", () => {
   it("returns length of children", () => {
     expect(wrapper).toHaveLength(1);
   });
-  it ('returns the resault of click', () => {
+  it ('returns the click should change the prop name', () => {
+    expect(wrapper.instance().props.name).toBe('hello world');
     wrapper.find('button').simulate('click')
-    const insttance ()
-    expect(instance.insttance(('button').simulate('click').toEqual('hello')
+    expect(wrapper.instance().props.name).toBe('hello');
   })
   it('check snapshot',()=>{
   
