@@ -7,9 +7,15 @@ import App from '../App';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('<App />', () => {
-  it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<App />, div);
-  });
+it('should be the same as snapshot', () => {
+  const app = shallow(<App />);
+  expect(app).toMatchSnapshot();
+});
+
+it ('display and panel should render', () => {
+  const app = shallow(<App />);
+  const display = app.find('Display');
+  const panel = app.find('Panel');
+  expect(display.length).toBe(1);
+  expect(panel.length).toBe(1);
 });
