@@ -12,4 +12,9 @@ describe('<Panel />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Panel />, div);
   });
+
+  it('should not differ from snapshot', () => {
+    let element = shallow(<Panel />);
+    expect(element).toMatchSnapshot();
+  })
 });
