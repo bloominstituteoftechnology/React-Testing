@@ -18,6 +18,7 @@ class Button extends Component {
                 <button onClick={this.handleClick}>
                     {this.props.name}
                 </button>
+                
             </div>
         );
     }

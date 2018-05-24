@@ -12,4 +12,10 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+  it('check snapshot',()=>{
+  
+    let element = shallow(<Display/>)
+    expect(element).toMatchSnapshot()
+
+  })
 });
