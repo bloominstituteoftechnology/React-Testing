@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import './Display.css';
 
 const Display = ({ value }) => {
-    console.log('this.props for Display.js', value);
-    console.log('typeof value: ', typeof value)
+    // console.log('this.props for Display.js', value);
+    // console.log('typeof value: ', typeof value)
     return (
         <div className="component-display">
             <div>
