@@ -20,7 +20,7 @@ describe('<Display />', () => {
     it('displays the value passed down as props', () => {
       let props = { value: '1' }
       const wrapper = shallow(<Display {...props} />)
-      const found = wrapper.find('div>div').text()
+      const found = wrapper.find('div>div').text() // 
       expect(found).toBe(props.value)
     })
   });
