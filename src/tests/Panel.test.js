@@ -12,4 +12,12 @@ describe('<Panel />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Panel />, div);
   });
+  it('Should render a panel component', () => {
+    const wrapper = shallow(<Panel />);
+    expect(wrapper.find('.component-panel').length).toBe(1);
+  })
+  it('Should render five divs as children', () => {
+    const wrapper = shallow(<Panel />);
+    expect(wrapper.find('.component-panel').children('div')).toHaveLength(5);
+  })
 });
