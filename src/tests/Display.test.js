@@ -13,5 +13,9 @@ describe('<Display />', () => {
     ReactDOM.render(<Display />, div);
   });
 
-  it('')
+  it('should not differ from snapshot', () => {
+    let props = { value: '1000' }; //random value to test
+    let element = shallow(<Display />);
+    expect(element).toMatchSnapshot();
+  })
 });
