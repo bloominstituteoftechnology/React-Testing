@@ -12,4 +12,7 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
-});
+  it('Should render the props.value given to it', () => {
+    const wrapper = shallow(<Display value='fumo'/>);
+    expect(wrapper.find('div>div').text()).toEqual('fumo')
+  })
