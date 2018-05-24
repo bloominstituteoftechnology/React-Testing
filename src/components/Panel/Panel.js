@@ -15,7 +15,7 @@ class Panel extends Component {
                     <Button name="AC" clickHandler={this.handleClick} />
                     <Button name="+/-" clickHandler={this.handleClick} />
                     <Button name="%" clickHandler={this.handleClick} />
-                    <Button name="÷" clickHandler={this.handleClick} orange />
+                    <Button className="plus-btn" name="÷" clickHandler={this.handleClick} orange />
                 </div>
                 <div>
                     <Button name="7" clickHandler={this.handleClick} />
