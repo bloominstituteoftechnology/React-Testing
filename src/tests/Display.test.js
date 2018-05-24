@@ -19,7 +19,15 @@ describe('<Display />', () => {
     const wrapper = shallow(<Display {...props}/>)
     const totest = wrapper.find('div>div')//.find('div');
     expect(typeof totest).toBe('object')
-  })
+  });
+  describe('Displays', () => {
+    it('displays the value passed down as props', () => {
+      let props = { value: '1' }
+      const wrapper = shallow(<Display {...props} />)
+      const found = wrapper.find('div>div').text() // 
+      expect(found).toBe(props.value)
+    })
+  });
 
 
 
