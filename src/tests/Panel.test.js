@@ -20,7 +20,7 @@ describe('<Panel />', () => {
     expect(panel).toMatchSnapshot();
   });
 
-  it('all butttons receive clickhandler correctly', () => {
+  it('clickiing on button should fire Panel prop clickHandler', () => {
     const clickHandler = jest.fn();
     const panel = shallow(<Panel clickHandler={clickHandler} />);
 
