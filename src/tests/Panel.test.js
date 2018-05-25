@@ -16,8 +16,4 @@ describe("<Panel />", () => {
     const element = shallow(<Panel />);
     expect(element.find("Button")).toHaveLength(19);
   });
-  // it("all 19 buttons should connect to the handleClick function", () => {
-  //   const element = shallow(<Panel />);
-  //   expect(element.find("clickHandler")).toHaveLength(19);
-  // });
 });

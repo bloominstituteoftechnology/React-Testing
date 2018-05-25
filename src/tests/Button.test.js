@@ -20,7 +20,11 @@ describe("<Button />", () => {
     const element = shallow(<Button wide={true} />);
     expect(element.find(".wide")).toHaveLength(1);
   });
-  // it('runs the this.props.clickHandler(this.props.name) when clicked', () => {
-
-  // });
+  it("buttons should run passed in function when clicked", () => {
+    const func = sinon.spy();
+    const element = shallow(<Button name="button1" clickHandler={func} />);
+    element.find("button").simulate("click");
+    expect(func.calledOnce).toEqual(true);
+    expect(func.calledWith("button1")).toEqual(true);
+  });
 });
