@@ -12,4 +12,16 @@ describe('<App />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
+  it('contains nested components', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.find('div')).toHaveLength(1);
+    expect(wrapper.find('Display')).toHaveLength(1);
+    expect(wrapper.find('Panel')).toHaveLength(1);
+  });
+  it('should have the correct initial state', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.state('total')).toEqual('0');
+    expect(wrapper.state('next')).toEqual(null);
+    expect(wrapper.state('operation')).toEqual(null);
+  });
 });
