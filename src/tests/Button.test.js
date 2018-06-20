@@ -12,4 +12,8 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
+  it('should have className of orange if it is passed that prop', () => {
+    const orange = shallow(<Button orange />);
+    expect(orange.find('.orange')).toHaveLength(1);
+  });
 });
