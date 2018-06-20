@@ -6,6 +6,7 @@
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-scripts": "^1.1.4"
+    
   },
   "scripts": {
     "start": "react-scripts start",
@@ -13,5 +14,10 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "sinon": "^6.0.0",
+    "prop-types": "^15.6.2"
+  }
 }
