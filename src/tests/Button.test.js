@@ -6,9 +6,22 @@ import Button from '../components/Button/Button';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe.skip('<Button />', () => {
+describe('<Button />', () => {
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Button />, div);
+    shallow(<Button />);
+  });
+
+  it('renders a html button', () => {
+    const wrapper = shallow(<Button />);
+    const htmlButton = wrapper.find('.component-button').children()
+    expect(htmlButton.html()).toEqual('<button></button>');
+  });
+
+  it('renders a html button with correct color class name', () => {
+    const orangeButton = shallow(<Button orange/>);
+    const wideButton = shallow(<Button wide/>);
+
+    expect(orangeButton.find('.component-button').hasClass('orange')).toEqual(true);
+    expect(wideButton.find('.component-button').hasClass('wide')).toEqual(true);
   });
 });
