@@ -11,9 +11,9 @@
     "react-test-renderer": "^16.4.1"
   },
   "scripts": {
-    "start": "react-scripts test --env=jsdom --verbose", 
+    "start": "react-scripts start", 
     "build": "react-scripts build",
-    "test": "jest --watch",
+    "test": "react-scripts test --env=jsdom --verbose",
     "eject": "react-scripts eject"
   },
   "devDependencies": {}
