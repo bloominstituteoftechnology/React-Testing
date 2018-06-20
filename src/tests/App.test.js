@@ -7,23 +7,39 @@ import App from '../App';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('<App />', () => {
+
   it('renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
+
   it('renders div with class component-app', () => {
     const app = shallow(<App />);
     const compApp = app.find(".component-app");
     expect(compApp.length).toEqual(1);
   });
+
   it('renders a display component', () => {
     const app = shallow(<App />);
     const display = app.find("Display");
     expect(display.length).toEqual(1);
   });
+
   it('renders a panel component', () => {
     const app = shallow(<App />);
     const panel = app.find("Panel");
     expect(panel.length).toEqual(1);
   });
+
+  it('handleClick() should toggle the on/off state"', () => {
+    const header = shallow(<Header />);
+    const instance = header.instance();
+
+    expect(instance.state.isOn).toEqual(false);
+    instance.toggleOn();
+    expect(instance.state.isOn).toEqual(true);
+    instance.toggleOn();
+    expect(instance.state.isOn).toEqual(false);
+  });
+
 });
