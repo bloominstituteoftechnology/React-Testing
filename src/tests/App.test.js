@@ -40,7 +40,6 @@ describe('<App />', () => {
 
     expect(instance.state).toEqual({ total: '0', next: null, operation: null });
 
-
   });
 
 });
