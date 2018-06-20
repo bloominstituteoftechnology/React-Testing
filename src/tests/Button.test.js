@@ -13,19 +13,19 @@ describe('<Button />', () => {
   });
 
   it('should have classname of orange when passed the orange prop', () => {
-    const orange = shallow(<Button orange/>);
-    expect(orange.find('.orange')).toHaveLength(1);
+    const button = shallow(<Button orange/>);
+    expect(button.find('.orange')).toHaveLength(1);
   });
 
   it('should display a button',() => {
-    const display = shallow(<Button/>);
-    expect(display.find('button')).toHaveLength(1);
+    const button = shallow(<Button/>);
+    expect(button.find('button')).toHaveLength(1);
   });
 
   it('should have a wide button', () => {
     const props = 'orange';
-    const wide = shallow(<Button wide />);
-    expect(wide.find('.wide')).toHaveLength(1);
+    const button = shallow(<Button wide />);
+    expect(button.find('.wide')).toHaveLength(1);
   });
 
   //I used Luis's gist as a model for the click handler. The gist had a toggle instead of a clickHandler but it works in a similar way.

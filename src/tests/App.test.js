@@ -8,11 +8,9 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('<App />', () => {
   it('renders without crashing', () => {
-    shallow(<App/>);
+    const div = document.createElement('div');
+    ReactDOM.render(<App />, div);
   });
-//    const div = document.createElement('div');
-//    ReactDOM.render(<App />, div);
-//  });
  
   
 });

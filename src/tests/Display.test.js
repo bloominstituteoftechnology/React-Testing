@@ -13,13 +13,14 @@ describe('<Display />', () => {
   });
 
   it('should contain a wrapper div',() => {
-    const wrapper = shallow(<Display/>);
-    expect(wrapper.find('div').exists()).toBe(true);
+    const display = shallow(<Display/>);
+    expect(display.find('div').exists()).toBe(true);
   });
 
-//  it('should display a number', () => {
-//    const dv = shallow(<Display value={'10'} />);
-//    expect(dv.find('10').exists()).toBe(true);
+//  it('should display a value', () => {
+//    const display = shallow(<Display/>);
+//    const value = 'something';
+//    expect(display.find('.component-display').text()).toBe({ value });
 //  });
 
 });

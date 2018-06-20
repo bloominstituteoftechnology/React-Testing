@@ -13,12 +13,12 @@ describe('<Panel />', () => {
   });
 
   it('should have a wrapper div', () => {
-    const wrapper = shallow(<Panel/>);
-    expect(wrapper.find('div').exists()).toBe(true);
+    const panel = shallow(<Panel/>);
+    expect(panel.find('div').exists()).toBe(true);
   });
 
   it('should render 19 buttons', () => {
-    const buttons = shallow(<Panel/>);
-    expect(buttons.find('Button')).toHaveLength(19);
+    const panel = shallow(<Panel/>);
+    expect(panel.find('Button')).toHaveLength(19);
   });
 });
