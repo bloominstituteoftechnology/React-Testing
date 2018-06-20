@@ -18,5 +18,9 @@ describe('<Button />', () => {
 
   // new tests
 
+  it('returns Button', () => {
+    const wrapper = shallow( < Button / > );
+    expect(wrapper).toHaveLength(1)
+  });
 
 });
