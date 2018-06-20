@@ -22,7 +22,7 @@ describe('<App />', () => {
     shallow(<App />);
   });
 
-  it('should render Display and Panel components', () => {
+  it('should contains Display and Panel components', () => {
     const app = shallow(<App />);
 
     const display = app.find(Display);
