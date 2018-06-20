@@ -17,10 +17,9 @@ describe('<Display />', () => {
     expect(display.find('div').exists()).toBe(true);
   });
 
-//  it('should display a value', () => {
-//    const display = shallow(<Display/>);
-//    const value = 'something';
-//    expect(display.find('.component-display').text()).toBe({ value });
-//  });
+  it('should display a value', () => {
+    const display = shallow(<Display value='10'/>);
+    expect(display.find('.component-display').text()).toBe('10');
+  });
 
 });
