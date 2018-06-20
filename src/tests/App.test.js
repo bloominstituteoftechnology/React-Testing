@@ -12,4 +12,19 @@ describe('<App />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
+  it('should render a Display component', () => { 
+    const app = shallow(<App />);
+
+    const display = app.find('Display');
+
+    expect(display.length).toEqual(1);
+
+  })
+  it('Should render a Panel component', () => { 
+    const app = shallow(<App />);
+
+    const display = app.find('Panel');
+
+    expect(display.length).toEqual(1);
+  })
 });
