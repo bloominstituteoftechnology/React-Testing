@@ -15,10 +15,10 @@ describe('<App />', () => {
     ReactDOM.render(<App />, div);
   });
 
-  it.each([[Display], [Panel]])('Should have given components', comp => {
-    const app = shallow(<App />);
-    expect(app.find(comp)).toHaveLength(1);
-  });
+  // test.each([[Display], [Panel]])('Should have given components', comp => {
+  //   const app = shallow(<App />);
+  //   expect(app.find(comp)).toHaveLength(1);
+  // });
   test('Have Display', () => {
     const app = shallow(<App />);
     expect(app.find(Display)).toHaveLength(1);
@@ -27,5 +27,18 @@ describe('<App />', () => {
     const app = shallow(<App />);
     expect(app.find(Panel).length).toEqual(1);
   });
-  test();
+  test('Has a function handler called handleClick', () => {
+    const app = shallow(<App />).instance();
+    expect(app.hasOwnProperty('handleClick')).toBeTruthy();
+  });
+  test('State has "total", "next" and "operation" as properties', () => {
+    const app = shallow(<App />).instance();
+    expect(
+      app.state.hasOwnProperty('total') && app.state.hasOwnProperty('next') && app.state.hasOwnProperty('operation')
+    ).toBeTruthy();
+  });
+  test('State has 3 properties', () => {
+    const app = shallow(<App />).instance();
+    expect(Object.keys(app.state)).toHaveLength(3);
+  });
 });
