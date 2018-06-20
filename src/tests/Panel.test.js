@@ -12,4 +12,17 @@ describe('<Panel />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Panel />, div);
   });
+  it('shallow renders without crashing', () => {
+    shallow(<Panel />);
+  });
+  it('should render exactly one Panel component', () => {
+    const panel = shallow(<Panel />);
+    const componentPanel = panel.find('.component-panel');
+    expect(componentPanel.length).toEqual(1);
+  });
+  it('should render exactly one Button component', () => {
+    const panel = shallow(<Panel />);
+    const componentButton = panel.find('Button');
+    expect(componentButton.length).toEqual(19);
+  })
 });
