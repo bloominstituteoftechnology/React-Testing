@@ -12,4 +12,8 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+  it('should have a div wrapper', () => {
+    const wrapper = shallow(<Display />);
+      expect(wrapper.find('div').exists()).toBe(true);
+  })
 });
