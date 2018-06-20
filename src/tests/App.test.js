@@ -47,10 +47,30 @@ describe('<App />', () => {
     const instance = app.instance();
 
     instance.handleClick("5");
-
     expect(instance.state).toEqual({
       total: null,
       next: "5",
+      operation: null
+    });
+
+    instance.handleClick("+");
+    expect(instance.state).toEqual({
+      total: "5",
+      next: null,
+      operation: "+"
+    });
+
+    instance.handleClick("2");
+    expect(instance.state).toEqual({
+      total: "5",
+      next: "2",
+      operation: "+"
+    });
+
+    instance.handleClick("=");
+    expect(instance.state).toEqual({
+      total: "7",
+      next: null,
       operation: null
     });
   })
