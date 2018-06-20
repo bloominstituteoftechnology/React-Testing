@@ -12,4 +12,10 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
+  it('should render buttons', () => {
+    const button = shallow(<Button />);
+    const buttons = button.find('button');
+
+    expect(buttons.length).toBe(1);
+  });
 });

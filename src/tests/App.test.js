@@ -19,10 +19,20 @@ describe('App component', () => {
       shallow(<App />);
   });
     it('should render a panel of a calculator', () => {
-    const display = shallow(<App />);
+    const app = shallow(<App />);
+    const displays = app.find('Display');
+    const panel = app.find('Panel');
 
-    const displays = display.find('panel')
-
-    expect(displays.length).toEqual(1)
+    expect(displays.length).toBe(1)
+    expect(panel.length).toBe(1)
   });
+    it('should handle state of of handleClick', () => {
+      const app = shallow(<App />);
+      const instance = app.instance();
+      const buttons = app.find('handleClick');
+
+      expect(instance.state.total).toEqual('0');
+      expect(instance.state.next).toEqual(null);
+      expect(instance.state.operation).toEqual(null);
+    });
 });
