@@ -9,7 +9,15 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Display />', () => {
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Display />, div);
+    shallow(<Display />);
+  });
+
+  it('renders an empty div on initial load', () => {
+    const props = { value: '0' };
+
+    const display = shallow(<Display {...props} />);
+    const value = display.find('.component-display').text()
+
+    expect(value).toEqual('0');
   });
 });
