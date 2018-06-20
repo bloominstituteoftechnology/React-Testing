@@ -12,13 +12,13 @@ class Panel extends Component {
         return (
             <div className="component-panel">
                 <div>
-                    <Button name="AC" clickHandler={this.handleClick} />
+                    <Button  name="AC" clickHandler={this.handleClick} />
                     <Button name="+/-" clickHandler={this.handleClick} />
                     <Button name="%" clickHandler={this.handleClick} />
                     <Button name="÷" clickHandler={this.handleClick} orange />
                 </div>
                 <div>
-                    <Button name="7" clickHandler={this.handleClick} />
+                    <Button className="AC" name="7" clickHandler={this.handleClick} />
                     <Button name="8" clickHandler={this.handleClick} />
                     <Button name="9" clickHandler={this.handleClick} />
                     <Button name="x" clickHandler={this.handleClick} orange />
