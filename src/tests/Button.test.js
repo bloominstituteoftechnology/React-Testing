@@ -7,6 +7,8 @@ import Button from '../components/Button/Button';
 
 Enzyme.configure({ adapter: new Adapter() });
 
+// write test here
+
 describe('<Button />', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
