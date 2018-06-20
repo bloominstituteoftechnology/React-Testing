@@ -11,4 +11,16 @@ describe.skip('<Panel />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Panel />, div);
   });
+
+  it('shallow renders without crashing', () => {
+    shallow(<Panel />);
+  });
+
+  it('should render 19 Button components', () => {
+    const panel = shallow(<Panel />);
+
+    const buttons = panel.find('Button');
+
+    expect(buttons.length).toEqual(19);
+  });
 });

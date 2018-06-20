@@ -11,4 +11,16 @@ describe.skip('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+
+  it('shallow renders without crashing', () => {
+    shallow(<Display />);
+  });
+
+  it('should render one Display component', () => {
+    const display = shallow(<Display />);
+
+    const componentDisplay = display.find('.component-display');
+
+    expect(componentDisplay.length).toEqual(1);
+  });
 });
