@@ -12,4 +12,10 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
+
+  it('should render exactly one Button component', () => {
+    const button = shallow(<Button />);
+    const Button = button.find('Button');
+    expect(Button.length).toEqual(1);
+  });
 });
