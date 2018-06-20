@@ -12,4 +12,10 @@ describe('<Panel />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Panel />, div);
   });
+
+  it('should have a wrapper div', () => {
+    const wrapper = shallow(<Panel/>);
+    expect(wrapper.find('div').exists()).toBe(true);
+  });
+  
 });
