@@ -12,10 +12,10 @@ describe('<Display />', () => {
     shallow(<Display />);
   });
 
-  // it('should display 0 on initial render', () => {
-  //   const display = shallow(<Display />);
-  //   const value = display.find('.component-display').children();
-  //   console.log(value)
-  //   expect(value.text()).toEqual('0')
-  // })
+  it('should display 0 on initial render', () => {
+    const display = shallow(<Display />);
+    const value = display.find('div').children();
+    console.log(Array.isArray(value))
+    expect(value.text()).toEqual('0')
+  })
 });

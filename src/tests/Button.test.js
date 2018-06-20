@@ -9,7 +9,27 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Button />', () => {
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Button />, div);
+    shallow(<Button />);
   });
+
+  it('should render an orange button ', () => {
+    const props = {orange: true}
+    const button = shallow(<Button {...props} />);
+    expect(button.hasClass('orange')).toEqual(true)
+  })
+
+  it('should render a wide button ', () => {
+    const props = { wide: true}
+    const button = shallow(<Button {...props} />);
+    expect(button.hasClass('wide')).toEqual(true)
+  })
+
+  it('should have a handleClick function', () => {
+    const button = shallow(<Button />);
+    const instance = button.instance();
+    expect(typeof(instance.handleClick)).toEqual('function');
+  })
+
+  
+
 });
