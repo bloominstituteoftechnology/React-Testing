@@ -11,4 +11,14 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+
+  it('should return the div with the class of component-display', () => {
+    const display = shallow(<Display />);
+    expect(display.find('.component-display')).toHaveLength(1);
+  });
+
+  it('should return the value in which it contains', () => {
+    const display = shallow(<Display value={'Hello!'} />);
+    expect(display.contains('Hello!')).toEqual(true);
+  });
 });
