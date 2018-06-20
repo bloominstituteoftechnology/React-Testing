@@ -8,13 +8,12 @@
     "react-scripts": "^1.1.4",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "jest": "^23.1.0",
     "react-test-renderer": "^16.4.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts test --env=jsdom --verbose", 
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom jest --watch",
+    "test": "jest --watch",
     "eject": "react-scripts eject"
   },
   "devDependencies": {}

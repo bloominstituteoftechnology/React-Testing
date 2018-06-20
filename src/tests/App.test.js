@@ -11,7 +11,7 @@ describe('App component', () => {
   it('renders without crashing', () => {
     // const div = document.createElement('div');
     // ReactDOM.render(<App />, div);
-    shallow(<App />); // notice this only renders App and will not render any child components
+    shallow(<App />);
   });
 });
 
