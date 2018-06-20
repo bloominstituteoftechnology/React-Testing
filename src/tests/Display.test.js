@@ -12,4 +12,19 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+
+  it('should be the same as the snapshot', () => {
+    const display = shallow(<Display />);
+    expect(display).toMatchSnapshot();
+  });
+
+  it('should display props that are passed to it', () => {
+    const display = shallow(<Display value="100" />);
+    expect(display.text()).toBe('100');
+  });
+
+  it('should have a wrapperclass in a div', () => {
+    const wrapper = shallow(<Display />);
+    expect(wrapper.find('div').exists()).toBe(true);
+  });
 });

@@ -12,4 +12,14 @@ describe('<Panel />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Panel />, div);
   });
+
+  it('should be the same as the snapshot', () => {
+    const panel = shallow(<Panel />);
+    expect(panel).toMatchSnapshot();
+  });
+
+  it('should render a total of 19 buttons on the panel component', () => {
+    const buttons = shallow(<Panel />);
+    expect(buttons.find('Button')).toHaveLength(19);
+  });
 });
