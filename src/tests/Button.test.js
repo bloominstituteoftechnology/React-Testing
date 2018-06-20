@@ -8,8 +8,15 @@ import Button from '../components/Button/Button';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Button />', () => {
-  it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Button />, div);
-  });
+  describe('Button component', () => {
+
+    it('renders without crashing', () => {
+      shallow(<Button />)
+    });
+    it.skip('renders a button', () => {
+      const wrap = shallow(<Button />);
+      const button = wrap.find('.component-button');
+      expect(button).toEqual('<button></button>')
+    })
+  })
 });
