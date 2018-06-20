@@ -1,15 +1,40 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import sinon from 'sinon';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import App from '../App';
+import React from "react";
+import ReactDOM from "react-dom";
+import Enzyme, { shallow } from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
+import App from "../App";
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('<App />', () => {
-  it('renders without crashing', () => {
-    const div = document.createElement('div');
+describe("<App />", () => {
+  it("renders without crashing", () => {
+    const div = document.createElement("div");
     ReactDOM.render(<App />, div);
+  });
+
+  it("should render exactly one <Display/> component", () => {
+    const app = shallow(<App />);
+
+    const display = app.find("Display");
+
+    expect(display.length).toEqual(1);
+  });
+
+  it("should render exactly one <Panel/> component", () => {
+    const app = shallow(<App />);
+
+    const panel = app.find("Panel");
+
+    expect(panel.length).toEqual(1);
+  });
+
+  it("state total: '0', next: null, and operation: null by default", () => {
+    const app = shallow(<App />);
+
+    const instance = app.instance();
+
+    expect(instance.state.total).toEqual("0");
+    expect(instance.state.next).toEqual(null);
+    expect(instance.state.operation).toEqual(null);
   });
 });
