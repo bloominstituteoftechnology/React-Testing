@@ -8,8 +8,29 @@ import Display from '../components/Display/Display';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Display />', () => {
-  it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Display />, div);
+
+  describe('Presentation:', () => {
+    it('shallow renders without crashing', () => {
+      shallow(<Display />);
+    });
+    
+    it('should display "component-display" div', () => {
+      const display = shallow(<Display />);
+      const componentDisplay = display.find('.component-display');
+      
+      expect(componentDisplay.length).toEqual(1);
+    });
+
+    it('should present `value` from props appropriately', () => {
+      const expected = 'Please don\'t charge me, PatrickBot!';
+      const props = { value: expected };
+  
+      const display = shallow(<Display {...props} />);
+      const namelessDiv = display.find('.component-display').childAt(0);
+      
+      expect(namelessDiv.text()).toEqual(expected);
+    });
   });
+
+
 });
