@@ -8,8 +8,16 @@ import Display from '../components/Display/Display';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Display />', () => {
-  it('renders without crashing', () => {
+  it.skip('renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
+  });
+  it.skip('shallow renders without crashing', () => {
+    shallow(<Display />);
+  });
+  it('should render exactly one Display component', () => {
+    const display = shallow(<Display />);
+    const componentDisplay = display.find(".component-display");
+    expect(componentDisplay.length).toEqual(1);
   });
 });
