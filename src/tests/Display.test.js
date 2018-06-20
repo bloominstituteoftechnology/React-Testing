@@ -12,4 +12,8 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+  it('contains the className component-display', () => {
+    const wrapper = shallow(<Display />);
+    expect(wrapper.find('.component-display').length).toEqual(1);
+  });
 });
