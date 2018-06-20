@@ -16,4 +16,9 @@ describe('<Button />', () => {
     const orange = shallow(<Button orange/>);
     expect(orange.find('.orange')).toHaveLength(1);
   })
+  it('should return props.wide', () => {
+    const wrap = shallow(<Button />);
+    expect(wrap.find('.wide').exists()).toBeFalsy();
+    expect(wrap.find('.component-button').exists()).toBeTruthy();
+  })
 });
