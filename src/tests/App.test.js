@@ -5,7 +5,7 @@ import App from '../App';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe.only('<App />', () => {
+describe('<App />', () => {
 // render
   it('renders without crashing', () => {
     shallow(<App/>);
@@ -61,6 +61,14 @@ describe.only('<App />', () => {
       instance.handleClick('6');
       expect(instance.state).toEqual(expected);
   });
+    it('should update the state next to toggle negative or positive integer', () => {
+      const app = shallow(<App/>);
+      const instance = app.instance();
+      const expected = { total: null, next: "-3", operation: null };
+      instance.handleClick('3');
+      instance.handleClick('+/-');
+      expect(instance.state).toEqual(expected);
+  });
     it('should update the state total to add values to 72.4', () => {
       const app = shallow(<App/>);
       const instance = app.instance();
@@ -111,14 +119,6 @@ describe.only('<App />', () => {
       instance.handleClick('%');
       instance.handleClick('100');
       instance.handleClick('=');
-      expect(instance.state).toEqual(expected);
-  });
-    it('should update the state next to toggle negative or positive integer', () => {
-      const app = shallow(<App/>);
-      const instance = app.instance();
-      const expected = { total: null, next: "-3", operation: null };
-      instance.handleClick('3');
-      instance.handleClick('+/-');
       expect(instance.state).toEqual(expected);
   });
 
