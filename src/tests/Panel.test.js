@@ -8,7 +8,7 @@ import Panel from "../components/Panel/Panel";
 Enzyme.configure({ adapter: new Adapter() });
 
 describe("<Panel />", () => {
-  const pan = shallow(<Panel />)
+  const pan = shallow(<Panel />);
 
   it("renders without crashing", () => {
     const div = document.createElement("div");

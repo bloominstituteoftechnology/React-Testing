@@ -10,12 +10,18 @@ Enzyme.configure({ adapter: new Adapter() });
 describe("<Button />", () => {
   const wrapper = shallow(<Button />);
 
+  it("renders without crashing", () => {
+    const div = document.createElement("div");
+    ReactDOM.render(<Button />, div);
+  });
+
   it("should  return component-button ", () => {
     const wrapper = shallow(<Button />);
     expect(wrapper.find(".component-button").exists()).toBeTruthy();
     expect(wrapper.find(".wide").exists()).toBeFalsy();
     expect(wrapper.find(".orange").exists()).toBeFalsy();
   });
+
   it("should  return props.orange ", () => {
     const wrapper = shallow(<Button orange />);
     expect(wrapper.find(".orange").exists()).toBeTruthy();
@@ -29,11 +35,8 @@ describe("<Button />", () => {
     expect(wrapper.find(".orange").exists()).toBeFalsy();
     expect(wrapper.find(".component-button").exists()).toBeTruthy();
   });
-  it("renders without crashing", () => {
-    const div = document.createElement("div");
-    ReactDOM.render(<Button />, div);
-  });
+
   it("Should return 2 divs", () => {
-    expect(wrapper.find("div").children()).toHaveLength(1)
-  })
+    expect(wrapper.find("div").children()).toHaveLength(1);
+  });
 });
