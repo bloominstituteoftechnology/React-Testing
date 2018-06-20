@@ -14,12 +14,14 @@ Enzyme.configure({ adapter: new Adapter() });
 //       shallow(<Panel />);
 //   });
 
+const app = shallow(<App/>);
+
 describe('App component', () => {
     it('renders without crashing', () => {
       shallow(<App />);
   });
     it('should render a panel of a calculator', () => {
-    const app = shallow(<App />);
+    app;
     const displays = app.find('Display');
     const panel = app.find('Panel');
 
@@ -27,7 +29,7 @@ describe('App component', () => {
     expect(panel.length).toBe(1)
   });
     it('should handle state of of handleClick', () => {
-      const app = shallow(<App />);
+      app;
       const instance = app.instance();
       const buttons = app.find('handleClick');
 
@@ -35,4 +37,15 @@ describe('App component', () => {
       expect(instance.state.next).toEqual(null);
       expect(instance.state.operation).toEqual(null);
     });
+    it('should display number clicked', () => {
+      window.alert = jest.fn();
+      const expected = 'button clicked';
+     
+      app;
+      const button = app.find('handleClick');
+      button.simulate('click')
+      
+      expect(window.alert).toHaveBeenCalled(1);
+      expect(window.alert).toHaveBeenCalled(expected);
+    })
 });
