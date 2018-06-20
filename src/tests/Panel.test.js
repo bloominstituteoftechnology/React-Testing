@@ -11,4 +11,23 @@ describe('<Panel />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Panel />, div);
   });
+
+  it("should have parent div with classname component-panel", () => {
+    const panel = shallow(<Panel />);
+
+    expect(panel.find(".component-panel")).toHaveLength(1);
+  });
+
+  it("parent div should have 5 child divs", () => {
+    const panel = shallow(<Panel />);
+
+    expect(panel.find(".component-panel").children("div")).toHaveLength(5);
+  });
+
+  it("should have 19 buttons in total", () => {
+    const panel = shallow(<Panel />);
+    
+    expect(panel.find("Button")).toHaveLength(19);
+  });
+
 });
