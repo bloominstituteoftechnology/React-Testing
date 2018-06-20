@@ -6,11 +6,23 @@ import Button from '../components/Button/Button';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-// write test here
+// Write test here
 
 describe('<Button />', () => {
-  it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Button />, div);
+  it('Renders without crashing.', () => {
+    shallow(<Button />);  
+  });
+
+  it('Renders a button.', () => {
+    const wrapper = shallow(<Button />);
+    const button = wrapper.find('.component-button').children()
+    expect(button.html()).toEqual('<button></button>');
+  });
+
+  it('Renders a button with correct color or type.', () => {
+    const orangeButton = shallow(<Button orange/>);
+    const wideButton = shallow(<Button wide/>);
+    expect(orangeButton.find('.component-button').hasClass('orange')).toEqual(true);
+    expect(wideButton.find('.component-button').hasClass('wide')).toEqual(true);    
   });
 });
