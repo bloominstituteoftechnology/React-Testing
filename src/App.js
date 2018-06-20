@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Display from './components/Display/Display';
 import Panel from './components/Panel/Panel';
+import Button from './components/Button/Button';
 import calculate from './logic/calculate';
 import './App.css';
 
@@ -20,6 +21,7 @@ class App extends Component {
             <div className='component-app'>
                 <Display value={this.state.next || this.state.total || '0'} />
                 <Panel clickHandler={this.handleClick} />
+                <Button />
             </div>
         );
     }
