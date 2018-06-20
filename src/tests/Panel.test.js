@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import sinon from 'sinon';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import Panel from '../components/Panel/Panel';
@@ -17,5 +16,9 @@ describe('<Panel />', () => {
     const wrapper = shallow(<Panel/>);
     expect(wrapper.find('div').exists()).toBe(true);
   });
-  
+
+  it('should render 19 buttons', () => {
+    const buttons = shallow(<Panel/>);
+    expect(buttons.find('Button')).toHaveLength(19);
+  });
 });

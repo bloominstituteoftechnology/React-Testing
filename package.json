@@ -7,8 +7,7 @@
     "enzyme-adapter-react-16": "^1.1.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
-    "react-scripts": "^1.1.4",
-    "sinon": "^6.0.0"
+    "react-scripts": "^1.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
