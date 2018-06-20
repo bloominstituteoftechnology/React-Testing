@@ -24,6 +24,10 @@ describe('<Button />', () => {
     const button = shallow(<Button orange />);
     expect(button.find('.orange').length).toEqual(1);
   })
+  it('name holds value given', () => {
+    const button = shallow(<Button name="Alex" />);
+    expect(button.text()).toBe("Alex");
+  })
   it('should match snapshot', () => {
     const button =  shallow(<Button />);
     expect(button).toMatchSnapshot();
