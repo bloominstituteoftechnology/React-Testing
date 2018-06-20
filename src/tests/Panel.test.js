@@ -26,11 +26,4 @@ describe('<Panel />', () => {
     const panel = shallow(<Panel />);
     expect(panel.find("Button")).toHaveLength(19);
   });
-
-  it("should pass click handler and function properly", () => {
-    window.alert = jest.fn();
-    const panel = shallow(<Panel clickHandler={window.alert} />);
-    panel.find(`[name="AC"] button`).simulate("click");
-    expect(window.alert).toHaveBeenCalledTimes.toBe(1);
-  });
 });
