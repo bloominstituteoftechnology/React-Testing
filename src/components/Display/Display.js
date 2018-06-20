@@ -5,15 +5,13 @@ import './Display.css';
 const Display = ({ value }) => {
   return (
     <div className="component-display">
-      <div>
-        {value}
-      </div>
+      {value}
     </div>
   );
 };
 
 Display.propTypes = {
-  value: PropTypes.string
+  value: PropTypes.string.isRequired
 };
 
 export default Display;

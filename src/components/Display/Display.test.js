@@ -4,6 +4,6 @@ import Display from './Display';
 
 describe('<Display />', () => {
   it('renders without crashing', () => {
-    shallow(<Display />);
+    shallow(<Display value={'0'} />);
   });
 });
