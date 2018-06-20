@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import sinon from 'sinon';
-import Enzyme, { shallow } from 'enzyme';
+import sinon from 'sinon';
+import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import App from '../App';
+import Panel from '../components/Panel/Panel';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -27,10 +28,14 @@ describe('<App />', () => {
     expect(instance.state.next).toBe(null)
     expect(instance.state.operation).toBe(null)
   })
-  it('should handleClick properly', () => {
-    const app = shallow(<App />)
-    const button = app.find('buttonName')
+  it('simulates click handler', () => {
+    const handleClick = sinon.spy();
+    const app = mount((<App clickHandler={handleClick} />))
+    const panel = app.find(Panel)
+    panel.props().clickHandler = app.props().clickHandler()
+    const button = panel.find('[name="7"]').find('.component-button').children()
     button.simulate('click')
-    expect(jest.fn()).toHaveBeenCalledWith()
+    expect(handleClick.calledOnce).toEqual(true);
   })
+
 });

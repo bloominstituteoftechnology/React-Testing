@@ -17,14 +17,20 @@ describe('<Button />', () => {
     const componentButton = button.find('.component-button')
     expect(componentButton.length).toEqual(1);
   });
-  it('should execute handleClick', () => {
-    const button = shallow(<Button />);
-    button.simulate('click');
+  it('should render a wide button', () => {
+    const button = shallow(<Button wide />);
+    expect(button.find('.wide').length).toEqual(1);
   })
-  it('handles props correctly', () => {
-    const button = shallow(<Button />);
-    
-
-
+  it('should render an orange button', () => {
+    const button = shallow(<Button orange />);
+    expect(button.find('.orange').length).toEqual(1);
+  })
+  it('should match snapshot', () => {
+    const button =  shallow(<Button />);
+    expect(button).toMatchSnapshot();
+  })
+  it('name props work properly', () => {
+    const button = shallow(<Button name='Andrew' />)
+    expect(button.text()).toBe("Andrew")
   })
 });
