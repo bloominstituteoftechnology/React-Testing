@@ -22,4 +22,5 @@ describe('<Panel />', () => {
     const buttons = shallow(<Panel />);
     expect(buttons.find('Button')).toHaveLength(19);
   });
+  
 });
