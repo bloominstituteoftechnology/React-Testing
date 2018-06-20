@@ -12,4 +12,10 @@ describe('<Panel />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Panel />, div);
   });
+
+  it('look for number of button', () => {
+    const bt = shallow(<Panel />);
+    const ton = bt.find('Button');
+    expect(ton.length).toEqual(19)
+  })
 });
