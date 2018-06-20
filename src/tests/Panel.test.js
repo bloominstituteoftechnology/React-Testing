@@ -6,9 +6,26 @@ import Panel from '../components/Panel/Panel';
 
 Enzyme.configure({ adapter: new Adapter() });
 
+// describe('<Panel />', () => {
+//   it('renders without crashing', () => {
+//     const div = document.createElement('div');
+//     ReactDOM.render(<Panel />, div);
+//   });
+// });
+
 describe('<Panel />', () => {
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Panel />, div);
+    shallow(<Panel />);
+  });
+});
+
+describe('<Panel />', () => {
+  it('renders with 19 Buttons ', () => {
+    const panel = shallow(<Panel />);
+
+    const button = panel.find('Button');
+
+    expect(button.length).toEqual(19);
+
   });
 });
