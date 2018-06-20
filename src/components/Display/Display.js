@@ -3,17 +3,17 @@ import PropTypes from 'prop-types';
 import './Display.css';
 
 const Display = ({ value }) => {
-    return (
-        <div className="component-display">
-            <div>
-                {value}
-            </div>
-        </div>
-    );
+  return (
+    <div className="component-display">
+      <div>
+        {value}
+      </div>
+    </div>
+  );
 };
 
 Display.propTypes = {
-    value: PropTypes.string
+  value: PropTypes.string
 };
 
 export default Display;
