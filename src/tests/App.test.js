@@ -23,8 +23,8 @@ describe('<App />', () => {
   it('Should render a Panel component', () => { 
     const app = shallow(<App />);
 
-    const display = app.find('Panel');
+    const panel = app.find('Panel');
 
-    expect(display.length).toEqual(1);
+    expect(panel.length).toEqual(1);
   })
 });
