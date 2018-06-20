@@ -8,8 +8,11 @@ import Display from '../components/Display/Display';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Display />', () => {
-  it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Display />, div);
+  it('renders a String given by props', () => {
+    const props = {
+      value: 'such a nice value!'
+    }
+    const display = shallow(<Display  {...props} />)
+    expect(display.text()).toMatch(props.value)
   });
-});
+}); 

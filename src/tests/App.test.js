@@ -27,4 +27,29 @@ describe('<App />', () => {
     const Panel = app.find('Panel')
     expect(Panel.length).toBe(1)
   })
+  it('changes state.next to 8 when button "8" is clicked', () => {
+    const instance = app.instance()
+    const expected = "8"
+    instance.handleClick("8")
+
+    expect(instance.state.next).toBe(expected)
+  })
+  it('changes state to all null, if operator AC is clicked', () => {
+    const instance = app.instance()
+    const expected = {
+      next: null,
+      total: null,
+      operation: null
+    }
+    instance.handleClick("AC")
+
+    expect(instance.state).toEqual(expected)
+  })
+  it('changes state.next to 8 when button "8" is clicked', () => {
+    const instance = app.instance()
+    const expected = "+"
+    instance.handleClick("+")
+
+    expect(instance.state.operation).toBe(expected)
+  })
 });
