@@ -24,13 +24,6 @@ describe('<Button />', () => {
   });
 
   describe('Events:', () => {
-    xit('has a `clickHandler` prop when passed', () => {
-      const expected = jest.fn();
-      const props = { clickHandler: expected };
-      const button = shallow(<Button {...props} />);
-
-      expect(button.props().clickHandler).toEqual(expected);       
-    });
 
     it('fires `clickHandler` when button is clicked', () => {
       const expected = jest.fn();

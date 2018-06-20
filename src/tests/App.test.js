@@ -50,17 +50,5 @@ describe('<App />', () => {
     });
   });
 
-  describe('Events:', () => {
-    xit('`handleClick()` fires `calculate` and `setState` functions', () => {
-      const app = shallow(<App />);
-      const instance = app.instance();
-      // Mocks
-      jest.mock('../logic/calculate');
-      // instance.setState = jest.fn();
-
-      instance.handleClick();
-      expect(calculate).toHaveBeenCalledTimes(0);
-    });
-  });
 });
 
