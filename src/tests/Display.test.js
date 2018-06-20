@@ -15,5 +15,5 @@ describe('<Display />', () => {
   it('should have a div wrapper', () => {
     const wrapper = shallow(<Display />);
       expect(wrapper.find('div').exists()).toBe(true);
-  })
+  });
 });
