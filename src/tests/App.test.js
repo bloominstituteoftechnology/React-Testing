@@ -6,10 +6,10 @@ import App from '../App';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('<App />', () => {
-// render
   it('renders without crashing', () => {
     shallow(<App/>);
   });
+  // render
   it('renders one component-app', () => {
     const app = shallow(<App/>);
     const componentApp = app.find('.component-app');
