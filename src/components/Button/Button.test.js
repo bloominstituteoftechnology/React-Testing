@@ -18,7 +18,7 @@ describe('Button component', () => {
     shallow(<Button {...expected.props} />);
   });
 
-  it('renders a div', () => {
+  it('renders a div container', () => {
     const btnComp = shallow(<Button {...expected.props} />);
     const div = btnComp.find('.component-button');
     expect(div.length).toBe(1);

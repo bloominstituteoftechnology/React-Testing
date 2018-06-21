@@ -46,7 +46,7 @@ class Panel extends Component {
 }
 
 Panel.propTypes = {
-  clickHandler: PropTypes.func,
+  clickHandler: PropTypes.func.isRequired,
 };
 
 export default Panel;

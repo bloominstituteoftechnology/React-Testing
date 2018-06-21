@@ -3,22 +3,28 @@ import { shallow } from 'enzyme';
 import Display from './Display';
 
 describe('Display component', () => {
-  const expected = '0';
-  const props = { value: expected };
+  const expected = {};
 
-  it('renders without crashing', () => {
-    shallow(<Display {...props} />);
+  beforeAll(() => {
+    expected.value = '0';
+    expected.props = {
+      value: expected.value
+    };
   });
 
-  it('renders a div', () => {
-    const display = shallow(<Display {...props} />);
+  it('renders without crashing', () => {
+    shallow(<Display {...expected.props} />);
+  });
+
+  it('renders a div container', () => {
+    const display = shallow(<Display {...expected.props} />);
     const div = display.find('.component-display');
     expect(div.length).toBe(1);
   });
 
   it('renders provided value prop', () => {
-    const display = shallow(<Display {...props} />);
+    const display = shallow(<Display {...expected.props} />);
     const div = display.find('.component-display');
-    expect(div.text()).toEqual(expected);
+    expect(div.text()).toEqual(expected.value);
   });
 });
