@@ -53,26 +53,26 @@ describe('Button component', () => {
   it('renders div container with "orange" as a class when orange prop is provided', () => {
     const props = Object.assign({}, expected.props, { orange: true });
     const btnComp = shallow(<Button {...props} />);
-    const actual = btnComp.find('.component-button').hasClass('orange');
-    expect(actual).toBeTruthy();
+    const hasClass = btnComp.find('.component-button').hasClass('orange');
+    expect(hasClass).toBeTruthy();
   });
 
   it('renders div container without "orange" as a class when orange prop is excluded', () => {
     const btnComp = shallow(<Button {...expected.props} />);
-    const actual = btnComp.find('.component-button').hasClass('orange');
-    expect(actual).toBeFalsy();
+    const hasClass = btnComp.find('.component-button').hasClass('orange');
+    expect(hasClass).toBeFalsy();
   });
 
   it('renders div container with "wide" as a class when wide prop is provided', () => {
     const props = Object.assign({}, expected.props, { wide: true });
     const btnComp = shallow(<Button {...props} />);
-    const actual = btnComp.find('.component-button').hasClass('wide');
-    expect(actual).toBeTruthy();
+    const hasClass = btnComp.find('.component-button').hasClass('wide');
+    expect(hasClass).toBeTruthy();
   });
 
   it('renders div container without "wide" as a class when wide prop is excluded', () => {
     const btnComp = shallow(<Button {...expected.props} />);
-    const actual = btnComp.find('.component-button').hasClass('wide');
-    expect(actual).toBeFalsy();
+    const hasClass = btnComp.find('.component-button').hasClass('wide');
+    expect(hasClass).toBeFalsy();
   });
 });

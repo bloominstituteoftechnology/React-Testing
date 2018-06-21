@@ -39,22 +39,22 @@ describe('Panel component', () => {
     expect(expected.clickHandler).toHaveBeenCalledTimes(1);
   });
 
-  it('always renders Button component with a name and clickHandler prop', () => {
+  it('always passes name and clickHandler prop to Button component', () => {
     const panel = shallow(<Panel {...expected.props} />);
     const Buttons = panel.find('Button');
     Buttons.forEach(Button => {
-      const actual = Button.props();
-      expect(actual).toMatchObject(expected.buttonProps);
+      const props = Button.props();
+      expect(props).toMatchObject(expected.buttonProps);
     });
   });
 
-  it("always passes Panel's handleClick function to Button component clickHandler prop", () => {
+  it("always passes Panel's handleClick function as clickHandler prop to Button component", () => {
     const panel = shallow(<Panel {...expected.props} />);
     const instance = panel.instance();
     const Buttons = panel.find('Button');
     Buttons.forEach(Button => {
-      const actual = Button.props().clickHandler;
-      expect(actual).toEqual(instance.handleClick);
+      const props = Button.props();
+      expect(props.clickHandler).toEqual(instance.handleClick);
     });
   });
 });
