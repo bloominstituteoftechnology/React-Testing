@@ -10,6 +10,7 @@ import operate from './operate';
  *   operation:String  +, -, etc.
  */
 
+ 
 function isNumber(x) {
     return !!x.match(/[0-9]+/);
 }
