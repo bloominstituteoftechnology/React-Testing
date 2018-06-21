@@ -12,4 +12,13 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+
+  it('It should render exactly one div component of class component-display.', () => {
+
+    const display = shallow(<Display />);
+
+    const div = display.find('.component-display');
+
+    expect(div.length).toEqual(1);
+  })
 });
