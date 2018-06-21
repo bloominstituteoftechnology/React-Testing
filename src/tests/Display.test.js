@@ -19,4 +19,5 @@ describe('<Display />', () => {
 
     expect(value).toEqual('0');
   });
+
 });

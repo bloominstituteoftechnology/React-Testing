@@ -72,7 +72,8 @@ function calculate(obj, buttonName) {
                 next: null,
                 operation: null,
             };
-        } else {
+        }
+        else {
             return {};
         }
     }
