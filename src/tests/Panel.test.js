@@ -21,4 +21,5 @@ describe('<Panel />', () => {
     const wrapper = shallow(<Panel />).instance();
     expect(wrapper.hasOwnProperty('handleClick')).toBeTruthy();
   });
+
 });
