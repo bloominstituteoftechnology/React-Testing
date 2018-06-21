@@ -43,7 +43,18 @@ describe('Panel component', () => {
     const panel = shallow(<Panel {...expected.props} />);
     const Buttons = panel.find('Button');
     Buttons.forEach(Button => {
-      expect(Button.props()).toMatchObject(expected.buttonProps);
+      const actual = Button.props();
+      expect(actual).toMatchObject(expected.buttonProps);
+    });
+  });
+
+  it("always passes Panel's handleClick function to Button component clickHandler prop", () => {
+    const panel = shallow(<Panel {...expected.props} />);
+    const instance = panel.instance();
+    const Buttons = panel.find('Button');
+    Buttons.forEach(Button => {
+      const actual = Button.props().clickHandler;
+      expect(actual).toEqual(instance.handleClick);
     });
   });
 });
