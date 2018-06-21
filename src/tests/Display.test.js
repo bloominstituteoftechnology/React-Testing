@@ -5,7 +5,7 @@ import Display from '../components/Display/Display';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe.only('<Display />', () => {
+describe('<Display />', () => {
 
   it('renders without crashing', () => {
     shallow(<Display/>);
