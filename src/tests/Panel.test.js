@@ -6,7 +6,7 @@ import Panel from '../components/Panel/Panel';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe.only('<Panel />', () => {
+describe('<Panel />', () => {
 
   it('renders without crashing', () => {
     shallow(<Panel/>);
