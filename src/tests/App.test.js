@@ -35,12 +35,16 @@ describe('App component', () => {
     expect(instance.state.operation).toBe(null);
   })
 
-  it('should change the state.total to 8 when you click the button labeled 8', () => {
-    const props = {name: '8'}
+  it('should change the state.next to 8 when you click the button labeled 8', () => {
+    
     const app = shallow(<App />);
-
-    const button = shallow(<Button {...props} />);
     const instance = app.instance();
+    const panelProps = {clickHandle: instance.handleClick}
+    const panel = shallow(<Panel {...panelProps} />);
+    const panelInstance = panel.instance();
+    const props = {name: '8', clickHandler: () => { panelInstance.handleClick('8')}};
+    const button = shallow(<Button {...props} />);
+
     button.simulate('click');
     expect(instance.state.next).toEqual('8');
   })

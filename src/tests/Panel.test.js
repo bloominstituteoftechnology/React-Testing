@@ -5,8 +5,6 @@ import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import Panel from '../components/Panel/Panel';
 
-// import Button from '../components/Button/Button';
-
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Panel />', () => {
@@ -20,11 +18,4 @@ describe('<Panel />', () => {
     expect(displayPanel.children().length).toEqual(5)
   })
 
-  // it('should change the state.total to 8 when you click the button labeled 8', () => {
-  //   const panel = shallow(<Panel />);
-  //   const props = {name: '8'}
-  //   let invocation = panel.find('Button');
-  //   console.log(invocation);
-    
-  // })
 });
