@@ -5,29 +5,27 @@ import './Button.css';
 class Button extends Component {
   handleClick = () => {
     this.props.clickHandler(this.props.name);
-  }
+  };
 
   render() {
     const classNames = [
       'component-button',
       this.props.orange ? 'orange' : '',
-      this.props.wide ? 'wide' : '',
+      this.props.wide ? 'wide' : ''
     ];
     return (
       <div className={classNames.join(' ').trim()}>
-        <button onClick={this.handleClick}>
-          {this.props.name}
-        </button>
+        <button onClick={this.handleClick}>{this.props.name}</button>
       </div>
     );
   }
 }
 
 Button.propTypes = {
-  name: PropTypes.string,
+  name: PropTypes.string.isRequired,
   orange: PropTypes.bool,
   wide: PropTypes.bool,
-  clickHandler: PropTypes.func,
+  clickHandler: PropTypes.func.isRequired
 };
 
 export default Button;
