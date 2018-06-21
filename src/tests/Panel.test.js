@@ -27,11 +27,6 @@ describe.only('<Panel />', () => {
     const component = panel.find('Button');
     expect(component.length).toBe(19);
   });
-  it('renders 19 Button components', () => {
-    const panel = shallow(<Panel/>);
-    const component = panel.find('Button');
-    expect(component.length).toBe(19);
-  });
 
   //button attributes
   it('renders one Button component with AC name & clickHandler', () => {
