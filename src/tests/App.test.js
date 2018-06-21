@@ -46,7 +46,7 @@ describe('App component', () => {
         expect(instance.state.next).toEqual('7')
         expect(instance.state.operation).toEqual('+')
         instance.handleClick('=')
-        expect(instance.state.total).toEqual('13')    
+        expect(instance.state.total).toEqual('12')    
         expect(instance.state.next).toEqual(null)
         expect(instance.state.operation).toEqual(null)
     
@@ -75,7 +75,7 @@ describe('App component', () => {
         expect(instance.state.operation).toEqual(null)
         instance.handleClick('x')
         expect(instance.state.total).toEqual('8')    
-       expect(instance.state.next).toEqual(null)
+        expect(instance.state.next).toEqual(null)
         expect(instance.state.operation).toEqual('x')
         instance.handleClick('7')
         expect(instance.state.total).toEqual('8')
