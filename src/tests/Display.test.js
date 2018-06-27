@@ -6,9 +6,21 @@ import Display from '../components/Display/Display';
 
 Enzyme.configure({ adapter: new Adapter() });
 
+// describe('<Display />', () => {
+//   it('renders without crashing', () => {
+//     const div = document.createElement('div');
+//     ReactDOM.render(<Display />, div);
+//   });
+// });
 describe('<Display />', () => {
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Display />, div);
+      shallow(<Button />);
   });
+
+  it('renders display component', () => {
+    const display = shallow(<Display/>);
+    const divs = display.find('component-display');
+
+    expect(divs.length).toEqual(1);
+  })
 });
