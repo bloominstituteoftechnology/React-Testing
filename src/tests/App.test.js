@@ -1,14 +1,36 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
 import App from '../App';
-
-Enzyme.configure({ adapter: new Adapter() });
 
 describe('<App />', () => {
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<App />, div);
+   shallow(<App />);
   });
+
+  it('should render a header element if there is one', () => {
+    const app = shallow(<App />);
+    const headers = app.find('header');
+    expect(headers.length).toEqual(0);
+  });
+
+  it('should render a div', () => {
+    const app = shallow(<App />);
+    const div = app.find(".component-app");
+    expect(div.length).toEqual(1);
+  });
+
+  it("should have state that is an object", () => {
+    const app = shallow(<App />);
+    const instance = app.instance();
+
+    expect(typeof instance.state).toEqual('object');
+  })
+
+
+
+
+
+
+
+  
 });

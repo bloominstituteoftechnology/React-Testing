@@ -4,8 +4,8 @@ import './Display.css';
 
 const Display = ({ value }) => {
     return (
-        <div className="component-display">
-            <div>
+        <div >
+            <div className="component-display">
                 {value}
             </div>
         </div>
