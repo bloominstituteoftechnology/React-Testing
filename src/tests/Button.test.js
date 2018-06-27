@@ -29,17 +29,5 @@ describe('Button component', () => {
     expect(snake).toHaveBeenCalledTimes(2)
     instance.handleClick();
     expect(snake).toHaveBeenCalledTimes(3)
-  })
-  it("Clicking button should let user know", () => {
-    window.alert = jest.fn();
-    const expectedArg = 'toggle clicked!'
-
-    const button = shallow(<Button />);
-    const instance = button.instance();
-    const button = header.find('.toggle')
-    button.simulate('click');
-    
-    expect(window.alert).toHaveBeenCalledTimes(1);
-    expect(window.alert).toHaveBeenCalledWith(expectedArg);
-});
+  });
 });
