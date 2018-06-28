@@ -11,4 +11,11 @@ describe('<Panel />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Panel />, div);
   });
+
+  it('should render buttons', () => {
+    const panel = shallow(<Panel />);
+
+    expect(panel.length).toEqual(1);
+  });
+
 });
