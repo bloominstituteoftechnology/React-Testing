@@ -9,7 +9,7 @@ The objectives of this module are the following:
 - To practice reading over and understanding code which you did not write, but that you do need to test.
 
 For this exercise, you're given a complete React application. Your job is to:
-1. Go through and inspect ***all*** of the different pieces of the code.
+[x]1. Go through and inspect ***all*** of the different pieces of the code.
 2. Write tests for ***all*** of the components in the `./src/components` directory.
 3. Write these tests in the correspondingly-named files in the `./src/tests` directory.
 
@@ -17,7 +17,7 @@ You'll be using [Jest](https://facebook.github.io/jest/docs/en/expect.html) and 
 
 ## Initialization and Setup
 
-You can run the complete application by installing Node modules with the `yarn` command, and then running `yarn start`. 
+[x]You can run the complete application by installing Node modules with the `yarn` command, and then running `yarn start`. 
 
 Run `yarn test` in order to run the test suite. Of course, this isn't going to actually test anything yet, since you haven't written the tests!
 
