@@ -37,11 +37,5 @@ describe('<Button />', () => {
 
 
   });
-//got the button click to work...
-
-//created a name prop test and it's not working...I'm pretty certain
-//the code is correct. I'm going to break from it a bit and come back. 
-
-
 
 });
