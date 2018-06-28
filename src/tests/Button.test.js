@@ -4,9 +4,7 @@ import Button from '../components/Button/Button';
 
 
 describe('<Button />', () => {
-  const name = "9"
-  const doneChange = jest.fn();
-  const button = shallow(<Button name={name} doneChange={doneChange}/>)
+  const button = shallow(<Button />);
 
 
   it('renders without crashing', () => {
@@ -18,22 +16,31 @@ describe('<Button />', () => {
     expect(button).toHaveLength(1);
   });
 
-  it("have a button name", () => {
-    const foundName = button.find("h3");
-    expect(foundName).toBeTruthy();
-  });
+  it("have a name prop", () => {
+    const props = {name:'9'};
+    const bouton = shallow(<Button {...props}/>);
+    const button = bouton.find('h3');
+
+    expect(button.text()).toEqual('9');
+  })
+
 
 
   it("have a button click", () => {
-    const FoundButton = mount(<Button name={name} doneChange={doneChange}/>);
-    const clicker = FoundButton.find("button");
+    const HandleChange = jest.fn();
+    const props = {clickHandler: HandleChange}
+    const button = shallow(<Button {...props}/>);
+    const clicker = button.find("button");
     clicker.simulate("click");
-    expect(doneChange).toBeCalled();
-    clicker.simulate("click");
+    expect(HandleChange).toHaveBeenCalledTimes(1);
+
+
 
   });
-  //the test works I think - or it at least can read HandleClick - but it's throwing an error in the code. It's saying this.props.clickHandler is not a function. 
+//got the button click to work...
 
+//created a name prop test and it's not working...I'm pretty certain
+//the code is correct. I'm going to break from it a bit and come back. 
 
 
 
