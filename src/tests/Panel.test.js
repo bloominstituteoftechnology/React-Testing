@@ -1,14 +1,27 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Enzyme, { shallow } from 'enzyme';
+import Enzyme, { shallow, render } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import Panel from '../components/Panel/Panel';
 
-Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Panel />', () => {
+  const panel = shallow(<Panel />);
+
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Panel />, div);
+    render(<Panel  />);
   });
+
+  it("have a panel", () => {
+    const foundPanel = panel.find(".component-panel")
+    expect(foundPanel).toHaveLength(1);
+  });
+
+  it("have some buttons", () => {
+    const foundButton = panel.find("Button");
+    expect(foundButton).toHaveLength(19);
+  });
+
+
 });
+
+
