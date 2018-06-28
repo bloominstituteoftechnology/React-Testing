@@ -11,4 +11,11 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
+
+  it('should render a button', () => {
+    const button = shallow(<Button />);
+    // const button = header.find('.toggle');
+
+    expect(button.length).toEqual(1);
+  });
 });
