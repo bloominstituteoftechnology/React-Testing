@@ -28,7 +28,7 @@ describe('<App />', () => {
     const instance = app.instance();
     const initialState = instance.state;
     const newState = {
-      "next": "7",
+      "next": "4",
       "operation": null,
       "total": null
     }
@@ -38,7 +38,7 @@ describe('<App />', () => {
     const panel = mount(<Panel clickHandler={app.props().clickHandler}/>)
 
     // get button number 7
-    const button = panel.find('[name="7"]').find('.component-button').children()
+    const button = panel.find('[name="4"]').find('.component-button').children()
 
     // click button number 7
     button.simulate('click');
@@ -47,7 +47,7 @@ describe('<App />', () => {
 
     // after click is executed
     expect(handleClick.calledOnce).toEqual(true);
-    expect(handleClick.firstCall.args[0]).toEqual('7')
+    expect(handleClick.firstCall.args[0]).toEqual('4')
 
     // after click is executed successfully with correct argument
     // setState
