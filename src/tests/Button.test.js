@@ -11,11 +11,27 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   } );
+
   it( 'renders with className button-wide', () =>
   {
     const component = shallow( <Button wide /> );
     expect( component.find( '.component-button' ) ).toHaveLength( 1 );
     expect( component.find( '.wide' ) ).toHaveLength( 1 );
-  })
+  
+  } );
+  
+it( 'renders with className component button orange', () =>
+{
+  const component = shallow( <Button orange /> );
+  expect( component.find( '.component-button' ) ).toHaveLength( 1 );
+  expect( component.find( '.orange' ) ).toHaveLength( 1 );
+  } );
+  
+
+
+  it( 'renders with className `component-button` when not passed any props', () =>
+  {
+    const component = shallow( <Button /> );
+    expect( component.find( '.component-button' ) ).toHaveLength( 1 );
+  } );
 } );
-it('renders with className')

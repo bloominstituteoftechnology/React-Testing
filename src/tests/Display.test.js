@@ -10,5 +10,11 @@ describe('<Display />', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
-  });
+  } );
+  it( 'should render a div with class', () =>
+  {
+    const component = shallow( <Display /> );
+    expect( component.find( '.component-display' ) ).toHaveLength( 1 );
+  } )
+
 });
