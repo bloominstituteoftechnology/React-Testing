@@ -11,10 +11,11 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   } );
-  it( 'renders with className', () =>
+  it( 'renders with className button-wide', () =>
   {
     const component = shallow( <Button wide /> );
-    expect( component.find( '.component-button' ) ).Length( 1 );
-    expect( component.find( '.wide' ) ).Length( 1 );
+    expect( component.find( '.component-button' ) ).toHaveLength( 1 );
+    expect( component.find( '.wide' ) ).toHaveLength( 1 );
   })
-});
+} );
+it('renders with className')

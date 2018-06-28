@@ -14,7 +14,7 @@ describe('<App />', () => {
   
   it('should render a div ', () => {
     const component = shallow( <App /> );
-    expect( component.find( '.component-app' ).length( 1 ));
+    expect( component.find( '.component-app' )).toHaveLength( 1 );
   } )
   
 });
