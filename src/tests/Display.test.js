@@ -11,4 +11,9 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+  it('should return div that has component display class', () => {
+    const display = shallow(<Display />);
+    expect(display.find('.component-display')).toHaveLength(1);
+  });
+// fails
 });
