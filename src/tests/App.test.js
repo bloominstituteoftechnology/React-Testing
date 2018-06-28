@@ -11,4 +11,19 @@ describe('<App />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
+
+  it("renders one display component", () => {
+    const app = shallow(<App />);
+    const display = app.find("Panel");
+    
+    expect(display.length).toEqual(1);
+    });
+
+    it("renders one panel component", () => {
+      const app = shallow(<App />);
+      const panel = app.find("Panel");
+      
+      expect(panel.length).toEqual(1);
+      });
+
 });

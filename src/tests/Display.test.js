@@ -11,4 +11,13 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+
+  it('should have a component with class name of component-display' , () => {
+    const display = shallow(<Display />);
+
+    const div = display.find('component-display');
+
+    expect(display.length).toEqual(1);
+  });
+  
 });

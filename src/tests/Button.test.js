@@ -18,4 +18,14 @@ describe('<Button />', () => {
 
     expect(button.length).toEqual(1);
   });
+
+  //trying to figure check a prop of the button that's orange
+  it.skip('should render a button that is orange', () => {
+    const wrapper = shallow(<Button />);
+    
+
+    expect(wrapper.props(orange).data).toBe('orange');
+  });
+
+
 });
