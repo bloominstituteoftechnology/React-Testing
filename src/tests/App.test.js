@@ -38,4 +38,14 @@ describe("<App />", () => {
       operation: null
     });
   });
+
+  it("should do addition", () => {
+    const app = shallow(<App />);
+    const appInstance = app.instance();
+    appInstance.handleClick("6");
+    appInstance.handleClick("+");
+    appInstance.handleClick("9");
+    appInstance.handleClick("=");
+    expect(appInstance.state.total).toEqual("15");
+  });
 });
