@@ -12,10 +12,27 @@ describe('<App />', () => {
     ReactDOM.render(<App />, div);
   });
 
-  it('starts with 0', () => {
+  it('total should start at 0', () => {
     const wrapper = shallow(<App/>);
     const instance = wrapper.instance();
     expect(instance.state.total).toBe("0");
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('next should start at null', () => {
+    const wrapper = shallow(<App/>);
+    const instance = wrapper.instance();
+    expect(instance.state.next).toBe(null);
+  })
+
+  it('operation should start as null', () => {
+    const wrapper = shallow(<App/>);
+    const instance = wrapper.instance();
+    expect(instance.state.operation).toBe(null);
+  })
+
+  it('renders correctly', () => {
+    const wrapper = shallow(<App/>);
     expect(wrapper).toMatchSnapshot();
   })
 });

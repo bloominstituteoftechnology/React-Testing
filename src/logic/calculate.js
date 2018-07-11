@@ -55,9 +55,6 @@ function calculate(obj, buttonName) {
             {/* this key/value pair is next: buttonName */}
             return { next: buttonName };
         }
-        {/*
-            so if nothing exists at  
-        */}
         if (obj.next) {
             return {
                 next: obj.next + buttonName,
