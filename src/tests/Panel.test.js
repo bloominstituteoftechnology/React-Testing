@@ -30,8 +30,8 @@ describe('<Panel />', () => {
     ).toBeTruthy()
   })
 
-  it('should render 6 divs', () => {
-    expect(wrapper.find('div').length).toBe(6)
+  it('should render 5 div containers for buttons', () => {
+    expect(wrapper.find('div > div').length).toBe(5)
   })
 
   it('should render 19 buttons', () => {
