@@ -8,15 +8,13 @@ import Panel from '../components/Panel/Panel'
 import Display from '../components/Display/Display'
 import calculate from '../logic/calculate'
 
-jest.mock('../logic/calculate')
-
 configure({ adapter: new Adapter() })
 
 describe('<App />', () => {
   let wrapper
   let instance
 
-  beforeAll(() => {
+  beforeEach(() => {
     wrapper = shallow(<App />)
     instance = wrapper.instance()
   })
@@ -40,11 +38,11 @@ describe('<App />', () => {
     })
 
     it("state's next should initially be null", () => {
-      expect(instance.state.next).toBe(null)
+      expect(instance.state.next).toBeNull()
     })
 
     it("state's operation should initially be null", () => {
-      expect(instance.state.operation).toBe(null)
+      expect(instance.state.operation).toBeNull()
     })
   })
 
@@ -70,7 +68,7 @@ describe('<App />', () => {
       expect(wrapper.find(Panel)).toHaveLength(1)
     })
 
-    it('rendered Display receives one prop', () => {
+    it('rendered Display should receive one prop', () => {
       expect(Object.keys(display.props()).length).toBe(1)
     })
 
@@ -83,10 +81,67 @@ describe('<App />', () => {
     })
   })
 
-  it('handleClick method should call calculate', () => {
-    instance.handleClick()
-    instance.handleClick()
-    instance.handleClick()
-    expect(calculate).toHaveBeenCalledTimes(3)
+  describe('handleClick method', () => {
+    it('should update state.next to "8.88"', () => {
+      instance.handleClick('8')
+      instance.handleClick('.')
+      instance.handleClick('8')
+      instance.handleClick('8')
+      expect(instance.state.next).toEqual('8.88')
+    })
+  })
+
+  it('should update state.total to "888" when adding', () => {
+    instance.handleClick('800')
+    instance.handleClick('+')
+    instance.handleClick('80')
+    instance.handleClick('+')
+    instance.handleClick('8')
+    instance.handleClick('=')
+    expect(instance.state.total).toEqual('888')
+  })
+
+  it('should update state.total to "888" when subtracting', () => {
+    instance.handleClick('900')
+    instance.handleClick('-')
+    instance.handleClick('12')
+    instance.handleClick('=')
+    expect(instance.state.total).toEqual('888')
+  })
+
+  it('should update state.total to "888" when dividing', () => {
+    instance.handleClick('1776')
+    instance.handleClick('÷')
+    instance.handleClick('2')
+    instance.handleClick('=')
+    expect(instance.state.total).toEqual('888')
+  })
+
+  it('should update state.total to "888" when multiplying', () => {
+    instance.handleClick('296')
+    instance.handleClick('x')
+    instance.handleClick('3')
+    instance.handleClick('=')
+    expect(instance.state.total).toEqual('888')
+  })
+
+  it('should update state.total to "8" when using modulo operator', () => {
+    instance.handleClick('8')
+    instance.handleClick('%')
+    instance.handleClick('100')
+    instance.handleClick('=')
+    expect(instance.state.total).toEqual('8')
+  })
+
+  it('should update state null when "AC" is pressed', () => {
+    instance.handleClick('8')
+    instance.handleClick('AC')
+    expect(instance.state).toEqual({ total: null, next: null, operation: null })
+  })
+
+  it('should update state.next to negative integer', () => {
+    instance.handleClick('8')
+    instance.handleClick('+/-')
+    expect(instance.state.next).toEqual('-8')
   })
 })
