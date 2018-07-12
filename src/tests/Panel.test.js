@@ -13,7 +13,7 @@ describe('<Panel />', () => {
   });
   it('should have 19 buttons', () => {
     const component = shallow(<Panel/>);
-    console.log(component.find('Button'));
+    // console.log(component.find('Button'));
     expect(component.find('Button')).toHaveLength(19);
   })
 });
