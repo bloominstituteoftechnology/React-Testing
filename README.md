@@ -10,7 +10,7 @@ The objectives of this module are the following:
 
 For this exercise, you're given a complete React application. Your job is to:
 1. Go through and inspect ***all*** of the different pieces of the code.
-2. Write tests for ***all*** of the components in the `./src/components` directory.
+2. Write tests for ***all*** of the components in the `./src/components` directory, plus the `App.js` root component.
 3. Write these tests in the correspondingly-named files in the `./src/tests` directory.
 
 You'll be using [Jest](https://facebook.github.io/jest/docs/en/expect.html) and [Enzyme](http://airbnb.io/enzyme/) in order to test React components. 
