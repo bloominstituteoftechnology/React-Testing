@@ -1,33 +1,48 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Enzyme, { shallow } from 'enzyme'
+import { configure, mount, shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
 import Panel from '../components/Panel/Panel'
 
-Enzyme.configure({ adapter: new Adapter() })
+configure({ adapter: new Adapter() })
 
 describe('<Panel />', () => {
-  let wrapper
-
-  beforeAll(() => {
-    wrapper = shallow(<Panel clickHandler={jest.fn()} />)
-  })
+  const props = { clickHandler: jest.fn() }
+  const wrapper = shallow(<Panel {...props} />)
+  const mountWrapper = mount(<Panel {...props} />)
 
   it('renders without crashing', () => {
     const div = document.createElement('div')
     ReactDOM.render(<Panel />, div)
   })
 
-  it('renders correctly', () => {
+  it('matches snapshot', () => {
     expect(wrapper).toMatchSnapshot()
+  })
+
+  it('should have a div with classname "component-panel"', () => {
+    expect(
+      wrapper
+        .find('div')
+        .first()
+        .hasClass('component-panel'),
+    ).toBeTruthy()
   })
 
   it('should render 6 divs', () => {
     expect(wrapper.find('div').length).toBe(6)
   })
 
-  it('should render buttons', () => {
-    expect(wrapper.find('button').length).toBe(10)
+  it('should render 19 buttons', () => {
+    expect(mountWrapper.find('button').length).toBe(19)
+  })
+
+  it('should have a button with attribute "name" and value "AC"', () => {
+    expect(wrapper.find('[name="AC"]').length).toBe(1)
+  })
+
+  it('should have a button that has contains "8"', () => {
+    expect(mountWrapper.find('button').contains('8')).toBeTruthy()
   })
 })

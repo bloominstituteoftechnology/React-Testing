@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Enzyme, { shallow } from 'enzyme'
+import { configure, shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
 import App from '../App'
@@ -10,7 +10,7 @@ import calculate from '../logic/calculate'
 
 jest.mock('../logic/calculate')
 
-Enzyme.configure({ adapter: new Adapter() })
+configure({ adapter: new Adapter() })
 
 describe('<App />', () => {
   let wrapper
@@ -26,7 +26,7 @@ describe('<App />', () => {
     ReactDOM.render(<App />, div)
   })
 
-  it('renders correctly', () => {
+  it('matches snapshot', () => {
     expect(wrapper).toMatchSnapshot()
   })
 

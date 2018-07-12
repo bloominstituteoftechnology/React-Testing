@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Enzyme, { mount, shallow } from 'enzyme'
+import { configure, mount, shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
 import Button from '../components/Button/Button'
 
-Enzyme.configure({ adapter: new Adapter() })
+configure({ adapter: new Adapter() })
 
 describe('<Button />', () => {
   let props
@@ -31,9 +31,14 @@ describe('<Button />', () => {
     ReactDOM.render(<Button />, div)
   })
 
+  it('matches snapshot', () => {
+    const wrapper = shallow(<Button {...props} />)
+    expect(wrapper).toMatchSnapshot()
+  })
+
   it('div should have classname "component-button"', () => {
     const div = button().find('div')
-    expect(div.hasClass('component-button')).toBe(true)
+    expect(div.hasClass('component-button')).toBeTruthy()
   })
 
   describe('when name\'s value is "AC"', () => {
@@ -65,7 +70,7 @@ describe('<Button />', () => {
 
     it('div should have classname "component-button orange"', () => {
       const div = button().find('div')
-      expect(div.hasClass('component-button orange')).toBe(true)
+      expect(div.hasClass('component-button orange')).toBeTruthy()
     })
   })
 
@@ -77,7 +82,7 @@ describe('<Button />', () => {
     it('div should have classname "component-button  wide"', () => {
       const div = button().find('div')
       /* two spaces between 'component-button' and 'wide' 🤷‍ */
-      expect(div.hasClass('component-button  wide')).toBe(true)
+      expect(div.hasClass('component-button  wide')).toBeTruthy()
     })
   })
 

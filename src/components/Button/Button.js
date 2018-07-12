@@ -3,6 +3,13 @@ import PropTypes from 'prop-types'
 import './Button.css'
 
 class Button extends Component {
+  static propTypes = {
+    name: PropTypes.string,
+    orange: PropTypes.bool,
+    wide: PropTypes.bool,
+    clickHandler: PropTypes.func,
+  }
+
   handleClick = () => {
     this.props.clickHandler(this.props.name)
   }
@@ -19,13 +26,6 @@ class Button extends Component {
       </div>
     )
   }
-}
-
-Button.propTypes = {
-  name: PropTypes.string,
-  orange: PropTypes.bool,
-  wide: PropTypes.bool,
-  clickHandler: PropTypes.func,
 }
 
 export default Button
