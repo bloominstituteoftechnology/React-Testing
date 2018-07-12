@@ -11,4 +11,13 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+
+  it('should properly render value passed to it', () => {
+    const component = shallow(<Display value={"6"} />);
+    expect(component.contains(
+      <div className="display-value">
+        6
+      </div>
+    )).toEqual(true);
+  });
 });

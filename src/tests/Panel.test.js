@@ -11,4 +11,9 @@ describe('<Panel />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Panel />, div);
   });
+  it('should have 19 buttons', () => {
+    const component = shallow(<Panel/>);
+    console.log(component.find('Button'));
+    expect(component.find('Button')).toHaveLength(19);
+  })
 });

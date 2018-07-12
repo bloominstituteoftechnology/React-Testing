@@ -48,6 +48,7 @@ function calculate(obj, buttonName) {
                     return an object with a key/value pair
                     next: obj.next + buttonName
                     but why?
+                    and is this adding? or concatenating?
                 */}
                 return { next: obj.next + buttonName };
             }

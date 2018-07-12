@@ -5,7 +5,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import App from '../App';
 import Panel from '../components/Panel/Panel.js';
 import calculate from '../logic/calculate';
-jest.mock('../logic/calculate');
+//jest.mock('../logic/calculate');
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -39,12 +39,12 @@ describe('<App />', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should invoke handleClick method', () => {
-    const wrapper = shallow(<App/>);
-    const instance = wrapper.instance();
-    instance.handleClick();
-    expect(calculate).toBeCalled();
-  });
+  // it('should invoke handleClick method', () => {
+  //   const wrapper = shallow(<App/>);
+  //   const instance = wrapper.instance();
+  //   instance.handleClick();
+  //   expect(calculate).toBeCalled();
+  // });
 
   it('should have a div with class component-app', () => {
     const wrapper = shallow(<App/>);
@@ -55,17 +55,17 @@ describe('<App />', () => {
     const component = shallow(<App />);
     const instance = component.instance();
     expect(instance.state.total).toEqual('0');
-    // seriously what the FUCK?
-    // component.instance().handleClick("9");
-    // we're accessing something inside of an object;
-    // so why in the FUCK are we using the state('next') syntax
-    // why is this model solution not working?
-    // how? where? what? What the fuck to I console?
-    // when? when? when? when do I grasp?
-    // okay I'm going to try something now...
-    //expect(component.state('next')).toEqual("9");
-    
-    //expect(component.state('operation')).toBeNull();
+    instance.handleClick('9');
+    //expect(calculate).toBeCalled();
+    // console.log(instance.state.next);
+    expect(component.state('next')).toEqual("9");
+    expect(component.state('operation')).toEqual(null);
+    expect(component.state('total')).toEqual(null);
+    // why does the above syntax work while the below
+    // doesn't? We are accessing an object, after all
+    // and everywhere else I've ever accessed an object
+    // I've always seen either dot syntax or bracket syntax.
+    // expect(component.state.total).toEqual(null);
   });
 
   

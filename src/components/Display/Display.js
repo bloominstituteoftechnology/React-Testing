@@ -14,7 +14,7 @@ const Display = ({ value }) => {
     */}
     return (
         <div className="component-display">
-            <div>
+            <div className="display-value">
                 {value}
             </div>
         </div>
