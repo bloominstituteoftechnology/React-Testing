@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import App from '../App';
+import Panel from '../components/Panel/Panel.js';
+import calculate from '../logic/calculate';
+jest.mock('../logic/calculate');
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -29,12 +32,21 @@ describe('<App />', () => {
     const wrapper = shallow(<App/>);
     const instance = wrapper.instance();
     expect(instance.state.operation).toBe(null);
-  })
+  });
 
   it('renders correctly', () => {
     const wrapper = shallow(<App/>);
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should invoke handleClick method', () => {
+    const wrapper = shallow(<App/>);
+    const instance = wrapper.instance();
+    instance.handleClick();
+    expect(calculate).toBeCalled();
   })
+
+  
 });
 
 
