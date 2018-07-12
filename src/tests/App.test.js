@@ -44,7 +44,29 @@ describe('<App />', () => {
     const instance = wrapper.instance();
     instance.handleClick();
     expect(calculate).toBeCalled();
-  })
+  });
+
+  it('should have a div with class component-app', () => {
+    const wrapper = shallow(<App/>);
+    expect(wrapper.find('.component-app')).toHaveLength(1);
+  });
+
+  it('should have a `handleClick` method that updates state', () => {
+    const component = shallow(<App />);
+    const instance = component.instance();
+    expect(instance.state.total).toEqual('0');
+    // seriously what the FUCK?
+    // component.instance().handleClick("9");
+    // we're accessing something inside of an object;
+    // so why in the FUCK are we using the state('next') syntax
+    // why is this model solution not working?
+    // how? where? what? What the fuck to I console?
+    // when? when? when? when do I grasp?
+    // okay I'm going to try something now...
+    //expect(component.state('next')).toEqual("9");
+    
+    //expect(component.state('operation')).toBeNull();
+  });
 
   
 });
