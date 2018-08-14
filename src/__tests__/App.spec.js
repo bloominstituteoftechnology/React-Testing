@@ -6,7 +6,6 @@ import App from '../App';
 
 describe('<App />', () => {
   const app=shallow(<App />);
-  const instance = app.instance();
 
   it('renders without crashing', () => {
     const div = document.createElement('div');
@@ -26,6 +25,5 @@ describe('<App />', () => {
   it('should have state Total with initial value 0', () => {
     expect(app.state().total).toEqual('0');
   })
-  // console.log(instance.state.total);
-  console.log(app.state('total'));
+
 });
