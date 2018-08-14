@@ -19,4 +19,14 @@ describe('<Button />', () => {
 
         expect(button.text()).toBe('+');
     })
+
+
+    // it('spy using method', () => {
+    //     const wrapper = shallow(<Button />);
+    //     const spy = jest.spyOn(wrapper.instance(), 'handleClick');
+
+
+    //     wrapper.find('button').simulate('click');
+    //     expect(spy).toHaveBeenCalled();
+    // })
 });
