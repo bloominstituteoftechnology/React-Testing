@@ -23,4 +23,5 @@ describe('<Panel />', () => {
     const buttons = panelComponent.find('Button');
     expect(buttons).toHaveLength(19);
   });
+
 });

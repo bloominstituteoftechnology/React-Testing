@@ -18,4 +18,32 @@ describe('<App />', () => {
     const DisplayComponent = AppComponent.find('Display');
     expect(DisplayComponent.props()).toEqual({ value: '0' });
   });
+
+  it('passes state.next if it is defined', () => {
+    const nextVal = 'next';
+    const AppComponent = shallow(<App />);
+    AppComponent.setState({ next: nextVal, total: 'total' });
+    const DisplayComponent = AppComponent.find('Display');
+    expect(DisplayComponent.props()).toEqual({ value: nextVal });
+  });
+
+  it('passes state.total if it is defined', () => {
+    const total = 'total';
+    const AppComponent = shallow(<App />);
+    AppComponent.setState({ total: total });
+    const DisplayComponent = AppComponent.find('Display');
+    expect(DisplayComponent.props()).toEqual({ value: total });
+  });
+
+  it('processes clickHandlers appropriately', () => {
+    const buttonName = '+';
+    const expectedResult = '0+';
+    const calculate = (state, buttonName) => ({
+        next: `${ state.total + buttonName }`,
+      });
+
+    const AppComponent = shallow(<App />);
+    AppComponent.instance().handleClick(buttonName);
+    expect(AppComponent.instance().state([next])).toEqual({ next: expectedResult, });
+  })
 });
