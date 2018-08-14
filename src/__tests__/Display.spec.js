@@ -12,4 +12,9 @@ describe("<Display />", () => {
     const div = document.createElement("div");
     ReactDOM.render(<Display />, div);
   });
+  it("should display a value passed in as a prop", () => {
+    const display = shallow(<Display value="anything" />);
+    const passValue = display.find(".component-display");
+    expect(passValue.text()).toEqual("anything");
+  });
 });
