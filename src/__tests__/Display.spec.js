@@ -12,4 +12,11 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+
+  it('should render a string', () => {
+    const display = shallow(<Display />);
+    const value = '';
+    const div = display.find('.component-display');
+    expect(div.text()).toEqual(value)
+  });
 });
