@@ -8,8 +8,15 @@ import Button from '../components/Button/Button';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Button />', () => {
-  it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Button />, div);
-  });
+    it('renders without crashing', () => {
+        const div = document.createElement('div');
+        ReactDOM.render(<Button />, div);
+    });
+
+    it('has a "name" prop', () => {
+        const name = { name: '+' };
+        const button = shallow(<Button {...name} />).find('button');
+
+        expect(button.text()).toBe('+');
+    })
 });
