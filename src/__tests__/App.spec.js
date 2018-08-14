@@ -13,3 +13,11 @@ describe('<App />', () => {
     ReactDOM.render(<App />, div);
   });
 });
+
+it('should have total, next, operation in state', () => {
+  const app = shallow(<App />);
+  const instance = app.instance();
+  expect(instance.state.total).toEqual('0');
+  expect(instance.state.next).toBeDefined();
+  expect(instance.state.total).toBeDefined();
+});
