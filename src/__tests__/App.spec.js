@@ -9,7 +9,21 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('<App />', () => {
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<App />, div);
+    shallow(<App />);
+  });
+
+  it('should have initial values for state', () => {
+    const app = shallow(<App />);
+    const instance  = app.instance();
+    expect(instance.state.total).toEqual('0');
+    expect(instance.state.next).toEqual(null);
+    expect(instance.state.operation).toEqual(null);
+  });
+
+  it('should handle button entry', () => {
+    const app = shallow(<App />);
+    const instance  = app.instance();
+    instance.handleClick('5')
+    expect(instance.state.next).toEqual('5');
   });
 });
