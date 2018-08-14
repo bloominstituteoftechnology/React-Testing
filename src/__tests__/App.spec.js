@@ -21,3 +21,17 @@ it('should have total, next, operation in state', () => {
   expect(instance.state.next).toBeDefined();
   expect(instance.state.total).toBeDefined();
 });
+
+it('should have render component-app', () => {
+  const component = shallow(<App />);
+  expect(component.find('.component-app')).toHaveLength(1);
+});
+
+it('should have a handleClick method that updates state', () => {
+  const component = shallow(<App />);
+  component.instance().handleClick('9');
+  expect(component.state('next')).toEqual('9');
+  component.instance().handleClick('+');
+  expect(component.state('operation')).toEqual('+');
+  expect(component.state('total')).toEqual('9');
+});
