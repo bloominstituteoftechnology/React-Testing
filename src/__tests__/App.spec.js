@@ -20,3 +20,17 @@ describe('Div classname component app exists', () => {
     const div = app.find('component-app');
   })
 })
+
+describe("App's state is set", () => {
+  const app = shallow(<App />)
+  const instance = app.instance();
+  it('has total working', () => {
+    expect(instance.state.total).toEqual('0');
+  })
+  it('value of next is null', () => {
+    expect(instance.state.next).toEqual(null);
+  })
+  it('value of operation is null', () => {
+    expect(instance.state.operation).toEqual(null);
+  })
+})

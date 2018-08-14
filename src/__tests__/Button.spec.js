@@ -20,6 +20,16 @@ describe('Button components features test', () => {
     expect(button.hasClass('component-button'))
   })
   it('contains the class orange', () => {
-
+    expect(button.hasClass('orange'))
   })
+  it('contains the class wide', () => {
+    expect(button.hasClass('wide'))
+  })
+})
+
+describe('Button has onclick working', () => {
+  const button = shallow(<Button />)
+  expect(button.find('component-button').length).to.equal(1);
+  button.simulate('click');
+  expect(button.find('Randy')).to.equal('Randy')
 })
