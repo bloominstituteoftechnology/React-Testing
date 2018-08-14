@@ -10,3 +10,4 @@ describe('<Button />', () => {
     ReactDOM.render(<Button />, div);
   });
 });
+
