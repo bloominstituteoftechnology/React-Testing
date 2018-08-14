@@ -8,8 +8,7 @@ import Display from '../components/Display/Display';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Display />', () => {
-  const wrapper = shallow(<Display />);
-  const instance = wrapper.instance();
+  let wrapper = shallow(<Display />);
 
   it('renders without crashing', () => {
     // const div = document.createElement('div');
@@ -21,12 +20,17 @@ describe('<Display />', () => {
     expect(wrapper.hasClass('component-display')).toBe(true);
   });
 
+  // it('should render children', () => {
+  //   wrapper = shallow((
+  //     <div className="component-display">
+  //       <div />
+  //     </div>
+  //   ));
+  //   expect(wrapper.contains(<div />)).toBe(true);
+  // });
+
   it('should render children', () => {
-    const childWrapper = shallow((
-      <div className="component-display">
-        <div />
-      </div>
-    ));
-    expect(childWrapper.contains(<div />)).toBe(true);
+    wrapper = shallow(<div className="component-display" />);
+    expect(wrapper.find('div')).toHaveLength(1);
   });
 });

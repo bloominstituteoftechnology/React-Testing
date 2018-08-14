@@ -8,8 +8,7 @@ import Button from '../components/Button/Button';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Button />', () => {
-  const wrapper = shallow(<Button />);
-  const instance = wrapper.instance();
+  let wrapper = shallow(<Button />);
 
   it('renders without crashing', () => {
     // const div = document.createElement('div');
@@ -21,12 +20,16 @@ describe('<Button />', () => {
     expect(wrapper.hasClass('component-button')).toBe(true);
   });
 
+  // it('should render children', () => {
+  //   const wrapper = shallow((
+  //     <div className="component-button">
+  //       <button />
+  //     </div>
+  //   ));
+  //   expect(wrapper.contains(<button />)).toBe(true);
+  // });
+
   it('should render children', () => {
-    const childWrapper = shallow((
-      <div className="component-button">
-        <button />
-      </div>
-    ));
-    expect(childWrapper.contains(<button />)).toBe(true);
+    expect(wrapper.find('button')).toHaveLength(1);
   });
 });

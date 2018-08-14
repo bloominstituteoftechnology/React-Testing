@@ -10,8 +10,8 @@ import Panel from '../components/Panel/Panel';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('<App />', () => {
-  const wrapper = shallow(<App />);
-  const instance = wrapper.instance();
+  let wrapper = shallow(<App />);
+  let instance = wrapper.instance();
 
   it('renders without crashing', () => {
     // const div = document.createElement('div');
@@ -35,13 +35,22 @@ describe('<App />', () => {
     expect(wrapper.hasClass('component-app')).toBe(true);
   });
 
+  // it('should have div "component-app"', () => {
+  //   expect(wrapper.find('div.component-app')).toHaveLength(1);
+  // });
+
+  // it('should render children', () => {
+  //   wrapper = shallow((
+  //     <div className="component-app">
+  //       <Display />
+  //       <Panel />
+  //     </div>
+  //   ));
+  //   expect(wrapper.contains([<Display />, <Panel />])).toBe(true);
+  // });
+
   it('should render children', () => {
-    const childWrapper = shallow((
-      <div className="component-app">
-        <Display />
-        <Panel />
-      </div>
-    ));
-    expect(childWrapper.contains([<Display />, <Panel />])).toBe(true);
+    expect(wrapper.find(Display)).toHaveLength(1);
+    expect(wrapper.find(Panel)).toHaveLength(1);
   });
 });

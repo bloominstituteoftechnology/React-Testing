@@ -9,8 +9,7 @@ import Button from '../components/Button/Button';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Panel />', () => {
-  const wrapper = shallow(<Panel />);
-  const instance = wrapper.instance();
+  let wrapper = shallow(<Panel />);
 
   it('renders without crashing', () => {
     // const div = document.createElement('div');
@@ -22,21 +21,29 @@ describe('<Panel />', () => {
     expect(wrapper.hasClass('component-panel')).toBe(true);
   });
 
+  // it('should render children', () => {
+  //   const wrapper = shallow((
+  //     <div className="component-panel">
+  //       <div />
+  //     </div>
+  //   ));
+  //   expect(wrapper.contains(<div />)).toBe(true);
+  // });
+
   it('should render children', () => {
-    const cWrapper = shallow((
-      <div className="component-panel">
-        <div />
-      </div>
-    ));
-    expect(cWrapper.contains(<div />)).toBe(true);
+    expect(wrapper.find('div')).toHaveLength(6);
   });
 
+  // it('should render grandchildren', () => {
+  //   const wrapper = shallow((
+  //     <div>
+  //       <Button />
+  //     </div>
+  //   ));
+  //   expect(wrapper.contains(<Button />)).toBe(true);
+  // });
+
   it('should render grandchildren', () => {
-    const gcWrapper = shallow((
-      <div>
-        <Button />
-      </div>
-    ));
-    expect(gcWrapper.contains(<Button />)).toBe(true);
+    expect(wrapper.find(Button)).toHaveLength(19);
   });
 });
