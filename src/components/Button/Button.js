@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import './Button.css';
 
 class Button extends Component {
+    
     handleClick = () => {
         this.props.clickHandler(this.props.name);
     }
@@ -15,7 +16,7 @@ class Button extends Component {
         ];
         return (
             <div className={classNames.join(' ').trim()}>
-                <button onClick={this.handleClick}>
+                <button className='this-button' onClick={this.handleClick}>
                     {this.props.name}
                 </button>
             </div>

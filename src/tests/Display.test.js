@@ -11,4 +11,10 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+
+  it('should display prop `value` that displays to screen', () => {
+    const testing = shallow(<Display value={'1'} />)
+    const value = testing.find('.component-display');
+    expect(value.text()).toEqual('1');
+  })
 });
