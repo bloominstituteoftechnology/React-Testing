@@ -8,13 +8,14 @@ import App from "../App";
 Enzyme.configure({ adapter: new Adapter() });
 
 describe("<App />", () => {
-  const app = shallow(<App />);
-  const instance = app.instance();
+ 
   it("renders without crashing", () => {
     shallow(<App />);
   });
 
   describe("checks default state for <App />", () => {
+    const app = shallow(<App />);
+    const instance = app.instance();
     it("should have total as 0 by default in state", () => {
       expect(instance.state.total).toMatch("0");
     });
