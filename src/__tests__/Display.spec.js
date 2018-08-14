@@ -11,6 +11,12 @@ describe('<Display />', () => {
     ReactDOM.render(<Display />, div);
   });
 
+  it('should render a div with classname component-display', () => {
+    const wrapper = shallow(<Display />);
+    const div= wrapper.find('.component-display');
+    expect(div.length).toBeGreaterThan(0);
+  })
+
   it('should render expected value', () => {
     const value = '5';
     const wrapper = shallow(<Display value={value} />);
