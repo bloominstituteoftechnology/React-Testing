@@ -25,8 +25,8 @@ class Button extends Component {
 
 Button.propTypes = {
   name: PropTypes.string,
-  orange: PropTypes.bool,
   wide: PropTypes.bool,
+  orange: PropTypes.bool,
   clickHandler: PropTypes.func
 }
 
