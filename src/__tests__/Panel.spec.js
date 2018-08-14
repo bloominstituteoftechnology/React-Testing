@@ -19,7 +19,7 @@ it('should render 19 Button components to the screen', () => {
 })
 
 it('should have a method called handleClick', () => {
-  const wrapper = shallow(< Panel />);
+  const wrapper = shallow(<Panel />);
   const instance = wrapper.instance();
 
   expect(instance.handleClick).toBeDefined();
