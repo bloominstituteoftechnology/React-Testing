@@ -8,7 +8,14 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Display />', () => {
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Display />, div);
+    shallow(<Display/>)
   });
+
+  it('should display the value passed in as props', () => {
+    const props = { value: '7' }
+    const _Display = shallow(<Display {...props} />)
+    const displayDiv = _Display.find('.component-display').closest('div')
+    
+    expect (displayDiv.text()).toEqual('7')
+  })
 });
