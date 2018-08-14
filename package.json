@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "jest": "^23.5.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-scripts": "^1.1.4"
@@ -10,11 +11,15 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test --watchAll",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
     "enzyme": "^3.4.1",
     "enzyme-adapter-react-16": "^1.2.0"
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/rushman7/React-Testing.git",
+  "author": "<arthurpisakhov1@gmail.com>",
+  "license": "MIT"
 }
