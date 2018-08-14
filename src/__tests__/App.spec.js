@@ -10,16 +10,35 @@ describe('<App />', () => {
     ReactDOM.render(<App />, div);
   });
 
-  it('Renders in the app without crashing', () => {
-    shallow(<App />)
+  let wrapper;
+  let instance;
+
+  beforeEach(() => {
+    wrapper = shallow(<App />)
+    instance = wrapper.instance()
   })
 
-  // it('App display should initially display nothing', () => {
-  //   const app = shallow(<App />)
+  it('Renders in the app without crashing', () => {
+    wrapper 
+  })
 
-  //   const display = app.find()
+  describe('<Display />', () => {
 
-  // })
+    it('Includes 1 Display component', () => {
+      expect(wrapper.find('Display').length).toEqual(1)
+    })
+    it('should start at initial state 0', () => {
+      expect(instance.state.total).toEqual('0')
+    })
+  })
+
+  describe('<Panel />', () => {
+
+    it('Includes 1 panel component', () => {
+      expect(wrapper.find('Panel').length).toEqual(1)
+    })
+  })
+
 });
 
 {/*

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Enzyme, { shallow } from 'enzyme';
+import { shallow } from 'enzyme';
 
 import Display from '../components/Display/Display';
 
@@ -9,4 +9,8 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+
+  it('App display should initially display 0', () => {
+
+  })
 });
