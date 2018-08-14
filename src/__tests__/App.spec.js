@@ -1,11 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { shallow } from 'enzyme';
 
 import App from '../App';
-
-Enzyme.configure({ adapter: new Adapter() });
 
 describe('<App />', () => {
   it('renders without crashing', () => {
@@ -16,6 +13,13 @@ describe('<App />', () => {
   it('Renders in the app without crashing', () => {
     shallow(<App />)
   })
+
+  // it('App display should initially display nothing', () => {
+  //   const app = shallow(<App />)
+
+  //   const display = app.find()
+
+  // })
 });
 
 {/*
