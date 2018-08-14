@@ -48,3 +48,32 @@ Enzyme.configure({ adapter: new Adapter() });
 
 import { shallow } from 'enzyme'
 ```
+
+4. Test that panel is displaying buttons
+
+```
+describe('should render numbers and operators', () => {
+  it('renders 19 buttons', () => {
+    const wrapper = shallow(<Panel />);
+    const buttons = wrapper.find('Button');
+
+    expect(buttons).toHaveLength(19);
+  })
+})
+```
+
+5. Test that app is rendering components
+
+```
+describe('renders display and panel components', () => {
+  const wrapper = shallow(<App />);
+  
+  it('renders the Display Component', () => {
+    expect(wrapper.containsMatchingElement(<Display />)).toEqual(true);
+  });
+  it('renders the Panel Component', () => {
+    expect(wrapper.containsMatchingElement(<Panel />)).toEqual(true);
+  });
+})
+```
+

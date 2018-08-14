@@ -11,4 +11,9 @@ describe('<Button />', () => {
   });
 });
 
-// acc
+// it('button should click when clicked', () => {
+//   const onClick = sinon.spy();
+//   const wrapper = shallow(<Button clickHandler={onClick} />);
+//   wrapper.find('button').simulate('click');
+//   expect(onClick.calledOnce).toEqual(true);
+// });
