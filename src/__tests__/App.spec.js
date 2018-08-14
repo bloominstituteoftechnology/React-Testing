@@ -12,4 +12,27 @@ describe('<App />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
+
+  it('renders a display component', () => {
+    const app = shallow(<App />);
+    const instance = app.instance();
+    const display = app.find('Display');
+
+    expect(display.length).toBe(1);
+  })
+
+  it('renders a panel component', () => {
+    const app = shallow(<App />);
+    const instance = app.instance();
+    const panel = app.find('Panel');
+
+    expect(panel.length).toBe(1);
+  })
+
+  it('renders a display component with a default value of 0', () => {
+    const app = shallow(<App />);
+    const instance = app.instance();
+
+    expect(instance.state.total).toEqual('0');
+  })
 });
