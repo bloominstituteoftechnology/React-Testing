@@ -27,4 +27,22 @@ describe("<App />", () => {
     });
   });
 
+  it("should have a handleClick method that updates state", () => {
+    const app = shallow(<App />);
+    const instance = app.instance();
+
+    instance.handleClick('5');
+
+    expect(app.state('next')).toEqual('5');
+
+    instance.handleClick('4');
+    expect(app.state('next')).toEqual('54');
+
+    instance.handleClick('1');
+    expect(app.state('next')).toEqual('541');
+
+    expect(app.state('operation')).toBeNull();
+    expect(app.state('total')).toBeNull();
+  });
+
 });
