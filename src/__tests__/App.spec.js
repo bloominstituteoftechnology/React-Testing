@@ -13,31 +13,34 @@ describe('<App />', () => {
     ReactDOM.render(<App />, div);
   });
 
+  
   it('should display value of 0 on default', () => {
-    const app = shallow(<App/>);
+    const app = shallow(<App />);
     const instance = app.instance();
     expect(instance.state.total).toEqual('0')
   });
+
   it('should display null on default', () => {
     const app = shallow(<App/>);
     const instance = app.instance();
     expect(instance.state.next).toEqual(null)
   });
-  it('should display null on default', () => {
-    const app = shallow(<App/>);
-    const instance = app.instance();
-    expect(instance.state.operation).toEqual(null)
+  
+  it('should have the properties `total`, `next`, and `operation` in state', () => {
+    const component = shallow(<App />);
+    expect(component.state('total')).toEqual("0");
+    expect(component.state('next')).toBeDefined();
+    expect(component.state('operation')).toBeDefined(); 
   });
-  // it('should display a value passed as a prop', () => {
-  //   const app = shallow(<App/>);
-  //   const instance = app.instance();
 
-
-
-  //   expect(instance.state.total).toEqual('2')
-  // })
-
-
-
+  it('should render a div with class `component-app`', () => {
+    const component = shallow(<App />);
+    expect(component.find('.component-app')).toHaveLength(1);
+  });
+  
+  it('should render a div with class `component-app`', () => {
+    const component = shallow(<App />);
+    expect(component.find('.component-app')).toHaveLength(1);
+  });
 
 });

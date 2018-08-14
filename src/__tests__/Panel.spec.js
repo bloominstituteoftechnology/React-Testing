@@ -12,4 +12,21 @@ describe('<Panel />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Panel />, div);
   });
+
+  it('should render a div with class `component-panel`', () => {
+    const panel = shallow(<Panel />);
+    expect(panel.find('.component-panel')).toHaveLength(1);
+  });
+
+  it('should have a function called handleClick', () => {
+    const panel = shallow(<Panel />);
+    const instance = panel.instance();
+    expect(instance.handleClick).toBeDefined();
+  });
+
+  it('should render 19 buttons', () => {
+    const component = shallow(<Panel />);
+    expect(component.find('Button')).toHaveLength(19);
+  });
+
 });
