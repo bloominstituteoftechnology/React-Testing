@@ -12,4 +12,15 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+
+  it('should render a p tag with "Welcome to React', () => {
+    const app = shallow(<Display value='1000'/>)
+
+    const display = app.find('.component-display')
+
+    expect(display.text()).toEqual('1000');
+  });
+
+
+
 });

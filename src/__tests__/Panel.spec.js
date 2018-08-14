@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Enzyme, { shallow } from 'enzyme';
+import sinon from 'sinon';
 import Adapter from 'enzyme-adapter-react-16';
 
 import Panel from '../components/Panel/Panel';
