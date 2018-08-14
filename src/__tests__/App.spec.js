@@ -27,7 +27,7 @@ describe("<App />", () => {
     });
   });
 
-  it("should have a handleClick method that updates state", () => {
+  it("should update the next property state with no side effects to the other state", () => {
     const app = shallow(<App />);
     const instance = app.instance();
 
@@ -43,6 +43,17 @@ describe("<App />", () => {
 
     expect(app.state('operation')).toBeNull();
     expect(app.state('total')).toBeNull();
+
   });
+
+  it.skip('should update the operator state and two consecutive operators should not break the app', () => {
+    const app = shallow(<App />);
+    const instance = app.instance();
+
+    instance.handleClick('+');
+    expect(app.state('operation')).toEqual('+');
+    instance.handleClick('-');
+    expect(app.state('operation')).toEqual('-');
+  })
 
 });
