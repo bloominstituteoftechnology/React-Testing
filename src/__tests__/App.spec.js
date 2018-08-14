@@ -4,12 +4,14 @@ import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import App from '../App';
+import Display from '../components/Display/Display';
+import Panel from '../components/Panel/Panel';
 
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('<App />', () => {
-  const app = shallow(<App />);
-  const instance = app.instance();
+  const wrapper = shallow(<App />);
+  const instance = wrapper.instance();
 
   it('renders without crashing', () => {
     // const div = document.createElement('div');
@@ -28,8 +30,18 @@ describe('<App />', () => {
   it('initial operation is null', () => {
     expect(instance.state.operation).toBe(null);
   });
-  
+
   it('should have div "component-app"', () => {
-    expect(app.hasClass('component-app')).toBe(true);
+    expect(wrapper.hasClass('component-app')).toBe(true);
+  });
+
+  it('should render children', () => {
+    const childWrapper = shallow((
+      <div className="component-app">
+        <Display />
+        <Panel />
+      </div>
+    ));
+    expect(childWrapper.contains([<Display />, <Panel />])).toBe(true);
   });
 });
