@@ -10,3 +10,10 @@ describe('<Display />', () => {
     ReactDOM.render(<Display />, div);
   });
 });
+
+it('should have a prop named `value` that displays to the screen', () => {
+  const wrapper = shallow(<Display value={'1'} />);
+  const value = wrapper.find('.component-display');
+
+  expect(value.text()).toEqual('1');
+})
