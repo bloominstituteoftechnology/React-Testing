@@ -13,3 +13,10 @@ describe('<Display />', () => {
     ReactDOM.render(<Display />, div);
   });
 });
+
+// it('should return invalid input if divided by 0', () => {
+//   const component = shallow(<Display />);
+//   const app = shallow(<App />);
+//   app.instance().handleClick('÷');
+//   expect(component.state('total')).toEqual('0');
+// })

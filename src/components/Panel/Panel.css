@@ -4,6 +4,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     flex: 1 0 auto;
+
 }
 
 .component-button-panel > div {

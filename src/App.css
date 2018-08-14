@@ -1,4 +1,6 @@
 .component-app {
+    max-width: 1024px;
+    margin: 50px auto;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
