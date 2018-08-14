@@ -11,4 +11,22 @@ describe('<App />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
+
+  it('should display total 0 by default', () => {
+    const app = shallow(<App />)
+    const instance = app.instance();
+    expect(instance.state.total).toEqual('0');
+  })
+
+  it('should display null by default', () => {
+    const app = shallow(<App />)
+    const instance = app.instance();
+    expect(instance.state.next).toEqual(null);
+  })
+
+  it('operation should display null by default', () => {
+    const app = shallow(<App />)
+    const instance = app.instance();
+    expect(instance.state.operation).toEqual(null);
+  })
 });
