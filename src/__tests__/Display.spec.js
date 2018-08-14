@@ -12,4 +12,15 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+  it('renders component-display', () => {
+    const wrapper = shallow(<Display />);
+    const componentDisplay = wrapper.find('.component-display');
+    expect(componentDisplay).toBeDefined();
+  });
+  it('displays value prop', () => {
+    const wrapper = shallow(<Display value='test' />);
+    const componentDisplayValue = wrapper.find('.component-display > div');
+    expect(componentDisplayValue.text()).toEqual('test');
+  });
 });
+

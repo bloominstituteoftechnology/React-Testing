@@ -12,4 +12,10 @@ describe('<App />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
+
+  it('passes 0 to Display value prop by default', () => {
+    const AppComponent = shallow(<App />);
+    const DisplayComponent = AppComponent.find('Display');
+    expect(DisplayComponent.props()).toEqual({ value: '0' });
+  });
 });
