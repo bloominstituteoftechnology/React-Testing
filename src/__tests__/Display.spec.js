@@ -13,10 +13,14 @@ describe('<Display />', () => {
     ReactDOM.render(<Display />, div);
   });
 
-  it('should render a string', () => {
-    const display = shallow(<Display />);
-    const value = '';
-    const div = display.find('.component-display');
-    expect(div.text()).toEqual(value)
+  let wrapper;
+  beforeEach(() => {
+  wrapper = shallow(<Display />);
+});
+
+  it('should render a value', () => {
+    wrapper.setProps({value: 'test'});
+    expect(wrapper.text()).toEqual('test')
   });
 });
+

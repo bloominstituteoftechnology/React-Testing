@@ -12,4 +12,14 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
+
+  let wrapper;
+  beforeEach(() => {
+  wrapper = shallow(<Button />);
+});
+
+  it('should render a name for each button', () => {
+    wrapper.setProps({name: 'test'});
+    expect(wrapper.text()).toEqual('test')
+  });
 });

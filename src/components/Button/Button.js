@@ -8,6 +8,7 @@ class Button extends Component {
     }
 
     render() {
+        const name = this.props.name;
         const classNames = [
             'component-button',
             this.props.orange ? 'orange' : '',
@@ -16,7 +17,7 @@ class Button extends Component {
         return (
             <div className={classNames.join(' ').trim()}>
                 <button onClick={this.handleClick}>
-                    {this.props.name}
+                    {name}
                 </button>
             </div>
         );
