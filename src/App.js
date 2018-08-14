@@ -15,6 +15,7 @@ class App extends Component {
         this.setState(calculate(this.state, buttonName));
     }
 
+    test
     render() {
         return (
             <div className='component-app'>
