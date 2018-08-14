@@ -1,3 +1,4 @@
+// Library for arbitrary-precision decimal arithmetic
 import Big from 'big.js';
 
 function operate(numberOne, numberTwo, operation) {

@@ -13,3 +13,10 @@ describe('<App />', () => {
     ReactDOM.render(<App />, div);
   });
 });
+
+describe('Div classname component app exists', () => {
+  const app = shallow(<App />)
+  it('causes no errors when rendering', () => {
+    const div = app.find('component-app');
+  })
+})

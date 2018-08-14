@@ -13,3 +13,13 @@ describe('<Button />', () => {
     ReactDOM.render(<Button />, div);
   });
 });
+
+describe('Button components features test', () => {
+  const button = shallow(<Button />)
+  it('contains the class component button', () => {
+    expect(button.hasClass('component-button'))
+  })
+  it('contains the class orange', () => {
+
+  })
+})
