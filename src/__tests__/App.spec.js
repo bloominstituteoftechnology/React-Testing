@@ -8,16 +8,16 @@ import App from '../App';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('<App />', () => {
-  it('renders without crashing', () => {
+  test('renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
-  it('Default total should be 0', () => {
+  test('Default total should be 0', () => {
     const app = shallow(<App />);
     const instance = app.instance();
     expect(instance.state.total).toEqual("0");
   });
-  it('Default operation and next states should be null', () => {
+  test('Default operation and next states should be null', () => {
     const app = shallow(<App />);
     const instance = app.instance();
     expect(instance.state.next).toEqual(null);
