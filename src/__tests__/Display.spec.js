@@ -12,4 +12,16 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+
+
+  it('should return a least and most of 1', () => {
+    const wrapper = shallow(<Display />);
+    expect(wrapper).toHaveLength(1);
+  });
+
+  it('should have a prop named `value` that displays to the screen', () => {
+  	const wrapper = shallow(<Display value={'1'} />);
+  	const value = wrapper.find('.component-display');
+   	expect(value.text()).toEqual('1');
+});
 });
