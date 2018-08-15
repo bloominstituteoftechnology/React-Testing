@@ -29,7 +29,7 @@ describe('Button components features test', () => {
   })
   it('contains the class wide', () => {
     const wide = shallow((
-      <div className={'component button, wide'}>
+      <div className={'component button'}>
       </div>
     ))
     expect(button.hasClass('wide')).toBeFalsy();

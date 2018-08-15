@@ -17,7 +17,7 @@ describe('<Display />', () => {
 describe('Display has styling for value display', () => {
   it('has className component-display', () => {
     const display = shallow(<Display />);
-    const componentDisplay = shallow.first().find('div')
+    const componentDisplay = display.find('div')
 
     expect(componentDisplay.hasClass('component-display'))
   })
