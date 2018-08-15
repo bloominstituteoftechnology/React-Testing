@@ -18,5 +18,8 @@ describe('calculate', () => {
         expect (rv).toEqual(nullState);
     })
 
-
+    // it('accepts a string or number as input', () => {
+    //     const result = operate(1, 2, "+");
+    //     expect(result).toEqual('3')  
+    //   })
 })
