@@ -22,4 +22,10 @@ describe("<Button />", () => {
     expect(component.find(".component-button").length).toEqual(1);
     expect(component.find(".wide").length).toEqual(1);
   });
+
+  it("should have a method called handleClick", () => {
+    const component = shallow(<Button />);
+    const instance = component.instance();
+    expect(instance.handleClick).toBeDefined();
+  });
 });
