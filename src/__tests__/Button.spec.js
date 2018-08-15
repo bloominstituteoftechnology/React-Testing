@@ -13,3 +13,11 @@ describe('<Button />', () => {
     ReactDOM.render(<Button />, div);
   });
 });
+
+describe('Button', () => {
+  it('Renders button element', () => {
+    const button = shallow(<Button/>);
+    const componentButton = button.find('.component-button');
+    expect(componentButton.length).toBe(1);
+  })
+});

@@ -13,7 +13,7 @@ describe('<App />', () => {
     ReactDOM.render(<App />, div);
   });
 });
-describe('Render', () => {
+describe('App Render', () => {
   it('renders component', () => {
     const app = shallow(<App/>);
     const componentApp = app.find('.component-app');
