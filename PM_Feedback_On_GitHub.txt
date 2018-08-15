@@ -1,0 +1,16 @@
+## React Testing (day 2)
+### Assignment
+* [x] Go through and inspect all of the different pieces of the code.
+* [x] Write tests for all of the components in the `./src/components` directory.
+* [x] Write these tests in the correspondingly-named files in the `./src/__tests__` directory.
+* [x] write tests inside `App.spec.js`.
+* [x] write tests inside `Button.spec.js`.
+* [x] write tests inside `Display.spec.js`.
+* [x] write tests inside `Panel.spec.js`.
+
+As you write your tests, bugs in the code may be revealed, feel free to correct and _refactor_ the source code to sitisfy your tests.
+
+## Stretch Goal
+Add additional test files 
+* [x] write tests for the `calculate.test.js`  
+* [x] write tests for the `operate.test.js` 
