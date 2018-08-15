@@ -2,12 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-
+import axios from 'axios';
+import renderer from 'react-test-renderer'; // snapshot
+import calculate from '../logic/calculate.js';
 import App from '../App';
 
+jest.mock('../logic/calculate.js');
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('<App />', () => {
+  // can pass props into <App props={}/>
+  it('should match snapshot', () => {
+    const tree = renderer.create(<App />).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
+
   it('renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
@@ -27,11 +37,81 @@ it('should have render component-app', () => {
   expect(component.find('.component-app')).toHaveLength(1);
 });
 
-it('should have a handleClick method that updates state', () => {
-  const component = shallow(<App />);
-  component.instance().handleClick('9');
-  expect(component.state('next')).toEqual('9');
-  component.instance().handleClick('+');
-  expect(component.state('operation')).toEqual('+');
-  expect(component.state('total')).toEqual('9');
+it('passes 0 to Display value prop by default', () => {
+  const AppComponent = shallow(<App />);
+  const DisplayComponent = AppComponent.find('Display');
+  expect(DisplayComponent.props()).toEqual({ value: '0' });
+});
+
+it('should pass the total to the Display component if next is null', () => {
+  const root = shallow(<App />);
+  const instance = root.instance();
+
+  root.setState({ total: '7', next: null });
+  const value = root.find({ value: instance.state.total });
+
+  expect(value.length).toBe(1);
+});
+
+describe('handleClick()', () => {
+  it('should call "calculate" exactly one time', () => {
+    // to know how many times a function is called
+    const root = shallow(<App />);
+    const instance = root.instance();
+    const buttonName = 'logan';
+
+    instance.handleClick(buttonName);
+
+    expect(calculate).toHaveBeenCalledTimes(1);
+  });
+
+  it('should call "calculate" passing the state and buttonName', () => {
+    // to know how many times a function is called
+    const root = shallow(<App />);
+    const instance = root.instance();
+    const buttonName = 'logan';
+    const stateObject = { total: '3', next: null, operation: null };
+
+    root.setState(stateObject);
+    instance.handleClick(buttonName);
+
+    expect(calculate).toHaveBeenCalledWith(stateObject, buttonName);
+  });
+
+  it('should render the Display and Panel components', () => {
+    //const root = shallow(<App/>); expect(root.find(‘Display’).length).toEqual(1)
+    const root = shallow(<App />);
+
+    const display = root.find('Display');
+    const panel = root.find('Panel');
+
+    expect(display.length).toBe(1);
+    expect(panel.length).toBe(1);
+  });
+
+  describe('Asynchronous tests', () => {
+    it('async using callback', done => {
+      // Jest is passing in the `done`
+      // axios.get('http://swapi.co/api/people').then(res => {
+      //   done();
+      // });
+      // if done is not called, the test will fail
+      setTimeout(done, 1000); // setTimeout will call done after 1s
+    });
+  });
+
+  it('async with promises', () => {
+    // don't forget the return
+    return new Promise(resolve => setTimeout(resolve, 1000));
+  });
+
+  it('async with async/await', async () => {
+    // const response = await axios.get('http://swapi.co/api/people');
+    // try {
+    //   done();
+    // } catch (err) {
+    //   done();
+    // }
+    await new Promise(resolve => setTimeout(resolve, 1000));
+  });
 });
