@@ -6,7 +6,8 @@ import Display from '../components/Display/Display';
 describe('<Display />', () => {
 
   it('renders without crashing', () => {
-    shallow(<Display />);
+    const div = document.createElement('div');
+    ReactDOM.render(<Display />, div);
   });
 
   it('should render provided title', () => {

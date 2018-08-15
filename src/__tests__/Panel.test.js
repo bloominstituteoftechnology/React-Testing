@@ -8,7 +8,8 @@ describe('<Panel />', () => {
   const mountPanel = mount(<Panel />); 
 
   it('renders without crashing', () => {
-    shallow(<Panel />);
+    const div = document.createElement('div');
+    ReactDOM.render(<Panel />, div);
   });
 
   it('should render exactly 19 Button components', () => {
@@ -28,5 +29,5 @@ describe('<Panel />', () => {
 
   it('should have an equals button', () => {
     expect(mountPanel.find('button').contains('=')).toBeTruthy();
-  })
+  });
 });

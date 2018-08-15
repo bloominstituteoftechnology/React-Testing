@@ -7,7 +7,8 @@ describe('<App />', () => {
   const app = shallow(<App />);
 
   it('renders without crashing', () => {
-    shallow(<App />);
+    const div = document.createElement('div');
+    ReactDOM.render(<App />, div);
   });
   
   it('should render exactly one Display component', () => {

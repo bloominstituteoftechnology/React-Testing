@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { shallow, mount } from 'enzyme';
 
 import Button from '../components/Button/Button';
@@ -13,7 +14,8 @@ describe('<Button />', () => {
   const button = shallow(<Button {...props} />);
 
   it('renders without crashing', () => {
-    shallow(<Button />);
+    const div = document.createElement('div');
+    ReactDOM.render(<Button />, div);
   });
 
   it(`displays the name 'Submit' when passed through props`, () => {
