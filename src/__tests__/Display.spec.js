@@ -12,4 +12,12 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+
+  it('should have a display that shows user input', () => {
+    const app = shallow(<Display />); //seems you need this almost every time
+    const instance = app.instance; //remind me again what this line is for?
+
+    const display = app.find('.component-display');
+    expect(display.state.total).toEqual(0);
+  })
 });
