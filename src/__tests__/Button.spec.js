@@ -23,6 +23,11 @@ describe('<Button />', () => {
     expect(wrapper.text()).toEqual('test')
   });
 
+  describe('Asynchronous tests', () => {  
+  it('async with async/await', async () => {
+    await new Promise(resolve => setTimeout(resolve, 1000))
+  })
+});
  /* it('should render orange button when className is orange', () => {
     const button = wrapper.find('.component-button.orange');
     expect(button.prop('style')).toEqual({color: '#F5923E'} )
@@ -34,6 +39,3 @@ describe('<Button />', () => {
   });*/
 
 });
-
-//should render orange button when className is orange
-//should render wide button when className is wide

@@ -22,5 +22,11 @@ describe('<Panel />', () => {
   it('should render Button component', () => {
     expect(wrapper.containsMatchingElement(<Button />)).toEqual(true)
   });
+
+  describe('Asynchronous tests', () => {  
+  it('async with promises', () => {
+    return new Promise(resolve => setTimeout(resolve, 1000));
+  })
+  })
   
 });

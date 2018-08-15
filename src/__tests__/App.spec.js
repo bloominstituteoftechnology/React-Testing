@@ -85,6 +85,13 @@ it('should pass total to Display component if next is null', () => {
   expect(value.length).toBe(1);
 })
 
-
+describe('Asynchronous tests', () => {
+  it('async using callback', done => {
+    setTimeout(done, 1000);
+  })
+})
+it('async with promises', () => {
+  return new Promise(resolve => setTimeout(resolve, 1000));
+})
 });
 

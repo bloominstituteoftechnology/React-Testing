@@ -23,6 +23,13 @@ describe('<Display />', () => {
     expect(wrapper.text()).toEqual('test')
   });
 
+
+  describe('Asynchronous tests', () => {
+    it('async using callback', done => {
+      setTimeout(done, 1000);
+    })
+  })
+  
 });
 
 
