@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
+import calculate from '../logic/calculate.js'
 
 import App from '../App';
+
+jest.mock('../logic/calculate.js')
 
 describe('<App />', () => {
   it('renders without crashing', () => {
@@ -12,7 +15,7 @@ describe('<App />', () => {
 
   let wrapper;
   let instance;
-
+  
   beforeEach(() => {
     wrapper = shallow(<App />)
     instance = wrapper.instance()
@@ -39,7 +42,36 @@ describe('<App />', () => {
     })
   })
 
+
+
+  describe('handleclick()', () => {
+    it('should call "calculate" exactly one time', () => {
+        const root = shallow(<App />)
+        const instance = root.instance()
+        const buttonName = 'logan'
+
+        instance.handleClick(buttonName)
+
+        expect(calculate).toHaveBeenCalledTimes(1)
+    })
+
+    it('should call "calculate" passing the state and buttonName', () => {
+      const root = shallow(<App />)
+      const instance = root.instance()
+      const buttonName = 'logan'
+      const stateObject = {total:'3', next: null, operation: null}
+
+      root.setState(stateObject)
+      instance.handleClick(buttonName)
+
+      expect(calculate).toHaveBeenCalledWith(stateObject, buttonName)
+    })
+  })
+
 });
+
+
+
 
 {/*
 
