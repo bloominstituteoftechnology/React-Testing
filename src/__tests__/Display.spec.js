@@ -18,9 +18,13 @@ describe('<Display />', () => {
   wrapper = shallow(<Display />);
 });
 
-  it('should render a value', () => {
+  it('should render a value to display', () => {
     wrapper.setProps({value: 'test'});
     expect(wrapper.text()).toEqual('test')
   });
+
 });
 
+
+//should render value to display
+//should display 0 when no value is given

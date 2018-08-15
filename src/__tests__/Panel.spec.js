@@ -22,4 +22,5 @@ describe('<Panel />', () => {
   it('should render Button component', () => {
     expect(wrapper.containsMatchingElement(<Button />)).toEqual(true)
   });
+  
 });

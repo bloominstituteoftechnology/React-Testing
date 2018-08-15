@@ -22,4 +22,18 @@ describe('<Button />', () => {
     wrapper.setProps({name: 'test'});
     expect(wrapper.text()).toEqual('test')
   });
+
+ /* it('should render orange button when className is orange', () => {
+    const button = wrapper.find('.component-button.orange');
+    expect(button.prop('style')).toEqual({color: '#F5923E'} )
+  });
+
+  it('should render wide button when className is wide', () => {
+    const button = wrapper.find('.component-button.wide');
+    expect(button.prop('style')).toEqual({width: '50%'})
+  });*/
+
 });
+
+//should render orange button when className is orange
+//should render wide button when className is wide

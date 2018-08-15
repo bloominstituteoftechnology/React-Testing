@@ -6,6 +6,9 @@ import Adapter from 'enzyme-adapter-react-16';
 import App from '../App';
 import Display from '../components/Display/Display';
 import Panel from '../components/Panel/Panel';
+import calculate from '../logic/calculate';
+
+jest.mock('../logic/calculate');
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -28,19 +31,60 @@ describe('<App />', () => {
     expect(wrapper.containsMatchingElement(<Panel />)).toEqual(true)
   });
 
-  it('should update state when number is clicked', () => {
+  /*it('should update state when number is clicked', () => {
     wrapper.instance().handleClick('1');
     expect(wrapper.state('next')).toEqual('1');
   
-  wrapper.instance().handleClick('+');
-    expect(wrapper.state('operation')).toEqual('+');
+    wrapper.instance().handleClick('+');
+      expect(wrapper.state('operation')).toEqual('+');
   
-  wrapper.instance().handleClick('2');
-    expect(wrapper.state('next')).toEqual('2');
+    wrapper.instance().handleClick('2');
+      expect(wrapper.state('next')).toEqual('2');
   
-  wrapper.instance().handleClick('=');
-    expect(wrapper.state('total')).toEqual('3');
+    wrapper.instance().handleClick('=');
+      expect(wrapper.state('total')).toEqual('3');
+  });*/
+
+  describe('handleClick', () => {
+    it('should call "calculate" exactly one time', () => {
+      const instance = wrapper.instance();
+      const buttonName = 'test';
+      instance.handleClick(buttonName);
+      expect(calculate).toHaveBeenCalledTimes(1);
+    })
+    
+  it('should call "calculate" passing the state and buttonName', () => {
+    const instance = wrapper.instance();
+    const buttonName = 'test';
+    const stateObject = {total: '3', next: null, operation: null};
+    wrapper.setState(stateObject);
+    instance.handleClick(buttonName);
+    expect(calculate).toHaveBeenCalledWith(stateObject, buttonName);
+  })
+
+  it('should update state when number is clicked', () => {
+    const instance = wrapper.instance();
+    instance.handleClick('1');
+    expect(wrapper.state('next')).toEqual('1');
+  
+    instance.handleClick('+');
+      expect(wrapper.state('operation')).toEqual('+');
+  
+    instance.handleClick('2');
+      expect(wrapper.state('next')).toEqual('2');
+  
+    instance.handleClick('=');
+      expect(wrapper.state('total')).toEqual('3');
   });
+});
+
+it('should pass total to Display component if next is null', () => {
+  const instance = wrapper.instance();
+  wrapper.setState({total: '7', next: null});
+  const value = wrapper.find({value: instance.state.total})
+  expect(value.length).toBe(1);
+})
+
 
 });
 
