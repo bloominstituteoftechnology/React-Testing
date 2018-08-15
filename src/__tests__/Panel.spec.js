@@ -18,8 +18,11 @@ describe('<Panel />', () => {
 
     const parentDiv = panelWrap.find('div.component-panel')
 
+    //Make sure there are 5 divs
     expect(parentDiv.children().length).toBe(5)
 
+    //Make sure the first 4 divs have 4 Buttons
+    //And the last one as 3 Buttons
     parentDiv.children().forEach( (node, ind) => {
       if (ind < 4) expect(node.children().length).toBe(4)
       else expect(node.children().length).toBe(3)
