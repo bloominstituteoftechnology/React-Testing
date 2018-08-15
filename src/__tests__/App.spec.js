@@ -93,6 +93,15 @@ it('should call "calculate" passing the state and buttonName', () => {
       expect(calculate).toHaveBeenCalledWith(stateObject, buttonName);
     });
 
+it('should render the Display and Panel components', () => {
+      const app = shallow(<App />);
+
+      const display = app.find('Display');
+      const panel = app.find('Panel');
+
+      expect(display.length).toBe(1);
+      expect(panel.length).toBe(1);
+    });
 
 });
 
