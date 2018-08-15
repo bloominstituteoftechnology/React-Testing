@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Enzyme, { shallow } from 'enzyme';
+import Enzyme, { shallow, instance } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import App from '../App';
@@ -27,5 +27,20 @@ describe('<App />', () => {
   it('should render Panel component', () => {
     expect(wrapper.containsMatchingElement(<Panel />)).toEqual(true)
   });
+
+  it('should update state when number is clicked', () => {
+    wrapper.instance().handleClick('1');
+    expect(wrapper.state('next')).toEqual('1');
+  
+  wrapper.instance().handleClick('+');
+    expect(wrapper.state('operation')).toEqual('+');
+  
+  wrapper.instance().handleClick('2');
+    expect(wrapper.state('next')).toEqual('2');
+  
+  wrapper.instance().handleClick('=');
+    expect(wrapper.state('total')).toEqual('3');
+  });
+
 });
 
