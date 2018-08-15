@@ -18,5 +18,5 @@ describe('<Panel />', () => {
   it('renders 19 buttons', () => {
     const component = shallow(<Panel />);
     expect(component.find('Button')).toHaveLength(19);
-  })
+  });
 });
