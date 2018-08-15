@@ -8,16 +8,19 @@ import Display from '../components/Display/Display';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Display />', () => {
-  it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Display />, div);
+  it('should render a div with class `component-display`', () => {
+    const component = shallow(<Display />);
+    expect(component.find('.component-display')).toHaveLength(1);
   });
 
-  it('should have a display that shows user input', () => {
-    const app = shallow(<Display />); //seems you need this almost every time
-    const instance = app.instance; //remind me again what this line is for?
+  it('should render whatever value gets passed', () => {
+    const component = shallow(<Display value={'8'} />);
+    expect(component.contains(
+      <div className="component-display">
+      8
+      </div>
+    )).toEqual(true);
+  });
 
-    const display = app.find('.component-display');
-    expect(display.state.total).toEqual(0);
-  })
+
 });
