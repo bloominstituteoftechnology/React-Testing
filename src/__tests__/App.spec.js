@@ -34,3 +34,4 @@ describe("App's state is set", () => {
     expect(instance.state.operation).toEqual(null);
   })
 })
+
