@@ -18,32 +18,36 @@ describe('Button components features test', () => {
   const button = shallow(<Button />)
   const buttonClass = button.find('div')
   it('contains the class component button', () => {
-    expect(buttonClass.hasClass('component-button')).toEqual(true);
+    expect(buttonClass.hasClass('component-button'))
   })
   it('contains the class orange', () => {
     const orange = shallow((
       <div className={'component button'}>
       </div>
     ))
-    expect(orange.hasClass('orange')).toEqual(false);
+    expect(orange.hasClass('orange')).toBeFalsy();
   })
   it('contains the class wide', () => {
     const wide = shallow((
-      <div className={'component button'}>
+      <div className={'component button, wide'}>
       </div>
     ))
-    expect(button.hasClass('wide')).toEqual(false);
+    expect(button.hasClass('wide')).toBeFalsy();
   })
 })
 
+
+//Attempt at mounting 
+/*
 describe('button has working onClick', () => {
+  let name = 'love'
   const onClick = jest.fn();
-  name = 'Love'
   it('reacts to click events', () => {
-    let buttonEvent = mount(<Button name={name} onClick={onClick} />)
-    buttonEvent.find('button.component-button').simulate('click');
-    expect(onClick).toEqual(true);
-  })
+    let buttonEvent = mount(<Button onClick={onClick}>{name}</Button>)
+    buttonEvent.find('button').first().simulate('click');
+    expect(onClick).toBeCalledWith('Love');
+  })  
 })
+*/
 
 

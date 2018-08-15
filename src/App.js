@@ -4,6 +4,8 @@ import Panel from './components/Panel/Panel';
 import calculate from './logic/calculate';
 import './App.css';
 
+jest.mock('../logic/calculate.js')
+
 class App extends Component {
     state = {
         total: '0',
