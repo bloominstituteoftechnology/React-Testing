@@ -36,14 +36,18 @@ describe('<App />', () => {
   });
 
   it('processes clickHandlers appropriately', () => {
-    const buttonName = '+';
-    const expectedResult = '0+';
-    const calculate = (state, buttonName) => ({
-        next: `${ state.total + buttonName }`,
-      });
-
+    const next = '2';
+    const expectedResult = '4';
     const AppComponent = shallow(<App />);
-    AppComponent.instance().handleClick(buttonName);
-    expect(AppComponent.instance().state([next])).toEqual({ next: expectedResult, });
+    const { clickHandler } = AppComponent.find('Panel').props(); 
+    clickHandler('2');
+    clickHandler('+');
+    clickHandler('5');
+    clickHandler('=');
+    expect(AppComponent.state()).toEqual({
+      total: '7',
+      next: null,
+      operation: null,
+    });
   })
 });
