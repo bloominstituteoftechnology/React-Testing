@@ -8,8 +8,20 @@ import Button from '../components/Button/Button';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Button />', () => {
-  it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Button />, div);
+  it('renders with class name `component-button` when not passed any props', () => {
+    const component = shallow(<Button />);
+    expect(component.find('.component-button')).toHaveLength(1);
   });
+
+  it('renders with class name `component-button wide` when passed the wide prop', () => {
+    const component = shallow(<Button wide />);
+    expect(component.find('.component-button')).toHaveLength(1);
+    expect(component.find('.wide')).toHaveLength(1);
+  })
+
+  it('renders with class name `component-button wide` when passed the wide prop', () => {
+    const component = shallow(<Button orange />);
+    expect(component.find('.component-button')).toHaveLength(1);
+    expect(component.find('.orange')).toHaveLength(1);
+  })
 });
