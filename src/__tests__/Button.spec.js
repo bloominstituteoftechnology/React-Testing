@@ -20,10 +20,10 @@ describe('Button Snapshot', () => {
 
 /*
 Figure out the contract
-- a div is always rendered
-- the rendered div contains everything else that gets rendered
-- the button is always rendered
-- 
+- always renders a div
+- when props.orange is passed, the div ==> has the correct className
+- when props.wide is passed, the div ==> has the correct className
+- when props.clickHandler is passed and clicked ==>  the argument of the function is the name
 
 */
 
@@ -55,23 +55,6 @@ describe("Button", () => {
   it('always renders a div', () => {
     const divs = button().find('div');
     expect(divs.length).toBeGreaterThan(0);
-  })
-
-  describe('the rendered div', () => {
-    it.skip('contains everything else that gets rendered', () => {
-      const div = button().find('div');
-      /*
-      Using .find in enzyme arranges the nodes in order of such that 
-      the outermost node is first:
-      */
-      const wrappingDiv = div.first();
-
-      /*
-      when using .children, it omits the outermost node
-      so we have to compare children:
-      */
-      expect(wrappingDiv.children()).toEqual(button())
-    })
   })
 
   describe('when props.orange is passed, the div', () => {
@@ -110,18 +93,21 @@ describe("Button", () => {
     })    
   })
 
-  describe('when the props.clickHandler is passed', () => {
+  describe('when the props.clickHandler is passed and clicked', () => {
+    
+    //Initialize the props needed to test the click Handler
     beforeEach( () => {
+      
+      // Here is were we mock / fake a function. Not to be confused with faking the funk.
       props.clickHandler = jest.fn();
       props.name= '9';
     })
 
-    it('and button is clicked, validate the 1st arg is the name', () => {
+    it('the argument of the function is the name', () => {
       const btn = button().find('button')
 
       btn.simulate('click')
       
-      // console.log(props.clickHandler.mock.calls[0][0])
       expect(props.clickHandler.mock.calls[0][0]).toBe(props.name)
 
     })
