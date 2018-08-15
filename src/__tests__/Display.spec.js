@@ -12,4 +12,16 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+
+  it('validate that a value that is passed is rendered', ()=> {
+    const value = '5';
+
+    //Make a shallow render of Display
+    //Pass in the prop.value
+    //Find the div with className = 'component-display'
+    //Get the first child
+    const divUnderTest = shallow(<Display value={value} />).find('.component-display').childAt(0)
+
+    expect(divUnderTest.text()).toEqual(value)
+  })
 });
