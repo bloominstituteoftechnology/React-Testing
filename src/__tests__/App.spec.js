@@ -41,20 +41,6 @@ it('should update state to 326 when buttons are clicked', () => {
   expect(wrapper.state('next')).toEqual('326');
 });
 
-it('should update state to 326 when buttons are clicked', () => {
-  const wrapper = shallow(<App />);
-  const instance = wrapper.instance();
-
-  instance.handleClick('3');
-  expect(wrapper.state('next')).toEqual('3');
-
-  instance.handleClick('2');
-  expect(wrapper.state('next')).toEqual('32');
-  
-  instance.handleClick('6');
-  expect(wrapper.state('next')).toEqual('326');
-});
-
 it('should update state to 6 when multiplying 3 and 2', () => {
   const wrapper = shallow(<App />);
   const instance = wrapper.instance();

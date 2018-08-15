@@ -1,8 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { shallow } from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import sinon from 'sinon';
 
 import Button from '../components/Button/Button';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Button />', () => {
   it('renders without crashing', () => {
@@ -11,9 +15,9 @@ describe('<Button />', () => {
   });
 });
 
-// it('button should click when clicked', () => {
-//   const onClick = sinon.spy();
-//   const wrapper = shallow(<Button clickHandler={onClick} />);
-//   wrapper.find('button').simulate('click');
-//   expect(onClick.calledOnce).toEqual(true);
-// });
+it('simulates click events', () => {
+  const spy = sinon.spy();
+  const button = shallow(<Button clickHandler={spy} />);
+  button.find('button').first().simulate('click');
+  expect(spy.calledOnce).toBe(true)
+});

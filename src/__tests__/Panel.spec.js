@@ -21,5 +21,8 @@ describe('should render numbers and operators', () => {
 
     expect(buttons).toHaveLength(19);
   })
+
+// can I render 5 orange buttons?
+
 })
 
