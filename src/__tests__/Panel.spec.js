@@ -12,4 +12,10 @@ describe('<Panel />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Panel />, div);
   });
+  it('debugging test',() => {
+    const panel = shallow(<Panel/>);
+    expect(panel.length).toBe(1);
+    console.log(panel.debug());
+    // console.log(panel.children().debug());
+  })
 });
