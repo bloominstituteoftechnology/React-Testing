@@ -26,3 +26,11 @@ class App extends Component {
 }
 
 export default App;
+
+/*
+- it should render the Display and Panel components.
+- should have a default value of '0' for total.
+- passes '0' to the Display component if 'total' and next are null.
+- handleClick calls 'calculate' exactly one time.
+- handleClick should pas the state and buttonName to calculate
+*/
