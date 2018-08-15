@@ -33,4 +33,9 @@ describe('<Display />', () => {
     wrapper = shallow(<div className="component-display" />);
     expect(wrapper.find('div')).toHaveLength(1);
   });
+
+  it('should render value', () => {
+    wrapper = shallow(<Display value={'1'} />);
+    expect(wrapper.contains(<div>1</div>)).toBe(true);
+  });
 });
