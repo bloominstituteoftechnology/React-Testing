@@ -20,8 +20,7 @@ describe('<Display />', () => {
   it('should render expected value', () => {
     const value = '5';
     const wrapper = shallow(<Display value={value} />);
-    const div = wrapper.find('.component-display').childAt(0).childAt(0);
+    const div = wrapper.find('.component-display');
     expect(div.text()).toEqual('5');
   })
-
 });
