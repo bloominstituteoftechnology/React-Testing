@@ -110,7 +110,9 @@ describe('Asynchronous tests', () => {
     it('async using callback', done => {
        axios.get('https://swapi.co/api/people/')
        .then(res => {
-         
+               const data = res.data.results;
+	       //console.log(data);
+	       expect(data.length).toEqual(10);  //checking that the results array inside the response contains exactly 10 elements.
 	       done();
        })
        .catch(err => {
