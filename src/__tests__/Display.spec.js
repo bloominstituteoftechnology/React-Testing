@@ -13,9 +13,15 @@ describe("<Display />", () => {
     ReactDOM.render(<Display />, div);
   });
 
-  it("should print the value prop to the screen", () => {
+  it('should display "" if no value prop is present', () => {
     const display = shallow(<Display />);
-    const componentDisplay = display.find(".component-display");
-    expect(componentDisplay.text()).toEqual("0");
+    const componentDisplay = display.find("component-display");
+    expect(componentDisplay.contains(<div>''</div>));
+  });
+
+  it("should display whatever is passed in the value prop", () => {
+    const display = shallow(<Display value="6" />);
+    const componentDisplay = display.find("component-display");
+    expect(componentDisplay.contains(<div>'6'</div>));
   });
 });
