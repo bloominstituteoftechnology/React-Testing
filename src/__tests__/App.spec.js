@@ -6,6 +6,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import App from '../App';
 import Display from '../components/Display/Display';
 import Panel from '../components/Panel/Panel';
+import calculate from '../logic/calculate';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -52,5 +53,17 @@ describe('<App />', () => {
   it('should render children', () => {
     expect(wrapper.find(Display)).toHaveLength(1);
     expect(wrapper.find(Panel)).toHaveLength(1);
+  });
+
+  it('should calculate total', () => {
+    instance.handleClick('5');
+    expect(instance.state.next).toBe('5');
+    expect(instance.state.total).toBeNull();
+    expect(instance.state.operation).toBeNull();
+    instance.handleClick('+');
+    expect(instance.state.operation).toBe('+');
+    instance.handleClick('5');
+    instance.handleClick('=');
+    expect(instance.state.total).toBe('10');
   });
 });
