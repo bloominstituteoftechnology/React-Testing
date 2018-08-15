@@ -15,7 +15,7 @@ describe('<Panel />', () => {
   it('debugging test',() => {
     const panel = shallow(<Panel/>);
     expect(panel.length).toBe(1);
-    console.log(panel.debug());
-    // console.log(panel.children().debug());
+    // console.log(panel.debug());
+    console.log(panel.childAt(0).debug());
   })
 });
