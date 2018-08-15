@@ -24,7 +24,7 @@ describe('<App />', () => {
   });
 });
 
-it('should have total, next, operation in state', () => {
+it('should have "total", "next", "operation" in state', () => {
   const app = shallow(<App />);
   const instance = app.instance();
   expect(instance.state.total).toEqual('0');
@@ -42,7 +42,7 @@ describe('handleClick()', () => {
     // to know how many times a function is called
     const root = shallow(<App />);
     const instance = root.instance();
-    const buttonName = 'logan';
+    const buttonName = '3';
 
     instance.handleClick(buttonName);
 
@@ -53,7 +53,7 @@ describe('handleClick()', () => {
     // to know how many times a function is called
     const root = shallow(<App />);
     const instance = root.instance();
-    const buttonName = 'logan';
+    const buttonName = '3';
     const stateObject = { total: '3', next: null, operation: null };
 
     root.setState(stateObject);
