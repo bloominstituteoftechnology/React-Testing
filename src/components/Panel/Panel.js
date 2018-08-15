@@ -5,6 +5,7 @@ import './Panel.css';
 
 class Panel extends Component {
     handleClick = (buttonName) => {
+        console.log(buttonName)
         this.props.clickHandler(buttonName);
     };
 
