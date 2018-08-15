@@ -20,5 +20,12 @@ describe("<App />", () => {
     expect(display.length).toBe(1);
     expect(panel.length).toBe(1);
   })
- 
+  it('should have the appropriate default state for the <App />', () => {
+    const app = shallow(<App></App>);
+    const instance = app.instance();
+
+    expect(instance.state.total).toEqual('0');
+    expect(instance.state.next).toBeNull();
+    expect(instance.state.operation).toBeNull();
+  })
 });
