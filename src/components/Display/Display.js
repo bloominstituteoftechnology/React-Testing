@@ -17,3 +17,9 @@ Display.propTypes = {
 };
 
 export default Display;
+
+
+/* notes;
+ - should display an empty string when no value is provided.
+ 
+ */
