@@ -11,4 +11,10 @@ describe('<Button />', () => {
   it('renders without crashing', () => {
     shallow(<Button />);
   });
+
+  it('renders component-button', () => {
+  const instance = shallow(<Button />);
+  const selector = instance.find('.component-button');
+  expect(selector).toHaveLength(1);
+})
 });

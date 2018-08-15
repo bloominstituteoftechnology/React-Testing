@@ -9,7 +9,12 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Display />', () => {
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Display />, div);
+    shallow(<Display />);
+  });
+
+  it('renders component-display', () => {
+    const instance = shallow(<Display />);
+    const selector = instance.find('.component-display');
+    expect(selector).toHaveLength(1);
   });
 });
