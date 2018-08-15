@@ -15,14 +15,27 @@ describe('<App />', () => {
   });
 
   it('Check state to be initialized properly', () => {
-    const instance = app.instance()
-    const state = instance.state
+    const instance = app.instance();
+    const state = instance.state;
     const initialvalues = {
       total: '0',
       next: null,
       operation: null
-    }
+    };
     expect(state).toEqual(initialvalues);
   })
+
+  it('Should update the state with the click method', ()=> {
+    const instance = app.instance();
+    const statesChanged = {
+      total: null,
+      next: "1",
+      operation: null
+    };
+    instance.handleClick('1');
+    expect(instance.state).toEqual(statesChanged);
+  })
+
+
 });
   

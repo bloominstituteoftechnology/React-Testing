@@ -18,4 +18,9 @@ describe('<Panel />', () => {
 
     expect(panel.find('div').first().hasClass('component-panel')).toEqual(true);
   })
+
+  it('should have 19 button components', () => {
+    const panel = shallow(<Panel />);
+    expect(panel.find('Button')).toHaveLength(19);
+  });
 });

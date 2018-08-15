@@ -13,8 +13,14 @@ describe('<Button />', () => {
     ReactDOM.render(<Button />, div);
   });
 
-  it('should return a button render', () => {
+  it('Should return a button render', () => {
     const button = shallow(<Button />);
     expect(button.find('div')).toHaveLength(1);
   })
+
+  it('Should have orange in classNames array if orange prop is passed', () => {
+    const button = shallow(<Button orange />);
+    expect(button.hasClass('orange')).toBe(true);
+  })
+
 });
