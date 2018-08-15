@@ -15,7 +15,7 @@ describe('<Panel />', () => {
     const component = shallow(<Panel />)
     expect(component.find('.component-panel')).toHaveLength(1)
   })
-  it('should render 19 buttons', () => {
+  it('should render 19 Buttons', () => {
     const component = shallow(<Panel />)
     expect(component.find('Button')).toHaveLength(19)
   })
