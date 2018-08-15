@@ -13,3 +13,20 @@ describe('<App />', () => {
     ReactDOM.render(<App />, div);
   });
 });
+describe('App Render', () => {
+  it('renders component', () => {
+    const app = shallow(<App/>);
+    const componentApp = app.find('.component-app');
+    expect(componentApp.length).toEqual(1);
+  });
+  it('renders Display', () => {
+    const app = shallow(<App/>);
+    const display = app.find('Display');
+    expect(display.length).toEqual(1);
+  });
+  it('renders Panel', () => {
+    const app = shallow(<App/>);
+    const panel = app.find('Panel');
+    expect(panel.length).toEqual(1);
+  })
+});
