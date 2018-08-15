@@ -1,74 +1,89 @@
 import React from 'react';
-// import ReactDOM from 'react-dom';
-// import Enzyme, { shallow } from 'enzyme';
-// import Adapter from 'enzyme-adapter-react-16';
+import ReactDOM from 'react-dom';
+import Enzyme, { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
-import { shallow } from 'enzyme';
+//import { shallow } from 'enzyme';
 
 import App from '../App';
 
-//Enzyme.configure({ adapter: new Adapter() });
+//added below 2 lines to run calculate function
+import calculate from '../logic/calculate';
+jest.mock('../logic/calculate.js');
 
-// describe('<App />', () => {
-//   it('renders without crashing', () => {
-//     const div = document.createElement('div');
-//     ReactDOM.render(<App />, div);
-//   });
-// });
+//bringing in axios
+import axios from 'axios';
 
-//below added, above commented out from org
+Enzyme.configure({ adapter: new Adapter() });
 
-it('renders without crashing', () => {
-  shallow(<App />);
-});
-it('should render a p tag with "Welcome to React', () => {
-  const app = shallow(<App />)
-  const parargraph = app.find('.App-intro');
-  expect(parargraph.text()).toEqual('Welcome to React'); 
-});
-it ('should display a title passed as a prop', () => {
-  const app = shallow(<App title='a title' />);
-  const parargraph = app.find('.App-intro');
-  //check for props
-  expect(parargraph.text()).toEqual('a title');
-});
-it('should have a way to show if the switch is on or off', () => {
-  const app = shallow(<App />);
-  const display = app.find('.display');
-  expect(display.text()).toEqual('off');
-});
-it('should be off by default', () => {
-  const app = shallow(<App />);
-  const instance = app.instance();
-  expect(instance.state.isOn).toEqual(false);
-});
-it('should have a button to toggle the on/off switch', () => {
-  const app = shallow(<App />);
-  const instance = app.instance();
-  const button = app.find('.toggle-btn');
-  //it's off
-  expect(instance.state.isOn).toEqual(false);
-  //we toggle it by clicking the button
-  button.simulate('click');
-  //it's on
-  expect(instance.state.isOn).toEqual(true);
-  // we toggle it by clicking the button
-  button.simulate('click');
-  //it's off
-  expect(instance.state.isOn).toEqual(false);
-});
-it('should display the state of the switch', () => {
-  const app = shallow(<App />);
-  const instance = app.instance();
-  const button = app.find('.toggle-btn');
-  const display = app.find('.display');
-  expect(display.text()).toEqual('off');
-  button.simulate('click');
-  //NO GOOD CODE BELOW
-  // expect(display.text()).toEqual('on');
-  // button.simulate('click');
-  // expect(display.text()).toEqual('off');
-  //IS render() OK TO USE ?
-  expect(instance.state.isOn).toEqual(true);
-  expect(app.find('.display').render().text()).toEqual('on');
+describe('<App />', () => {
+  it('renders without crashing', () => {
+    const div = document.createElement('div');
+    ReactDOM.render(<App />, div);
+  });
+  it('should pass the total to the Display component if next is null', () => {
+    const root = shallow(<App />);
+    const instance = root.instance();
+    root.setState({ total: '7', next: null });
+    const value = root.find({ value: instance.state.total });
+    expect(value.length).toBe(1);
+
+  });
+
+
+  describe('handleClick()', () => {
+    it('should call "calculate" extactly one time', () => {
+      //to know how many times a function is called
+      const root = shallow(<App />);
+      const instance = root.instance();
+      //below line may not be needed which includes a name
+      const buttonName = 'logan';    
+      instance.handleClick(buttonName);
+      // instance.handleClick();
+      expect(calculate).toHaveBeenCalledTimes(1);
+
+    });
+    it('should call "calculate" passing the state and buttonName', () => {
+      //checks state
+      const root = shallow(<App />);
+      const instance = root.instance();
+      const buttonName = 'logan'; 
+      const stateObject = { total: '3', next: null, operation: null };
+      root.setState(stateObject);   
+      instance.handleClick(buttonName);
+      //below will fail 3 != 2
+      // expect(calculate).toHaveBeenCalledWith({ total: '2', next: null, operation: null }, buttonName);
+      //better way below
+      expect(calculate).toHaveBeenCalledWith(stateObject, buttonName);
+    });
+    it('should render the Display and Panel Components', () => {
+      const root = shallow(<App />);
+      const display = root.find('Display');
+      const panel = root.find('Panel');
+      expect(display.length).toBe(1);
+      expect(panel.length).toBe(1);
+    });
+  });
+
+
+  //test asynchronous code
+  describe('Asynchronous tests', () => {
+    //DONE
+    it('async using callback', done => {
+      axios.get('https://swapi.co/api/people').then(res => {
+        done();
+      })
+      //// if done is not called, the test will fail
+      //setTimeout(done, 1000); // setTimeout will call done after 1s
+    });
+    //PROMISE
+    it('async with promises', () => {
+      // don't forget the return
+      return new Promise(resolve => setTimeout(resolve, 1000));
+    });
+    //ASYNC
+    it('async with async/await', async () => {
+      await new Promise(resolve => setTimeout(resolve, 1000));
+    });    
+  });
 });
