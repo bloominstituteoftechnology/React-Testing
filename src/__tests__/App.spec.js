@@ -35,4 +35,17 @@ describe("<App />", () => {
     instance.handleClick('5')
     expect(calculate).toHaveBeenCalledTimes(1);
   })
+  it('should pass the total to the Display component if next is null', () => {
+    const root = shallow(<App />);
+    root.setState({ total: '7009', next: null });
+    const value = root.find({ value: root.state('total') });
+    expect(value.length).toBe(1);
+  });
+  it('should pass the next to the Display component if the value is not null', () => {
+    const root = shallow(<App />);
+    root.setState({ total: '40', next: '4'  });
+    const value = root.find({ value: root.state('next') });
+    expect(value.length).toBe(1);
+  });
+
 });
