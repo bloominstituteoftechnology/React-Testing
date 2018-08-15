@@ -12,6 +12,13 @@ describe("<App />", () => {
   it("renders without crashing", () => {
     shallow(<App />);
   });
+  it('should have a <Display /> and <Panel /> component', () => {
+    const app = shallow(<App></App>);
 
+    const display = app.find('Display');
+    const panel = app.find('Panel');
+    expect(display.length).toBe(1);
+    expect(panel.length).toBe(1);
+  })
  
 });
