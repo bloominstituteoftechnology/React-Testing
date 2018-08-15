@@ -12,4 +12,18 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+
+  it('should render a div with classname component-display', () => {
+    const wrapper = shallow(<Display />);
+    const div = wrapper.find('.component-display');
+    expect(div.length).toBeGreaterThan(0);
+  })
+  
+  it('should render expected value', () => {
+    const value = '5';
+    const wrapper = shallow(<Display value={value} />);
+    const div = wrapper.find('.component-display');
+    expect(div.text()).toEqual('5');
+  })
 });
+

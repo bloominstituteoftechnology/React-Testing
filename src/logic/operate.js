@@ -4,7 +4,7 @@ function operate(numberOne, numberTwo, operation) {
     const one = Big(numberOne);
     const two = Big(numberTwo);
 
-    switch(operation) {
+    switch (operation) {
         case '+':
             return one.plus(two).toString();
         case '-':
@@ -12,6 +12,7 @@ function operate(numberOne, numberTwo, operation) {
         case 'x':
             return one.times(two).toString();
         case '÷':
+            if (two.toString() === '0') { return 'invalid' }
             return one.div(two).toString();
         case '%':
             return one.mod(two).toString();
