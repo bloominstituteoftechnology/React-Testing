@@ -20,6 +20,16 @@ describe('<Button />', () => {
     expect(wrapper.hasClass('component-button')).toBe(true);
   });
 
+  it('should have "component-button wide"', () => {
+    wrapper = shallow(<Button wide />);
+    expect(wrapper.find('.wide')).toHaveLength(1);
+  });
+
+  it('should have "component-button orange"', () => {
+    wrapper = shallow(<Button orange />);
+    expect(wrapper.find('.orange')).toHaveLength(1);
+  });
+
   // it('should render children', () => {
   //   const wrapper = shallow((
   //     <div className="component-button">
