@@ -13,7 +13,7 @@ describe('<App />', () => {
     it('should match snapshot', () => {
         const tree = renderer.create(<App />).toJSON();
         expect(tree).toMatchSnapshot();
-    })
+    });
 }); 
 
 it('should have total, next, operation in state as default values', () => {

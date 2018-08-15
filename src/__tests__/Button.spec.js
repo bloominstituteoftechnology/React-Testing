@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
-import renderer from 'react-test-renderer';
 
 import Button from '../components/Button/Button';
 
@@ -10,10 +9,6 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
-  it('should match snapshot', () => {
-    const tree = renderer.create(<Button />).toJSON();
-    expect(tree).toMatchSnapshot();
-  })
 });
 
 it('should have a className called `component-button orange` if it has a prop named `orange`', () => {
