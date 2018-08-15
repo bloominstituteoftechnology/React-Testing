@@ -18,4 +18,12 @@ describe('<App />', () => {
     wrapper = shallow(<App />);
     expect(wrapper.find('.component-app')).toHaveLength(1);
   });
+
+  it('should have `total`, `next`, and `operation` in state', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.state('total')).toEqual("0");
+    expect(wrapper.state('next')).toBeDefined();
+    expect(wrapper.state('operation')).toBeDefined(); 
+  });
+
 });
