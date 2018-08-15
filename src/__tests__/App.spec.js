@@ -3,8 +3,10 @@ import ReactDOM from 'react-dom';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
+import calculate from '../logic/calculate.js';
 import App from '../App';
 import Display from '../components/Display/Display';
+jest.mock('../logic/calculate.js');
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -50,4 +52,28 @@ it('should render the Calculator Component', () => {
     	expect(div.containsMatchingElement(<Display />)).toEqual(true);
   });
 
+
+
+it('should pass the total to the Display component if next is null', () => {
+    const app = shallow(<App />);
+    const instance = app.instance();
+
+    app.setState({ total: '809', next: null });
+    const value = app.find({ value: instance.state.total });
+
+    expect(value.length).toBe(1);
+  });
+
+
+it('handleClick()', ()=> {
+ 	const app = shallow(<App />);
+	const instance =app.instance();
+
+	const buttonName = '4';
+	instance.handleClick(buttonName);
+	
+	expect(calculate).toHaveBeenCalledTimes(1);
+
+
+});
 });

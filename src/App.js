@@ -18,6 +18,7 @@ class App extends Component {
     render() {
         return (
             <div className='component-app'>
+		<p className="calculator-title">Calculator</p>
                 <Display value={this.state.next || this.state.total || '0'} />
                 <Panel clickHandler={this.handleClick} />
             </div>
