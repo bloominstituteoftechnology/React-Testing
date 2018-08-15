@@ -14,7 +14,7 @@ class Button extends Component {
             this.props.wide ? 'wide' : '',
         ];
         return (
-            <div className='btn'>
+            <div className={classNames.join(' ').trim()}>
                 <button onClick={this.handleClick}>
                     {this.props.name}
                 </button>
