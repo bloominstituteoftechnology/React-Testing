@@ -28,4 +28,11 @@ describe("<App />", () => {
     expect(instance.state.next).toBeNull();
     expect(instance.state.operation).toBeNull();
   })
+
+  it('runs the calculate function once when handleClick has been invoked', () => {
+    const app = shallow(<App />);
+    const instance = app.instance();
+    instance.handleClick('5')
+    expect(calculate).toHaveBeenCalledTimes(1);
+  })
 });
