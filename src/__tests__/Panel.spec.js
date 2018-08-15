@@ -1,15 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { shallow } from 'enzyme';
 
 import Panel from '../components/Panel/Panel';
-
-Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Panel />', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Panel />, div);
   });
+
+  it('should render 19 Button components to the screen', () => {
+    const wrapper = shallow(<Panel />);
+    const buttons = wrapper.find('Button');
+
+    expect(buttons).toHaveLength(19);
+  })
+
+  it('should have a method called handleClick', () => {
+    const wrapper = shallow(<Panel />);
+    const instance = wrapper.instance();
+
+    expect(instance.handleClick).toBeDefined();
+  })
+
+
 });
+
