@@ -45,24 +45,13 @@ describe('<Display />', () => {
     expect(divs.length).toEqual(2)
   })
 
-  it('receives a value through props', () => {
+  it('receives correct value through props', () => {
     props = {value: "Testing123"}
     const app = display()
     const output = app.find('.component-display')
     expect(output.text()).toMatch("Testing123")
   })
 
-  // describe('Display props', () => {
-
-  // })
-  // it('App display should display its value from props', () => {
-  //   const props = { value: '42' }
-
-  //   wrapper.setProps(props)
-  //   const output = wrapper.find('.component-display')
-
-  //   expect(output.text()).toEqual('42')
-  // })
 });
 
 
@@ -88,7 +77,6 @@ describe('<Display />', () => {
         passed in, however
     2/3.) We will check both that the div is rendered, but not that it has the correct
         className, since this can be easily changed later and testing would too closely
-        mimic the application code. We will also test in this describe() block whether the 
-        child div is rendered
+        mimic the application code. We will also test whether the child div is rendered
     4.) We will test that the value output matches the input props
 */

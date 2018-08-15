@@ -33,6 +33,10 @@ describe('<App />', () => {
     it('should start at initial state 0', () => {
       expect(instance.state.total).toEqual('0')
     })
+    it('should pass a value in to Display props', () => {
+      const display = wrapper.find('Display')
+      expect(display.props().value).toBeTruthy()
+    })
   })
 
   describe('<Panel />', () => {
