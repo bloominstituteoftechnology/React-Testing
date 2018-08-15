@@ -12,4 +12,16 @@ describe('<Panel />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Panel />, div);
   });
+
+  it('componentPanel mounts', () => {
+    const panelComponent = shallow(<Panel clickHandler = {() => {}} />)
+    expect(panelComponent).toBeDefined;
+  });
+
+  it('component renders with 19 buttons', () => {
+    const panelComponent = shallow(<Panel clickHandler = {() => {}} />)
+    const buttons = panelComponent.find('Button');
+    expect(buttons).toHaveLength(19);
+  });
+
 });

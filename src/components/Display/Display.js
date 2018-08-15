@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Display.css';
 
-const Display = ({ value }) => {
+const Display = ({ value='' }) => {
     return (
         <div className="component-display">
             <div>
