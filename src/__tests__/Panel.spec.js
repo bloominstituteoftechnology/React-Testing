@@ -12,4 +12,15 @@ describe('<Panel />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Panel />, div);
   });
+
+  it('Should have component-panel as main div', () => {
+    const panel = shallow(<Panel />)
+
+    expect(panel.find('div').first().hasClass('component-panel')).toEqual(true);
+  })
+
+  it('should have 19 button components', () => {
+    const panel = shallow(<Panel />);
+    expect(panel.find('Button')).toHaveLength(19);
+  });
 });
