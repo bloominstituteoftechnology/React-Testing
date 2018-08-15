@@ -2,10 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import axios from 'axios';
 
 import calculate from '../logic/calculate.js';
 import App from '../App';
 import Display from '../components/Display/Display';
+
 jest.mock('../logic/calculate.js');
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -76,4 +78,36 @@ it('handleClick()', ()=> {
 
 
 });
+
+
+it('should call "calculate" passing the state and buttonName', () => {
+      
+      const app= shallow(<App />);
+      const instance = app.instance();
+      const buttonName = '+';
+      const stateObject = { total: '9', next: null, operation: null };
+
+      app.setState(stateObject);
+      instance.handleClick(buttonName);
+
+      expect(calculate).toHaveBeenCalledWith(stateObject, buttonName);
+    });
+
+
+});
+
+
+describe('Asynchronous tests', () => {
+    it('async using callback', done => {
+       axios.get('https://swapi.co/api/people/')
+       .then(res => {
+         
+	       done();
+       })
+       .catch(err => {
+	  	console.log(err);
+	  
+	  });  
+});
+
 });
