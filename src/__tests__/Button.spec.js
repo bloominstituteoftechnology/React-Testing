@@ -58,7 +58,7 @@ describe("Button", () => {
   })
 
   describe('the rendered div', () => {
-    it('contains everything else that gets rendered', () => {
+    it.skip('contains everything else that gets rendered', () => {
       const div = button().find('div');
       /*
       Using .find in enzyme arranges the nodes in order of such that 
@@ -67,10 +67,49 @@ describe("Button", () => {
       const wrappingDiv = div.first();
 
       /*
-
+      when using .children, it omits the outermost node
+      so we have to compare children:
       */
-      console.log(wrappingDiv.children())
+      expect(wrappingDiv.children()).toEqual(button())
     })
   })
+
+  describe('when props.orange is passed, the div', () => {
+    
+    //Set the props:
+    beforeEach(()=> {
+      props.orange = true;
+    })
+    
+    it('has the correct className', () => {
+      //Grab the div
+      const classNames = button().find('div').props().className
+      
+      //See if the className is correct:
+      expect(classNames).toContain('component-button')
+      expect(classNames).toContain('orange')
+      expect(classNames).not.toContain('wide')
+    })    
+  })
+
+  describe('when props.wide is passed, the div', () => {
+    
+    //Set the props:
+    beforeEach(()=> {
+      props.wide = true;
+    })
+    
+    it('has the correct className', () => {
+      //Grab the div
+      const classNames = button().find('div').props().className
+      
+      //See if the className is correct:
+      expect(classNames).toContain('component-button')
+      expect(classNames).toContain('wide')
+      expect(classNames).not.toContain('orange')
+    })    
+  })
+
+
 
 })
