@@ -9,4 +9,11 @@ describe('<Button />', () => {
   it('renders without crashing', () => {
     shallow(<Button />);
   });
+
+  it('should render a button a value of its "name" prop', () => {
+    const root = shallow(<Button name="name" />);
+    const instance = root.instance();
+
+    expect(root.find('button').text()).toEqual('name');
+  });
 });

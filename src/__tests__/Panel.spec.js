@@ -9,4 +9,8 @@ describe('<Panel />', () => {
   it('renders without crashing', () => {
     shallow(<Panel />);
   });
+  it('renders all Button Components', () => {
+    const wrapper = shallow(<Panel />);
+    expect(wrapper.find('Button').length).toBe(19);
+  });
 });

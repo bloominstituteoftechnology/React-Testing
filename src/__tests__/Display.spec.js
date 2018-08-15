@@ -9,4 +9,9 @@ describe('<Display />', () => {
   it('renders without crashing', () => {
     shallow(<Display />);
   });
+
+  it('should display the value of its "value" prop', () => {
+    const root = shallow(<Display value="3" />);
+    expect(root.find('.value').text()).toEqual('3');
+  });
 });
