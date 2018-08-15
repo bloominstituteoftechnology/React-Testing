@@ -2,10 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-
+import calculate from '../logic/calculate';
 import App from '../App';
 
 Enzyme.configure({ adapter: new Adapter() });
+
+jest.mock('../logic/calculate');
+calculate.mockImplementation((state, button) => {
+  const {total, next } = state;
+  return { total: String(Number(total) + 1), next: next, operation: button };
+});
+
 
 describe('<App />', () => {
   it('renders without crashing', () => {
@@ -36,18 +43,16 @@ describe('<App />', () => {
   });
 
   it('processes clickHandlers appropriately', () => {
-    const next = '2';
-    const expectedResult = '4';
+    const buttonVal = '+';
+    const testState = { total: '1' , next: '1', operation: '-'};
+    const returnVal = { total: '2', next: '1', operation: '+' };
+    
     const AppComponent = shallow(<App />);
-    const { clickHandler } = AppComponent.find('Panel').props(); 
-    clickHandler('2');
-    clickHandler('+');
-    clickHandler('5');
-    clickHandler('=');
-    expect(AppComponent.state()).toEqual({
-      total: '7',
-      next: null,
-      operation: null,
-    });
-  })
+    const { clickHandler } = AppComponent.find('Panel').props();
+    AppComponent.setState(testState);
+    clickHandler(buttonVal);
+    expect(calculate).toHaveBeenCalledTimes(1);
+    expect(calculate).toHaveBeenCalledWith(testState, buttonVal);
+    expect(AppComponent.state()).toEqual(returnVal);
+  });
 });
