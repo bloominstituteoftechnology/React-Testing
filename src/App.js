@@ -26,3 +26,12 @@ class App extends Component {
 }
 
 export default App;
+
+/*
+- should have a Display component and a Panel component
+- should have the default state
+- runs the calculate method once when handleClick has been invoked
+- should pass the right value prop in Display
+- check for consecutive operators in state
+
+*/

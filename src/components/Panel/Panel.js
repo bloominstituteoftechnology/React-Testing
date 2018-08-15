@@ -44,7 +44,10 @@ class Panel extends Component {
         );
     }
 }
-
+/* 
+- checks that all the single digit buttons are rendered on the calculator
+- 
+*/
 Panel.propTypes = {
     clickHandler: PropTypes.func,
 };

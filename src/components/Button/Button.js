@@ -22,7 +22,10 @@ class Button extends Component {
         );
     }
 }
-
+/* 
+- renders the button with the appropriate classNames depedning on what props are passed
+- should change the state for next if a number button has been pressed
+*/
 Button.propTypes = {
     name: PropTypes.string,
     orange: PropTypes.bool,
