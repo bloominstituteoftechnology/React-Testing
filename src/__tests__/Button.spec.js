@@ -13,12 +13,6 @@ describe('<Button />', () => {
     ReactDOM.render(<Button />, div);
   });
 
-  it('renders with className "component-button" when not passed any props', () => {
-    const button = shallow(<Button />);
-    button.simulate('click');
-    // expect(component.find('.component-button')).toHaveLength(1);
-  });
-
   it('renders with className "component-button wide" when passed the "wide" prop', () => {
     const component = shallow(<Button wide />);
     expect(component.find('.component-button')).toHaveLength(1);

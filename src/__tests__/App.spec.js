@@ -37,22 +37,6 @@ it('should have render component-app', () => {
   expect(component.find('.component-app')).toHaveLength(1);
 });
 
-it('passes 0 to Display value prop by default', () => {
-  const AppComponent = shallow(<App />);
-  const DisplayComponent = AppComponent.find('Display');
-  expect(DisplayComponent.props()).toEqual({ value: '0' });
-});
-
-it('should pass the total to the Display component if next is null', () => {
-  const root = shallow(<App />);
-  const instance = root.instance();
-
-  root.setState({ total: '7', next: null });
-  const value = root.find({ value: instance.state.total });
-
-  expect(value.length).toBe(1);
-});
-
 describe('handleClick()', () => {
   it('should call "calculate" exactly one time', () => {
     // to know how many times a function is called
@@ -76,17 +60,6 @@ describe('handleClick()', () => {
     instance.handleClick(buttonName);
 
     expect(calculate).toHaveBeenCalledWith(stateObject, buttonName);
-  });
-
-  it('should render the Display and Panel components', () => {
-    //const root = shallow(<App/>); expect(root.find(‘Display’).length).toEqual(1)
-    const root = shallow(<App />);
-
-    const display = root.find('Display');
-    const panel = root.find('Panel');
-
-    expect(display.length).toBe(1);
-    expect(panel.length).toBe(1);
   });
 
   describe('Asynchronous tests', () => {
