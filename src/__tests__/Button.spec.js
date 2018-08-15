@@ -127,4 +127,14 @@ describe("Button", () => {
     })
   })
 
+  describe('when the props.name is passed', () => {
+    beforeEach(() => {
+      props.name = '*'
+    })
+
+    it("button value get's prop.name", () => {
+      const btn = button().find('button')
+      expect(btn.text()).toEqual(props.name);
+    })
+  })
 })
