@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "enzyme-adapter-react-15": "^1.0.6",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
-    "react-scripts": "^1.1.4"
+    "react-scripts": "^1.1.4",
+    "react-test-renderer": "^16.4.2",
+    "sinon": "^6.1.5"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -16,5 +19,8 @@
   "devDependencies": {
     "enzyme": "^3.4.1",
     "enzyme-adapter-react-16": "^1.2.0"
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/blkfltchr/React-Testing.git",
+  "license": "MIT"
 }
