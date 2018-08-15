@@ -4,3 +4,8 @@
     flex-wrap: wrap;
     height: 100%;
 }
+#lecture {
+    background-color: dodgerblue;
+    height: 100px;
+    margin-bottom: 20px;
+}
