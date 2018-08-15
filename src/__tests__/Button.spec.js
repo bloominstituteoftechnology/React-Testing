@@ -110,6 +110,21 @@ describe("Button", () => {
     })    
   })
 
+  describe('when the props.clickHandler is passed', () => {
+    beforeEach( () => {
+      props.clickHandler = jest.fn();
+      props.name= '9';
+    })
 
+    it('and button is clicked, validate the 1st arg is the name', () => {
+      const btn = button().find('button')
+
+      btn.simulate('click')
+      
+      // console.log(props.clickHandler.mock.calls[0][0])
+      expect(props.clickHandler.mock.calls[0][0]).toBe(props.name)
+
+    })
+  })
 
 })
