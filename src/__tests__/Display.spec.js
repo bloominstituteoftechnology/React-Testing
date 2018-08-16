@@ -7,9 +7,17 @@ import Display from '../components/Display/Display';
 
 Enzyme.configure({ adapter: new Adapter() });
 
+
 describe('<Display />', () => {
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Display />, div);
+    shallow(<Display />)
   });
+
+ it('will return display passed as a props', () => {
+        const value = { value: '2' }
+        const display = shallow(<Display {...value} />).find('div').at(1)
+
+        expect(display.text()).toEqual('2')
+
+	});
 });
