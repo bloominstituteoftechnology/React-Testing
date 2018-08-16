@@ -22,9 +22,9 @@ describe('operate', () => {
     expect(operateTest).toBe('0')
   })
   it("'**' should return an error", () => {
-    const operation = '**'
+    const operationTest = '**'
     expect(() => {
-      operate(4, 2, 'undefinedOperation')
+      operate(4, 2, operationTest)
     }).toThrowError()
   })
 })
