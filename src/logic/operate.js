@@ -16,7 +16,7 @@ function operate (numberOne, numberTwo, operation) {
     case '%':
       return one.mod(two).toString()
     default:
-      throw Error(`Unknown operation ${operation}`)
+      throw new Error(`Unknown operation ${operation}`)
   }
 }
 

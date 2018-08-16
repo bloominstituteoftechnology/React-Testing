@@ -21,4 +21,10 @@ describe('operate', () => {
     const operateTest = operate(4, 2, '%')
     expect(operateTest).toBe('0')
   })
+  it("'**' should return an error", () => {
+    const operation = '**'
+    expect(() => {
+      operate(4, 2, 'undefinedOperation')
+    }).toThrowError()
+  })
 })
