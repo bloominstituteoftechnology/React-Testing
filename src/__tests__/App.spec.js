@@ -10,7 +10,7 @@ describe('<App />', () => {
         const div = document.createElement('div');
         ReactDOM.render(<App />, div);
     });
-    
+
     it('should match snapshot', () => {
         const tree = renderer.create(<App />).toJSON();
         expect(tree).toMatchSnapshot();
@@ -33,6 +33,16 @@ describe('<App />', () => {
         expect(wrapper.state('next')).toEqual('1');
         expect(wrapper.state('total')).toBeNull();
         expect(wrapper.state('operation')).toBeNull();
+    })
+
+    it('should render component Display', () => {
+        const component = shallow(<App />)
+        expect(component.find('Display')).toHaveLength(1)
+    })
+
+    it('should render component Panel', () => {
+        const component = shallow(<App />)
+        expect(component.find('Panel')).toHaveLength(1)
     })
 
 });

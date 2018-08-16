@@ -24,6 +24,5 @@ describe('<Panel />', () => {
     expect(instance.handleClick).toBeDefined();
   })
 
-
 });
 
