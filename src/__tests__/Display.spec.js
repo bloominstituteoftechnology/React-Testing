@@ -13,3 +13,12 @@ describe('<Display />', () => {
     ReactDOM.render(<Display />, div);
   });
 });
+
+describe('Display has styling for value display', () => {
+  it('has className component-display', () => {
+    const display = shallow(<Display />);
+    const componentDisplay = display.find('.component-display')
+
+    expect(componentDisplay.hasClass('component-display')).toBe(true)
+  }) 
+})
