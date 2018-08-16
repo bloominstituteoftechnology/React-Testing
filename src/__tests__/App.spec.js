@@ -14,16 +14,6 @@ describe('<App />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
-
-  it('should pass the total to the Display component if next is null', () => {
-    const root = shallow(<App />);
-    const instance = root.instance();
-
-    root.setState({ total: '7', next: null});
-    const value = root.find({ value: intance.state.total });
-    
-    expect(value.length).toBe(1);
-  })
 });
 
 describe('Div classname component app exists', () => {
@@ -67,7 +57,7 @@ describe('handleClick()', () => {
     const stateObject = { total: '3', next: null, operation: null };
 
     root.setState(stateObject);
-    instance.handleCLick(buttonName);
+    instance.handleClick(buttonName);
 
     expect(calculate).toHaveBeenCalledWith(stateObject, buttonName);
   })
@@ -75,8 +65,11 @@ describe('handleClick()', () => {
 
 it('should pass the total to the Display component if next is null', () => {
   const root = shallow(<App />);
+  const instance = root.instance();
+
   root.setState({ total: '7', next: null });
   const value = root.find({ value: instance.state.total });
+
   expect(value.length).toBe(1);
 })
 
@@ -89,13 +82,4 @@ it('should render the Display and Panel components', () => {
   expect(display.length).toBe(1);
   display.debug(expect(panel.length).toBe(1));
 })
-
-
-
-
-
-
-
-
-
 

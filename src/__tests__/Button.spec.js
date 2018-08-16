@@ -36,6 +36,18 @@ describe('Button components features test', () => {
   })
 })
 
+describe('Button click', () => {
+  it('button handles click', () => {
+    const button = shallow(<Button />);
+    button.simulate('click')
+    expect(button.find('button')).toBeTruthy();
+  })
+  it('accepts the props for name', () => {
+    const button = shallow(<Button name="amazing" />)
+    expect(button.instance().props.name).toBe('amazing');
+  })
+
+})
 
 //Attempt at mounting 
 /*
