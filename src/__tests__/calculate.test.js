@@ -1,7 +1,7 @@
 import calculate from '../logic/calculate';
 
 describe('calculate', () => {
-  it('should update "total" when it press "="', () => {
+  it('should update "total" when press "="', () => {
     const state = {
       total: '0',
       next: '15',
@@ -16,7 +16,7 @@ describe('calculate', () => {
     });
   });
 
-  it('should update "total" when it press "+"', () => {
+  it('should update "total" when press "+"', () => {
     const state = {
       total: '4',
       next: '5',
