@@ -14,8 +14,8 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('<App />', () => {
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<App />, div);
+    const wrapper = shallow(<App />);
+    expect(wrapper).toMatchSnapshot();
   });
 
   let wrapper;
@@ -30,20 +30,6 @@ describe('<App />', () => {
   it('should render Panel component', () => {
     expect(wrapper.containsMatchingElement(<Panel />)).toEqual(true)
   });
-
-  /*it('should update state when number is clicked', () => {
-    wrapper.instance().handleClick('1');
-    expect(wrapper.state('next')).toEqual('1');
-  
-    wrapper.instance().handleClick('+');
-      expect(wrapper.state('operation')).toEqual('+');
-  
-    wrapper.instance().handleClick('2');
-      expect(wrapper.state('next')).toEqual('2');
-  
-    wrapper.instance().handleClick('=');
-      expect(wrapper.state('total')).toEqual('3');
-  });*/
 
   describe('handleClick', () => {
     it('should call "calculate" exactly one time', () => {
@@ -90,8 +76,13 @@ describe('Asynchronous tests', () => {
     setTimeout(done, 1000);
   })
 })
+
 it('async with promises', () => {
   return new Promise(resolve => setTimeout(resolve, 1000));
+})
+
+it('async with async/await', async () => {
+  await new Promise(resolve => setTimeout(resolve, 1000))
 })
 });
 
