@@ -28,13 +28,25 @@ describe("<App />", () => {
     expect(instance.state.next).toBeNull();
     expect(instance.state.operation).toBeNull();
   })
-
+  describe('calculate function', () => {
   it('runs the calculate function once when handleClick has been invoked', () => {
     const app = shallow(<App />);
     const instance = app.instance();
     instance.handleClick('5')
     expect(calculate).toHaveBeenCalledTimes(1);
-  })
+  });
+  it('should call "calculate" passing the state and buttonName', () => {
+    const root = shallow(<App />);
+    const instance = root.instance();
+    const buttonName = '1';
+    const stateObj = { total: '5', next: buttonName, operation: null };
+    
+    root.setState(stateObj);
+    instance.handleClick('1');
+    
+    expect(calculate).toHaveBeenCalledWith(stateObj, buttonName);
+  });
+});
   it('should pass the total to the Display component if next is null', () => {
     const root = shallow(<App />);
     root.setState({ total: '7009', next: null });
