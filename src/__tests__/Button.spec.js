@@ -27,4 +27,10 @@ describe('<Button />', () => {
     expect(func.calledOnce).toEqual(true);
   });
 
+  it('should add the class orange to the button', () => {
+    const props = {orange: true}
+    const button = shallow(<Button {...props} />)
+    expect(button.find('.orange').length).toBe(1)
+  })
+
 });

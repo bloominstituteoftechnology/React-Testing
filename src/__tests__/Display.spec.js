@@ -20,11 +20,14 @@ describe('<Display />', () => {
     expect(wrapper.find('.component-display')).toHaveLength(1);
   });
 
-  it('should render expected prop value', () => {
-    const value = '5';
-    const wrapper = shallow(<Display value={value} />);
-    const div = wrapper.find('.component-display');
-    expect(div.text()).toEqual('5');
-  })
+  describe('<Display />', () => {
+    it('renders a value given by props', () => {
+      const props = {
+        value: '5'
+      }
+      const display = shallow(<Display  value={props.value} />)
+      expect(display.text()).toEqual('5')
+    });
+  }); 
 
 });

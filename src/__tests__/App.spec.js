@@ -28,7 +28,7 @@ describe('<App />', () => {
     expect(wrapper.state('operation')).toBeDefined(); 
   });
 
-  //! Math operation 5 + 8 = 13
+  //! Math operation 5 + 8 = 13 and clear all
   it('should change state.next to 5', () => {
     const instance = wrapper.instance();
     instance.handleClick("5");
@@ -47,11 +47,19 @@ describe('<App />', () => {
     expect(instance.state.next).toBe("8");
   })
 
-  it('should change state.operation to =', () => {
+  it('should change state.total to 13', () => {
     const instance = wrapper.instance();
     instance.handleClick("=");
     expect(instance.state.total).toBe("13");
   })
- //! End Math operation 5 + 8 = 13
+
+  it('should change state.total, state.next, state.operation to null', () => {
+    const instance = wrapper.instance();
+    instance.handleClick("AC");
+    expect(instance.state.total).toBe(null);
+    expect(instance.state.next).toBe(null);
+    expect(instance.state.operation).toBe(null);
+  })
+ //! end Math operation 5 + 8 = 13 and clear all
 
 });
