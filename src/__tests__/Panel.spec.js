@@ -23,4 +23,11 @@ describe('<Panel />', () => {
     });
     expect(Object.keys(numbers).length).toBe(10);
   })
+  it('checks if all the <Button /> components have a clickHandler', () => {
+    const root = shallow(<Panel />);
+    const value = root.find('Button');
+    value.forEach(btn => {
+      expect(btn.prop('clickHandler')).toBeDefined();
+    }); 
+  });
 });
