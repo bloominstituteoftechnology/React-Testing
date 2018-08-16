@@ -2,9 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-
 import App from '../App';
-import { toBuffer } from 'ip';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -57,9 +55,40 @@ describe('<App />', () => {
     //Update the state:
     root.setState(stateCase3)
 
-    console.log(rootInst)
     //Test
     expect(root.find('Display').props().value).toEqual(stateCase3.next)
     
   })
+
+  it('should test handleClick() by calculating 1123 + 5', () => {
+    const root = shallow(<App />)
+    const inst = root.instance()
+
+    inst.handleClick('1')
+    expect(inst.state.next).toEqual('1')
+
+    inst.handleClick('1')
+    expect(inst.state.next).toEqual('11')
+    
+    inst.handleClick('2')
+    expect(inst.state.next).toEqual('112')
+
+    inst.handleClick('3')
+    expect(inst.state.next).toEqual('1123')
+
+    inst.handleClick('+')
+    expect(inst.state.total).toEqual('1123')
+    expect(inst.state.operation).toEqual('+')
+    expect(inst.state.next).toEqual(null)
+    
+    inst.handleClick('5')
+    expect(inst.state.next).toEqual('5')
+    
+    inst.handleClick('=')
+    expect(inst.state.total).toEqual('1128')
+    expect(inst.state.operation).toEqual(null)
+    expect(inst.state.next).toEqual(null)
+  })
+
+
 });
