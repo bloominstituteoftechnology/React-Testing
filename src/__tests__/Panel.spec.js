@@ -16,4 +16,10 @@ describe('<Panel />', () => {
     ReactDOM.render(<Panel />, div);
   });
 
+  it('should count the amount of buttons', () => {
+    const wrapper = shallow(<Panel />);
+    let count = 0;
+    wrapper.find(Button).forEach(btn => btn ? count++ : null);
+    expect(count).toBe(19);
+  })
 });
