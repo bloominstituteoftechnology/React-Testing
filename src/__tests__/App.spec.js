@@ -7,12 +7,18 @@ import App from "../App";
 import Display from "../components/Display/Display";
 import Panel from "../components/Panel/Panel";
 import mockAxios from "../__mocks__/axios";
+import renderer from 'react-test-renderer';
 
 Enzyme.configure({ adapter: new Adapter() });
 
 describe("<App />", () => {
     let wrapper = shallow(<App />);
     let instance = wrapper.instance();
+
+    it('should match snapshot', () => {
+        const tree = renderer.create(<App />).toJSON();
+        expect(tree).toMatchSnapshot();
+    });
 
     it("renders without crashing", () => {
         // const div = document.createElement('div');
