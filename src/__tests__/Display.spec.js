@@ -9,7 +9,16 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Display />', () => {
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Display />, div);
+    shallow(<Display />)
+  });
+  it('should have a value prop that displays on the screen', () => {
+    let display = shallow(<Display value = {'44'}/>);
+    const valueHolder = display.find('.component-display');
+
+    expect(valueHolder.text()).toEqual('44');
+
+
+
+
   });
 });
