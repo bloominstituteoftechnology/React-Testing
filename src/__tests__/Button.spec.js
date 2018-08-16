@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Enzyme, { shallow } from 'enzyme';
+import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import sinon from 'sinon';
 import Button from '../components/Button/Button';
@@ -20,7 +20,7 @@ describe('<Button />', () => {
     expect(wrapper.find('.component-button')).toHaveLength(1);
   });
 
-  it("calls the click handler once when clicked", () => {
+  it("calls the click handler when clicked", () => {
     const func = sinon.spy();
     const wrapper = shallow(<Button clickHandler={func} />);
     wrapper.find('button').simulate('click');

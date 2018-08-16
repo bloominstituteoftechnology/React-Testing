@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Enzyme, { shallow } from 'enzyme';
+import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-
+import sinon from 'sinon';
+import Panel from '../components/Panel/Panel';
+import Button from '../components/Button/Button';
 import App from '../App';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -25,5 +27,31 @@ describe('<App />', () => {
     expect(wrapper.state('next')).toBeDefined();
     expect(wrapper.state('operation')).toBeDefined(); 
   });
+
+  //! Math operation 5 + 8 = 13
+  it('should change state.next to 5', () => {
+    const instance = wrapper.instance();
+    instance.handleClick("5");
+    expect(instance.state.next).toBe("5");
+  })
+
+  it('should change state.operation to +', () => {
+    const instance = wrapper.instance();
+    instance.handleClick("+");
+    expect(instance.state.operation).toBe("+");
+  })
+
+  it('should change state.next to 8', () => {
+    const instance = wrapper.instance();
+    instance.handleClick("8");
+    expect(instance.state.next).toBe("8");
+  })
+
+  it('should change state.operation to =', () => {
+    const instance = wrapper.instance();
+    instance.handleClick("=");
+    expect(instance.state.total).toBe("13");
+  })
+ //! End Math operation 5 + 8 = 13
 
 });
