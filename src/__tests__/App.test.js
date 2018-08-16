@@ -1,11 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Enzyme, { shallow } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
+import { shallow } from 'enzyme'
 
 import App from '../App'
-
-Enzyme.configure({ adapter: new Adapter() })
 
 describe('<App />', () => {
   it('renders without crashing', () => {
@@ -40,7 +37,7 @@ describe('<App />', () => {
     expect(component.state('total')).toBeNull()
     expect(component.state('operation')).toBeNull()
   })
-  it('should have handleClick method', () => {
+  it('should have handle several clicks properly', () => {
     const component = shallow(<App />)
     component.instance().handleClick('5')
     component.instance().handleClick('-')
