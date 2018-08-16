@@ -17,4 +17,10 @@ describe('<Panel />', () => {
     const component = shallow(<Panel />)
     expect(component.find('Button')).toHaveLength(19)
   })
+
+  it('should have a method called handleClick', () => {
+    const component = shallow(<Panel />)
+    const instance = component.instance()
+    expect(instance.handleClick).toBeDefined()
+  })
 })

@@ -1,6 +1,10 @@
 import operate from '../logic/operate.js'
 
 describe('operate', () => {
+  it('should return total as type string', () => {
+    const total = operate(1, 2, '+')
+    expect(typeof total).toEqual('string')
+  })
   it("'+' should add two values together", () => {
     const operateTest = operate(2, 3, '+')
     expect(operateTest).toBe('5')
@@ -22,9 +26,9 @@ describe('operate', () => {
     expect(operateTest).toBe('0')
   })
   it("'**' should return an error", () => {
-    const operationTest = '**'
+    const operateTest = '**'
     expect(() => {
-      operate(4, 2, operationTest)
+      operate(4, 2, operateTest)
     }).toThrowError()
   })
 })
