@@ -9,7 +9,7 @@ describe("calculate function", () => {
   };
 
   it("should return a corresponding number string if isNumber button name is 0-9", () => {
-    const number = calculate(isNumber(), "3");
+    const number = calculate(nullState, "3");
     expect(number.next).toEqual("3");
   });
 
@@ -35,7 +35,7 @@ describe("calculate function", () => {
     expect(result).toEqual(nullState);
   });
 
-  it('should show the total when the eual sign is pressed', () =>{
+  it('should show the total when the equal sign is pressed', () =>{
     const inputState = {
         total: "10",
         next: "5",

@@ -35,13 +35,16 @@ describe("<Button />", () => {
     const name = button.find(".component-button .wide");
     expect(name.hasClass("wide")).toEqual(true);
   });
-  
-  // it("calls the passed-in prop function with the button's name when clicked", () => {
-  //   const func = sinon.spy();
-  //   const component = shallow(<Button name="boo" clickHandler={func} />);
-  //   component.find('button').simulate('click');
-  //   expect(func.calledOnce).toEqual(true);
-  //   expect(func.calledWith('boo')).toEqual(true);
-  // });
+  it('should perform clickHandler with names prop', () => {
+    let name = 'example';
+    let output;
+    function clickHandler(input) {
+      output = input;
+    }
+    const button = shallow(<Button name={name} clickHandler={clickHandler} />);
+    const divButton = button.find('.component-button > button');
+    divButton.simulate('click');
+    expect(output).toEqual(name);
+  })
 
 });

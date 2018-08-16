@@ -1,6 +1,7 @@
 import operate from "../logic/operate";
 
 describe("operate function", () => {
+ 
   it("returns a string", () => {
     const result = operate(199, 20, "+");
     expect(typeof result).toEqual("string");

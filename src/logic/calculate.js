@@ -25,11 +25,11 @@ function calculate(obj, buttonName) {
 
   if (isNumber(buttonName)) {
     if (buttonName === "0" && obj.next === "0") {
-      return {
+      return {   
         total: null,
         next: null,
         operation: null
-      };
+         };
     }
 
     if (obj.operation) {
