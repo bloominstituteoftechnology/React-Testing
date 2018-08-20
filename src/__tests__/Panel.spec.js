@@ -23,4 +23,13 @@ describe('<Panel />', () => {
     const instance = panel.instance();
     expect(instance.handleClick).toBeDefined();
   });
+
+  describe('handleClick()', () => {
+    it ('should pass the clickhandler() prop', () => {
+      const root = shallow(<Panel clickHandler={() => {}}/>);
+      const instance = root.instance();
+      instance.handleClick();
+      console.log(root.props().clickHandler);
+    });
+  })
 });

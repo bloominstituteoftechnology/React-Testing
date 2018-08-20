@@ -17,7 +17,7 @@ describe('<Display />', () => {
     expect(div.length).toBeGreaterThan(0);
   })
 
-  it('should render expected value', () => {
+  it('should render expected prop value', () => {
     const value = '5';
     const wrapper = shallow(<Display value={value} />);
     const div = wrapper.find('.component-display');

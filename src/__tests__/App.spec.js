@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 import App from '../App';
+import calculate from '../logic/calculate';
+
+jest.mock('../logic/calculate.js');
 
 
 describe('<App />', () => {
@@ -24,6 +27,17 @@ describe('<App />', () => {
 
   it('should have state Total with initial value 0', () => {
     expect(app.state().total).toEqual('0');
+  })
+
+  describe('HandleClick()', () => {
+    it('should call "calculate" 1 time', () => {
+      const root = shallow(<App />);
+      const instance = root.instance();
+      const buttonName = 'buttonname';
+      
+      instance.handleClick(buttonName);
+      expect(calculate).toHaveBeenCalledTimes(1);
+    }) 
   })
 
 });
