@@ -12,8 +12,14 @@ describe("<Button />", () => {
     });
   });
   // describe("prop check", () => {
-  //   it("operators should load orange", () => {
+  //   it("operator buttons should load orange", () => {
+  //     const wrapper = shallow(<Button />);
+  //     const instance = wrapper.instance();
 
+  //     const button = wrapper.find("button");
+  //     if (instance.state.props === 'orange'){
+  //       expect(instance.state.orange).toEqual("orange");
+  //     }
   //   });
   // });
 });
