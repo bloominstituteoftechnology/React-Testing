@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+
+import { shallow } from 'enzyme'; 
+
 
 import Display from '../components/Display/Display';
 
-Enzyme.configure({ adapter: new Adapter() });
 function wrapperFunc () {
   const wrapper = shallow(<Display />);
   const instance = wrapper.instance(); 
