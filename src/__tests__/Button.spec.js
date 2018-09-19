@@ -12,4 +12,10 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
+  
+  it('has a string for name in props', () => {
+    const wrapper = mount(<Button />);
+
+    expect(typeof wrapper.props.name).toBe('string');
+  });
 });

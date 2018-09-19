@@ -12,4 +12,11 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+
+  it('has a string for value in props', () => {
+    const wrapper = shallow(<Display />);
+
+    expect(typeof wrapper.find('div').first().props('value')).toBe('object');
+  });
 });
+

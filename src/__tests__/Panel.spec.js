@@ -12,4 +12,11 @@ describe('<Panel />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Panel />, div);
   });
+
+  it('has a function for handleClick in class declaration', () => {
+    const wrapper = shallow(<Panel />);
+    const instance = wrapper.instance();
+
+    expect(typeof instance.handleClick).toBe('function');
+  });
 });
