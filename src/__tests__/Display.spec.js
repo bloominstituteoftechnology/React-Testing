@@ -12,4 +12,20 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+
+  it('allows us to set props', () => {
+    const wrapper = mount(<Display value='888' />);
+    expect(wrapper.props().value).toBe('888');
+    wrapper.setProps({ value: '123' });
+    expect(wrapper.props().value).toBe('123');
+  });
+
+  // it('displays the value on the div', () => {
+  //   const wrapper = mount 
+  // })
+
 });
+
+// describe('display should be 0 by default', () => {
+//   const wrapper
+// })
