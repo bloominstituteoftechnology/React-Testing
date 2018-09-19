@@ -19,7 +19,7 @@ describe('<Button />', () => {
     expect(mock).toHaveBeenCalled();
   });
 
-  it('call clickHandler on click', () => {
+  it('call clickHandler on click with props', () => {
     const mock = jest.fn();
     const wrapper = shallow(<Button name="TrevorSucks" clickHandler={mock} />);
 
