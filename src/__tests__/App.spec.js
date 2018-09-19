@@ -19,4 +19,12 @@ describe('<App />', () => {
 
     expect(elements.length).toEqual(1);
   })
+
+  it('should update state when handleClick is called', () => {
+    const wrapper = shallow(<App />);
+    const instance = wrapper.instance();
+
+    instance.handleClick('1');
+    expect(wrapper.state('next')).toEqual('1');
+  })
 });
