@@ -15,7 +15,7 @@ describe('<Button />', () => {
 
   // test when we click the handle click function is called 
 
-  // it('should call the handle click function when called', () => {
+   // it('should call the handle click function when button is pressed', () => {
   //   const wrapper = shallow(<App />)
   //   const instance = wrapper.instance();
 
