@@ -17,4 +17,12 @@ describe('<App />', () => {
 
     expect(instance.state.total).toEqual('0');
   });
+
+  it('should render 2 child components', () => {
+    const wrapper = shallow(<App />);
+
+    const elements = wrapper.find('.component-app');
+
+    expect(elements.children().length).toEqual(2);
+  });
 });
