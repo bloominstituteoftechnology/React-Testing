@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme'; 
-
 import Panel from '../components/Panel/Panel';
 
 function wrapperFunc (inst = true) {
