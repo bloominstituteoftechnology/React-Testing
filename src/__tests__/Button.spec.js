@@ -24,7 +24,7 @@ describe('<Button />', () => {
     expect(name.hasClass("wide")).toEqual(true);
   });
   it("should have a function named handleClick", () => {
-    const tested = shallow(<Button />); 
+    const tested = shallow(<Button name/>); 
     const test = tested.instance();  
     expect(test.handleClick()).toBeDefined();
   });
