@@ -24,12 +24,4 @@ describe('<Button />', () => {
     expect(component.find('.component-button')).toHaveLength(1);
     expect(component.find('.orange')).toHaveLength(1);
   });
-
-  it('should call the passed-in prop function with the buttons name when clicked', () => {
-    const func = sinon.spy();
-    const component = shallow(<Button name='boo' clickHandler={func} />);
-    component.find('button').simulate('click');
-    expect(func.calledOnce).toEqual(true);
-    expect(func.calledWith('boo')).toEqual(true);
-  })
 });
