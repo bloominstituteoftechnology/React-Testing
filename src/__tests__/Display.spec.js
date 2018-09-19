@@ -23,6 +23,8 @@ describe('<Display />', () => {
   it('should return the specified value', () => {
     const component = shallow(<Display value = {"0"} />);
     expect(component.contains(
+      //https://devhints.io/enzyme
+      //use contains to check for a div element
       <div className = "value">
         0
       </div>
