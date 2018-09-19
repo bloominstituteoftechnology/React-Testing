@@ -9,7 +9,12 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('<App />', () => {
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<App />, div);
+    shallow(<App />);
+  });
+
+  it('should return 2 div elements', () => {
+    const application = shallow(<App />);
+
+    expect(application.find('div').children()).toHaveLength(2);
   });
 });
