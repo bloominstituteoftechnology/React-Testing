@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Enzyme, { shallow } from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import Panel from '../components/Panel/Panel';
@@ -14,9 +14,9 @@ describe('<Panel />', () => {
   });
 
   it('toggles button and value is delivered', () => {
-    const wrapper = shallow(<Panel />); 
+    const wrapper = mount(<Panel />); 
     const instance = wrapper.instance();
-
+    
     const button = wrapper.find('Button').first();
     
     button.simulate('click');
