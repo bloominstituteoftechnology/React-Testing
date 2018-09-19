@@ -18,4 +18,13 @@ describe('<Button />', () => {
     button.simulate('click');
     expect(mock).toHaveBeenCalled();
   });
+
+  it('call clickHandler on click', () => {
+    const mock = jest.fn();
+    const wrapper = shallow(<Button name="TrevorSucks" clickHandler={mock} />);
+
+    const button = wrapper.find('button');
+    button.simulate('click');
+    expect(mock).toHaveBeenCalledWith('TrevorSucks');
+  });
 });
