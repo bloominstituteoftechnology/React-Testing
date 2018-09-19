@@ -1,15 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import React from "react";
+import ReactDOM from "react-dom";
+import { shallow } from "enzyme";
+// components
+import Display from "../components/Display/Display";
 
-import Display from '../components/Display/Display';
-
-Enzyme.configure({ adapter: new Adapter() });
-
-describe('<Display />', () => {
-  it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Display />, div);
+describe("<Display />", () => {
+  describe("preloaded tests", () => {
+    it("renders without crashing", () => {
+      const div = document.createElement("div");
+      ReactDOM.render(<Display />, div);
+    });
   });
 });
