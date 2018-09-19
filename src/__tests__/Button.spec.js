@@ -12,4 +12,12 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
+
+  it('props to button should default to ""', () => {
+    const wrapper = shallow(<Button />); 
+
+    const button = wrapper.find('button')
+    expect(button.text()).toEqual('');
+  });
+
 });

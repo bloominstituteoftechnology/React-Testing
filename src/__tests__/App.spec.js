@@ -12,4 +12,26 @@ describe('<App />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
+
+  it('should default to a total of 0', () => {
+    const wrapper = shallow(<App />); 
+    const instance = wrapper.instance(); 
+
+    expect(instance.state.total).toEqual('0');
+  });
+
+  it('should default to a next of null', () => {
+    const wrapper = shallow(<App />); 
+    const instance = wrapper.instance(); 
+
+    expect(instance.state.next).toEqual(null);
+  });
+
+  it('should default to an operation of null', () => {
+    const wrapper = shallow(<App />); 
+    const instance = wrapper.instance(); 
+
+    expect(instance.state.operation).toEqual(null);
+  });
+
 });

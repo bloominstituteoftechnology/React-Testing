@@ -16,6 +16,9 @@ class App extends Component {
     }
 
     render() {
+        console.log('state total', this.state.total);
+        console.log('state next', this.state.next);
+        console.log('state operation', this.state.operation);
         return (
             <div className='component-app'>
                 <Display value={this.state.next || this.state.total || '0'} />
