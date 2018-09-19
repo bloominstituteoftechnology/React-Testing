@@ -1,15 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Enzyme, { shallow } from 'enzyme';
+import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-
 import Panel from '../components/Panel/Panel';
 
-Enzyme.configure({ adapter: new Adapter() });
+configure({ adapter: new Adapter() });
 
 describe('<Panel />', () => {
-  it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Panel />, div);
+  let wrap;
+
+  beforeAll(() => {
+    wrap = shallow(<Panel />);
+  });
+
+  describe('basic renders', () => {
+    it('renders without crashing', () => {
+      const div = document.createElement('div');
+      ReactDOM.render(<Panel />, div);
+    });
+
+    it('renders correctly', () => {
+      expect(wrap).toMatchSnapshot();
+    });
+  });
+
+  describe('classes', () => {
+    it('should have the component-panel class', () => {
+      expect(wrap.find('.component-panel')).toHaveLength(1);
+    });
   });
 });
