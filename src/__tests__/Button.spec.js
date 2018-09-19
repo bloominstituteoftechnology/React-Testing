@@ -14,11 +14,10 @@ describe('<Button />', () => {
   });
 
   it('toggles button and state updates', () => {
-    const wrapper = shallow(<App />); 
-    const instance = wrapper.instance(); 
+    const wrapper = shallow(<Button />); 
 
     const button = wrapper.find('.component-button')
-    expect(instance.state.total).toEqual('0');
+    expect(button.text()).toEqual('');
   });
 
 });

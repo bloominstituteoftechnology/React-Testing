@@ -5,6 +5,7 @@ import './Button.css';
 class Button extends Component {
     handleClick = () => {
         this.props.clickHandler(this.props.name);
+        console.log('handleClick function in Button clicked');
     }
 
     render() {
