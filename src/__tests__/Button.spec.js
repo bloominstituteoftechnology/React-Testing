@@ -29,15 +29,22 @@ describe("<Button />", () => {
   });
 
   it("onClick", () => {
-    const openNavSpy = jest.fn();
+    const mock = jest.fn();
 
     const wrapper = shallow(
       <Button
         name="3"
-        clickHandler={openNavSpy}
+        clickHandler={mock}
       />
     );
     wrapper.find('button').simulate('click');
-    expect(openNavSpy).toHaveBeenCalledTimes(1);
+    expect(mock).toHaveBeenCalledTimes(1);
+  });
+
+  it('onClick value test', () => {
+    const mock = jest.fn();
+    const wrapper = shallow(<Button name="3" clickHandler={mock} />);
+    wrapper.find('button').simulate('click');
+    expect(mock).toHaveBeenCalledWith('3');
   });
 });
