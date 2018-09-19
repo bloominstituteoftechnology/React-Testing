@@ -12,4 +12,18 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
+  it('calls click handler', () => {
+    const mock = jest.fn();
+    const wrapper = shallow(<Button clickHandler={mock} />);
+    wrapper.find('button').simulate('click');
+    wrapper.find('button').simulate('click');
+    expect(mock).toHaveBeenCalledTimes(2);
+  });
+  it('calls click with props', () => {
+    const mock = jest.fn();
+    const wrapper = shallow(<Button clickHandler={mock} name="hi"/>);
+    wrapper.find('button').simulate('click');
+    expect(mock).toHaveBeenCalledWith("hi");
+  });
+
 });
