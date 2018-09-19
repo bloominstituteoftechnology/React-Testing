@@ -16,5 +16,17 @@
   "devDependencies": {
     "enzyme": "^3.4.1",
     "enzyme-adapter-react-16": "^1.2.0"
-  }
+  },
+  "description": "This module builds upon the topic of client-side testing by extending it into the realm of React.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MichaelBoegner/React-Testing.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MichaelBoegner/React-Testing/issues"
+  },
+  "homepage": "https://github.com/MichaelBoegner/React-Testing#readme"
 }
