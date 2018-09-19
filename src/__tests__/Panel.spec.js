@@ -12,4 +12,14 @@ describe('<Panel />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Panel />, div);
   });
+
+  it('button updates props correctly', () => {
+    const wrapper = shallow(<App />);
+    const instance = wrapper.instance();
+
+    const button = wrapper.find('.component-panel');
+    button.simulate('click');
+    expect().toEqual();
+
+  });
 });
