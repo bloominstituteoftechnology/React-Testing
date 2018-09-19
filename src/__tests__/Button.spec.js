@@ -26,5 +26,6 @@ describe('<Button />', () => {
 
     btn.simulate('click');
     expect(hasChanged).toEqual(true);
-  })
+  });
+
 });
