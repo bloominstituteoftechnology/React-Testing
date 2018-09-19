@@ -11,6 +11,13 @@ describe('<App />', () => {
     ReactDOM.render(<App />, div);
   });
 
+  it('Total should be 0 by default', () => {
+    const wrapper = shallow(<App />);
+    const instance = wrapper.instance();
+
+    expect(instance.state.total).toEqual('0');
+  });
+
   it('should match snapshot', () => {
     const tree = renderer.create(<App />).toJSON();
 
