@@ -20,5 +20,5 @@ describe('<App />', () => {
     const wrapper = shallow(<App />);
     expect(wrapper.find(Display)).toHaveLength(1);
     expect(wrapper.find(Panel)).toHaveLength(1);
-  })
+  });
 });
