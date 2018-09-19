@@ -6,9 +6,12 @@ import Adapter from 'enzyme-adapter-react-16';
 import Panel from '../components/Panel/Panel';
 
 Enzyme.configure({ adapter: new Adapter() });
-function wrapperFunc () {
+function wrapperFunc (inst = true) {
   const wrapper = shallow(<Panel />);
   const instance = wrapper.instance(); 
+  if(inst === false){
+    return wrapper; 
+  }
   return instance; 
 }
 describe('<Panel />', () => {
@@ -17,8 +20,11 @@ describe('<Panel />', () => {
     ReactDOM.render(<Panel />, div);
   });
   it('should check if handleClick is a function', () => {
-    console.log(wrapperFunc())
     expect(typeof wrapperFunc().handleClick).toEqual('function');
   });
+  it('Should be 19 <Button /> on the panel', () => {
+    const buttons = wrapperFunc(false).find('Button');
+    expect(buttons.length).toEqual(19); 
+  }); 
 
 });
