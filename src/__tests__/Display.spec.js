@@ -12,4 +12,9 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+
+  it("renders display text", () => {
+    const wrapper = shallow(<Display value="3" />);
+    expect(wrapper.find("div").not('.component-display').text()).toEqual("3");
+  });
 });
