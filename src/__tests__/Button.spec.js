@@ -2,9 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import sinon from 'sinon';
 
 import Button from '../components/Button/Button';
 import { finished } from 'stream';
+
+//jest.mock('../components/Button/Button');
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -42,4 +45,16 @@ describe('<Button />', () => {
     expect(component.find('.wide')).toHaveLength(1);
   })
 
+  it('should invoke the handleClick() function when clicked', () => {
+    const buttonFunction = sinon.spy(); 
+    //A spy call is an object representation of an invididual call to a spied function
+    //https://sinonjs.org/releases/v5.0.5/spy-call/
+    const component = shallow(<Button name = "button-function" clickHandler = {buttonFunction} />);
+    component.find('button').simulate('click');
+    expect(buttonFunction.calledOnce).toEqual(true);
+    //calledOnce - true if spy is called once
+    expect(buttonFunction.calledWith('button-function')).toEqual(true);
+    //Returns true if spy was called at least once with the provided arguments.
+    ////https://sinonjs.org/releases/v2.0.0/spies/
+  })
 });
