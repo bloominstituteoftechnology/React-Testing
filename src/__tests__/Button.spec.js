@@ -17,12 +17,12 @@ describe('<Button />', () => {
   })
 
   it('button test', () => {
-    const wrap = shallow(<Button name='test2' />)
+    const wrap = shallow(<Button name='test2' clickHandler={()=> 'fail'} />)
     const inst = wrap.instance();
     const btn = wrap.find('button')
     btn.simulate('click')
     
-    // expect(inst.clickHandler).toEqual('fail')
+    expect(inst.props.clickHandler()).toEqual('fail')
   })
 
 });

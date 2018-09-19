@@ -12,4 +12,11 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+
+  it('tests display value', () => {
+    const wrap = shallow(<Display />)
+
+    expect(wrap.text()).toEqual('test')
+  })
+
 });
