@@ -24,12 +24,33 @@ describe('<Button />', () => {
   it('should perform click using name prop', () => {
     let name = 'example';
     let output;
-    function clickHandler(input) {
-      output = input;
-    }
+    const clickHandler = input => output = input;
     const button = shallow(<Button name={name} clickHandler={clickHandler} />);
-    const divButton = button.find('.component-button > button');
+    const divButton = button.find('button');
     divButton.simulate('click');
     expect(output).toEqual(name);
   });
+
+  describe('props modifying classes', () => {
+    it('should add an orange class when passed as prop', () => {
+      const wrapper = shallow(<Button orange />);
+      const button = wrapper.find('.component-button');
+
+      expect(button.hasClass('orange')).toBe(true);
+    });
+
+    it('should add a wide class when passed as prop', () => {
+      const wrapper = shallow(<Button wide />);
+      const button = wrapper.find('.component-button');
+
+      expect(button.hasClass('wide')).toBe(true);
+    });
+
+    it('should not add extra props as a classname', () => {
+      const wrapper = shallow(<Button blue />);
+      const button = wrapper.find('.component-button');
+
+      expect(button.hasClass('blue')).toBe(false);
+    });
+  })
 });
