@@ -9,6 +9,7 @@ class Panel extends Component {
   };
 
   render() {
+    console.log("Panel Props", this.props);
     return (
       <div className="component-panel">
         <div>
