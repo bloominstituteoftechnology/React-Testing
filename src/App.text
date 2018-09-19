@@ -1,0 +1,11 @@
+App
+
+state => 
+The app should start default with a total of '0'
+next should be null 
+operation should be null
+
+function => handleClick accepts the state and buttonName as parmaters
+^initally not sure how to go about testing this one from the App side.
+May have to do the test where the actual props for the buttonName are loated.
+Panel uses this function so testing the function maybe better suited on the Panel

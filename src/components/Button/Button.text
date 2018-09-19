@@ -1,0 +1,11 @@
+Button 
+
+props =>  orange  should be a boolean
+... wide should be a boolean
+... name shoul be a a string
+
+function => handleClick accepts the name as input 
+
+
+
+
