@@ -10,4 +10,11 @@ describe('<App />', () => {
   it('renders without crashing', () => {
     shallow(<App />);
   });
+
+  it('should be zero by default', () => {
+    const wrapper = shallow(<App />);
+    const instance = wrapper.instance();
+
+    expect(instance.state.total).toEqual('0');
+  });
 });
