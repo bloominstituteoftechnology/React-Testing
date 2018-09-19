@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Enzyme, { shallow } from 'enzyme';
+import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import App from '../App';
@@ -41,11 +41,6 @@ describe('<App />', () => {
     expect(typeof instance.handleClick).toBe('function');
   });
 
-  it('should match the snapshot', () => {
-    const tree = renderer.create(<App />).toJSON;
-
-    expect(tree).toMatchSnapshot();
-  });
 
   it('has a string for the button name', () => {
     const wrapper = mount(<App />);
