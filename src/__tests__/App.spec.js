@@ -12,4 +12,24 @@ describe('<App />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
+
+  it('initial state is set', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.state()).toEqual({
+      total: '0',
+      next: null,
+      operation: null,
+    });
+  });
+
+  it('renders Display and Panel', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.find('Display').exists()).toBe(true);
+    expect(wrapper.find('Panel').exists()).toBe(true);
+  });
+
+  it('checks if total is 0 ', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.state().total).toBe('0');
+  });
 });
