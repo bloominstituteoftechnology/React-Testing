@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Enzyme, { shallow } from 'enzyme';
+import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import Display from '../components/Display/Display';
@@ -20,9 +20,10 @@ describe('<Display />', () => {
     expect(wrapper.props().value).toBe('123');
   });
 
-  // it('displays the value on the div', () => {
-  //   const wrapper = mount 
-  // })
+  it('displays the value on the div', () => {
+    const wrapper = mount(<Display value="123" />);
+    expect(wrapper.find('.component-display div').text()).toBe('123');
+  });
 
 });
 
