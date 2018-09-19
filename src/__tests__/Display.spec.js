@@ -12,4 +12,12 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+
+  it('should display text', () => {
+    const wrapper = shallow(<Display />);
+
+    const display = wrapper.find('.component-display');
+
+    expect(display.text()).toEqual(display.text());
+  });
 });

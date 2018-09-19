@@ -12,4 +12,15 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
+
+  it('button updates props correctly', () => {
+    const wrapper = shallow(<App />);
+    const instance = wrapper.instance();
+
+    const button = wrapper.find('.btnclick');
+    button.simulate('click');
+    expect(instance.state.orange).toEqual(orange);
+
+  });
+
 });

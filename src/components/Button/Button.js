@@ -15,7 +15,7 @@ class Button extends Component {
         ];
         return (
             <div className={classNames.join(' ').trim()}>
-                <button onClick={this.handleClick}>
+                <button class="btnclick" onClick={this.handleClick}>
                     {this.props.name}
                 </button>
             </div>
