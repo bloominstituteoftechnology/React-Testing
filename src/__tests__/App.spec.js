@@ -17,5 +17,4 @@ describe('<App />', () => {
 
     expect(application.find('div').children()).toHaveLength(2);
   });
-  
 });
