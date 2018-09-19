@@ -6,7 +6,7 @@ import './App.css';
 
 class App extends Component {
     state = {
-        total: '0',
+        total: "0",
         next: null,
         operation: null
     }
