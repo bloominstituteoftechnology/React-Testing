@@ -12,4 +12,14 @@ describe('<Panel />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Panel />, div);
   });
+  it("should render buttons to the screen", () => {
+    const buttons = shallow(<Panel />);
+    const test = buttons.find("Buttons");
+    expect(test).toHaveLength(19);
+  });
+  it("should have a function called handClick", () => {
+    const testing = shallow(<Panel />);
+    const instance = testing.instance();
+    expect(instance.handleClick()).toBeDefined();
+  });
 });
