@@ -12,4 +12,13 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
+
+  it('toggles button and state updates', () => {
+    const wrapper = shallow(<App />); 
+    const instance = wrapper.instance(); 
+
+    const button = wrapper.find('.component-button')
+    expect(instance.state.total).toEqual('0');
+  });
+
 });
