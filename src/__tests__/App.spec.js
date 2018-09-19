@@ -9,8 +9,12 @@ describe("<App />", () => {
     shallow(<App />);
   });
 
-  it("should show 0", () => {
+  it("should show 0 by default", () => {
     const wrapper = shallow(<App />);
     const instance = wrapper.instance();
+
+    expect(instance.state.total).toBe("0");
+    expect(instance.state.next).toBeNull();
+    expect(instance.state.operation).toBeNull();
   });
 });
