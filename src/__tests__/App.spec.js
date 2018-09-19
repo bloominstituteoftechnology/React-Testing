@@ -17,4 +17,5 @@ describe("<App />", () => {
     expect(instance.state.next).toBeNull();
     expect(instance.state.operation).toBeNull();
   });
+   
 });
