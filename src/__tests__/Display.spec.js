@@ -25,9 +25,8 @@ describe("display should be 0 by default", () => {
 		expect(wrapper.props().value).toBe("trevor");
 	});
 
-	it("displays div value"),
-		() => {
-			const wrapper = mount(<Display value="123" />);
-			expect(wrapper.find(".component-display div").text()).toBe("123");
-		};
+	it("displays div value", () => {
+		const wrapper = mount(<Display value="123" />);
+		expect(wrapper.find(".component-display div").text()).toBe("123");
+	});
 });
