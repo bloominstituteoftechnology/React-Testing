@@ -8,4 +8,9 @@ describe("<App />", () => {
   it("renders without crashing", () => {
     shallow(<App />);
   });
+
+  it("should show 0", () => {
+    const wrapper = shallow(<App />);
+    const instance = wrapper.instance();
+  });
 });
