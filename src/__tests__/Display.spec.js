@@ -11,4 +11,10 @@ describe('<Display />', () => {
   it('renders without crashing', () => {
    shallow(<Display />);
   });
+
+  it('should return two div elements', () => {
+    const display = shallow(<Display />);
+
+    expect(display.find('div')).toHaveLength(2);
+  })
 });

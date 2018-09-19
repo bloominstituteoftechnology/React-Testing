@@ -11,4 +11,11 @@ describe('<App />', () => {
   it('renders without crashing', () => {
     shallow(<App />);
   });
+
+  it('should return 2 div elements', () => {
+    const application = shallow(<App />);
+
+    expect(application.find('div').children()).toHaveLength(2);
+  });
+  
 });
