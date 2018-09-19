@@ -12,4 +12,9 @@ describe('<Panel />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Panel />, div);
   });
+
+  it('should render a div with class `component-panel`', () => {
+    const component = shallow(<Panel />);
+    expect(component.find('.component-panel')).toHaveLength(1);
+  });
 });
