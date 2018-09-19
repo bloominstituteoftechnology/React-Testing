@@ -2,6 +2,8 @@ import Big from 'big.js';
 
 function operate(numberOne, numberTwo, operation) {
     const one = Big(numberOne);
+    console.log(numberOne)
+    console.log(one)
     const two = Big(numberTwo);
 
     switch(operation) {
