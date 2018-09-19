@@ -12,4 +12,17 @@ describe('<App />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
+  it('sets initial state', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.state()).toEqual({
+      total: '0',
+        next: null,
+        operation: null
+    })
+  });
+  it('renders display and panel', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.find('Display').exists()).toBe(true);
+    expect(wrapper.find('Panel').exists()).toBe(true);
+  });
 });
