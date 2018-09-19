@@ -1,0 +1,9 @@
+Panel 
+
+should have including wrapping div  6 divs 
+should have 19 buttons 
+
+each button passes a name as a string 
+each button passes a clickHandler as a function
+
+props => clickHandler should be a function. 
