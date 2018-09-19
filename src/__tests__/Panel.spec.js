@@ -12,4 +12,15 @@ describe('<Panel />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Panel />, div);
   });
+
+  it('toggles button and value is delivered', () => {
+    const wrapper = shallow(<Panel />); 
+    const instance = wrapper.instance();
+
+    const button = wrapper.find('Button').first();
+    
+    button.simulate('click');
+
+    expect(instance.state.next).toEqual(name);
+  });
 });

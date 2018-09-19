@@ -13,10 +13,10 @@ describe('<Button />', () => {
     ReactDOM.render(<Button />, div);
   });
 
-  it('toggles button and state updates', () => {
+  it('props to button should default to ""', () => {
     const wrapper = shallow(<Button />); 
 
-    const button = wrapper.find('.component-button')
+    const button = wrapper.find('button')
     expect(button.text()).toEqual('');
   });
 
