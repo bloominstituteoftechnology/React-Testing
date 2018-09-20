@@ -12,5 +12,4 @@ describe('<Panel />', () => {
     const elements = wrapper.find('Button');
     expect(elements.length).toEqual(19);
   });
-  
 });
