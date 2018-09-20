@@ -34,4 +34,11 @@ describe("<Button />", () => {
     wrapper.find("button").simulate("click");
     expect(nav).toHaveBeenCalledTimes(1);
   });
+
+  it("onClick value test", () => {
+    const mock = jest.fn();
+    const wrapper = shallow(<Button name="1" clickHandler={mock} />);
+    wrapper.find("button").simulate("click");
+    expect(mock).toHaveBeenCalledWith("1");
+  });
 });
