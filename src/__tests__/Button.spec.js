@@ -9,7 +9,17 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Button />', () => {
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Button />, div);
+		shallow(<Button />);
+  });
+  it('tests display name', () => {
+    const wrap = shallow(<Button name="test" />);
+    expect(wrap.text()).toEqual('test');
+  });
+  it('button testing state change when clicked', () => {
+    const wrap = shallow(<Button name="test2" clickHandler={ () => "fail" }/>);
+    const inst = wrap.instance();
+    const btn = wrap.find("button");
+    btn.simulate("click");
+    expect(inst.props.clickHandler()).toEqual("fail");
   });
 });
