@@ -8,4 +8,9 @@ describe("<Button />", () => {
   it("renders without crashing", () => {
     shallow(<Button />);
   });
+
+  it("should update the state on app if clicked", () => {
+    const wrapper = shallow(<Button />);
+    
+  });
 });
