@@ -23,7 +23,7 @@ describe('<App />', () => {
   //   expect()
   // })
   
-  it('state correctly displays initial values', () => {
+  it('correctly displays initial values in state', () => {
     const wrapper = shallow(<App />);
     const instance = wrapper.instance();
 
@@ -31,6 +31,18 @@ describe('<App />', () => {
     expect(instance.state.next).toEqual(null);
     expect(instance.state.operation).toEqual(null);
   })
-  //if the number clicked is stored in 'next' 
+
+  it('should pass the total to Display if next is null', () => {
+    const wrapper = shallow(<App />);
+    const instance = wrapper.instance();
+
+    wrapper.setState({next: null, total: '7'});
+    //we set wrapper (App) 's state to total: 7 
+
+    const elements = wrapper.find({ value: instance.state.total })//finds the elements contained in wrapper (App) that contain value:7 in this example it is either display or Panel. 
+
+    expect(elements.length).toBe(1); // if display is set ot 2 then this should be 0.  
+    
+  })
 
 });

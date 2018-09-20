@@ -108,4 +108,5 @@ function calculate(obj, buttonName) {
     };
 }
 
+
 export default calculate;
