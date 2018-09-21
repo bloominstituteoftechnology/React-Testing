@@ -4,6 +4,10 @@ import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import App from '../App';
 
+import calculate from '../logic/calculate.js';
+
+jest.mock('../logic/calculate.js');
+
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('<App />', () => {
@@ -45,4 +49,47 @@ describe('<App />', () => {
     
   })
 
+  it('should pass "0" to Display if next and total is null', () => {
+    const wrapper = shallow(<App />);
+    const instance = wrapper.instance();
+    
+    wrapper.setState({next: null, total: '0'});
+    //we set wrapper (App) 's state to total: 7 
+    
+    const elements = wrapper.find({ value: instance.state.total })//finds the elements contained in wrapper (App) that contain value:7 in this example it is either display or Panel. 
+    
+    expect(elements.length).toBe(1); // if display is set ot 2 then this should be 0.  
+    
+  })
+  
+  it('handle click function should call calculate exactly once', () => {
+    const wrapper = shallow(<App />);
+    const instance = wrapper.instance();
+  
+    instance.handleClick('add')
+
+    expect(calculate).toHaveBeenCalledTimes(1);
+  })
+  
+  it('handle click function should call calculate exactly once passing state and button name', () => {
+    const wrapper = shallow(<App />);
+    const instance = wrapper.instance();
+    const stateObject = { total: '3' };
+
+    beforeAll(() => {
+      return //function that is needed to be called befor any other checks. like a database. 
+    })
+
+    instance.setState(stateObject);
+
+    instance.handleClick('add');
+
+    expect(calculate).toHaveBeenCalledTimes(2);
+    expect(calculate).toHaveBeenCalledWith(instance.state, 'add');
+    instance.handleClick('total');
+    expect(calculate).toHaveBeenCalledWith(instance.state, 'total');
+
+    afterAll();//disconnect from a database. 
+  });
+  
 });
