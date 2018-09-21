@@ -29,12 +29,14 @@ function calculate(obj, buttonName) {
         }
 
         if (obj.operation) {
+            console.log(obj.operation)
             if (obj.next) {
                 return { next: obj.next + buttonName };
             }
             return { next: buttonName };
         }
         if (obj.next) {
+            console.log(obj.next)
             return {
                 next: obj.next + buttonName,
                 total: null,
@@ -105,5 +107,6 @@ function calculate(obj, buttonName) {
         operation: buttonName,
     };
 }
+
 
 export default calculate;

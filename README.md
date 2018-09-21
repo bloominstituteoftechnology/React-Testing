@@ -1,4 +1,4 @@
-# React Testing
+# React Testing  
 
 This module builds upon the topic of client-side testing by extending it into the realm of React.
 
@@ -9,7 +9,9 @@ The objectives of this module are the following:
 - To write tests for a React application using Jest and Enzyme. These two libraries are commonly used in production for testing React components and applications.
 - To practice reading over and understanding code which you did not write, but that you do need to test.
 
-For this exercise, you're given a complete React application. Your job is to:
+For this exercise, you're given a complete React application. 
+
+Your job is to: 
 
 1. Go through and inspect **_all_** of the different pieces of the code.
 2. Write tests for **_all_** of the components in the `./src/components` directory.
