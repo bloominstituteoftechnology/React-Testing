@@ -8,11 +8,13 @@ import Panel from '../components/Panel/Panel';
 
 describe('<Panel />', () => {
 
+  //make sure is working
   it('renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Panel />, div);
   });
 
+  //check if anything has been changed
   it('should match snapshot', () => {
   	const tree = renderer.create(<Panel />).toJSON();
   	expect(tree).toMatchSnapshot();
