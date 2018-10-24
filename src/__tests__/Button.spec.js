@@ -12,4 +12,12 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
+
+  it('renders a <div>', () => {
+    const wrapper = shallow(<Button />);
+
+    const elements = wrapper.find('div');
+
+    expect(elements.length).toBe(1);
+  });
 });
