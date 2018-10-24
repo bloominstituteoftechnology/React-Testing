@@ -15,7 +15,15 @@ describe("<Button />", () => {
 	it("renders the display", () => {
 		const wrapper = shallow(<Button />);
 		const instance = wrapper.instance();
-		const elements = wrapper.find("component-button");
-		expect(elements.length).toBe(0);
+		const elements = wrapper.find(".component-button");
+		expect(elements.length).toBe(1);
+	});
+	it("calculates total", () => {
+		const wrapper = shallow(<Button />);
+		const instance = wrapper.instance();
+
+		const button = wrapper.find();
+		button.simulate("click");
+		expect(instance.state.total).toBe("0");
 	});
 });

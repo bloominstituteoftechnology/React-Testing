@@ -14,7 +14,7 @@ describe("<Display />", () => {
 	});
 	it("renders the display", () => {
 		const wrapper = shallow(<Display />);
-		const elements = wrapper.find("component-display");
-		expect(elements.length).toBe(0);
+		const elements = wrapper.find(".component-display");
+		expect(elements.length).toBe(1);
 	});
 });
