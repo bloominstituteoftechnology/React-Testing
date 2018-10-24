@@ -20,12 +20,9 @@ describe('<App />', () => {
 
   it('state is initially set', () => {
     const wrapper = shallow(<App />);
-    const state = {
-      total: '0',
-      next: null,
-      operation: null
-    };
 
-    expect(wrapper.state()).toEqual(state);
+    expect(wrapper.state().total).toBe('0');
+    expect(wrapper.state().next).toBeNull();
+    expect(wrapper.state().operation).toBeNull();
   })
 });
