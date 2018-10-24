@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import Button from '../components/Button/Button';
 
 describe('<Button />', () => {
@@ -12,5 +12,11 @@ describe('<Button />', () => {
     const button = shallow(<Button />);
     const elements = button.find('div.component-button');
     expect(elements.length).toBe(1);
+  })
+
+  it('should render a button ', () => {
+    const button = shallow(<Button />);
+    const elements = button.find('div button');
+    expect(elements.length).toBe(1)
   })
 });

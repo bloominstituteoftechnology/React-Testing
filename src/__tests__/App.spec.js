@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import App from '../App';
 
 
@@ -22,5 +22,15 @@ describe('<App />', () => {
     expect(instance.state.next).toBe(null);
     expect(instance.state.operation).toBe(null);
   });
+
+  it('should change state on button click', () => {
+    const wrapper = mount(<App />);
+    let button = wrapper.find('.component-button > button').at(6);
+    
+    const instance = wrapper.instance();
+
+    button.simulate('click');
+    expect(instance.state.next).toBe('9');
+  })
 
 });
