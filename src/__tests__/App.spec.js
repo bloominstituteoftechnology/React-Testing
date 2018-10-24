@@ -12,7 +12,7 @@ describe('<App />', () => {
 		shallow(<App />);
 	});
 
-	it('renders a div with a component-app class', () => {
+	it('renders a div with a "component-app" class', () => {
 		const wrapper = shallow(<App />);
 		expect(wrapper.find('div.component-app').length).toBe(1);
 	});
@@ -43,6 +43,19 @@ describe('<App />', () => {
 			const wrapper = shallow(<App />);
 			const instance = wrapper.instance();
 			expect(instance.state.operation).toBe(null);
+		});
+	});
+
+	describe('App\'s children\'s props', () => {
+		it('should pass value prop as string to Display with default 0', () => {
+			const wrapper = shallow(<App />);
+			expect(typeof(wrapper.find(Display).prop('value'))).toBe('string');
+			expect(wrapper.find(Display).prop('value')).toBe('0');
+		});
+
+		it('should pass clickHandler function as prop to Panel', () => {
+			const wrapper = shallow(<App />);
+			expect(typeof(wrapper.find(Panel).props().clickHandler)).toBe('function');
 		});
 	});
 });
