@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
+import App from '../App';
 import Display from '../components/Display/Display';
 
 describe('<Display />', () => {
@@ -8,12 +9,12 @@ describe('<Display />', () => {
 		shallow(<Display />);
 	});
 
-	// can't get this to work with wrapper.prop() or instance.prop(). leaving here for a later attempt.
-	// it('props.value should be a numeric string', () => {
-	// 	const wrapper = shallow(<Display />);
-	// 	const instance = wrapper.instance();
-	// 	expect(instance.prop('value')).toMatch(/[0-9]*/);
-	// });
+	// this *appears* to work as expected. API docs had a weird example with a <div>, so IDK.
+	it('props.value should be a numeric string', () => {
+		const wrapper = shallow(<App />);
+		const element = wrapper.find('Display');
+		expect(element.prop('value')).toMatch(/[0-9]*/);
+	});
 
 	it('should display a numerical string', () => {
 		const wrapper = shallow(<Display />);
