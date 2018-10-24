@@ -5,10 +5,12 @@
     font-weight: 200;
     flex: 0 0 auto;
     width: 100%;
+    margin-bottom: 1px;
 }
   
 .component-display > div {
-    font-size: 20px;
-    padding: 8px 4px 0 4px;
+    font-size: 35px;
+    padding: 10px 8px 2px 6px;
 }
+
 

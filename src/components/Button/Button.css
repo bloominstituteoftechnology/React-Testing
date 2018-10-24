@@ -2,6 +2,8 @@
     display: inline-flex;
     width: 25%;
     flex: 1 0 auto;
+    height: 75px;
+    margin: 1px 0;
 }
 
 .component-button.wide {
@@ -11,10 +13,15 @@
 .component-button button {
     background-color: #E0E0E0;
     border: 0;
-    font-size: 12px;
+    font-size: 30px;
     margin: 0 1px 0 0;
     flex: 1 0 auto;
     padding: 0;
+}
+
+.component-button button:hover {
+    background-color: rgb(184, 184, 184);
+    cursor: pointer;
 }
 
 .component-button:last-child button {
@@ -24,4 +31,9 @@
 .component-button.orange button {
     background-color: #F5923E;
     color: white;
+}
+
+.component-button.orange button:hover {
+    background-color: rgb(209, 123, 49);
+    cursor: pointer;
 }
