@@ -18,11 +18,16 @@ describe('<Button />', () => {
 		expect(elements.length).toBe(1);
 	});
 
-	// this isn't working
 	it('has the class "orange" if props.orange is true', () => {
 		const wrapper = shallow(<Button orange />);
 
-		expect(wrapper.find('div').hasClass('orange')).to.equal(true);
+		expect(wrapper.find('div').hasClass('orange')).toBe(true);
+	});
+
+	it('has the class "orange" if props.orange is true', () => {
+		const wrapper = shallow(<Button wide />);
+
+		expect(wrapper.find('div').hasClass('wide')).toBe(true);
 	});
 
 	// should call props.clickHandler with the argument props.name on click
