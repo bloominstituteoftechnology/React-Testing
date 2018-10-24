@@ -9,6 +9,14 @@ describe('<App />', () => {
     shallow(<App />);
   });
 
+  it('handleClick function is present', () => {
+    const wrapper = shallow(<App />);
+
+    const instance = wrapper.instance().handleClick;
+
+    expect(instance).toBeInstanceOf(Function);
+  });
+
   it('default state is 0 and null', () => {
     const wrapper = shallow(<App />);
 

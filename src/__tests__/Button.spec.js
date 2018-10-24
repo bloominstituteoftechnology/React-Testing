@@ -18,27 +18,29 @@ describe('<Button />', () => {
     expect(compButton.length).toBe(1);
   });
 
-  it('props being passed correctly', () => {
-    const wrapper = shallow(<Button name="AC" />);
+  describe('props are being passed down correctly into button', () => {
+    it('props being passed correctly', () => {
+      const wrapper = shallow(<Button name="AC" />);
 
-    const butProp = wrapper.find('button');
+      const butProp = wrapper.find('button');
 
-    expect(butProp.text()).toEqual('AC');
-  });
+      expect(butProp.text()).toEqual('AC');
+    });
 
-  it('has the component-button class', () => {
-    const wrapper = shallow(<Button orange />);
+    it('has the component-button orange class', () => {
+      const wrapper = shallow(<Button orange />);
 
-    const orange = wrapper.find('.orange');
+      const orange = wrapper.find('.orange');
 
-    expect(orange).toHaveLength(1);
-  });
+      expect(orange).toHaveLength(1);
+    });
 
-  it('has the component-button class', () => {
-    const wrapper = shallow(<Button wide />);
+    it('has the component-button wide class', () => {
+      const wrapper = shallow(<Button wide />);
 
-    const wide = wrapper.find('.wide');
+      const wide = wrapper.find('.wide');
 
-    expect(wide).toHaveLength(1);
+      expect(wide).toHaveLength(1);
+    });
   });
 });
