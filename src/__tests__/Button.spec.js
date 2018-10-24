@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import sinon from 'sinon';
 
 import Button from '../components/Button/Button';
 
@@ -15,5 +16,13 @@ describe('<Button />', () => {
 
     expect(elements.length).toBe(1);
   });
+
+  it('simulates button click', () => {
+    const handleClick = jest.fn();
+    const wrapper = shallow(<Button name="AC" clickHandler={handleClick}/>);
+
+    wrapper.find('button').simulate('click');
+    expect(handleClick).toBeCalled();
+  })
 
 });
