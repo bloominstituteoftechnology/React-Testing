@@ -7,4 +7,12 @@ describe('<Panel />', () => {
   it('renders without crashing', () => {
     shallow(<Panel />);
   });
+
+  it('renders all panels', () => {
+    const wrapper = shallow(<Panel />);
+
+    const elements = wrapper.find('div.component-panel').children();
+
+    expect(elements.length).toBe(5);
+  });
 });
