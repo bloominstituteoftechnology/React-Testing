@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
@@ -12,7 +11,7 @@ describe('<Button />', () => {
     shallow(<Button />);
   });
 
-  it('should display button', () => {
+  it('displays button', () => {
     const wrapper = shallow(<Button />);
 
     const display = wrapper.find('div.component-button');
@@ -20,9 +19,7 @@ describe('<Button />', () => {
     expect(display.length).toBe(1);
   })
 
-
-
-  it('should display props name', () => {
+  it('displays props name', () => {
     const wrapper = shallow(<Button name="blue" />)
     const button = wrapper.find('button');
 
