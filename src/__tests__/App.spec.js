@@ -37,4 +37,27 @@ describe('<App /> matching and component tests', () => {
   });
 
   // will add some more when MVP is complete, keeping tests basic in the interest of time
-});
+}); // basic app tests
+
+// test children of <App />
+
+describe('<App /> child tests', () => {
+
+  test('should have two children', () =>{
+    expect(wrapper.find(Display).length).toBe(1);
+  });
+
+  test('should have a child named <Display />', () => {
+    expect(wrapper.find(Display).length).toBe(1);
+  });
+
+  test('should have a child named <Panel />', () => {
+    expect(wrapper.find(Panel).length).toBe(1);
+  });
+
+  test('<Display /> and <Panel /> should have one prop each', () => {
+    expect(Object.entries(wrapper.find(Display).props())).toHaveLength(1);
+    expect(Object.entries(wrapper.find(Panel).props())).toHaveLength(1);
+  });
+
+}); // <App /> child tests
