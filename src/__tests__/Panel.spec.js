@@ -16,7 +16,7 @@ describe('<Panel />', () => {
     shallow(<Panel />);
   });
 
-  it('renders a div with a component-button class', () => {
+  it('renders a div with a component-panel class', () => {
     const wrapper = shallow(<Panel />);
 
     const elements = wrapper.find('.component-panel');

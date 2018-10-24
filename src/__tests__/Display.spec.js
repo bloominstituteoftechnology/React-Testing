@@ -1,15 +1,27 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { shallow } from 'enzyme';
+import renderer from 'react-test-renderer';
 
+import '../setupTests.js';
 import Display from '../components/Display/Display';
 
-Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Display />', () => {
+  it('matches snapshot', () => {
+    const tree = renderer.create(<Display />).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
+
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Display />, div);
+    shallow(<Display />);
+  });
+
+  it('renders a div with a component-display class', () => {
+    const wrapper = shallow(<Display />);
+
+    const elements = wrapper.find('.component-display');
+
+    expect(elements.length).toBe(1);
   });
 });
