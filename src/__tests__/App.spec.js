@@ -9,7 +9,16 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('<App />', () => {
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<App />, div);
+    shallow(<App />);
+  });
+
+  it('default state is 0 and null', () => {
+    const wrapper = shallow(<App />);
+
+    const instance = wrapper.instance();
+
+    expect(instance.state.total).toBe('0');
+    expect(instance.state.next).toBeNull();
+    expect(instance.state.operation).toBeNull();
   });
 });
