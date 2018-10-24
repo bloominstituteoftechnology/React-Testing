@@ -18,7 +18,9 @@ exports[`<App /> matching and component tests render should match snapshot 1`] =
   <div
     className="component-panel"
   >
-    <div>
+    <div
+      className="panel-row"
+    >
       <div
         className="component-button"
       >
@@ -56,7 +58,9 @@ exports[`<App /> matching and component tests render should match snapshot 1`] =
         </button>
       </div>
     </div>
-    <div>
+    <div
+      className="panel-row"
+    >
       <div
         className="component-button"
       >
@@ -94,7 +98,9 @@ exports[`<App /> matching and component tests render should match snapshot 1`] =
         </button>
       </div>
     </div>
-    <div>
+    <div
+      className="panel-row"
+    >
       <div
         className="component-button"
       >
@@ -132,7 +138,9 @@ exports[`<App /> matching and component tests render should match snapshot 1`] =
         </button>
       </div>
     </div>
-    <div>
+    <div
+      className="panel-row"
+    >
       <div
         className="component-button"
       >
@@ -170,7 +178,9 @@ exports[`<App /> matching and component tests render should match snapshot 1`] =
         </button>
       </div>
     </div>
-    <div>
+    <div
+      className="panel-row"
+    >
       <div
         className="component-button  wide"
       >

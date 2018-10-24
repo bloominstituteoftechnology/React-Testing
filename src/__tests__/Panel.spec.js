@@ -27,5 +27,4 @@ describe('<Panel />', () => {
     expect(elements.length).toBe(5);
   });
 
-
 });
