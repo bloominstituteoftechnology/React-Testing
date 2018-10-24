@@ -5,7 +5,7 @@
   "dependencies": {
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
-    "react-scripts": "^1.1.4"
+    "react-scripts": "^1.1.4",
   },
   "scripts": {
     "start": "react-scripts start",
@@ -14,7 +14,8 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "enzyme": "^3.4.1",
-    "enzyme-adapter-react-16": "^1.2.0"
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.2.0",
+    "react-test-render": "^1.1.1"
   }
 }
