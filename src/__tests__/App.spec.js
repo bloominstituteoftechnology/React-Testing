@@ -29,4 +29,10 @@ describe("<App />", () => {
 
 		expect(instance.state.operation).toBe(null);
 	});
+	it("total should be zero", () => {
+		const wrapper = shallow(<App />);
+		const instance = wrapper.instance();
+
+		expect(instance.state.total).toBe("0");
+	});
 });
