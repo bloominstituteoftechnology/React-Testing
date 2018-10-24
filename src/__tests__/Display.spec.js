@@ -12,4 +12,10 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+
+  it('should display 0 on start up', () => {
+    const wrapper = shallow(<Display />);
+    const value = wrapper.find('.value-holder');
+    expect(value.text()).toEqual('');
+  });
 });
