@@ -16,8 +16,8 @@ describe('<Button />', () => {
 
   it("button component correctly displays", () => {
     const wrapper = shallow(<Button />);
-    const button = wrapper.find("button");
-    expect(button.length).toBe(1);
+    const buttonComponent = wrapper.find("button");
+    expect(buttonComponent.length).toBe(1);
   });
 
 });
