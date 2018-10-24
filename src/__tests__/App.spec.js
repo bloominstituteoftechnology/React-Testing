@@ -12,4 +12,34 @@ describe('<App />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
+
+  it('renders a <div> with class component-app', () => {
+    const wrapper = shallow(<App />);
+
+    const elements = wrapper.find('div.component-app');
+
+    expect(elements.length).toBe(1);
+  });
+
+  it(`should start with state.total set to '0'`, () => {
+    const wrapper = shallow(<App />);
+    const instance = wrapper.instance();
+
+    expect(instance.state.total).toBe('0');
+  });
+
+  it(`should start with state.next set to null`, () => {
+    const wrapper = shallow(<App />);
+    const instance = wrapper.instance();
+
+    expect(instance.state.next).toBe(null);
+  });
+
+  it(`should start with state.operation set to null`, () => {
+    const wrapper = shallow(<App />);
+    const instance = wrapper.instance();
+
+    expect(instance.state.operation).toBe(null);
+  });
+
 });
