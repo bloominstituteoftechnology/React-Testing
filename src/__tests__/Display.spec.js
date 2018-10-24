@@ -9,4 +9,12 @@ describe('<Display />', () => {
 		const div = document.createElement('div');
 		ReactDOM.render(<Display />, div);
 	});
+
+	it('should display the value of props.value', () => {
+		const wrapper = shallow(<Display value="5" />);
+
+		const display = wrapper.find('div.component-display').childAt(0);
+
+		expect(display.text()).toBe('5');
+	});
 });
