@@ -6,7 +6,9 @@ const Display = ({ value }) => {
     return (
         <div className="component-display">
             <div>
+              <div className = 'inner-display'>
                 {value}
+              </div>
             </div>
         </div>
     );
