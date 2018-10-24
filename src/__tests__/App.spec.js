@@ -17,10 +17,16 @@ describe("<App />", () => {
 		const elements = wrapper.find(".component-app");
 		expect(elements.length).toBe(1);
 	});
-	it("next and operatio should be null by default", () => {
+	it("next should be null by default", () => {
 		const wrapper = shallow(<App />);
 		const instance = wrapper.instance();
 
 		expect(instance.state.next).toBe(null);
+	});
+	it("operation should be null by default", () => {
+		const wrapper = shallow(<App />);
+		const instance = wrapper.instance();
+
+		expect(instance.state.operation).toBe(null);
 	});
 });
