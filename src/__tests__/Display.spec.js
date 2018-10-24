@@ -12,4 +12,19 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+
+  //should have a class of component-display
+  it('should have a class of component-display', () => {
+    const wrapper = shallow(<Display />);
+    const element = wrapper.find('.component-display');
+    expect(element.length).toBe(1);
+  });
+
+  //vera's code
+  it('should display a numerical string', () => {
+    const wrapper = shallow(<Display />);
+    const elements = wrapper.find('div').not('div.component-display');
+
+  expect(elements.text()).toMatch(/[0-9]*/);
+  })
 });
