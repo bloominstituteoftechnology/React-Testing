@@ -12,4 +12,20 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+
+  test('should render <Display /> component', () =>{
+    const wrapper = shallow(<Display />);
+    const display = wrapper.find('div.component-display');
+
+    expect(display.length).toBe(1);
+  });
+
+  test('should render newly created inner-display class', () => {
+    const wrapper = shallow(<Display />);
+    const display = wrapper.find('div.inner-display');
+
+    expect(display.length).toBe(1);
+  });
+
+  
 });
