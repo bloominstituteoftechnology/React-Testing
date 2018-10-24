@@ -37,4 +37,12 @@ describe('<App />', () => {
     expect(instance.state.next).toBe(null);
   })
 
+  it ('state has correct initial "operation" value', () => {
+    const wrapper = shallow(<App />);
+
+    const instance = wrapper.instance();
+
+    expect(instance.state.next).toBe(null);
+  })
+
 });
