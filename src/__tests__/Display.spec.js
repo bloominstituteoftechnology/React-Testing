@@ -27,5 +27,11 @@ describe('<Display />', () => {
     expect(display.length).toBe(1);
   });
 
-  
-});
+  test('should display the inner display', () => {
+    const wrapper = shallow(<Display />);
+    const display = wrapper.find('div.inner-display');
+
+    expect(display.text()).toBe('');
+  });
+
+}); // <Display /> basic tests
