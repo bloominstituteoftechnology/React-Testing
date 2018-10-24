@@ -7,4 +7,10 @@ describe('<Button />', () => {
   it('renders without crashing', () => {
     shallow(<Button />);
   });
+
+  it('should render a div with the component-button class', () => {
+    const button = shallow(<Button />);
+    const elements = button.find('div.component-button');
+    expect(elements.length).toBe(1);
+  })
 });
