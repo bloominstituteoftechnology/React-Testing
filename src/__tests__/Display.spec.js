@@ -9,7 +9,7 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe("<Display />", () => {
   it("renders without crashing and matches the snapshot", () => {
-    const comp = shallow(<Display />);
-    expect(comp).toMatchSnapshot();
+    const com = shallow(<Display />);
+    expect(com).toMatchSnapshot();
   });
 });
