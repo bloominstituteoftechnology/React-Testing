@@ -12,4 +12,21 @@ describe('<App />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
+
+  it ('App contains one component-app element', () => {
+    const wrapper = shallow(<App />);
+
+    const elements = wrapper.find('.component-app');
+
+    expect(elements.length).toBe(1)
+  })
+
+  it ('App contains one component-app element', () => {
+    const wrapper = shallow(<App />);
+
+    const elements = wrapper.find('handleClick');
+
+    expect(elements.length).toBe(1)
+  })
+
 });
