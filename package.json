@@ -4,8 +4,8 @@
   "private": true,
   "dependencies": {
     "react": "^16.4.2",
-    "react-dom": "^16.4.2",
-    "react-scripts": "^1.1.4"
+    "react-dom": "^16.6.0",
+    "react-scripts": "2.0.5"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -14,7 +14,9 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "enzyme": "^3.4.1",
-    "enzyme-adapter-react-16": "^1.2.0"
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
+    "jest": "^23.6.0",
+    "react-test-renderer": "^1.1.1"
   }
 }

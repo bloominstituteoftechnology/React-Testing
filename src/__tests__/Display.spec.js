@@ -12,4 +12,12 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+
+  it('displays a string that is passed', () => {
+    const string = 'test test test';
+    const wrapper = shallow(<Display value={string} />);
+    const display = wrapper.find('.component-display > div');
+
+    expect(display.text()).toEqual(string);
+  });
 });
