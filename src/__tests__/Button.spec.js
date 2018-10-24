@@ -24,10 +24,10 @@ describe('<Button />', () => {
     expect(elements.length).toBe(1);
   });
 
-  it('renders a button with a component-button class', () => {
+  it('renders a div with a component-button class', () => {
     const wrapper = shallow(<Button />);
 
-    const elements = wrapper.find('.component-button');
+    const elements = wrapper.find('div.component-button');
 
     expect(elements.length).toBe(1);
   });
@@ -47,17 +47,4 @@ describe('<Button />', () => {
 
     expect(elements.length).toBe(1);
   });
-
-  
-
-  // it('simulates click events', () => {
-  //   const wrapper = shallow(<Button />);
-  //   const instance = wrapper.instance();
-
-  //   const button = wrapper.find('button');
-
-  //   button.simulate('click');
-  //   expect(instance).to.have.property('name');
-
-  // });
 });

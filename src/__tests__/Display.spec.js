@@ -20,7 +20,7 @@ describe('<Display />', () => {
   it('renders a div with a component-display class', () => {
     const wrapper = shallow(<Display />);
 
-    const elements = wrapper.find('.component-display');
+    const elements = wrapper.find('div.component-display');
 
     expect(elements.length).toBe(1);
   });
