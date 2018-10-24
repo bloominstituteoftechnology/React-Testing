@@ -12,4 +12,19 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
+
+  test('should render the button', () => {
+    const wrapper = shallow(<Button />);
+    const display = wrapper.find('button');
+
+    expect(display.length).toBe(1);
+  });
+
+  test('should render the component button', () => {
+    const wrapper = shallow(<Button />);
+    const display = wrapper.find('div.component-button');
+
+    expect(display.length).toBe(1);
+  });
+  
 });
