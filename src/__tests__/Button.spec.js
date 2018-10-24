@@ -1,15 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-
+import { shallow, mount } from 'enzyme';
 import Button from '../components/Button/Button';
-
-Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Button />', () => {
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Button />, div);
+    shallow(<Button />);
   });
+
+  it('should render a div with the component-button class', () => {
+    const button = shallow(<Button />);
+    const elements = button.find('div.component-button');
+    expect(elements.length).toBe(1);
+  })
+
+  it('should render a button ', () => {
+    const button = shallow(<Button />);
+    const elements = button.find('div button');
+    expect(elements.length).toBe(1)
+  })
 });

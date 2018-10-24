@@ -1,15 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-
+import { shallow } from 'enzyme';
 import Display from '../components/Display/Display';
-
-Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Display />', () => {
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Display />, div);
+    shallow(<Display />);
   });
+
+  it('should render a div with the component-display class', () => {
+    const panel = shallow(<Display />);
+    const elements = panel.find('div.component-display');
+    expect(elements.length).toBe(1);
+  })
+
+  it('should render a div inside of the div component-display class', () => {
+    const panel = shallow(<Display />);
+    const elements = panel.find('div.component-display div');
+    expect(elements.length).toBe(1);
+  })
 });
