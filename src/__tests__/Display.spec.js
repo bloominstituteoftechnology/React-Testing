@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-
+import '../TestConfig';
 import Display from '../components/Display/Display';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -19,12 +19,6 @@ describe('<Display />', () => {
     const elements = wrapper.find('.component-display');
     expect(elements.length).toBe(1);
   })
-  // test that PropTypes is testing for type string
-  // it('tests that propTypes is checking for type string', () => {
-  //   const wrapper = shallow(<Display />);
-  //   console.log(wrapper);
-
-  // })
 
 
 
