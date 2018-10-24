@@ -9,12 +9,14 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe("<App />", () => {
   it("renders without crashing", () => {
-    const div = document.createElement("div");
-    ReactDOM.render(<App />, div);
+    const comp = shallow(<App />);
+    expect(comp).toMatchSnapshot();
   });
 
-  it("should have the variable 'total' defined and initially set to zero in state", () => {
-    const comp = shallow(<App />);
-    expect(comp.state("total")).toEqual("0");
+  describe("State Tests", () => {
+    it("should have the variable 'total' defined and initially set to zero in state", () => {
+      const comp = shallow(<App />);
+      expect(comp.state("total")).toEqual("0");
+    });
   });
 });
