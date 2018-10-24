@@ -12,4 +12,11 @@ describe('<Panel />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Panel />, div);
   });
+
+  it('renders 19 buttons', () => {
+    const wrapper = shallow(<Panel />);
+    const buttons = wrapper.find('Button');
+
+    expect(buttons).toHaveLength(19);
+  });
 });
