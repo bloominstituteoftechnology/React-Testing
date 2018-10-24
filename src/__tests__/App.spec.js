@@ -21,12 +21,20 @@ describe('<App />', () => {
     expect(elements.length).toBe(1)
   })
 
-  it ('App contains one component-app element', () => {
+  it ('state has correct initial "total" value', () => {
     const wrapper = shallow(<App />);
 
-    const elements = wrapper.find('handleClick');
+    const instance = wrapper.instance();
 
-    expect(elements.length).toBe(1)
+    expect(instance.state.total).toBe('0');
+  })
+
+  it ('state has correct initial "next" value', () => {
+    const wrapper = shallow(<App />);
+
+    const instance = wrapper.instance();
+
+    expect(instance.state.next).toBe(null);
   })
 
 });
