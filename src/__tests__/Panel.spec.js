@@ -1,15 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import React from "react";
+import { shallow } from "enzyme";
+import "../testsetup";
+import Panel from "../components/Panel/Panel";
 
-import Panel from '../components/Panel/Panel';
-
-Enzyme.configure({ adapter: new Adapter() });
-
-describe('<Panel />', () => {
-  it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Panel />, div);
+describe("<Panel />", () => {
+  it("should render without crashing and match snapshot", () => {
+    const com = shallow(<Panel />);
+    expect(com).toMatchSnapshot();
   });
 });
