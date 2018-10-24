@@ -12,16 +12,16 @@ class Panel extends Component {
         return (
             <div className="component-panel">
                 <div>
-                    <Button name="AC" clickHandler={this.handleClick} />
-                    <Button name="+/-" clickHandler={this.handleClick} />
-                    <Button name="%" clickHandler={this.handleClick} />
-                    <Button name="÷" clickHandler={this.handleClick} orange />
+                    <Button className="AC" name="AC" clickHandler={this.handleClick} />
+                    <Button className="plus" name="+/-" clickHandler={this.handleClick} />
+                    <Button className="percentage" name="%" clickHandler={this.handleClick} />
+                    <Button className="divide" name="÷" clickHandler={this.handleClick} orange />
                 </div>
                 <div>
-                    <Button name="7" clickHandler={this.handleClick} />
-                    <Button name="8" clickHandler={this.handleClick} />
-                    <Button name="9" clickHandler={this.handleClick} />
-                    <Button name="x" clickHandler={this.handleClick} orange />
+                    <Button className="7" name="7" clickHandler={this.handleClick} />
+                    <Button className="8" name="8" clickHandler={this.handleClick} />
+                    <Button className="9" name="9" clickHandler={this.handleClick} />
+                    <Button className="x" name="x" clickHandler={this.handleClick} orange />
                 </div>
                 <div>
                     <Button name="4" clickHandler={this.handleClick} />
