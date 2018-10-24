@@ -8,8 +8,6 @@ import App from '../App';
 import Display from '../components/Display/Display'
 import Panel from '../components/Panel/Panel'
 
-Enzyme.configure({ adapter: new Adapter() });
-
 const wrapper = (shallow(<App />))
 const instance = wrapper.instance();
 
