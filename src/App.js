@@ -3,7 +3,7 @@ import Display from './components/Display/Display';
 import Panel from './components/Panel/Panel';
 import calculate from './logic/calculate';
 import './App.css';
-
+ 
 class App extends Component {
     state = {
         total: '0',
