@@ -1,15 +1,32 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { shallow } from 'enzyme';
+import '../setupTests.js';
 
+// Components
 import Display from '../components/Display/Display';
 
-Enzyme.configure({ adapter: new Adapter() });
-
 describe('<Display />', () => {
-  it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Display />, div);
-  });
+	it('renders without crashing', () => {
+		shallow(<Display />);
+	});
+
+	it('renders a div with a "component-display" class', () => {
+		const wrapper = shallow(<Display />);
+		expect(wrapper.find('div.component-display').length).toBe(1);
+	});
+
+	it('renders another div with class "value" inside the "component-display" class div', () => {
+		const wrapper = shallow(<Display />);
+		expect(wrapper.find('div.component-display>div').length).toBe(1);
+	});
+
+	describe('Display props', () => {
+		it('should render the value prop inside the "value" class div', () => {
+			let wrapper = shallow(<Display value = '0' />);
+			expect(wrapper.find('div.value').text()).toBe('0');
+
+			wrapper = shallow(<Display value = '-23' />);
+			expect(wrapper.find('div.value').text()).toBe('-23');
+		});
+	});
 });
