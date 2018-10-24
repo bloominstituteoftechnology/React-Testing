@@ -8,7 +8,7 @@ describe('<App />', () => {
 		shallow(<App />);
 	});
 
-	it('should have "total" equal 0 by default', () => {
+	it('should have "total" match 0 by default', () => {
 		const wrapper = shallow(<App />);
 		const instance = wrapper.instance();
 
