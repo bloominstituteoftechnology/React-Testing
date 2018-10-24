@@ -27,7 +27,7 @@ Button.propTypes = {
     name: PropTypes.string,
     orange: PropTypes.bool,
     wide: PropTypes.bool,
-    clickHandler: PropTypes.func,
+    clickHandler: PropTypes.func
 };
 
 export default Button;

@@ -19,7 +19,7 @@ class App extends Component {
         return (
             <div className='component-app'>
                 <Display value={this.state.next || this.state.total || '0'} />
-                <Panel clickHandler={this.handleClick} />
+                <Panel className="myPanel" clickHandler={this.handleClick} />
             </div>
         );
     }
