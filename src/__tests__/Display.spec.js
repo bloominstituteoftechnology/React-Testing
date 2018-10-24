@@ -11,4 +11,8 @@ describe('<Display />', () => {
   it('renders without crashing', () => {
     shallow(<Display />);
   });
+
+  // it('renders value of App state total', () => {
+
+  // })
 });
