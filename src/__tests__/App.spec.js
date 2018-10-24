@@ -23,11 +23,7 @@ describe('<App />', () => {
         });
       });
  
-  it('should check app state', ()=>{
-    expect(wrapper.state().total).toBe("0")
-    expect(wrapper.state().next).toBe(null)
-    expect(wrapper.state().operation).toBe(null)
-  });
+  
 
 it('renders Display and Panel',()=>{
   const wrapper = shallow(<App/>);

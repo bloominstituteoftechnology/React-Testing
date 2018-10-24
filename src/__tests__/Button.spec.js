@@ -13,6 +13,19 @@ describe('<Button />', () => {
     ReactDOM.render(<Button />, div);
   });
   it('calls clickHandler on click', ()=>{
-    
-  })
-});
+    const mock =jest.fn();
+    const wrapper = shallow(<Button clickHandler={mock} />);
+    wrapper.find('button').simulate('click');
+    expect(mock).toHaveBeenCalled();
+  
+  }); 
+  it('calls the clickHandler with provided props', () => {
+    const mock = jest.fn(); //const mock callback function
+   const wrapper = shallow(<Button name='char' clickHandler={mock} />);
+    wrapper.find('button').simulate('click');
+   expect(mock).toHaveBeenCalledWith('char');
+   
+  }); 
+
+  });
+
