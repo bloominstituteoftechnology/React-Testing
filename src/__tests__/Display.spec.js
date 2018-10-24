@@ -12,4 +12,17 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+
+  //should have a class of component-display
+  it('should have a class of component-display', () => {
+    const wrapper = shallow(<Display />);
+    const element = wrapper.find('.component-display');
+    expect(element.length).toBe(1);
+  });
+
+  //should have props
+  it('should have props', () => {
+  const wrapper = shallow(<Display />);
+  expect(wrapper.props().children).toBeTruthy();
+  });
 });
