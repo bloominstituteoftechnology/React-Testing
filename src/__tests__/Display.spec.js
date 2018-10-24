@@ -20,4 +20,11 @@ describe('<Display />', () => {
     const elements = wrapper.find("div.component-display");
     expect(elements.length).toBe(1);
   })
+
+  //Check if renders a value
+  it('renders a value', ()=>{
+    const wrapper = shallow(<Display value='0' />)
+    const elements = wrapper.text('0');
+    expect(elements.length).toBe(1);
+  })
 });
