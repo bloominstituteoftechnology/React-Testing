@@ -24,7 +24,7 @@ describe('<Button />', () => {
 		expect(wrapper.find('div').hasClass('orange')).toBe(true);
 	});
 
-	it('has the class "orange" if props.orange is true', () => {
+	it('has the class "wide" if props.wide is true', () => {
 		const wrapper = shallow(<Button wide />);
 
 		expect(wrapper.find('div').hasClass('wide')).toBe(true);
