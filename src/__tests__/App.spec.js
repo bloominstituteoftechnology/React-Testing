@@ -15,14 +15,14 @@ describe('<App />', () => {
   });
 
   it("correctly renders the component-app div specifically", () => {
-    const wrapper = shallow(<App />);
-    const elements = wrapper.find(".component-app");
+    const shallowWrapper = shallow(<App />);
+    const elements = shallowWrapper.find(".component-app");
      expect(elements.length).toBe(1);
   });
    
   it("state value of total should be 0 for display by default", () => {
-    const wrapper = shallow(<App />);
-    const instance = wrapper.instance();
+    const shallowWrapper = shallow(<App />);
+    const instance = shallowWrapper.instance();
     expect(instance.state.total).toBe("0");
   });
 
