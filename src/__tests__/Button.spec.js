@@ -9,7 +9,12 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Button />', () => {
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Button />, div);
+    shallow(<Button />);
+  });
+  it('should return a value', () => {
+    const wrapper = shallow(<Button {...props} />);
+    wrapper.setProps({ name: '4' });
+
+    expect(wrapper.props().clickHandler).toBeDefined();
   });
 });
