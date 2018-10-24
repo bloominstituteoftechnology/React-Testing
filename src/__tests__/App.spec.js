@@ -12,4 +12,37 @@ describe('<App />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
+
+  it ('App contains one component-app element', () => {
+    const wrapper = shallow(<App />);
+
+    const elements = wrapper.find('.component-app');
+
+    expect(elements.length).toBe(1)
+  })
+
+  it ('state has correct initial "total" value', () => {
+    const wrapper = shallow(<App />);
+
+    const instance = wrapper.instance();
+
+    expect(instance.state.total).toBe('0');
+  })
+
+  it ('state has correct initial "next" value', () => {
+    const wrapper = shallow(<App />);
+
+    const instance = wrapper.instance();
+
+    expect(instance.state.next).toBe(null);
+  })
+
+  it ('state has correct initial "operation" value', () => {
+    const wrapper = shallow(<App />);
+
+    const instance = wrapper.instance();
+
+    expect(instance.state.next).toBe(null);
+  })
+
 });

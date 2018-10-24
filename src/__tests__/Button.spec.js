@@ -12,4 +12,29 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
+
+  it ('Only one div is present in Button component', () => {
+    const wrapper = shallow(<Button />);
+
+    const elements = wrapper.find('div');
+
+    expect(elements.length).toBe(1)
+  })
+
+  it ('state is undefined', () => {
+    const wrapper = shallow(<Button />);
+
+    const instance = wrapper.instance();
+
+    expect(instance.props.name).toBe(undefined);
+  })
+
+  test('component is stateful', () => {
+    const wrapper = shallow(<Button />);
+
+    const instance = wrapper.instance();
+
+    expect(instance).not.to.be.instanceOf(Stateless);
+  });
+
 });
