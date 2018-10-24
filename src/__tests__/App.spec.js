@@ -5,6 +5,7 @@ import Adapter from "enzyme-adapter-react-16";
 import renderer from "react-test-renderer";
 
 import App from "../App";
+import Display from "../components/Display/Display";
 import { wrap } from "module";
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -33,5 +34,12 @@ describe("<App />", () => {
     instance.setState({ total: "1337" });
     expect(instance.state.total).toBe("1337");
   });
-  
+  describe("App Children", () => {
+    it("should have one called Display", () => {
+      expect(wrapper.find(Display).length).toBe(1);
+    });
+    it("should have 1 attr called value with value of '1337'", () => {
+      expect(wrapper.find(Display).props().value).toBe("1337");
+    });
+  });
 });
