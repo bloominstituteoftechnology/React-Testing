@@ -18,5 +18,11 @@ describe("<App />", () => {
       const comp = shallow(<App />);
       expect(comp.state("total")).toEqual("0");
     });
+
+    it("should have the variables 'operation' and 'next' defined in state", () => {
+      const comp = shallow(<App />);
+      expect(comp.state("next")).toBeDefined();
+      expect(comp.state("operation")).toBeDefined();
+    });
   });
 });
