@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Display.css';
+import '../../setupTest.js';
 
 const Display = ({ value }) => {
   return (
