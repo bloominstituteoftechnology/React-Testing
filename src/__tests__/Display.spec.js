@@ -13,3 +13,8 @@ describe('<Display />', () => {
     ReactDOM.render(<Display />, div);
   });
 });
+
+
+// it('renders without crashing', () => {
+//   shallow(<App />);
+// });
