@@ -1,16 +1,27 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { shallow } from 'enzyme';
+import renderer from 'react-test-renderer';
 
+import '../setupTests.js';
 import Panel from '../components/Panel/Panel';
 
-Enzyme.configure({ adapter: new Adapter() });
-
 describe('<Panel />', () => {
+  it('matches snapshot', () => {
+    const tree = renderer.create(<Panel />).toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
+
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Panel />, div);
+    shallow(<Panel />);
+  });
+
+  it('renders a div with a component-button class', () => {
+    const wrapper = shallow(<Panel />);
+
+    const elements = wrapper.find('.component-panel');
+
+    expect(elements.length).toBe(1);
   });
   
 });
