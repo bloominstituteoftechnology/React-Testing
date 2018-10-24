@@ -1,15 +1,28 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { shallow } from 'enzyme';
 
 import App from '../App';
-
-Enzyme.configure({ adapter: new Adapter() });
+import Display from '../components/Display/Display';
+import Panel from '../components/Panel/Panel';
 
 describe('<App />', () => {
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<App />, div);
+    shallow(<App />);
   });
+
+  it('renders Display without crashing', () => {
+    shallow(<Display />);
+  });
+
+  it('renders Panel without crashing', () => {
+    shallow(<Panel />);
+  });
+
+  it('state is initially set', () => {
+    const wrapper = shallow(<App />);
+
+    expect(wrapper.state().total).toBe('0');
+    expect(wrapper.state().next).toBeNull();
+    expect(wrapper.state().operation).toBeNull();
+  })
 });

@@ -1,15 +1,28 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { shallow } from 'enzyme';
+import sinon from 'sinon';
 
 import Button from '../components/Button/Button';
 
-Enzyme.configure({ adapter: new Adapter() });
-
 describe('<Button />', () => {
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Button />, div);
+    shallow(<Button />);
   });
+
+  it('renders a button', () => {
+    const wrapper = shallow(<Button />);
+
+    const elements = wrapper.find('div.component-button');
+
+    expect(elements.length).toBe(1);
+  });
+
+  it('simulates button click', () => {
+    const handleClick = jest.fn();
+    const wrapper = shallow(<Button name="AC" clickHandler={handleClick}/>);
+
+    wrapper.find('button').simulate('click');
+    expect(handleClick).toBeCalled();
+  })
+
 });
