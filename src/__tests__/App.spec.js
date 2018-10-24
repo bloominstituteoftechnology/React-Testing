@@ -29,4 +29,15 @@ describe('<App />', () => {
     expect(instance.state.next).toBe(null);
     expect(instance.state.operation).toBe(null);
   })
+
+  //ezra's code
+  it('The key of state object, total, should equal 5', () => {
+    const wrapper = shallow(<App/>)
+    const instance = wrapper.instance()
+    const buttons = wrapper.find('Panel').dive().find('Button').at(4).dive().find('button')
+    buttons.simulate('click')
+    expect(instance.state.next).toBe("7")
+  })
+  
+  
 });

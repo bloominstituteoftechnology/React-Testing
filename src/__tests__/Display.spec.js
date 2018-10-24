@@ -20,9 +20,11 @@ describe('<Display />', () => {
     expect(element.length).toBe(1);
   });
 
-  //should have props
-  it('should have props', () => {
-  const wrapper = shallow(<Display />);
-  expect(wrapper.props().children).toBeTruthy();
-  });
+  //vera's code
+  it('should display a numerical string', () => {
+    const wrapper = shallow(<Display />);
+    const elements = wrapper.find('div').not('div.component-display');
+
+  expect(elements.text()).toMatch(/[0-9]*/);
+  })
 });
