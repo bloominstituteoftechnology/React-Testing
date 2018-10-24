@@ -1,13 +1,20 @@
 import Big from 'big.js';
 
-function operate(numberOne, numberTwo, operation) {
-    const one = Big(numberOne);
-    const two = Big(numberTwo);
+//Errors
+import {
+    nonStringTypeError,
+    dividingByZeroError,
+} from '../errors/index.js';
 
+function operate(numberOne, numberTwo, operation) {
     if (
         typeof(numberOne) !== 'string' ||
-        typeof(numberTwo) !== 'string'
-    ) throw Error('Values must be strings');
+        typeof(numberTwo) !== 'string' ||
+        typeof(operation) !== 'string'
+    ) throw Error(nonStringTypeError);
+
+    const one = Big(numberOne);
+    const two = Big(numberTwo);
 
     switch(operation) {
         case '+':
@@ -17,10 +24,10 @@ function operate(numberOne, numberTwo, operation) {
         case 'x':
             return one.times(two).toString();
         case '÷':
-            if (numberTwo === '0') throw Error('Cannot divide by 0');
+            if (numberTwo === '0') throw Error(dividingByZeroError);
             return one.div(two).toString();
         case '%':
-            if (numberTwo === '0') throw Error('Cannot divide by 0');
+            if (numberTwo === '0') throw Error(dividingByZeroError);
             return one.mod(two).toString();
         default:
             throw Error(`Unknown operation ${operation}`);

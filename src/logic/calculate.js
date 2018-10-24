@@ -1,5 +1,11 @@
 import operate from './operate';
 
+// Errors
+import {
+    nonObjectTypeError,
+    nonStringTypeError,
+} from '../errors/index.js';
+
 /**
  * Given a button name and a calculator data object, return an updated
  * calculator data object.
@@ -15,6 +21,9 @@ function isNumber(x) {
 }
 
 function calculate(obj, buttonName) {
+    if (typeof(obj) !== 'object' || obj === null || Array.isArray(obj)) throw Error(nonObjectTypeError);
+    if (typeof(buttonName) !== 'string') throw Error(nonStringTypeError);
+
     if (buttonName === 'AC') {
         return {
             total: null,
