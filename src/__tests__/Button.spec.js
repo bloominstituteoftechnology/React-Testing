@@ -6,7 +6,6 @@ import Button from '../components/Button/Button';
 
 describe('<Button />', () => {
   const wrapper = (shallow(<Button />))
-  const instance = wrapper.instance();
 
   it('renders without crashing', () => {
     const div = document.createElement('div');

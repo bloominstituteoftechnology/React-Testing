@@ -6,7 +6,6 @@ import Display from '../components/Display/Display';
 
 describe('<Display />', () => {
   const wrapper = (shallow(<Display />))
-  const instance = wrapper.instance();
 
   it('renders without crashing', () => {
     const div = document.createElement('div');
