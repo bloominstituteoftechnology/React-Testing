@@ -13,7 +13,7 @@ describe('<Display />', () => {
 	it('props.value should be a numeric string', () => {
 		const wrapper = shallow(<App />);
 		const element = wrapper.find('Display');
-		expect(element.prop('value')).toMatch(/[0-9]+/);
+		expect(element.prop('value')).toMatch(/^[0-9]+$/);
 	});
 
 	it('should display a numerical string', () => {
@@ -24,6 +24,6 @@ describe('<Display />', () => {
 			.find('div')
 			.not('div.component-display');
 
-		expect(elements.text()).toMatch(/[0-9]+/);
+		expect(elements.text()).toMatch(/^[0-9]+$/);
 	});
 });
