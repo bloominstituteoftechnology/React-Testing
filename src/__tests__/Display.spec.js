@@ -4,7 +4,7 @@ import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import Display from '../components/Display/Display';
-
+ 
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Display />', () => {
@@ -12,4 +12,13 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+
+  it('renders a <div> with class component-display', () => {
+    const wrapper = shallow(<Display />);
+
+    const elements = wrapper.find('div.component-display');
+
+    expect(elements.length).toBe(1);
+  });
+  
 });
