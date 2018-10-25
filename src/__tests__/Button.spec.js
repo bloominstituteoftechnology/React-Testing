@@ -31,6 +31,7 @@ describe('<Button />', () => {
   it('should check it button component exists', () => {
     expect(wrapper.find('div').exists('button')).tobeTruthy;
   })
+
   beforeEach(() => {
     mountedButton = mount(<Button {...props} />);
     mountedButton.setProps({ name: undefined, clickHandler: jest.fn() });
@@ -41,11 +42,11 @@ describe('<Button />', () => {
     })
   })
 
-  describe('<Button /> state.orange is true', () => {
+  describe('<Button /> props.orange', () => {
     beforeEach(() => {
       mountedButton = mount(<Button {...props} />);
       mountedButton.setProps({ orange: true });
-      it('should have classname of "component-button orange"', () => {
+      it('should have classname of "component-button orange" if true', () => {
         expect(mountedButton.find('div').hasClass('component-button orange')).toBeTruthy()
       })
     })
@@ -53,18 +54,18 @@ describe('<Button />', () => {
     beforeEach(() => {
       mountedButton = mount(<Button {...props} />);
       mountedButton.setProps({ orange: false });
-      it('should have classname of "component-button "', () => {
+      it('should have classname of "component-button " if false', () => {
         // Notice the empty space due to false return: SEE Button.js (20)
         expect(mountedButton.find('div').hasClass('component-button ')).toBeFalsy()
       })
     })
   })
 
-  describe('<Button /> state.wide is true', () => {
+  describe('<Button /> props.wide', () => {
     beforeEach(() => {
       mountedButton = mount(<Button {...props} />);
       mountedButton.setProps({ wide: true });
-      it('should have classname of "component-button wide"', () => {
+      it('should have classname of "component-button wide" if true', () => {
         // two spaces because this.props.orange returned ' ' from default of false: SEE Button.js (20, 21)
         expect(mountedButton.find('div').hasClass('component-button  wide')).toBeTruthy()
       })
@@ -73,7 +74,7 @@ describe('<Button />', () => {
     beforeEach(() => {
       mountedButton = mount(<Button {...props} />);
       mountedButton.setProps({ wide: false });
-      it('should have classname of "component-button wide"', () => {
+      it('should have classname of "component-button  " if false', () => {
         // two spaces because this.props.orange returned ' ' from default of false: SEE Button.js (20, 21)
         expect(mountedButton.find('div').hasClass('component-button  ')).toBeTruthy()
       })
