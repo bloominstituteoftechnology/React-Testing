@@ -22,4 +22,10 @@ describe.skip('<Display />', () => {
     expect(wrapper.find('div.component-display').children().length).toBe(1);
   });
 
+  it.only('shows me some DISPLAY props', () => {
+    const wrapper = shallow(<Display />);
+    console.log(wrapper.props());
+    console.log(wrapper.instance().props);
+  });
+
 });

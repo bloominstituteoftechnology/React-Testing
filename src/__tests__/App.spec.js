@@ -9,7 +9,7 @@ import App from '../App';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe.skip('<App />', () => {
+describe('<App />', () => {
 
   it('matches snapshot', () => {
     const tree = renderer.create(<App />).toJSON();
@@ -52,6 +52,11 @@ describe.skip('<App />', () => {
     expect(instance.state.operation).toBe(null);
   });
 
+  it.only('shows me some props', () => {
+    const wrapper = shallow(<App />);
+    console.log(wrapper.props());
+    console.log(wrapper.instance().props);
+  });
 
 
   //handleClick

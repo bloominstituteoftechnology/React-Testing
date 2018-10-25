@@ -25,4 +25,11 @@ describe('<Button />', () => {
     expect(wrapper.find('button').length).toBe(1)
   });
 
+  it.only('shows me some BUTTON props', () => {
+    const wrapper = shallow(<Button />);
+    console.log(wrapper.props());
+    console.log(wrapper.instance().props);
+    
+  });
+
 });

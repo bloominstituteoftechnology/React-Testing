@@ -34,5 +34,11 @@ describe.skip('<Panel />', () => {
   //   expect(wrapper.find('Button'))
   // })
 
+  it.only('shows me some  PANEL props', () => {
+    const wrapper = shallow(<Panel />);
+    console.log(wrapper.props());
+    console.log(wrapper.instance().props);
+  });
+
 
 });
