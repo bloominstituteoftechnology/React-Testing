@@ -13,3 +13,28 @@ describe('<Button />', () => {
     ReactDOM.render(<Button />, div);
   });
 });
+
+it('should have a toggle button', () => {
+  const wrapper = shallow(<App />);
+
+  const elements = wrapper.find('button.toggle-btn');
+
+  expect(elements.length).toBe(1);
+});
+
+// describe('toggle button', () => {
+//   it('should toggle state on click', () => {
+//     const wrapper = shallow(<App />);
+//     const instance = wrapper.instance();
+
+//    
+//     const button = wrapper.find('button.toggle-btn');
+
+//     button.simulate('click');
+//     expect(instance.state.isOn).toBe(true);
+
+//     button.simulate('click');
+//     expect(instance.state.isOn).toBe(false);
+//   });
+// });
+// });
