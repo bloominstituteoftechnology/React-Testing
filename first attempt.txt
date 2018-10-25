@@ -1,0 +1,50 @@
+  it('renders div component-app without crashing', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.find('.component-app')).toHaveLength(1);
+  });
+
+  it('renders one <Display /> component', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.find(Display)).toHaveLength(1);
+  });
+
+  it('renders one <Panel /> component', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.find(Panel)).toHaveLength(1);
+  });
+
+  //whatver is set on state.next, passes
+  //when !state.next, state.total displays
+  //whatver is set on state.total, passes
+  //when !state.next && !state.total, que sea 0
+
+  // it.only('initializes state with total==0', () => {
+  //   const wrapper = shallow(<App />);
+  //   expect(wrapper.state('total')).toBe('0');
+  // });
+  //
+  // it.only('initializes state with next==1', () => {
+  //   const wrapper = shallow(<App />);
+  //   expect(wrapper.state('next')).toBe('1');
+  // });
+  //
+  // it.only('initializes state with operation==null', () => {
+  //   const wrapper = shallow(<App />);
+  //   expect(wrapper.state('operation')).toBe(null);
+  // });
+
+  it.only('whatever', () => {
+    const state = {
+        total: '0',
+        next: null,
+        operation: null
+    }
+    const wrapper = shallow(<App />);
+    wrapper.setState(state)
+    console.log('// ******************');
+    const display = expect(wrapper.find(Display))
+    console.log(display.props());
+    display.toHaveProperty('props.value')
+    // console.log(display);
+    // expect(display.props().value).toEqual('0');
+  });

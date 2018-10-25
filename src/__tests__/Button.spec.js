@@ -12,4 +12,24 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
+
+  it('renders a div with 1 child', () => {
+    const wrapper = shallow(<Button />);
+    const div = wrapper.find('div')
+    expect(div.length).toBe(1)
+    expect(div.children.length).toBe(1)
+  });
+
+  it('renders a button element', () => {
+    const wrapper = shallow(<Button />);
+    expect(wrapper.find('button').length).toBe(1)
+  });
+
+  it.only('shows me some BUTTON props', () => {
+    const wrapper = shallow(<Button />);
+    console.log(wrapper.props());
+    console.log(wrapper.instance().props);
+    
+  });
+
 });
