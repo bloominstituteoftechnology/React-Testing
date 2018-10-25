@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
@@ -9,7 +8,19 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Display />', () => {
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Display />, div);
+    shallow(<Display />);
   });
+
+  it('should render the component', () => {
+    const wrapper = shallow(<Display />);
+    const display = wrapper.find('div.component-display');
+    expect(display.length).toBe(1);
+  });
+
+  it('should have value', () => {
+    const num = '10';
+    const wrapper = shallow(<Display value = {num} />);
+    const display = wrapper.find('div.component-display');
+    expect(display.text()).toEqual('10');
+  })
 });
