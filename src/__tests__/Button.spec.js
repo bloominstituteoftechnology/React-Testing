@@ -36,6 +36,6 @@ describe('<Button />', () => {
 			.dive()
 			.find('button');
 		button.simulate('click');
-		expect(instance.state.next).toMatch(/7/);
+		expect(instance.state.next).toMatch(/^7$/);
 	});
 });
