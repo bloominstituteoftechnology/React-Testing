@@ -12,7 +12,7 @@ let wrapper, instance, display, panel;
 describe('<App />', () => {
   beforeAll(() => {
     wrapper = (shallow(<App />))
-    instance = wrapper.instance();
+    instance = wrapper.instance(); // To access a component's state and methods
   })
 
   it('renders without crashing', () => {
@@ -66,6 +66,59 @@ describe('<App />', () => {
     })
     it('should display updated total of 1203 for Display Component', () => {
       expect(display.props().value).toBe('1203');
+    })
+  })
+
+  describe('<App /> handleClick method', () => {
+    beforeEach(() => {
+      wrapper.setState({ total: '0', next: null, operation: null });
+    })
+    it('should change state.next to 123', () => {
+      instance.handleClick('1')
+      instance.handleClick('2')
+      instance.handleClick('3')
+      // expect(instance.state.total).toBe(null)
+      // expect(instance.state.next).toBe('123')
+      // expect(instance.state.operation).toBe(null)
+      expect(instance.state).toEqual({ total: null, next: '123', operation: null })
+    })
+    it('should change state.total to 123 with adding 100+23', () => {
+      instance.handleClick('100')
+      instance.handleClick('+')
+      instance.handleClick('23')
+      instance.handleClick('=')
+      expect(instance.state).toEqual({ total: '123', next: null, operation: null })
+    })
+    it('should change state.total to 180 with subtracting 200-20', () => {
+      instance.handleClick('200')
+      instance.handleClick('-')
+      instance.handleClick('20')
+      instance.handleClick('=')
+      expect(instance.state).toEqual({ total: '180', next: null, operation: null })
+    })
+    it('should change state.total to 10 with dividing 200÷20', () => {
+      instance.handleClick('200')
+      instance.handleClick('÷')
+      instance.handleClick('20')
+      instance.handleClick('=')
+      expect(instance.state).toEqual({ total: '10', next: null, operation: null })
+    })
+    it('should change state.total to 4000 with subtracting 200*20', () => {
+      instance.handleClick('200')
+      instance.handleClick('x')
+      instance.handleClick('20')
+      instance.handleClick('=')
+      expect(instance.state).toEqual({ total: '4000', next: null, operation: null })
+    })
+    it('should change state to null is "AC" was selected', () => {
+      instance.handleClick('20')
+      instance.handleClick('AC')
+      expect(instance.state).toEqual({ total: null, next: null, operation: null })
+    })
+    it('should change numbers to negative when "+/- is selected"', () => {
+      instance.handleClick('200')
+      instance.handleClick('+/-')
+      expect(instance.state).toEqual({ total: null, next: '-200', operation: null })
     })
   })
 });
