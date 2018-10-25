@@ -9,7 +9,7 @@ import App from '../App';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('<App />', () => {
+describe.skip('<App />', () => {
 
   it('matches snapshot', () => {
     const tree = renderer.create(<App />).toJSON();
