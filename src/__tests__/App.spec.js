@@ -1,15 +1,25 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { shallow } from 'enzyme';
 
 import App from '../App';
 
-Enzyme.configure({ adapter: new Adapter() });
-
 describe('<App />', () => {
-  it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<App />, div);
-  });
+	it('renders without crashing', () => {
+		shallow(<App />);
+	});
+
+	it('should have "total" match 0 by default', () => {
+		const wrapper = shallow(<App />);
+		const instance = wrapper.instance();
+
+		expect(instance.state.total).toMatch(/0/);
+	});
+
+	it('should have "operation" & "next" be null by default', () => {
+		const wrapper = shallow(<App />);
+		const instance = wrapper.instance();
+
+		expect(instance.state.operation).toBeNull();
+		expect(instance.state.next).toBeNull();
+	});
 });
