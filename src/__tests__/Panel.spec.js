@@ -15,7 +15,7 @@ describe('<Panel />', () => {
     const wrapper = shallow(<Panel />);
     expect(wrapper.find('Button').first().prop('clickHandler')).toEqual(expect.any(Function));
   });
-  it('should return the props', () => {
+  it('should return undefined', () => {
     const wrapper = shallow(<Panel />);
     // toBeDefined
     expect(wrapper.props().clickHandler).toBeUndefined();
