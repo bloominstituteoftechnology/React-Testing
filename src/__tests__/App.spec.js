@@ -8,8 +8,13 @@ import App from '../App';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('<App />', () => {
-  it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<App />, div);
+  it('it renders shallow without crashing', () => {
+    shallow(<App />)
+  });
+  it('state is initialized', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.state().total).toBe('0');
+    expect(wrapper.state().next).toBeFalsy();
+    expect(wrapper.state().operation).toBeFalsy();
   });
 });
