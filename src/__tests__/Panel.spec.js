@@ -10,7 +10,7 @@ Enzyme.configure({ adapter: new Adapter() });
 describe('<Panel />', () => {
   it('should render without crashing', () => {
     shallow(<Panel />);
-  }) // should render without crashing
+  }); // should render without crashing
 
   it('should render matched snapshots', () => {
     const tree = renderer.create(<Panel />).toJSON();
@@ -21,7 +21,7 @@ describe('<Panel />', () => {
     const wrapper = shallow(<Panel />);
     const buttons = wrapper.find("Button").length;
     expect(buttons).toBe(19);
-  }) // should render all buttons
+  }); // should render all buttons
 
   it('should render <div className="component-panel">', () => {
     const wrapper = shallow(<Panel />);
