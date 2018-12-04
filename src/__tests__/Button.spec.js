@@ -15,7 +15,7 @@ describe('<Button />', () => {
     const wrapper = shallow(<Button />);
     const elements = wrapper.find('button');
     expect(elements.length).toBe(1);
-  }) // should render the button
+  }); // should render the button
 
   it('should render an orange button', () => {
     const wrapper = shallow(<Button orange />);
@@ -27,6 +27,6 @@ describe('<Button />', () => {
     const wrapper = shallow(<Button wide />);
     const elements = wrapper.find('.wide');
     expect(elements.length).toBe(1);
-  }) // should render a wide button
+  }); // should render a wide button
 
 }); // <Button />
