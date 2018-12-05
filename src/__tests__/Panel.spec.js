@@ -7,4 +7,10 @@ describe('<Panel />', () => {
 	it('renders without crashing', () => {
 		shallow(<Panel />);
 	});
+
+	it('check for all buttons', () => {
+		const wrapper = shallow(<Panel />);
+		const buttons = wrapper.find('Button');
+		expect(buttons.length).toBe(19);
+	});
 });
