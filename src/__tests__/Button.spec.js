@@ -14,4 +14,10 @@ describe('<Button />', () => {
 
 		expect(snapshot).toMatchSnapshot();
 	});
+
+	it('classname determined by props received', () => {
+		expect(shallow(<Button />).prop('className')).toBe('component-button');
+		expect(shallow(<Button orange />).prop('className')).toBe('component-button orange');
+		expect(shallow(<Button wide />).prop('className')).toBe('component-button wide');
+	});
 });

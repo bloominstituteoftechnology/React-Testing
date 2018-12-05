@@ -158,7 +158,7 @@ exports[`<Panel /> matches snapshot 1`] = `
   </div>
   <div>
     <div
-      className="component-button  wide"
+      className="component-button wide"
     >
       <button
         onClick={[Function]}
