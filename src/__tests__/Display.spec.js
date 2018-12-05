@@ -13,4 +13,11 @@ describe('<Display />', () => {
 		const snapshot = renderer.create(<Display />).toJSON();
 		expect(snapshot).toMatchSnapshot();
 	})
+
+	it('should diplay the props value', () => {
+		const wrapper = shallow(<Display value='0' />)
+		const elements = wrapper.find('div.component-display > div');
+
+		expect(elements.text()).toBe('0');
+	})
 });
