@@ -21,18 +21,18 @@ describe('<Button />', () => {
 	describe('props are being passed down correctly into button', () => {
 	it('name - props being passed correctly', () => {
 		const wrapper = shallow(<Button name="AC" />);	
-		const buttonProp = wrapper.find('button');
-		expect(buttonProp.text()).toEqual('AC');
+		const nameProp = wrapper.find('button');
+		expect(nameProp.text()).toEqual('AC');
 });
 it('orange - class - props being passed correctly', () => {
 	const wrapper = shallow(<Button orange />);	
-	const buttonProp = wrapper.find('.orange');
-	expect(buttonProp).toHaveLength(1)
+	const orangeProp = wrapper.find('.orange');
+	expect(orangeProp).toHaveLength(1)
 });
 it('wide- class - props being passed correctly', () => {
 	const wrapper = shallow(<Button wide />);	
-	const buttonProp = wrapper.find('.wide');
-	expect(buttonProp).toHaveLength(1);
+	const wideProp = wrapper.find('.wide');
+	expect(wideProp).toHaveLength(1);
 });
 
 });
