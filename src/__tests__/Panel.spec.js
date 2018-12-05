@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
@@ -9,7 +8,18 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Panel />', () => {
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Panel />, div);
+    shallow(<Panel/>)
   });
+
+  it('renders the component-panel div', ()=>{
+    const app = shallow(<Panel/>)
+    const cPdiv = app.find('.component-panel')
+    expect(cPdiv.length).toEqual(1)
+  })
+
+  it('renders all buttons', ()=>{
+    const app = shallow(<Panel/>)
+    const buttons = app.find('Button')
+    expect(buttons.length).toEqual(19)
+  })
 });

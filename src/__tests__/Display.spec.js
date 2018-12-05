@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
@@ -9,7 +8,12 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Display />', () => {
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Display />, div);
+    shallow(<Display/>)
   });
+
+  it('renders the component-display div', ()=>{
+    const app = shallow(<Display/>)
+    const cDdiv = app.find('.component-display')
+    expect(cDdiv.length).toEqual(1)
+  })
 });
