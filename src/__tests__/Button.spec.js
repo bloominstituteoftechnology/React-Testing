@@ -12,9 +12,4 @@ describe('<Button />', () => {
 		//returns an array with one div 
     expect(wrapper.find('div.component-button').length).toBe(1);
 	});
-	// it('should render a div with classname component-panel', () => {
-  //   const wrapper = shallow(<Button />);
-	// 	//returns an array with one div 
-  //   expect(wrapper.find('div.component-button.orange').length).toBe(3);
-	// });
 });

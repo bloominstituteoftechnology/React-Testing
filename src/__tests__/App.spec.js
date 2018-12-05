@@ -23,4 +23,11 @@ describe('<App />', () => {
 
     expect(instance.state.total).toBe('0');
     });
+    test('simulate click 8 button', () => {
+        const wrapper = shallow(<App />);
+        const instance = wrapper.instance();
+        const button =wrapper.find('Panel').dive().find('Button').at(5).dive().find('button');
+        button.simulate('click');
+        expect(instance.state.next).toBe("8");
+        });
 });
