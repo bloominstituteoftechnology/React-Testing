@@ -12,4 +12,13 @@ describe('<App />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
+
+  it('should be properties of state', () => {
+    const wrapper = shallow(<App />);
+    const instance = wrapper.instance();
+
+    expect(instance.state.total).toBe('0');
+    expect(instance.state.next).toBe(null);
+    expect(instance.state.operation).toBe(null);
+  });
 });
