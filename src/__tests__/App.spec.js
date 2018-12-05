@@ -10,9 +10,13 @@ describe('<App />', () => {
 	});
 
 	it('matches snapshot', () => {
-		// it('matches snapshot', () => {
-			const snapshot = renderer.create(<App />).toJSON();
-			expect(snapshot).toMatchSnapshot();
+		const snapshot = renderer.create(<App />).toJSON();
+		expect(snapshot).toMatchSnapshot();
+	});
+
+	it('renders the app with a div with a component-app class', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.find('div.component-app').length).toBe(1)
 	});
 
 	it("should have total set to '0' by default", () => {
