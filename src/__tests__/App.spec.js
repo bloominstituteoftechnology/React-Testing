@@ -31,4 +31,5 @@ describe('<App />', () => {
 		const instance = wrapper.instance();
 		expect(instance.state.operation).toBe(null);
 	})
+
 });
