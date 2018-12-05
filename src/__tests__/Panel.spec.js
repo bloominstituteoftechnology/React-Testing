@@ -24,6 +24,7 @@ describe("<Panel />", () => {
 
   it("should render 19 <Button /> components", () => {
     const wrapper = shallow(<Panel />);
+
     expect(wrapper.find(Button).length).toBe(19);
   });
 });
