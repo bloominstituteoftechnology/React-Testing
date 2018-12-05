@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Enzyme, { shallow } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
+import renderer from "react-test-renderer";
 
 import App from "../App";
 
@@ -31,5 +32,9 @@ describe("App Component", () => {
     const app = shallow(<App />);
     const headers = app.find("Panel");
     expect(headers.length).toEqual(1);
+  });
+  it("matches snapshot", () => {
+    const snapshot = renderer.create(<App />).toJSON();
+    expect(snapshot).toMatchSnapshot();
   });
 });
