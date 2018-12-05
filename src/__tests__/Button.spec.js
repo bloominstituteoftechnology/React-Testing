@@ -14,4 +14,10 @@ describe('<Button />', () => {
 
 		expect(snapshot).toMatchSnapshot();
 	})
+
+	it('see will it display props name', () => {
+		const wrapper = shallow(<Button name='1234' />);
+		const elements = wrapper.find('div button')
+		expect(elements.text()).toBe('1234');
+	})
 });
