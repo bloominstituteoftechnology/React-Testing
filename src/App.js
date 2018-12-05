@@ -26,3 +26,14 @@ class App extends Component {
 }
 
 export default App;
+/*
+
+does it render?
+does it render correctly?
+are sub-components rendered, and how many of them.
+Display, Panel - 2
+are props handled correctly.
+is state handled correctly.
+does it handle events correctly?
+
+*/
