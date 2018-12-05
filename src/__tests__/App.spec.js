@@ -7,4 +7,8 @@ describe('<App />', () => {
 	it('renders without crashing', () => {
 		shallow(<App />);
 	});
+
+	it('should render Display and Panel components', () => {
+		
+	})
 });
