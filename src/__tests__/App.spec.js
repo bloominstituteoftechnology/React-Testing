@@ -7,4 +7,10 @@ describe('<App />', () => {
 	it('renders without crashing', () => {
 		shallow(<App />);
 	});
+
+	it('displays a div with classname component-app', () => {
+		const wrapper = shallow(<App />)
+		const div = wrapper.find('div.component-app')
+		expect(div.length).toBe(1)
+	})
 });
