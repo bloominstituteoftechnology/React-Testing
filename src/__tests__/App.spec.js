@@ -22,5 +22,5 @@ describe('<App />', () => {
     const instance = wrapper.instance();
 
     expect(instance.state.total).toBe('0');
-  });
+    });
 });
