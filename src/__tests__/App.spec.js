@@ -13,4 +13,10 @@ describe('<App />', () => {
 		const div = wrapper.find('div.component-app')
 		expect(div.length).toBe(1)
 	})
+
+	it('starts at 0', () => {
+		const wrapper = shallow(<App />)
+		const instance = wrapper.instance()
+		expect(instance.state.total).toEqual('0')
+	})
 });
