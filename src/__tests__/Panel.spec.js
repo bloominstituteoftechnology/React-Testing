@@ -10,7 +10,7 @@ describe("<Panel />", () => {
   it("renders the panel", () => {
     expect(shallow(<Panel />).find(".component-panel").length).toBe(1);
   });
-  it("panel has 5 children", () => {
+  it("panel has 5 divs", () => {
     expect(
       shallow(<Panel />)
         .find(".component-panel")
