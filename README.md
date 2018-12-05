@@ -14,7 +14,7 @@ For this exercise, you're given a complete React application. Your job is to:
 1. Go through and inspect **_all_** of the different pieces of the code.
 2. Write tests for **_all_** of the components in the `./src/components` directory.
 3. Write these tests in the correspondingly-named files in the `./src/__tests__` directory.
-4. Modify the test files to avoid duplication of the enzyme configuration code.
+4. Modify the test files to avoid duplication of the enzyme configuration code. SKIP
 
 You'll be using [Jest](https://facebook.github.io/jest/docs/en/expect.html) and [Enzyme](http://airbnb.io/enzyme/) in order to test React components.
 

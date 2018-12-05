@@ -1,22 +1,25 @@
 {
-  "name": "calculator",
+  "name": "prac1",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.7.0",
+    "fsevents": "^2.0.1",
     "jest": "^23.6.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "react-scripts": "^2.1.1"
+    "react-scripts": "2.1.1",
+    "react-test-renderer": "^16.6.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test --verbose",
     "eject": "react-scripts eject"
   },
-  "devDependencies": {
-    "enzyme": "^3.7.0",
-    "enzyme-adapter-react-16": "^1.7.0"
+  "eslintConfig": {
+    "extends": "react-app"
   },
   "browserslist": [
     ">0.2%",
