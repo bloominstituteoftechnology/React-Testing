@@ -14,4 +14,11 @@ describe('<Panel />', () => {
 
 		expect(snapshot).toMatchSnapshot();
 	})
+
+	it('Should render div with component-panel', () => {
+		const wrapper = shallow(<Panel />);
+		const elements = wrapper.find('div.component-panel');
+		
+		expect(elements.length).toBe(1);
+	})
 });
