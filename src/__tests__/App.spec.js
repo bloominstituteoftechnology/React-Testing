@@ -7,7 +7,7 @@ import renderer from "react-test-renderer";
 import App from "../App";
 
 Enzyme.configure({ adapter: new Adapter() });
-
+//===================================================================================Basic render tests <-----
 describe("<App />", () => {
   it("renders without crashing", () => {
     const div = document.createElement("div");
@@ -17,6 +17,18 @@ describe("<App />", () => {
 describe("App Component", () => {
   it("shallow renders without crashing", () => {
     shallow(<App />);
+  });
+
+  it("matches snapshot", () => {
+    const snapshot = renderer.create(<App />).toJSON();
+    expect(snapshot).toMatchSnapshot();
+  });
+
+  it("should have the properties `total`, `next`, and `operation` in state", () => {
+    const component = shallow(<App />);
+    expect(component.state("total")).toEqual("0");
+    expect(component.state("next")).toBeDefined();
+    expect(component.state("operation")).toBeDefined();
   });
   it("renders exactly one component-app class div", () => {
     const app = shallow(<App />);
@@ -36,5 +48,18 @@ describe("App Component", () => {
   it("matches snapshot", () => {
     const snapshot = renderer.create(<App />).toJSON();
     expect(snapshot).toMatchSnapshot();
+  });
+  //===================================================================================Basic state checks <-----
+  it("should have the properties `total`, `next`, and `operation` in state", () => {
+    const app = shallow(<App />);
+    expect(app.state("total")).toBeDefined();
+    expect(app.state("next")).toBeDefined();
+    expect(app.state("operation")).toBeDefined();
+  });
+  //=====================================================================================Click Handler Check <-----
+  it("should have a `handleClick` method that updates state", () => {
+    const app = shallow(<App />);
+    app.instance().handleClick("9");
+    expect(app.state("next")).toEqual("9");
   });
 });
