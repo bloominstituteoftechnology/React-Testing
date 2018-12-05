@@ -15,4 +15,13 @@ describe('<Panel />', () => {
     const tree = renderer.create(<Panel />).toJSON();
     expect(tree).toMatchSnapshot();
   })
+  it('component panel mounts', () => {
+    const panel = shallow(<Panel clickHandler= {() => {}} />)
+    expect(panel).toBeDefined;
+  })
+  it('renders with 19 buttons', () => {
+    const panel = shallow(<Panel clickHandler= {() => {}} />)
+    const buttons = panel.find('Button');
+    expect(buttons).toHaveLength(19);
+  })
 });
