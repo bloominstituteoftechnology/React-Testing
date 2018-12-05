@@ -22,8 +22,16 @@ describe('<Button />', () => {
 
 	it('should display props name', () => {
 		const wrapper = shallow(<Button />);
-		const instance = wrapper.instance();
 		let display = wrapper.find('button');
 		expect(display.find('button').text())
+	})
+
+	it('should render the correct props', () => {
+		const wrapper = shallow(<Button />);
+		if(wrapper.props().orange) {
+			expect(wrapper.props().orange).toBe('orange');
+		} else if (wrapper.props().wide) {
+			expect(wrapper.props().wide).toBe('wide');
+		}
 	})
 });

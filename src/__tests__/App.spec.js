@@ -14,6 +14,11 @@ describe('<App />', () => {
 		expect(snapshot).toMatchSnapshot();
 	})
 
+	it('should render two child elements', () => {
+		const wrapper = shallow(<App />);
+		expect(wrapper.children().length).toBe(2);
+	})
+
 	it('should default the total to 0', () => {
 		const wrapper = shallow(<App />);
 		const instance = wrapper.instance();
