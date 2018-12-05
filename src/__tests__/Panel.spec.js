@@ -8,4 +8,10 @@ describe('<Panel />', () => {
 	it('renders without crashing', () => {
 		shallow(<Panel />);
 	});
+
+	it('Should match snapshot', () => {
+		const snapshot = renderer.create(<Panel />).toJSON();
+
+		expect(snapshot).toMatchSnapshot();
+	})
 });
