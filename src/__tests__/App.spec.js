@@ -20,4 +20,10 @@ describe('<App />', () => {
 
 		expect(instance.state.total).toBe('0');
 	})
+
+	it('It should render a div with a component-app class', () => {
+		const wrapper = shallow(<App />);
+		const elements = wrapper.find('div.component-app');
+		expect(elements.length).toBe(1);
+	})
 });
