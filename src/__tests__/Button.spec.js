@@ -20,4 +20,11 @@ describe('<Button />', () => {
 		const elements = wrapper.find('div button')
 		expect(elements.text()).toBe('1234');
 	})
+
+	it('it should render a button', () => {
+		const wrapper = shallow(<Button />);
+		const elements = wrapper.find('button')
+
+		expect(elements.length).toBe(1);
+	})
 });
