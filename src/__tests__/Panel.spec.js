@@ -13,7 +13,7 @@ describe('<Panel />', () => {
     ReactDOM.render(<Panel />, div);
   });
 
-  it('should have a div with the classname component-panel, () => {
+  it('should have a div with the classname component-panel', () => {
     const wrapper = shallow(<Panel/>)
     const elements = wrapper.find('div.component-panel')
     expect(elements.exists()).toBe(true)
