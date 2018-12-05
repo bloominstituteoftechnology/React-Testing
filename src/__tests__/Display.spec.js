@@ -20,4 +20,11 @@ describe('<Display />', () => {
 
 		expect(elements.text()).toBe('0');
 	})
+
+	it('should be able to render the div class', () => {
+		const wrapper = shallow(<Display />);
+		const elements = wrapper.find('div.component-display');
+
+		expect(elements.length).toBe(1);
+	})
 });
