@@ -27,14 +27,13 @@ describe("<Button />", () => {
   });
 
   it(// "changes App's state when clicked based off the name it was passed"
-  "fires a function when clicked", () => { //couldn't get this to expect the above as intended
+  "fires a function when clicked", () => {
+    //couldn't get this to expect the above as intended
     const mock = jest.fn();
+
     const wrapper = shallow(<Button clickHandler={mock} name="9" />);
     const button = wrapper.find("button");
-    const app = shallow(<App />);
-    const instance = app.instance();
 
-    expect(instance.state.total).toBe("0");
     button.simulate("click");
     expect(mock).toHaveBeenCalledTimes(1);
   });
