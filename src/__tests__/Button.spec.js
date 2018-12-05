@@ -17,7 +17,12 @@ describe('<Button />', () => {
   it('should render a button with a name', () => {
     const wrapper = shallow(<Button name="9" />)
 
-    expect(wrapper.find('button').render()[0].children[0].data).toBe('9')
+    expect(
+      wrapper
+        .find('button')
+        .first()
+        .props().children
+    ).toBe('9')
   })
 
   it('should execute a passed function on click', () => {

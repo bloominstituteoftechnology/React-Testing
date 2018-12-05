@@ -24,13 +24,7 @@ describe('<Panel />', () => {
     const mockFunction = jest.fn()
     const wrapper = mount(<Panel clickHandler={mockFunction} />)
 
-    wrapper
-      .find('div.component-panel')
-      .children()
-      .children()
-      .children()
-      .find('button')
-      .forEach(item => item.simulate('click'))
+    wrapper.find('button').forEach(item => item.simulate('click'))
 
     expect(mockFunction).toHaveBeenCalledTimes(19)
   })
