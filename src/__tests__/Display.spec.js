@@ -11,11 +11,8 @@ describe('<Display />', () => {
 		expect(shallow(<Display />).find('div.component-display').length).toBe(1)
 	})
 	it('displays the value prop', () => {
-		const wrapper = shallow(<Display value='0'/>);	
-		let display = wrapper.find('div.value');
-		expect(display.text()).toBe('0');
+		const wrapper = shallow(<Display value='0'/>)
+		let display = wrapper.find('div.value')
+		expect(display.text()).toBe('0')
 	})
 })
-
-// default display should be '0'
-// props.value should be the display text
