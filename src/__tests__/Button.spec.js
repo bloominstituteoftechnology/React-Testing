@@ -8,7 +8,18 @@ describe('<Button />', () => {
 		shallow(<Button />);
 	});
 
-	const button = shallow(<Button />);
+	const props = {
+		clickHandler: () => {},
+	}
+
+	const button = shallow(<Button {...props}/>);
 	const instance = button.instance();
+
+	it('handleclick should be called when button is clicked', () => {
+		const clickFunc = jest.spyOn(instance, 'handleClick')
+		instance.handleClick();
+
+		expect(clickFunc).toBeCalled();
+	});
 
 });
