@@ -8,4 +8,10 @@ describe('<Button />', () => {
 	it('renders without crashing', () => {
 		shallow(<Button />);
 	});
+
+	it('should match snapshot', () => {
+		const snapshot = renderer.create(<Button />).toJSON();
+
+		expect(snapshot).toMatchSnapshot();
+	})
 });
