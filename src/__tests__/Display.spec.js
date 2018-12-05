@@ -21,13 +21,11 @@ describe('<Display />', () => {
 	});
 
 	describe('Display props', () => {
-		it('should render a 0 inside the "value" class div', () => {
-			const wrapper = shallow(<Display value = '0' />);
+		it('should render the value prop inside the "value" class div', () => {
+			let wrapper = shallow(<Display value = '0' />);
 			expect(wrapper.find('div.value').text()).toBe('0');
-		});
 
-		it('should render a -23 inside the "value" class div', () => {
-			const wrapper = shallow(<Display value = '-23' />);
+			wrapper = shallow(<Display value = '-23' />);
 			expect(wrapper.find('div.value').text()).toBe('-23');
 		});
 	});
