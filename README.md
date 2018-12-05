@@ -15,6 +15,7 @@ For this exercise, you're given a complete React application. Your job is to:
 2. Write tests for **_all_** of the components in the `./src/components` directory.
 3. Write these tests in the correspondingly-named files in the `./src/__tests__` directory.
 
+
 You'll be using [Jest](https://facebook.github.io/jest/docs/en/expect.html) and [Enzyme](http://airbnb.io/enzyme/) in order to test React components.
 
 ## Initialization and Setup
