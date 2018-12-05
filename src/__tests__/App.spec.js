@@ -13,4 +13,11 @@ describe('<App />', () => {
 		const snapshot = renderer.create(<App />).toJSON();
 		expect(snapshot).toMatchSnapshot();
 	})
+
+	it('The inital display should be sting of "0" ', () => {
+		const wrapper = shallow(<App />);
+		const instance = wrapper.instance();
+
+		expect(instance.state.total).toBe('0');
+	})
 });
