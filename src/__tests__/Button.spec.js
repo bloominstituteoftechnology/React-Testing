@@ -14,4 +14,11 @@ describe('<Button />', () => {
 
     expect(elements.length).toEqual(1);
   });
+
+  it('renders a button', () => {
+    const wrapper = shallow(<Button />);
+    const elements = wrapper.find('button');
+
+    expect(elements.length).toEqual(1);
+  });
 });
