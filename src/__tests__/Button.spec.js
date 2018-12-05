@@ -21,4 +21,9 @@ describe('<Button />', () => {
 
     expect(elements.length).toEqual(1);
   });
+
+  it('has a click handler', () => {
+    const wrapper = shallow(<Button />);
+    expect(wrapper.find('.component-button').length).toBe(1);
+  });
 });
