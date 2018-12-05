@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Display /> should render a zero 1`] = `
+<div
+  className="component-display"
+>
+  <div />
+</div>
+`;
+
+exports[`<Display /> should render something??? 1`] = `
+<div
+  className="component-display"
+>
+  <div />
+</div>
+`;
