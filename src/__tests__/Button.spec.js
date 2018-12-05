@@ -22,4 +22,5 @@ describe('<Button />', () => {
 		const display = wrapper.find('button')
 		expect(display.length).toBe(1)
 	})
+
 });
