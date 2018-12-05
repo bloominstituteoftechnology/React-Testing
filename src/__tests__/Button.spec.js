@@ -12,4 +12,20 @@ describe('<Button />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Button />, div);
   });
+
+  it('should shallow render without crashing', () => {
+    shallow(<Button />);
+  });
+  it('should render a wide div', () => {
+    const wrapper = shallow(<Button wide />);
+    const buttons = wrapper.find('.wide');
+
+    expect(buttons.length).toBe(1);
+  });
+  it('should render a orange div', () => {
+    const wrapper = shallow(<Button orange />);
+    const buttons = wrapper.find('.orange');
+
+    expect(buttons.length).toBe(1);
+  });
 });
