@@ -12,4 +12,13 @@ describe('<Display />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Display />, div);
   });
+  it('should shallow render without crashing', () => {
+    shallow(<Display />);
+  });
+  it('should render the component display div', () => {
+    const wrapper = shallow(<Display />);
+    const div = wrapper.find('.component-display');
+
+    expect(div.length).toBe(1);
+  });
 });

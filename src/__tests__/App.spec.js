@@ -12,4 +12,13 @@ describe('<App />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
+  it('should shallow render without crashing', () => {
+    shallow(<App />);
+  });
+  it('should check the default state values', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.state('total')).toBe('0');
+    expect(wrapper.state('next')).toBe(null);
+    expect(wrapper.state('operation')).toBe(null);
+  });
 });
