@@ -19,7 +19,7 @@ describe('<Display />', () => {
 		expect(display.length).toBe(2)
 	})
 
-	it('value prop passed down should default to empty string', () => {
+	it('value prop being interpolated for the display should default to ""', () => {
 		const wrapper = shallow(<Display />)
 		const display = wrapper.find('div.valueDiv')
 		expect(display.text()).toBe('')
