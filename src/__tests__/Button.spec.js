@@ -8,3 +8,14 @@ describe('<Button />', () => {
 		shallow(<Button />);
 	});
 });
+
+
+/*
+========TESTS TO TEST FOR=========
+Specifications
+-renders the display
+-should be 'orange' if orange
+-sholud have a toggle button
+-clicking the toggle button toggles the switch
+
+*/
