@@ -7,4 +7,12 @@ describe('<Button />', () => {
 	it('renders without crashing', () => {
 		shallow(<Button />);
 	});
+
+it('should only have one component button', () =>{
+	const wrapper = shallow(<Button />);
+	expect(wrapper.find('.component-button').length).toBe(1);
+});
+
+
+
 });
