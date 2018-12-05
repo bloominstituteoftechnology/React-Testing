@@ -10,11 +10,11 @@ class Button extends Component {
     render() {
         const classNames = [
             'component-button',
-            this.props.orange ? 'orange' : '',
-            this.props.wide ? 'wide' : '',
+            this.props.orange ? ' orange' : '',
+            this.props.wide ? ' wide' : '',
         ];
         return (
-            <div className={classNames.join(' ').trim()}>
+            <div className={classNames.join('').trim()}>
                 <button onClick={this.handleClick}>
                     {this.props.name}
                 </button>
