@@ -21,4 +21,11 @@ describe('<Panel />', () => {
 		
 		expect(elements.length).toBe(1);
 	})
+
+	it('should able to render all the button component', () => {
+		const wrapper = shallow(<Panel />);
+		const elements = wrapper.find('Button');
+		
+		expect(elements.length).toBe(19);
+	})
 });
