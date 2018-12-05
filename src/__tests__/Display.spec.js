@@ -9,8 +9,8 @@ describe('<Display />', () => {
 		shallow(<Display />);
 	});
 
-    it('should render something???', ()=> {
-      const snapshot = renderer.create(< Display />)
-       expect(snapshot).toMatchSnapshot()
+    it('has a div called component-display', ()=> {
+      const wrapper = shallow(<Display />)
+      expect(wrapper.find('div.component-display').length).toBe(1)
     })
 });
