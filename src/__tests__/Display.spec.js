@@ -7,4 +7,22 @@ describe('<Display />', () => {
 	it('renders without crashing', () => {
 		shallow(<Display />);
 	});
+
+	it('should render div with className component-display', () => {
+		const wrapper = shallow(<Display />)
+		expect(wrapper.find('div.component-display').length).toBe(1)
+	})
+
+	it('should render two divs', () => {
+		const wrapper = shallow(<Display />)
+		const display = wrapper.find('div')
+		expect(display.length).toBe(2)
+	})
+
+	it('value prop passed down should default to empty string', () => {
+		const wrapper = shallow(<Display />)
+		const display = wrapper.find('div.valueDiv')
+		expect(display.text()).toBe('')
+	})
+
 });

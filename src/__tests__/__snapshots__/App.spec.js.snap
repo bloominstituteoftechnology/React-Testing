@@ -7,7 +7,9 @@ exports[`<App /> should match snapshot 1`] = `
   <div
     className="component-display"
   >
-    <div>
+    <div
+      className="valueDiv"
+    >
       0
     </div>
   </div>
