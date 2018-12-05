@@ -9,14 +9,16 @@ describe('<Panel />', () => {
 	});
 
 	it('check for component-panel', () => {
-		const wrapper = shallow(<Panel />);
-		const panel = wrapper.find('div.component-panel');
-		expect(panel.length).toBe(1);
+		// const wrapper = shallow(<Panel />);
+		expect(
+			shallow(<Panel />)
+			.find('div.component-panel')
+			.length
+		).toBe(1);
 	});
 
 	it('check for all buttons', () => {
 		const wrapper = shallow(<Panel />);
-		const buttons = wrapper.find('Button');
-		expect(buttons.length).toBe(19);
+		expect(wrapper.find('Button').length).toBe(19);
 	});
 });
