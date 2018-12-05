@@ -32,10 +32,16 @@ describe('<Button />', () => {
   it('should return a truthy value when pressed', () => {
     const mock = jest.fn()
     const wrapper = shallow(<Button name='6' clickHandler={mock} />)
-  
+
     wrapper.find('button').simulate('click')
- 
+
     expect(mock).toHaveBeenCalled()
     expect(mock).toHaveBeenCalledWith('6')
+  })
+
+  it('should return a value', () => {
+    const wrapper = shallow(<Button />)
+    wrapper.setProps({ name: '4' })
+    expect(wrapper.props()).toBeDefined()
   })
 })
