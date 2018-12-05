@@ -7,4 +7,8 @@ describe('<Button />', () => {
 	it('renders without crashing', () => {
 		shallow(<Button />);
 	});
+
+	const button = shallow(<Button />);
+	const instance = button.instance();
+
 });
