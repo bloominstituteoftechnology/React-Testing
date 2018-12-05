@@ -21,8 +21,6 @@ describe('<Panel />', () => {
 	it('should be passing name prop of "AC" to specified button.', () => {
 		const wrapper = shallow(<Panel />);
 		const display = wrapper.find({name: 'AC'})
-		console.log(display)
-
 		expect(display.prop('name')).toBe('AC')
 	})
 
