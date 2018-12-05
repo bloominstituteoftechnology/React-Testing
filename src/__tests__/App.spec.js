@@ -25,6 +25,6 @@ describe('<App />', () => {
   it('renders the Panel component', ()=>{
     const app = shallow(<App/>)
     const panel = app.find('Panel')
-    expect(panel.length).toEqual(1)
+    expect(panel.length).toEqual(1) 
   })
 });

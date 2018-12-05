@@ -23,3 +23,4 @@ describe('<Panel />', () => {
     expect(buttons.length).toEqual(19)
   })
 });
+ 

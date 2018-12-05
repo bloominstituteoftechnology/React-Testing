@@ -16,4 +16,9 @@ describe('<Display />', () => {
     const cDdiv = app.find('.component-display')
     expect(cDdiv.length).toEqual(1)
   })
+
+  it('renders the value prop', ()=>{
+    const app = shallow(<Display value='0'/>)
+    expect(app.text()).toEqual('0')
+  })
 });
