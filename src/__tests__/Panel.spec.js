@@ -17,4 +17,10 @@ describe('<Panel />', () => {
     const wrapper = shallow(<Panel />);
     expect(wrapper.find('Button').length).toBe(19);
   });
+
+  it('renders five children inside the main div', () => {
+    const wrapper = shallow(<Panel />);
+    const children = wrapper.find('div.component-panel').children();
+    expect(children.find('div').length).toBe(5);
+  });
 });
