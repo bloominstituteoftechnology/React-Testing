@@ -7,4 +7,5 @@ describe('<Button />', () => {
 	it('renders without crashing', () => {
 		shallow(<Button />);
 	});
+	it('')
 });
