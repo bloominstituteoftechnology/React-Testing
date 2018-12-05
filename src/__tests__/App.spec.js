@@ -16,4 +16,13 @@ describe("<App />", () => {
   it("renders Panel without crashing", () => {
     shallow(<Panel />);
   });
+  it('state is initialized', () => {
+    const wrapper = shallow(<App />);
+    const state = {
+      total: '0',
+      next: null,
+      operation: null
+    };
+     expect(wrapper.state()).toEqual(state);
+  })
 });
