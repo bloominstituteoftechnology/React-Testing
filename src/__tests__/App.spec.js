@@ -20,4 +20,17 @@ describe('<App />', () => {
 		expect(wrapper.find('Display').length).toBe(1);
 		expect(wrapper.find('Panel').length).toBe(1);
 	});
+
+	it('should pass {value: "0"} to Display as props on mount', () => {
+		const wrapper = shallow(<App />);
+		expect(wrapper.find('Display').prop('value')).toBe('0');
+	});
+
+	it('should pass correct values to Display on state change', () => {
+		const wrapper = shallow(<App />);
+		wrapper.setState({ next: '3' });
+		expect(wrapper.find('Display').prop('value')).toBe('3');
+		wrapper.setState({ total: '9', next: null });
+		expect(wrapper.find('Display').prop('value')).toBe('9');
+	})
 });
