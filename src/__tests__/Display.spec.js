@@ -12,7 +12,9 @@ describe("<Display />", () => {
   });
   it("display has one child", () => {
     expect(
-      shallow(<Display />).find(".component-display").children.length
+      shallow(<Display />)
+        .find(".component-display")
+        .children().length
     ).toBe(1);
   });
 });

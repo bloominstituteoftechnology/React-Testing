@@ -11,7 +11,11 @@ describe("<Button />", () => {
     expect(shallow(<Button />).find("div").length).toBe(1);
   });
   it("div has 1 child", () => {
-    expect(shallow(<Button />).find("div").children.length).toBe(1);
+    expect(
+      shallow(<Button />)
+        .find("div")
+        .children().length
+    ).toBe(1);
   });
   it("renders a button", () => {
     expect(shallow(<Button />).find("button").length).toBe(1);
