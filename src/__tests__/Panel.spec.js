@@ -14,5 +14,9 @@ describe("<Panel />", () => {
     expect(wrapper.find("div.component-panel").length).toBe(1);
   });
 
+  it("check if exists", () => {
+    const wrapper = shallow(<div className="component-panel" />);
 
+    expect(wrapper.find(".component-panel").exists());
+  });
 });
