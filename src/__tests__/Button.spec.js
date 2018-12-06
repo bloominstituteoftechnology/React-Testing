@@ -36,5 +36,7 @@ describe("<Button />", () => {
 
     button.simulate("click");
     expect(mock).toHaveBeenCalledTimes(1);
+    button.simulate("click");
+    expect(mock).toHaveBeenCalledTimes(2);
   });
 });

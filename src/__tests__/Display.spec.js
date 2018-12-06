@@ -8,7 +8,7 @@ describe("<Display />", () => {
     shallow(<Display />);
   });
 
-  it("should render a div with named display", () => {
+  it("should render a div named display", () => {
     const wrapper = shallow(<Display />);
     const display = wrapper.find("div.display");
     expect(display.length).toBe(1);
