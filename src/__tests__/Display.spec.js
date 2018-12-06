@@ -11,7 +11,14 @@ describe('<Display />', () => {
     expect(wrapper.find('div.component-display').length).toBe(1);
   });
   // it('shoud"', () => {
-  //   const wrapper = shallow(<Display v />);
-  //   expect(wrapper.render().props().value).toBe(undefined);
+  //   const wrapper = shallow(<Display value={'0'} />);
+  //   const instance = wrapper.instance();
+  //   expect(wrapper.prop('value')).toBe(undefined);
+  //   wrapper.update();
+  //   expect(wrapper.prop('value')).toBe('0');
   // });
+  it('should have one child that holds the value', () => {
+    const wrapper = shallow(<Display />);
+    expect(wrapper.find('div.value').length).toBe(1);
+  });
 });

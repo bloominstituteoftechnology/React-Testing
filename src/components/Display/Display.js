@@ -7,7 +7,7 @@ class Display extends Component {
     const { value } = this.props;
     return (
       <div className="component-display">
-        <div>{value}</div>
+        <div className="value">{value}</div>
       </div>
     );
   }
