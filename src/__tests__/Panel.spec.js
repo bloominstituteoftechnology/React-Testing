@@ -15,4 +15,10 @@ describe('<Panel />', () => {
     const wrapper = shallow(<Panel />);
     expect(wrapper.children().length).toBe(5);
   });
+  it('should have a prop called clickHandler that is a function', () => {
+    const mockFunction = jest.fn();
+    const wrapper = shallow(<Panel clickHandler={mockFunction} />);
+    const instance = wrapper.instance();
+    expect(typeof instance.props.clickHandler).toBe('function');
+  });
 });

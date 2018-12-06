@@ -21,10 +21,4 @@ describe('<App />', () => {
     const instance = wrapper.instance();
     expect(instance.state.operation).toBe(null);
   });
-  // describe('button click', () => {
-  //   const wrapper = shallow(<App />);
-  //   const instance = wrapper.instance();
-  //   const panel = wrapper.find(Panel);
-  //   expect(instance.state.total).toBe('0');
-  // });
 });
