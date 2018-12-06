@@ -11,7 +11,7 @@ describe('<Display />', () => {
   it('renders the display', () => {
     const wrapper = shallow(<Display />);
     expect(wrapper.find('.component-display').length).toBe(1);
-  });
+	});
 
   it('displays the value prop', () => {
     const wrapper = shallow(<Display value="0" />);
