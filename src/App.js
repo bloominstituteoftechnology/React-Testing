@@ -1,3 +1,5 @@
+// https://github.com/LambdaSchool/React-Testing/pull/279
+
 import React, { Component } from 'react';
 import Display from './components/Display/Display';
 import Panel from './components/Panel/Panel';
