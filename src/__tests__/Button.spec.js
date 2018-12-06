@@ -8,4 +8,10 @@ describe('<Button />', () => {
 		shallow(<Button />);
 	});
 
+	it('should render a button with a clickhandler', () => {
+		const wrapper = shallow(<Button />);
+		const button = wrapper.find('button');
+		expect(button.prop('onClick')).toBeTruthy();
+	})
+
 });
