@@ -21,4 +21,11 @@ describe('<Panel />', () => {
 		const wrapper = shallow(<Panel />);
 		expect(wrapper.find('Button').length).toBe(19);
 	});
+
+	it('check for buttons rows', () => {
+		const wrapper = shallow(<Panel />);
+		const rows = wrapper.find('.component-panel div');
+		expect(rows.length).toBe(5);
+	});
+
 });
