@@ -4,7 +4,16 @@ import { shallow } from 'enzyme';
 import Display from '../components/Display/Display';
 
 describe('<Display />', () => {
-	it('renders without crashing', () => {
-		shallow(<Display />);
-	});
+  it('renders without crashing', () => {
+    shallow(<Display />);
+  });
+
+  it('puts the lotion in the basket', () => {
+    const display = shallow(<Display value='cats' />);
+
+    expect(display.text()).toBe('cats');
+  });
+
 });
+
+
