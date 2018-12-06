@@ -23,11 +23,11 @@ class Button extends Component {
     }
 }
 
-Button.propTypes = {
-    name: PropTypes.string,
-    orange: PropTypes.bool,
-    wide: PropTypes.bool,
-    clickHandler: PropTypes.func,
-};
+  Button.propTypes = {
+      name: PropTypes.string,
+      orange: PropTypes.bool,
+      wide: PropTypes.bool,
+      clickHandler: PropTypes.func,
+  };
 
-export default Button;
+  export default Button;
