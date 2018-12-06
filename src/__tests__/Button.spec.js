@@ -26,9 +26,7 @@ describe("<Button />", () => {
     expect(button.text()).toBe("Muerte");
   });
 
-  it(// "changes App's state when clicked based off the name it was passed"
-  "fires a function when clicked", () => {
-    //couldn't get this to expect the above as intended
+  it("fires a function when clicked", () => {
     const mock = jest.fn();
 
     const wrapper = shallow(<Button clickHandler={mock} name="9" />);
@@ -38,5 +36,22 @@ describe("<Button />", () => {
     expect(mock).toHaveBeenCalledTimes(1);
     button.simulate("click");
     expect(mock).toHaveBeenCalledTimes(2);
+  });
+
+  // this next test might either be considered out of scope for single-component tests or should go into App tests, but it makes sense to me here
+  it("changes App's state when clicked", () => {
+    const wrapper = shallow(<App />);
+    const app = wrapper.instance();
+    const button = wrapper
+      .find("Panel")
+      .dive()
+      .find("Button")
+      .at(4) //the 4th index in the array of the found Button components
+      .dive()
+      .find("button");
+
+    expect(app.state.next).toBe(null);
+    button.simulate("click");
+    expect(app.state.next).toBe("7");
   });
 });
