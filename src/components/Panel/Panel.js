@@ -20,7 +20,7 @@ class Panel extends Component {
                 <div>
                     <Button name="7" clickHandler={this.handleClick} />
                     <Button name="8" clickHandler={this.handleClick} />
-                    <Button name="9" clickHandler={this.handleClick} />
+                    <Button className="nine" name="9" clickHandler={this.handleClick} />
                     <Button name="x" clickHandler={this.handleClick} orange />
                 </div>
                 <div>
