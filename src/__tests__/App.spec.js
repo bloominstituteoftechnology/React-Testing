@@ -35,7 +35,5 @@ describe('<App />', () => {
     const wrapper = shallow(<App />);
     const instance = wrapper.instance();
     expect(instance.state.operation).toBe(null);
-  });
-	
-
+	});
 });
