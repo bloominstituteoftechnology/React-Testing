@@ -9,12 +9,17 @@ describe('<Panel />', () => {
     shallow(<Panel />);
   });
 
-  // it('should handle click', () => {
-  //   const wrapper = shallow(<Panel />);
-  //   const instance = wrapper.instance();
+  it('renders a panel', () => {
+    const wrapper = shallow(<Panel />);
+    const panel = wrapper.find('.component-panel');
 
-  //   const button = wrapper.find('.component-panel');
+    expect(panel).toBeDefined();
+  });
 
-  //   expect(button).toBe(true);
-  // });
+  it('displays buttons', () => {
+    const wrapper = shallow(<Panel />);
+    const buttons = wrapper.find('Button');
+
+    expect(buttons).toHaveLength(19);
+  });
 });
