@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import renderer from 'react-test-renderer';
 
 import Display from '../components/Display/Display';
 
@@ -7,7 +8,13 @@ describe('<Display />', () => {
 	it('renders without crashing', () => {
 		shallow(<Display />);
 	});
-
+    test('matches snapshot', () => {
+        const instance = renderer.create(
+            <Display value="test string" />,
+        );
+        const snapshotJson = instance.toJSON();
+        expect(snapshotJson).toMatchSnapshot();
+    });
 
 	it('renders the div with correct class name', () => {
 		const wrapper = shallow(<Display />);
