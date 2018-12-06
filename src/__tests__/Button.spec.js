@@ -8,3 +8,7 @@ describe('<Button />', () => {
 		shallow(<Button />);
 	});
 });
+
+describe("", () => {
+
+});
