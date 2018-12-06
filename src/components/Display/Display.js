@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import './Display.css';
 
 const Display = ({ value }) => {
+    console.log(value);
     return (
         <div className="component-display">
             <div>

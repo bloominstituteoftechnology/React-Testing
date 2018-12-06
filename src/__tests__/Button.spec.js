@@ -26,4 +26,10 @@ describe('<Button />', () => {
 		});
 	});
 
+	it("should have 1 children", () => {
+		const wrapper = shallow(<Button />);
+		const instance = wrapper.instance();
+		expect(wrapper.children().length).toBe(1);
+	});
+
 });

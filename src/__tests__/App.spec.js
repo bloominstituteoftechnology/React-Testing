@@ -27,9 +27,9 @@ describe('<App />', () => {
 		expect(instance.state.operation).toBe(null);
 	});
 
-	it("There should be 19 buttons", () => {
+	it("should have 2 children", () => {
 		const wrapper = shallow(<App />);
 		const instance = wrapper.instance();
-		expect(wrapper.find('Panel').dive().find('Button').length).toBe(19);
+		expect(wrapper.children().length).toBe(2);
 	});
 });
