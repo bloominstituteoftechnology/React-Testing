@@ -9,12 +9,10 @@ describe('<App />', () => {
 		shallow(<App />);
 	});
 
-    it('lets a button get clicked', () => {
+    it('we are checking the wrapper', () => {
       const wrapper = shallow(<App />)
-      const instance = wrapper.instance()
-      const button = wrapper.find('button') 
-      expect(button)
 
+        console.log(wrapper.instance().handleClick)
     })
 
 
