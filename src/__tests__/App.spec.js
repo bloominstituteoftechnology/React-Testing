@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import renderer from 'react-test-renderer';
 
 import App from '../App';
@@ -54,4 +54,15 @@ describe('<App />', () => {
 
     expect(clickFunction).toHaveBeenCalled();
   });
+	
+  // it('App state changes on click', () => {
+  //   const clickFunction = jest.fn();
+	// 	const wrapper = mount(<App />);
+	// 	const instance = wrapper.instance();
+  //   const panel = mount(<Panel clickHandler={clickFunction} />)
+  //   const button = mount(<Button name="9" clickHandler={this.handlClick} />)
+  //   button.find('button').simulate('click');
+
+  //   expect(instance.state.next).toBe('9');
+  // });
 });
