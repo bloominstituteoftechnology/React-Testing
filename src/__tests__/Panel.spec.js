@@ -11,4 +11,8 @@ describe('<Panel />', () => {
     const wrapper = shallow(<Panel />);
     expect(wrapper.find('div.component-panel').length).toBe(1);
   });
+  it('should render five button divs"', () => {
+    const wrapper = shallow(<Panel />);
+    expect(wrapper.children().length).toBe(5);
+  });
 });
