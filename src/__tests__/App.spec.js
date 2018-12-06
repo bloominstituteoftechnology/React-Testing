@@ -22,7 +22,7 @@ describe('<App />', () => {
 
 	})
 
-	it('should be 0 and null by default', () => {
+	it('state should be zero and null by defualt', () => {
 		const app = shallow(<App />);
 		const instance = app.instance();
 		expect(instance.state.total).toEqual('0');
