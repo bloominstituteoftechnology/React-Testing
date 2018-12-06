@@ -8,7 +8,7 @@ describe('<App />', () => {
     shallow(<App />);
   });
 
-  it('should correctly render initial state', () => {
+  it('renders initial state', () => {
     const inst = shallow(<App />).instance();
     expect(inst.state.total).toBe('0');
     expect(inst.state.next).toBe(null);
