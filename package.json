@@ -10,7 +10,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test --watch --verbose",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
@@ -22,5 +22,9 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "main": "index.js",
+  "repository": "https://github.com/cpoIT/React-Testing.git",
+  "author": "Kat Fries <katherynejf@gmail.com>",
+  "license": "MIT"
 }
