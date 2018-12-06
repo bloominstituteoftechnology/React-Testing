@@ -1,4 +1,3 @@
-<!-- https://github.com/LambdaSchool/React-Testing/pull/279 -->
 
 # React Testing
 
