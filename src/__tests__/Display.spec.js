@@ -15,7 +15,7 @@ describe("<Display />", () => {
   });
 
   it("should only accept a string as it's passed-down value", () => {
-    const wrapper = shallow(<Display value="0" />);
+    const wrapper = shallow(<Display />);
     expect(typeof wrapper.find("div.display").text()).toBe("string");
   });
 

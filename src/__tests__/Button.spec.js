@@ -38,7 +38,7 @@ describe("<Button />", () => {
     expect(mock).toHaveBeenCalledTimes(2);
   });
 
-  // this next test might either be considered out of scope for single-component tests or should go into App tests, but it makes sense to me here
+  // this next test might either be considered out of scope for single-component tests or should go into App tests, but it makes sense to me here in tests for Button
   it("changes App's state when clicked", () => {
     const wrapper = shallow(<App />);
     const app = wrapper.instance();
