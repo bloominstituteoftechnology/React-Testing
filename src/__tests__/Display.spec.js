@@ -21,6 +21,6 @@ describe('<Display />', () => {
     const num = '10';
     const wrapper = shallow(<Display value = {num} />);
     const display = wrapper.find('div.component-display');
-    expect(display.text()).toEqual('10');
+    expect(display.text()).toEqual(num);
   })
 });
